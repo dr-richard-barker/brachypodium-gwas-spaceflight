@@ -35,8 +35,9 @@ PIPELINE_STEPS = [
     ("Step 6: GWAS Spaceflight Integration", ["python3", "code/07_gwas_spaceflight_integration.py"]),
     ("Step 7: Alternative Splicing Integration", ["python3", "code/08_alternative_splicing_link.py"]),
     ("Step 8: Build AstroGrass Database", ["python3", "code/10_build_astrograss_db.py"]),
-    ("Step 9: Generate Publication Figures", ["python3", "code/09_generate_figures.py"]),
-    ("Step 10: Compile Manuscript (PDF & DOCX)", ["python3", "code/export_manuscript.py"]),
+    ("Step 9: Build Video & Image Series Catalog", ["python3", "code/11_build_video_catalog.py"]),
+    ("Step 10: Generate Publication Figures", ["python3", "code/09_generate_figures.py"]),
+    ("Step 11: Compile Manuscript (PDF & DOCX)", ["python3", "code/export_manuscript.py"]),
 ]
 
 

@@ -3,66 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gravitropism Video Gallery - AstroGrass</title>
+    <title>AstroGrass Video & Time-Lapse Knowledgebase</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .video-box {
-            background: #111;
+        .filter-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+            padding: 1.2rem;
             border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
         }
-        .canvas-container {
+        .search-box {
+            flex: 1 1 280px;
+            padding: 0.6rem 1rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+        .category-select {
+            padding: 0.6rem 1rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background: white;
+        }
+        .btn-add-video {
+            background: #2d7a4f;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: background 0.2s;
+        }
+        .btn-add-video:hover {
+            background: #23633f;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.8rem;
+        }
+        .video-card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .video-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .video-card-header {
             position: relative;
+            background: #0f172a;
+            aspect-ratio: 16 / 9;
             width: 100%;
-            height: 280px;
-            background: #1a202c;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        canvas {
-            background: #0f172a;
-            border-radius: 6px;
+        .video-card-header iframe, .video-card-header video {
             width: 100%;
             height: 100%;
+            border: none;
         }
-        .video-controls {
-            background: #1e293b;
-            padding: 10px 15px;
+        .video-card-body {
+            padding: 1.2rem;
+            flex: 1;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: #fff;
-            font-size: 0.85rem;
+            flex-direction: column;
         }
-        .btn-ctrl {
+        .video-type-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .badge-youtube { background: #fee2e2; color: #dc2626; }
+        .badge-cyverse { background: #e0f2fe; color: #0369a1; }
+        .badge-simulator { background: #dcfce7; color: #15803d; }
+        
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0b1d3a;
+            margin-bottom: 0.4rem;
+            line-height: 1.35;
+        }
+        .video-author {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 0.8rem;
+        }
+        .video-desc {
+            font-size: 0.9rem;
+            color: #334155;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+        .video-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: auto;
+        }
+        .tag-pill {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .modal-card {
+            background: white;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem; right: 1.2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+            border: none;
+            background: none;
+        }
+        .form-group {
+            margin-bottom: 1.1rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #334155;
+            margin-bottom: 0.3rem;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+        
+        /* Simulator Styles */
+        .sim-container {
+            width: 100%;
+            height: 100%;
+            background: #0f172a;
+            position: relative;
+        }
+        .sim-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.85);
+            padding: 6px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 0.78rem;
+        }
+        .sim-btn {
             background: #2d7a4f;
             color: white;
             border: none;
-            padding: 5px 12px;
-            border-radius: 4px;
+            padding: 3px 8px;
+            border-radius: 3px;
             cursor: pointer;
             font-weight: bold;
-            transition: background 0.2s;
-        }
-        .btn-ctrl:hover {
-            background: #38a169;
-        }
-        .dropzone-box {
-            border: 2px dashed #4a5568;
-            background: #f8fafc;
-            padding: 2rem;
-            text-align: center;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-        .dropzone-box:hover {
-            border-color: #2d7a4f;
-            background: #f0fdf4;
         }
     </style>
 </head>
@@ -83,73 +231,45 @@
     </header>
 
     <div class="container">
-        <h1>🌱 Gravitropism Video Gallery & Assay Simulators</h1>
-        <p>Dynamic time-lapse imaging of <em>Brachypodium distachyon</em> root tip reorientation kinetics following 90° gravistimulation (AIR Stage VI Protocol). Use the interactive simulators below or upload laboratory <code>.mp4</code> videos for real-time morphometric inspection.</p>
+        <h1>🎥 AstroGrass Video & Time-Lapse Knowledgebase</h1>
+        <p>A unified portal featuring curated YouTube scientific videos (360° morphology scans, 2D clinostats, gravitropism time-lapses), extracted <strong>CyVerse <code>Bracy_*</code> iRODS series</strong> (Per1, BdTR7a accessions), and real-time kinematic simulators.</p>
 
-        <div class="grid-3" style="margin-top: 2rem;">
-            
-            <!-- SIMULATOR 1: 90° Gravistimulation Kinetic Reorientation -->
-            <section class="card">
-                <h2>1. 90° Rotation Time-lapse</h2>
-                <div class="video-box">
-                    <div class="canvas-container">
-                        <canvas id="sim-90" width="360" height="280"></canvas>
-                    </div>
-                    <div class="video-controls">
-                        <div>
-                            <button class="btn-ctrl" id="btn-play-90">▶ Play</button>
-                            <button class="btn-ctrl" id="btn-reset-90" style="background:#475569;">↺ Reset</button>
-                        </div>
-                        <span id="label-time-90">Time: 0 min | Angle: 0.0°</span>
-                    </div>
-                </div>
-                <p style="margin-top:10px; font-size:0.9rem; color:#555;"><strong>Assay:</strong> 4-day vertical seedling rotated 90° in darkness. Asymmetric auxin transport drives progressive downward curvature from 0° to 42° over 180 minutes.</p>
-            </section>
+        <!-- TOOLBAR & CONTROLS -->
+        <div class="filter-toolbar">
+            <input type="text" id="search-input" class="search-box" placeholder="🔍 Search videos by title, accession, author, or keyword...">
+            <select id="category-filter" class="category-select">
+                <option value="all">All Categories</option>
+                <option value="Brachypodium Morphology">Brachypodium Morphology</option>
+                <option value="Gravitropism Assays">Gravitropism Assays</option>
+                <option value="Clinostat / Microgravity">Clinostat / Microgravity</option>
+                <option value="CyVerse Time-Lapses">CyVerse Time-Lapses (Bracy_*)</option>
+                <option value="Interactive Simulators">Interactive Simulators</option>
+            </select>
+            <div style="display:flex; gap:0.5rem;">
+                <button id="btn-open-modal" class="btn-add-video">➕ Add YouTube Video</button>
+                <button id="btn-export-json" class="btn-add-video" style="background:#0b1d3a;">📥 Export Catalog</button>
+            </div>
+        </div>
 
-            <!-- SIMULATOR 2: 2D Clinostat Gravity Arrest -->
-            <section class="card">
-                <h2>2. 2D Clinostat Response</h2>
-                <div class="video-box">
-                    <div class="canvas-container">
-                        <canvas id="sim-clino" width="360" height="280"></canvas>
-                    </div>
-                    <div class="video-controls">
-                        <div>
-                            <button class="btn-ctrl" id="btn-play-clino">▶ Play</button>
-                            <button class="btn-ctrl" id="btn-reset-clino" style="background:#475569;">↺ Reset</button>
-                        </div>
-                        <span id="label-time-clino">Rotation: 1.0 RPM</span>
-                    </div>
-                </div>
-                <p style="margin-top:10px; font-size:0.9rem; color:#555;"><strong>Assay:</strong> Continuous omnilateral rotation at 1.0 RPM, dispersing directional statolith sedimentation to quantify presentation time ($t_0$).</p>
-            </section>
+        <!-- STATS STRIP -->
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem; font-size:0.9rem; color:#475569;">
+            <span><strong>Total Items:</strong> <span id="stat-total">12</span></span> •
+            <span><strong>YouTube Videos:</strong> <span id="stat-yt">3</span></span> •
+            <span><strong>CyVerse Series:</strong> <span id="stat-cyverse">7</span></span> •
+            <span><strong>Simulators:</strong> <span id="stat-sim">2</span></span>
+        </div>
 
-            <!-- MEDIA 3: Astrobotany Gravitropism Video -->
-            <section class="card">
-                <h2>3. Astrobotany Video Stream</h2>
-                <div class="video-box">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border:0;" 
-                                src="https://www.youtube.com/embed/YIqCwYKDBqA" 
-                                title="Plant Gravitropism Time-lapse" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen></iframe>
-                    </div>
-                    <div class="video-controls">
-                        <span>AstroBotany Video Stream (AIRI Stage VI)</span>
-                        <a href="https://youtu.be/YIqCwYKDBqA" target="_blank" style="color:#38a169; text-decoration:none; font-weight:bold;">Watch on YouTube ↗</a>
-                    </div>
-                </div>
-                <p style="margin-top:10px; font-size:0.9rem; color:#555;"><strong>Video Reference:</strong> High-resolution optical time-lapse tracking of root gravimorphogenesis and calcium wave signaling.</p>
-            </section>
+        <!-- DYNAMIC VIDEO GRID -->
+        <div id="video-container" class="video-grid">
+            <!-- Populated dynamically via JS -->
         </div>
 
         <!-- LAB VIDEO DROPZONE / VIEWER -->
-        <section class="card" style="margin-top:2rem;">
+        <section class="card" style="margin-top:3rem;">
             <h2>🔬 Load Your Laboratory Gravitropism Video (.mp4 / .webm)</h2>
-            <p>Have custom videos from your Raspberry Pi PiCam 8MP or Nikon automated stage? Select or drag & drop them below to preview and measure curvature directly in the browser.</p>
+            <p>Have custom videos from your Raspberry Pi PiCam 8MP or Nikon automated stage? Select or drag & drop them below to preview and inspect directly in the browser.</p>
             
-            <div class="dropzone-box" id="dropzone">
+            <div id="dropzone" style="border:2px dashed #4a5568; background:#f8fafc; padding:2rem; text-align:center; border-radius:8px; margin-top:1rem; cursor:pointer;">
                 <p style="font-size:1.1rem; color:#2d7a4f; font-weight:bold;">📁 Drag & Drop your .mp4 video file here, or click to browse</p>
                 <p style="font-size:0.85rem; color:#666;">Supported formats: MP4 (H.264), WebM, MOV</p>
                 <input type="file" id="file-input" accept="video/mp4,video/webm,video/quicktime" style="display:none;">
@@ -160,25 +280,57 @@
                 <p id="user-video-info" style="margin-top:8px; font-size:0.9rem; color:#333; font-weight:bold;"></p>
             </div>
         </section>
+    </div>
 
-        <!-- IMAGING SPECIFICATIONS -->
-        <section class="card" style="margin-top:2rem;">
-            <h2>Imaging Protocol Specifications</h2>
-            <div class="grid-3">
-                <div class="icon-card">
-                    <h3>📷 Camera Rig</h3>
-                    <p>Sony IMX219 8MP sensor on Raspberry Pi 4 with fixed 50mm macro lens.</p>
+    <!-- ADD VIDEO MODAL -->
+    <div id="add-video-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button id="btn-close-modal" class="modal-close">&times;</button>
+            <h2 style="margin-top:0; color:#0b1d3a;">➕ Add YouTube Video to Catalog</h2>
+            <p style="font-size:0.85rem; color:#64748b; margin-bottom:1.5rem;">Paste any YouTube URL or 11-character Video ID to add it to the AstroGrass database.</p>
+            
+            <form id="add-video-form">
+                <div class="form-group">
+                    <label for="input-yt-url">YouTube URL or Video ID *</label>
+                    <input type="text" id="input-yt-url" placeholder="e.g. https://www.youtube.com/watch?v=DOhR85UD-HE or DOhR85UD-HE" required>
                 </div>
-                <div class="icon-card">
-                    <h3>⏱️ Capture Interval</h3>
-                    <p>1 frame every 15 minutes for 6 hours (24 frames total per run).</p>
+                <div class="form-group">
+                    <label for="input-title">Video Title *</label>
+                    <input type="text" id="input-title" placeholder="e.g. Brachypodium 360° Root Architecture" required>
                 </div>
-                <div class="icon-card">
-                    <h3>📏 Kinematic Tool</h3>
-                    <p>Automated midline extraction and curvature angles calculated via RootNav 2.0.</p>
+                <div class="form-group">
+                    <label for="input-author">Author / Channel / Institution *</label>
+                    <input type="text" id="input-author" placeholder="e.g. Dr. Richard Barker / CyVerse / Phylo" required>
                 </div>
-            </div>
-        </section>
+                <div class="form-group">
+                    <label for="input-category">Category *</label>
+                    <select id="input-category">
+                        <option value="Brachypodium Morphology">Brachypodium Morphology</option>
+                        <option value="Gravitropism Assays">Gravitropism Assays</option>
+                        <option value="Clinostat / Microgravity">Clinostat / Microgravity</option>
+                        <option value="CyVerse Time-Lapses">CyVerse Time-Lapses</option>
+                        <option value="Astrobotany Lectures">Astrobotany Lectures</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="input-organism">Organism</label>
+                    <input type="text" id="input-organism" placeholder="e.g. Brachypodium distachyon (Bd21 / Per1 / TR7a)">
+                </div>
+                <div class="form-group">
+                    <label for="input-desc">Description</label>
+                    <textarea id="input-desc" rows="3" placeholder="Brief summary of experimental conditions, imaging cadence, or phenotypic observations..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="input-tags">Tags (comma-separated)</label>
+                    <input type="text" id="input-tags" placeholder="e.g. Brachypodium, Gravitropism, ISS, Microgravity">
+                </div>
+                
+                <div style="display:flex; justify-content:flex-end; gap:0.8rem; margin-top:1.5rem;">
+                    <button type="button" id="btn-cancel-modal" style="background:#e2e8f0; color:#334155; border:none; padding:0.6rem 1.2rem; border-radius:6px; cursor:pointer;">Cancel</button>
+                    <button type="submit" style="background:#2d7a4f; color:white; border:none; padding:0.6rem 1.4rem; border-radius:6px; font-weight:bold; cursor:pointer;">Add Video</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <footer>
@@ -186,161 +338,332 @@
         <p><span class="badge">FAIR Data</span> <span class="badge">CC BY 4.0</span></p>
     </footer>
 
-    <!-- INTERACTIVE SIMULATORS & DROPZONE SCRIPT -->
+    <!-- CORE CATALOG & INTERACTIVE ENGINE SCRIPT -->
     <script>
-        // --- SIMULATOR 1: 90 DEGREE ROTATION ---
-        const canvas90 = document.getElementById('sim-90');
-        const ctx90 = canvas90.getContext('2d');
-        let t90 = 0;
-        let isPlaying90 = false;
-        let anim90;
-
-        function draw90() {
-            ctx90.clearRect(0, 0, canvas90.width, canvas90.height);
-            
-            // Grid background
-            ctx90.strokeStyle = '#1e293b';
-            ctx90.lineWidth = 1;
-            for(let x = 0; x < canvas90.width; x += 30) {
-                ctx90.beginPath(); ctx90.moveTo(x, 0); ctx90.lineTo(x, canvas90.height); ctx90.stroke();
+        // Master Catalog Fallback / Initial State
+        const INITIAL_CATALOG = [
+            {
+                id: "vid-yt-01",
+                type: "youtube",
+                youtube_id: "DOhR85UD-HE",
+                title: "Brachypodium 360° View",
+                author: "Richard Poiré",
+                author_url: "https://www.youtube.com/@RichardPoir%C3%A9",
+                category: "Brachypodium Morphology",
+                organism: "Brachypodium distachyon",
+                description: "High-resolution 360-degree rotational optical scan of Brachypodium distachyon mature canopy architecture, tillering morphology, and leaf angle distribution.",
+                tags: ["Brachypodium", "Morphology", "360 View", "Canopy"]
+            },
+            {
+                id: "vid-yt-02",
+                type: "youtube",
+                youtube_id: "7ilLAd4-phY",
+                title: "Clinostat Simulated Microgravity Assay",
+                author: "sathish sre",
+                author_url: "https://www.youtube.com/@sathishsre4914",
+                category: "Clinostat / Microgravity",
+                organism: "Plant Biology / Ground Analogue",
+                description: "2D Clinostat experimental hardware operation. Omnilateral continuous rotation at constant RPM disperses unidirectional gravity vectors to simulate spaceflight microgravity in laboratory settings.",
+                tags: ["Clinostat", "Microgravity", "Hardware", "Ground Analogue"]
+            },
+            {
+                id: "vid-yt-03",
+                type: "youtube",
+                youtube_id: "YIqCwYKDBqA",
+                title: "WT Arabidopsis Root Gravitropism Time-lapse (15 min interval, 10 fps)",
+                author: "Dr. Richard Barker",
+                author_url: "https://www.youtube.com/@DrRichardBarker",
+                category: "Gravitropism Assays",
+                organism: "Arabidopsis thaliana / Comparative Model",
+                description: "Optical time-lapse capture of root tip gravitropic reorientation following 90-degree reorientation. Frames acquired every 15 minutes at 10 fps, illustrating statolith displacement and asymmetric auxin kinetics.",
+                tags: ["Gravitropism", "Time-lapse", "Auxin", "Root Curvature"]
+            },
+            {
+                id: "cyverse-brachy-per1-1",
+                type: "cyverse",
+                series_name: "Brachy_Enhanced_Per1_DB_1_1",
+                title: "Brachypodium Per1 Accession - Series 1.1",
+                author: "Dr. Richard Barker (CyVerse / iRODS)",
+                category: "CyVerse Time-Lapses",
+                organism: "Brachypodium distachyon",
+                accession: "Per1",
+                frames: 84,
+                cadence_seconds: 15.0,
+                irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_1_1",
+                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_1_1/timelapse.mp4",
+                description: "High-contrast enhanced time-lapse series of Brachypodium distachyon Per1 accession root gravitropic kinematics extracted from CyVerse Data Store.",
+                tags: ["CyVerse", "Per1", "Brachypodium", "iRODS"]
+            },
+            {
+                id: "cyverse-brachy-per1-2",
+                type: "cyverse",
+                series_name: "Brachy_Enhanced_Per1_DB_2_3",
+                title: "Brachypodium Per1 Accession - Series 2.3",
+                author: "Dr. Richard Barker (CyVerse / iRODS)",
+                category: "CyVerse Time-Lapses",
+                organism: "Brachypodium distachyon",
+                accession: "Per1",
+                frames: 84,
+                cadence_seconds: 15.0,
+                irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_2_3",
+                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_2_3/timelapse.mp4",
+                description: "Replicate time-lapse series of Brachypodium distachyon Per1 accession root growth under controlled gravistimulation.",
+                tags: ["CyVerse", "Per1", "Brachypodium", "iRODS"]
+            },
+            {
+                id: "cyverse-brachy-tr7a-1",
+                type: "cyverse",
+                series_name: "Brachy_Enhanced_TR7a_DB_1_3",
+                title: "Brachypodium TR7a Accession - Series 1.3",
+                author: "Dr. Richard Barker (CyVerse / iRODS)",
+                category: "CyVerse Time-Lapses",
+                organism: "Brachypodium distachyon",
+                accession: "BdTR7a",
+                frames: 83,
+                cadence_seconds: 15.0,
+                irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_1_3",
+                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_1_3/timelapse.mp4",
+                description: "High-contrast time-lapse capture of Brachypodium distachyon Turkish accession BdTR7a during gravitropic curvature.",
+                tags: ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity"]
+            },
+            {
+                id: "cyverse-brachy-tr7a-2",
+                type: "cyverse",
+                series_name: "Brachy_Enhanced_TR7a_DB_2_2",
+                title: "Brachypodium TR7a Accession - Series 2.2",
+                author: "Dr. Richard Barker (CyVerse / iRODS)",
+                category: "CyVerse Time-Lapses",
+                organism: "Brachypodium distachyon",
+                accession: "BdTR7a",
+                frames: 84,
+                cadence_seconds: 15.0,
+                irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_2_2",
+                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_2_2/timelapse.mp4",
+                description: "Replicate kinematic series of Brachypodium distachyon accession BdTR7a.",
+                tags: ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity"]
+            },
+            {
+                id: "cyverse-gravatron",
+                type: "cyverse",
+                series_name: "Gravatron_FlashLapse_DEMO",
+                title: "Gravatron FlashLapse Microgravity Demo",
+                author: "Dr. Richard Barker (CyVerse / iRODS)",
+                category: "Clinostat / Microgravity",
+                organism: "Plant Biology / Multi-species",
+                frames: 200,
+                cadence_seconds: 30.0,
+                irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Gravatron_FlashLapse_DEMO",
+                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Gravatron_FlashLapse_DEMO/timelapse.mp4",
+                description: "Demonstration series inside the Gravatron FlashLapse simulated microgravity rotational apparatus.",
+                tags: ["Gravatron", "FlashLapse", "Microgravity"]
+            },
+            {
+                id: "sim-90",
+                type: "simulator",
+                simulator_type: "90deg",
+                title: "90° Gravistimulation Reorientation Simulator",
+                author: "AstroGrass Modeling Engine",
+                category: "Interactive Simulators",
+                organism: "Brachypodium distachyon",
+                description: "Real-time biophysical simulation of monocot root columella bending from 0° to 42° following a 90° gravistimulation vector shift.",
+                tags: ["Simulator", "Kinematics", "1g", "Canvas"]
+            },
+            {
+                id: "sim-clino",
+                type: "simulator",
+                simulator_type: "clinostat",
+                title: "2D Clinostat Omnilateral Rotation Simulator (1.0 RPM)",
+                author: "AstroGrass Modeling Engine",
+                category: "Interactive Simulators",
+                organism: "Plant Biology / Ground Analogue",
+                description: "Interactive rotational simulation modeling the dispersion of gravitational sedimentation vectors during 1.0 RPM clinorotation.",
+                tags: ["Simulator", "Clinostat", "Microgravity", "Canvas"]
             }
-            for(let y = 0; y < canvas90.height; y += 30) {
-                ctx90.beginPath(); ctx90.moveTo(0, y); ctx90.lineTo(canvas90.width, y); ctx90.stroke();
+        ];
+
+        // Load catalog from localStorage or initial state
+        let catalog = [];
+        try {
+            const saved = localStorage.getItem('astrograss_video_catalog');
+            if (saved) {
+                catalog = JSON.parse(saved);
+            } else {
+                catalog = [...INITIAL_CATALOG];
             }
-
-            // Gravity vector arrow (downward)
-            ctx90.strokeStyle = '#e53e3e';
-            ctx90.fillStyle = '#e53e3e';
-            ctx90.lineWidth = 2;
-            ctx90.beginPath(); ctx90.moveTo(320, 30); ctx90.lineTo(320, 70); ctx90.stroke();
-            ctx90.beginPath(); ctx90.moveTo(315, 60); ctx90.lineTo(320, 70); ctx90.lineTo(325, 60); ctx90.fill();
-            ctx90.font = '10px sans-serif'; ctx90.fillText('1g Vector', 295, 20);
-
-            // Compute angle (0 to 42 degrees over 180 min)
-            const angleDeg = 42 * (1 - Math.exp(-t90 / 45));
-            const angleRad = (angleDeg * Math.PI) / 180;
-
-            // Seed & Shoot
-            ctx90.fillStyle = '#d97706';
-            ctx90.beginPath(); ctx90.ellipse(100, 100, 14, 7, Math.PI/4, 0, Math.PI*2); ctx90.fill();
-            
-            // Shoot growing upward
-            ctx90.strokeStyle = '#22c55e';
-            ctx90.lineWidth = 4;
-            ctx90.beginPath(); ctx90.moveTo(100, 95); ctx90.lineTo(85, 45); ctx90.stroke();
-
-            // Root starting horizontal (post 90 deg rotation)
-            ctx90.strokeStyle = '#f8fafc';
-            ctx90.lineWidth = 5;
-            ctx90.lineCap = 'round';
-            ctx90.beginPath();
-            ctx90.moveTo(105, 105);
-            
-            // Curved root path
-            const ctrlX = 170;
-            const ctrlY = 105;
-            const endX = 105 + 130 * Math.cos(angleRad);
-            const endY = 105 + 130 * Math.sin(angleRad);
-            
-            ctx90.quadraticCurveTo(ctrlX, ctrlY, endX, endY);
-            ctx90.stroke();
-
-            // Root Tip columella
-            ctx90.fillStyle = '#fbbf24';
-            ctx90.beginPath(); ctx90.arc(endX, endY, 5, 0, Math.PI*2); ctx90.fill();
-
-            // Statolith sedimented indicator inside root tip
-            ctx90.fillStyle = '#78350f';
-            ctx90.beginPath(); ctx90.arc(endX, endY + 2, 2, 0, Math.PI*2); ctx90.fill();
-
-            document.getElementById('label-time-90').innerText = `Time: ${Math.round(t90)} min | Angle: ${angleDeg.toFixed(1)}°`;
-
-            if (isPlaying90) {
-                t90 += 0.5;
-                if (t90 > 180) t90 = 180;
-                anim90 = requestAnimationFrame(draw90);
-            }
+        } catch (e) {
+            catalog = [...INITIAL_CATALOG];
         }
-        draw90();
 
-        document.getElementById('btn-play-90').addEventListener('click', function() {
-            isPlaying90 = !isPlaying90;
-            this.innerText = isPlaying90 ? '⏸ Pause' : '▶ Play';
-            if (isPlaying90) draw90();
-        });
-        document.getElementById('btn-reset-90').addEventListener('click', function() {
-            isPlaying90 = false;
-            document.getElementById('btn-play-90').innerText = '▶ Play';
-            cancelAnimationFrame(anim90);
-            t90 = 0;
-            draw90();
-        });
+        // Render Functions
+        function renderVideos(items) {
+            const container = document.getElementById('video-container');
+            container.innerHTML = '';
 
-        // --- SIMULATOR 2: 2D CLINOSTAT ---
-        const canvasClino = document.getElementById('sim-clino');
-        const ctxClino = canvasClino.getContext('2d');
-        let thetaClino = 0;
-        let isPlayingClino = false;
-        let animClino;
-
-        function drawClino() {
-            ctxClino.clearRect(0, 0, canvasClino.width, canvasClino.height);
-            
-            ctxClino.save();
-            ctxClino.translate(canvasClino.width/2, canvasClino.height/2);
-            ctxClino.rotate(thetaClino);
-
-            // Petri dish outer ring
-            ctxClino.strokeStyle = '#38bdf8';
-            ctxClino.lineWidth = 3;
-            ctxClino.beginPath(); ctxClino.arc(0, 0, 95, 0, Math.PI*2); ctxClino.stroke();
-            
-            // Agar surface
-            ctxClino.fillStyle = 'rgba(56, 189, 248, 0.08)';
-            ctxClino.fill();
-
-            // Central plant
-            ctxClino.fillStyle = '#d97706';
-            ctxClino.beginPath(); ctxClino.ellipse(0, 0, 10, 6, 0, 0, Math.PI*2); ctxClino.fill();
-
-            // Root extending straight (omnilateral gravity)
-            ctxClino.strokeStyle = '#f8fafc';
-            ctxClino.lineWidth = 4;
-            ctxClino.beginPath(); ctxClino.moveTo(0, 5); ctxClino.lineTo(0, 65); ctxClino.stroke();
-
-            // Shoot
-            ctxClino.strokeStyle = '#22c55e';
-            ctxClino.lineWidth = 3;
-            ctxClino.beginPath(); ctxClino.moveTo(0, -5); ctxClino.lineTo(0, -50); ctxClino.stroke();
-
-            ctxClino.restore();
-
-            // Rotation speed label
-            ctxClino.fillStyle = '#94a3b8';
-            ctxClino.font = '11px sans-serif';
-            ctxClino.fillText('Omnilateral Clinostat (1.0 RPM)', 15, 25);
-
-            if (isPlayingClino) {
-                thetaClino += 0.03;
-                animClino = requestAnimationFrame(drawClino);
+            if (items.length === 0) {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:3rem; color:#64748b;">No videos found matching your criteria.</div>';
+                return;
             }
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'video-card';
+
+                let headerHtml = '';
+                if (item.type === 'youtube') {
+                    headerHtml = `<iframe src="https://www.youtube.com/embed/${item.youtube_id}" title="${item.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                } else if (item.type === 'cyverse') {
+                    headerHtml = `
+                        <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(135deg, #0b1d3a, #1e3a8a); color:white; padding:1rem; text-align:center;">
+                            <span style="font-size:2.5rem; margin-bottom:0.5rem;">🌱</span>
+                            <strong style="font-size:0.95rem;">${item.series_name}</strong>
+                            <span style="font-size:0.8rem; color:#93c5fd; margin-top:4px;">${item.frames} frames • ${item.cadence_seconds}s cadence</span>
+                            <a href="${item.video_url}" target="_blank" class="badge" style="background:#38bdf8; color:#0b1d3a; margin-top:8px; text-decoration:none; font-weight:bold;">▶ Stream CyVerse MP4</a>
+                        </div>`;
+                } else if (item.type === 'simulator') {
+                    if (item.simulator_type === '90deg') {
+                        headerHtml = `
+                            <div class="sim-container">
+                                <canvas id="card-sim-90" width="360" height="202"></canvas>
+                                <div class="sim-controls">
+                                    <button class="sim-btn" id="btn-card-play-90">▶ Play</button>
+                                    <span id="lbl-card-90">Time: 0m | 0.0°</span>
+                                </div>
+                            </div>`;
+                    } else {
+                        headerHtml = `
+                            <div class="sim-container">
+                                <canvas id="card-sim-clino" width="360" height="202"></canvas>
+                                <div class="sim-controls">
+                                    <button class="sim-btn" id="btn-card-play-clino">▶ Play</button>
+                                    <span>1.0 RPM Clinostat</span>
+                                </div>
+                            </div>`;
+                    }
+                }
+
+                let badgeClass = 'badge-youtube';
+                if (item.type === 'cyverse') badgeClass = 'badge-cyverse';
+                if (item.type === 'simulator') badgeClass = 'badge-simulator';
+
+                const tagsHtml = (item.tags || []).map(t => `<span class="tag-pill">#${t}</span>`).join('');
+
+                card.innerHTML = `
+                    <div class="video-card-header">
+                        ${headerHtml}
+                    </div>
+                    <div class="video-card-body">
+                        <span class="video-type-badge ${badgeClass}">${item.type} • ${item.category}</span>
+                        <div class="video-title">${item.title}</div>
+                        <div class="video-author">👤 ${item.author} ${item.organism ? `• <em>${item.organism}</em>` : ''}</div>
+                        <div class="video-desc">${item.description || ''}</div>
+                        <div class="video-tags">${tagsHtml}</div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            updateStats();
+            initCardSimulators();
         }
-        drawClino();
 
-        document.getElementById('btn-play-clino').addEventListener('click', function() {
-            isPlayingClino = !isPlayingClino;
-            this.innerText = isPlayingClino ? '⏸ Pause' : '▶ Play';
-            if (isPlayingClino) drawClino();
-        });
-        document.getElementById('btn-reset-clino').addEventListener('click', function() {
-            isPlayingClino = false;
-            document.getElementById('btn-play-clino').innerText = '▶ Play';
-            cancelAnimationFrame(animClino);
-            thetaClino = 0;
-            drawClino();
+        function updateStats() {
+            document.getElementById('stat-total').innerText = catalog.length;
+            document.getElementById('stat-yt').innerText = catalog.filter(v => v.type === 'youtube').length;
+            document.getElementById('stat-cyverse').innerText = catalog.filter(v => v.type === 'cyverse').length;
+            document.getElementById('stat-sim').innerText = catalog.filter(v => v.type === 'simulator').length;
+        }
+
+        // Filtering
+        function filterCatalog() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const cat = document.getElementById('category-filter').value;
+
+            const filtered = catalog.filter(item => {
+                const matchCat = (cat === 'all') || (item.category === cat) || (cat === 'CyVerse Time-Lapses' && item.type === 'cyverse');
+                const matchQuery = !query || 
+                    item.title.toLowerCase().includes(query) ||
+                    item.author.toLowerCase().includes(query) ||
+                    (item.description && item.description.toLowerCase().includes(query)) ||
+                    (item.organism && item.organism.toLowerCase().includes(query)) ||
+                    (item.tags && item.tags.some(t => t.toLowerCase().includes(query)));
+                return matchCat && matchQuery;
+            });
+
+            renderVideos(filtered);
+        }
+
+        document.getElementById('search-input').addEventListener('input', filterCatalog);
+        document.getElementById('category-filter').addEventListener('change', filterCatalog);
+
+        // Helper to extract YouTube Video ID
+        function extractYouTubeID(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : url.trim();
+        }
+
+        // Modal Handlers
+        const modal = document.getElementById('add-video-modal');
+        document.getElementById('btn-open-modal').addEventListener('click', () => modal.style.display = 'flex');
+        document.getElementById('btn-close-modal').addEventListener('click', () => modal.style.display = 'none');
+        document.getElementById('btn-cancel-modal').addEventListener('click', () => modal.style.display = 'none');
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+
+        // Add Video Form Submit
+        document.getElementById('add-video-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const rawUrl = document.getElementById('input-yt-url').value;
+            const ytId = extractYouTubeID(rawUrl);
+            const title = document.getElementById('input-title').value;
+            const author = document.getElementById('input-author').value;
+            const category = document.getElementById('input-category').value;
+            const organism = document.getElementById('input-organism').value || 'Brachypodium distachyon';
+            const desc = document.getElementById('input-desc').value;
+            const rawTags = document.getElementById('input-tags').value;
+            const tags = rawTags ? rawTags.split(',').map(t => t.trim()).filter(Boolean) : ['Astrobotany'];
+
+            const newVideo = {
+                id: `vid-yt-${Date.now()}`,
+                type: 'youtube',
+                youtube_id: ytId,
+                title: title,
+                author: author,
+                category: category,
+                organism: organism,
+                description: desc,
+                tags: tags
+            };
+
+            catalog.unshift(newVideo);
+            try {
+                localStorage.setItem('astrograss_video_catalog', JSON.stringify(catalog));
+            } catch (err) {}
+
+            modal.style.display = 'none';
+            this.reset();
+            filterCatalog();
+            alert(`✓ Successfully added "${title}" to the AstroGrass Video Database!`);
         });
 
-        // --- LOCAL VIDEO DROPZONE ---
+        // Export Catalog Button
+        document.getElementById('btn-export-json').addEventListener('click', function() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({
+                metadata: {
+                    name: "AstroGrass Video Knowledgebase",
+                    exported_at: new Date().toISOString(),
+                    total_items: catalog.length
+                },
+                videos: catalog
+            }, null, 2));
+            const dlAnchor = document.createElement('a');
+            dlAnchor.setAttribute("href", dataStr);
+            dlAnchor.setAttribute("download", "astrograss_video_catalog.json");
+            document.body.appendChild(dlAnchor);
+            dlAnchor.click();
+            dlAnchor.remove();
+        });
+
+        // Dropzone Local Video Handler
         const dropzone = document.getElementById('dropzone');
         const fileInput = document.getElementById('file-input');
         const userVideoContainer = document.getElementById('user-video-container');
@@ -352,14 +675,10 @@
         dropzone.addEventListener('dragleave', () => { dropzone.style.borderColor = '#4a5568'; });
         dropzone.addEventListener('drop', (e) => {
             e.preventDefault();
-            if (e.dataTransfer.files.length > 0) {
-                loadVideoFile(e.dataTransfer.files[0]);
-            }
+            if (e.dataTransfer.files.length > 0) loadVideoFile(e.dataTransfer.files[0]);
         });
         fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                loadVideoFile(e.target.files[0]);
-            }
+            if (e.target.files.length > 0) loadVideoFile(e.target.files[0]);
         });
 
         function loadVideoFile(file) {
@@ -370,6 +689,109 @@
             userVideo.play();
             userVideo.scrollIntoView({ behavior: 'smooth' });
         }
+
+        // Inline Simulators
+        function initCardSimulators() {
+            const c90 = document.getElementById('card-sim-90');
+            if (c90) {
+                const ctx90 = c90.getContext('2d');
+                let t90 = 0;
+                let play90 = false;
+                let anim90;
+                function drawCard90() {
+                    ctx90.clearRect(0, 0, c90.width, c90.height);
+                    ctx90.fillStyle = '#0f172a'; ctx90.fillRect(0, 0, c90.width, c90.height);
+                    
+                    const angleDeg = 42 * (1 - Math.exp(-t90 / 45));
+                    const angleRad = (angleDeg * Math.PI) / 180;
+
+                    // Seed & shoot
+                    ctx90.fillStyle = '#d97706';
+                    ctx90.beginPath(); ctx90.ellipse(90, 70, 10, 5, Math.PI/4, 0, Math.PI*2); ctx90.fill();
+                    ctx90.strokeStyle = '#22c55e'; ctx90.lineWidth = 3;
+                    ctx90.beginPath(); ctx90.moveTo(90, 68); ctx90.lineTo(80, 30); ctx90.stroke();
+
+                    // Root
+                    ctx90.strokeStyle = '#f8fafc'; ctx90.lineWidth = 4; ctx90.lineCap = 'round';
+                    ctx90.beginPath(); ctx90.moveTo(95, 75);
+                    const endX = 95 + 110 * Math.cos(angleRad);
+                    const endY = 75 + 110 * Math.sin(angleRad);
+                    ctx90.quadraticCurveTo(150, 75, endX, endY);
+                    ctx90.stroke();
+
+                    // Tip
+                    ctx90.fillStyle = '#fbbf24';
+                    ctx90.beginPath(); ctx90.arc(endX, endY, 4, 0, Math.PI*2); ctx90.fill();
+
+                    const lbl = document.getElementById('lbl-card-90');
+                    if (lbl) lbl.innerText = `Time: ${Math.round(t90)}m | ${angleDeg.toFixed(1)}°`;
+
+                    if (play90) {
+                        t90 += 0.5;
+                        if (t90 > 180) t90 = 180;
+                        anim90 = requestAnimationFrame(drawCard90);
+                    }
+                }
+                drawCard90();
+
+                const btn90 = document.getElementById('btn-card-play-90');
+                if (btn90) {
+                    btn90.onclick = function() {
+                        play90 = !play90;
+                        this.innerText = play90 ? '⏸' : '▶ Play';
+                        if (play90) drawCard90();
+                    };
+                }
+            }
+
+            const cClino = document.getElementById('card-sim-clino');
+            if (cClino) {
+                const ctxClino = cClino.getContext('2d');
+                let theta = 0;
+                let playClino = false;
+                let animClino;
+                function drawCardClino() {
+                    ctxClino.clearRect(0, 0, cClino.width, cClino.height);
+                    ctxClino.fillStyle = '#0f172a'; ctxClino.fillRect(0, 0, cClino.width, cClino.height);
+
+                    ctxClino.save();
+                    ctxClino.translate(cClino.width/2, cClino.height/2);
+                    ctxClino.rotate(theta);
+
+                    ctxClino.strokeStyle = '#38bdf8'; ctxClino.lineWidth = 2;
+                    ctxClino.beginPath(); ctxClino.arc(0, 0, 65, 0, Math.PI*2); ctxClino.stroke();
+
+                    ctxClino.fillStyle = '#d97706';
+                    ctxClino.beginPath(); ctxClino.ellipse(0, 0, 8, 4, 0, 0, Math.PI*2); ctxClino.fill();
+
+                    ctxClino.strokeStyle = '#f8fafc'; ctxClino.lineWidth = 3;
+                    ctxClino.beginPath(); ctxClino.moveTo(0, 4); ctxClino.lineTo(0, 45); ctxClino.stroke();
+
+                    ctxClino.strokeStyle = '#22c55e'; ctxClino.lineWidth = 2;
+                    ctxClino.beginPath(); ctxClino.moveTo(0, -4); ctxClino.lineTo(0, -35); ctxClino.stroke();
+
+                    ctxClino.restore();
+
+                    if (playClino) {
+                        theta += 0.03;
+                        animClino = requestAnimationFrame(drawCardClino);
+                    }
+                }
+                drawCardClino();
+
+                const btnClino = document.getElementById('btn-card-play-clino');
+                if (btnClino) {
+                    btnClino.onclick = function() {
+                        playClino = !playClino;
+                        this.innerText = playClino ? '⏸' : '▶ Play';
+                        if (playClino) drawCardClino();
+                    };
+                }
+            }
+        }
+
+        // Initial Load
+        renderVideos(catalog);
     </script>
 </body>
 </html>
