@@ -320,10 +320,13 @@ def sanitize_pdf_text(text: str) -> str:
         "‘": "'",
         "’": "'",
         "°": " deg",
+        "±": "+/-",
         "×": "x",
+        "α": "alpha",
         "β": "beta",
         "ρ": "rho",
         "μ": "micro",
+        "θ": "theta",
         "…": "...",
         "≥": ">=",
         "≤": "<=",
@@ -333,6 +336,8 @@ def sanitize_pdf_text(text: str) -> str:
         "⁰": "^0",
         "₄": "_4",
         "₀": "_0",
+        "•": "*",
+        "→": "->",
     }
     for k, v in replacements.items():
         text = text.replace(k, v)
