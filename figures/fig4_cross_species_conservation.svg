@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-08-30T21:19:31.946805</dc:date>
+    <dc:date>2026-08-31T15:49:31.324272</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,7 +40,7 @@ C 56.009186 119.947389 39.744 152.902408 39.744 187.26
 C 39.744 221.617592 56.009186 254.572611 84.95734 278.867098 
 C 113.905495 303.161584 153.173128 316.812 194.112 316.812 
 z
-" clip-path="url(#pdd4505de28)" style="fill: #1976d2; opacity: 0.4; stroke: #0d47a1; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p3d905c3fab)" style="fill: #1976d2; opacity: 0.4; stroke: #0d47a1; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 309.888 316.812 
@@ -53,7 +53,7 @@ C 171.785186 119.947389 155.52 152.902408 155.52 187.26
 C 155.52 221.617592 171.785186 254.572611 200.73334 278.867098 
 C 229.681495 303.161584 268.949128 316.812 309.888 316.812 
 z
-" clip-path="url(#pdd4505de28)" style="fill: #388e3c; opacity: 0.4; stroke: #1b5e20; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p3d905c3fab)" style="fill: #388e3c; opacity: 0.4; stroke: #1b5e20; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- Arabidopsis -->
@@ -1167,7 +1167,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pdd4505de28">
+  <clipPath id="p3d905c3fab">
    <rect x="10.8" y="25.32" width="482.4" height="323.88"/>
   </clipPath>
  </defs>
