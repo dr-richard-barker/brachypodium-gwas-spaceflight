@@ -109,5 +109,5 @@ If you use this repository, pipeline, or processed datasets in your research, pl
    > Barker, R. (2026). *Brachypodium GWAS-Spaceflight Integration: Connecting Gravitropic Reorientation Natural Variation with ISS Microgravity Transcriptomics (OSD-375)*. GitHub: [dr-richard-barker/brachypodium-gwas-spaceflight](https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight).
 
 2. **Primary Spaceflight Dataset (APEX-06 / OSD-375):**
-   > Su, S.-H., et al. (2023). *Molecular and Cellular Adaptations of Brachypodium distachyon to Microgravity in the APEX-06 Spaceflight Experiment*. **Life**, 13(3), 633. DOI: [10.3390/life13030633](https://doi.org/10.3390/life13030633).
-   > NASA OSDR: [OSD-375](https://osdr.nasa.gov/osdr/data/osd/files/375) / DOI: [10.26030/2x6b-3v89](https://doi.org/10.26030/2x6b-3v89).
+   - **APEX-06 Spaceflight Study:** Su et al. (2023) *Life* 13(3):626. [doi:10.3390/life13030626](https://doi.org/10.3390/life13030626)
+   - **NASA OSDR Study:** [OSD-375](https://osdr.nasa.gov/bio/repo/data/studies/OSD-375) (DOI: 10.26030/2x6b-3v89)

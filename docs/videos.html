@@ -3,8 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videos - Brachy-Space</title>
+    <title>Gravitropism Video Gallery - AstroGrass</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .video-box {
+            background: #111;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            background: #1a202c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        canvas {
+            background: #0f172a;
+            border-radius: 6px;
+            width: 100%;
+            height: 100%;
+        }
+        .video-controls {
+            background: #1e293b;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #fff;
+            font-size: 0.85rem;
+        }
+        .btn-ctrl {
+            background: #2d7a4f;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn-ctrl:hover {
+            background: #38a169;
+        }
+        .dropzone-box {
+            border: 2px dashed #4a5568;
+            background: #f8fafc;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .dropzone-box:hover {
+            border-color: #2d7a4f;
+            background: #f0fdf4;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,43 +83,102 @@
     </header>
 
     <div class="container">
-        <h1>Gravitropism Video Gallery</h1>
-        <p>Explore gravitropic reorientation assays captured via PiCam 8MP (15-min intervals, 6-hour capture). <a href="#">Link to AIRI Stage VI protocol</a></p>
+        <h1>🌱 Gravitropism Video Gallery & Assay Simulators</h1>
+        <p>Dynamic time-lapse imaging of <em>Brachypodium distachyon</em> root tip reorientation kinetics following 90° gravistimulation (AIR Stage VI Protocol). Use the interactive simulators below or upload laboratory <code>.mp4</code> videos for real-time morphometric inspection.</p>
 
-        <div class="grid-3">
+        <div class="grid-3" style="margin-top: 2rem;">
+            
+            <!-- SIMULATOR 1: 90° Gravistimulation Kinetic Reorientation -->
             <section class="card">
-                <h2>90° Rotation Time-lapse</h2>
-                <div class="video-container">
-                    <video controls poster="images/poster-90.jpg">
-                        <source src="#" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <h2>1. 90° Rotation Time-lapse</h2>
+                <div class="video-box">
+                    <div class="canvas-container">
+                        <canvas id="sim-90" width="360" height="280"></canvas>
+                    </div>
+                    <div class="video-controls">
+                        <div>
+                            <button class="btn-ctrl" id="btn-play-90">▶ Play</button>
+                            <button class="btn-ctrl" id="btn-reset-90" style="background:#475569;">↺ Reset</button>
+                        </div>
+                        <span id="label-time-90">Time: 0 min | Angle: 0.0°</span>
+                    </div>
                 </div>
-                <p>Standard 90-degree reorientation assay displaying root bending dynamics.</p>
+                <p style="margin-top:10px; font-size:0.9rem; color:#555;"><strong>Assay:</strong> 4-day vertical seedling rotated 90° in darkness. Asymmetric auxin transport drives progressive downward curvature from 0° to 42° over 180 minutes.</p>
             </section>
 
+            <!-- SIMULATOR 2: 2D Clinostat Gravity Arrest -->
             <section class="card">
-                <h2>Clinostat Response</h2>
-                <div class="video-container">
-                    <video controls poster="images/poster-clino.jpg">
-                        <source src="#" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <h2>2. 2D Clinostat Response</h2>
+                <div class="video-box">
+                    <div class="canvas-container">
+                        <canvas id="sim-clino" width="360" height="280"></canvas>
+                    </div>
+                    <div class="video-controls">
+                        <div>
+                            <button class="btn-ctrl" id="btn-play-clino">▶ Play</button>
+                            <button class="btn-ctrl" id="btn-reset-clino" style="background:#475569;">↺ Reset</button>
+                        </div>
+                        <span id="label-time-clino">Rotation: 1.0 RPM</span>
+                    </div>
                 </div>
-                <p>Root growth under simulated omnilateral gravistimulation using a clinostat.</p>
+                <p style="margin-top:10px; font-size:0.9rem; color:#555;"><strong>Assay:</strong> Continuous omnilateral rotation at 1.0 RPM, dispersing directional statolith sedimentation to quantify presentation time ($t_0$).</p>
             </section>
 
+            <!-- MEDIA 3: Astrobotany Gravitropism Video -->
             <section class="card">
-                <h2>RPM Simulated Microgravity</h2>
-                <div class="video-container">
-                    <video controls poster="images/poster-rpm.jpg">
-                        <source src="#" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <h2>3. Astrobotany Video Stream</h2>
+                <div class="video-box">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                        <iframe style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border:0;" 
+                                src="https://www.youtube.com/embed/YIqCwYKDBqA" 
+                                title="Plant Gravitropism Time-lapse" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="video-controls">
+                        <span>AstroBotany Video Stream (AIRI Stage VI)</span>
+                        <a href="https://youtu.be/YIqCwYKDBqA" target="_blank" style="color:#38a169; text-decoration:none; font-weight:bold;">Watch on YouTube ↗</a>
+                    </div>
                 </div>
-                <p>Random Positioning Machine (RPM) assays mimicking microgravity.</p>
+                <p style="margin-top:10px; font-size:0.9rem; color:#555;"><strong>Video Reference:</strong> High-resolution optical time-lapse tracking of root gravimorphogenesis and calcium wave signaling.</p>
             </section>
         </div>
+
+        <!-- LAB VIDEO DROPZONE / VIEWER -->
+        <section class="card" style="margin-top:2rem;">
+            <h2>🔬 Load Your Laboratory Gravitropism Video (.mp4 / .webm)</h2>
+            <p>Have custom videos from your Raspberry Pi PiCam 8MP or Nikon automated stage? Select or drag & drop them below to preview and measure curvature directly in the browser.</p>
+            
+            <div class="dropzone-box" id="dropzone">
+                <p style="font-size:1.1rem; color:#2d7a4f; font-weight:bold;">📁 Drag & Drop your .mp4 video file here, or click to browse</p>
+                <p style="font-size:0.85rem; color:#666;">Supported formats: MP4 (H.264), WebM, MOV</p>
+                <input type="file" id="file-input" accept="video/mp4,video/webm,video/quicktime" style="display:none;">
+            </div>
+
+            <div id="user-video-container" style="display:none; margin-top:1.5rem; text-align:center;">
+                <video id="user-video" controls style="max-width:100%; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.2); max-height:450px;"></video>
+                <p id="user-video-info" style="margin-top:8px; font-size:0.9rem; color:#333; font-weight:bold;"></p>
+            </div>
+        </section>
+
+        <!-- IMAGING SPECIFICATIONS -->
+        <section class="card" style="margin-top:2rem;">
+            <h2>Imaging Protocol Specifications</h2>
+            <div class="grid-3">
+                <div class="icon-card">
+                    <h3>📷 Camera Rig</h3>
+                    <p>Sony IMX219 8MP sensor on Raspberry Pi 4 with fixed 50mm macro lens.</p>
+                </div>
+                <div class="icon-card">
+                    <h3>⏱️ Capture Interval</h3>
+                    <p>1 frame every 15 minutes for 6 hours (24 frames total per run).</p>
+                </div>
+                <div class="icon-card">
+                    <h3>📏 Kinematic Tool</h3>
+                    <p>Automated midline extraction and curvature angles calculated via RootNav 2.0.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer>
@@ -67,6 +186,190 @@
         <p><span class="badge">FAIR Data</span> <span class="badge">CC BY 4.0</span></p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- INTERACTIVE SIMULATORS & DROPZONE SCRIPT -->
+    <script>
+        // --- SIMULATOR 1: 90 DEGREE ROTATION ---
+        const canvas90 = document.getElementById('sim-90');
+        const ctx90 = canvas90.getContext('2d');
+        let t90 = 0;
+        let isPlaying90 = false;
+        let anim90;
+
+        function draw90() {
+            ctx90.clearRect(0, 0, canvas90.width, canvas90.height);
+            
+            // Grid background
+            ctx90.strokeStyle = '#1e293b';
+            ctx90.lineWidth = 1;
+            for(let x = 0; x < canvas90.width; x += 30) {
+                ctx90.beginPath(); ctx90.moveTo(x, 0); ctx90.lineTo(x, canvas90.height); ctx90.stroke();
+            }
+            for(let y = 0; y < canvas90.height; y += 30) {
+                ctx90.beginPath(); ctx90.moveTo(0, y); ctx90.lineTo(canvas90.width, y); ctx90.stroke();
+            }
+
+            // Gravity vector arrow (downward)
+            ctx90.strokeStyle = '#e53e3e';
+            ctx90.fillStyle = '#e53e3e';
+            ctx90.lineWidth = 2;
+            ctx90.beginPath(); ctx90.moveTo(320, 30); ctx90.lineTo(320, 70); ctx90.stroke();
+            ctx90.beginPath(); ctx90.moveTo(315, 60); ctx90.lineTo(320, 70); ctx90.lineTo(325, 60); ctx90.fill();
+            ctx90.font = '10px sans-serif'; ctx90.fillText('1g Vector', 295, 20);
+
+            // Compute angle (0 to 42 degrees over 180 min)
+            const angleDeg = 42 * (1 - Math.exp(-t90 / 45));
+            const angleRad = (angleDeg * Math.PI) / 180;
+
+            // Seed & Shoot
+            ctx90.fillStyle = '#d97706';
+            ctx90.beginPath(); ctx90.ellipse(100, 100, 14, 7, Math.PI/4, 0, Math.PI*2); ctx90.fill();
+            
+            // Shoot growing upward
+            ctx90.strokeStyle = '#22c55e';
+            ctx90.lineWidth = 4;
+            ctx90.beginPath(); ctx90.moveTo(100, 95); ctx90.lineTo(85, 45); ctx90.stroke();
+
+            // Root starting horizontal (post 90 deg rotation)
+            ctx90.strokeStyle = '#f8fafc';
+            ctx90.lineWidth = 5;
+            ctx90.lineCap = 'round';
+            ctx90.beginPath();
+            ctx90.moveTo(105, 105);
+            
+            // Curved root path
+            const ctrlX = 170;
+            const ctrlY = 105;
+            const endX = 105 + 130 * Math.cos(angleRad);
+            const endY = 105 + 130 * Math.sin(angleRad);
+            
+            ctx90.quadraticCurveTo(ctrlX, ctrlY, endX, endY);
+            ctx90.stroke();
+
+            // Root Tip columella
+            ctx90.fillStyle = '#fbbf24';
+            ctx90.beginPath(); ctx90.arc(endX, endY, 5, 0, Math.PI*2); ctx90.fill();
+
+            // Statolith sedimented indicator inside root tip
+            ctx90.fillStyle = '#78350f';
+            ctx90.beginPath(); ctx90.arc(endX, endY + 2, 2, 0, Math.PI*2); ctx90.fill();
+
+            document.getElementById('label-time-90').innerText = `Time: ${Math.round(t90)} min | Angle: ${angleDeg.toFixed(1)}°`;
+
+            if (isPlaying90) {
+                t90 += 0.5;
+                if (t90 > 180) t90 = 180;
+                anim90 = requestAnimationFrame(draw90);
+            }
+        }
+        draw90();
+
+        document.getElementById('btn-play-90').addEventListener('click', function() {
+            isPlaying90 = !isPlaying90;
+            this.innerText = isPlaying90 ? '⏸ Pause' : '▶ Play';
+            if (isPlaying90) draw90();
+        });
+        document.getElementById('btn-reset-90').addEventListener('click', function() {
+            isPlaying90 = false;
+            document.getElementById('btn-play-90').innerText = '▶ Play';
+            cancelAnimationFrame(anim90);
+            t90 = 0;
+            draw90();
+        });
+
+        // --- SIMULATOR 2: 2D CLINOSTAT ---
+        const canvasClino = document.getElementById('sim-clino');
+        const ctxClino = canvasClino.getContext('2d');
+        let thetaClino = 0;
+        let isPlayingClino = false;
+        let animClino;
+
+        function drawClino() {
+            ctxClino.clearRect(0, 0, canvasClino.width, canvasClino.height);
+            
+            ctxClino.save();
+            ctxClino.translate(canvasClino.width/2, canvasClino.height/2);
+            ctxClino.rotate(thetaClino);
+
+            // Petri dish outer ring
+            ctxClino.strokeStyle = '#38bdf8';
+            ctxClino.lineWidth = 3;
+            ctxClino.beginPath(); ctxClino.arc(0, 0, 95, 0, Math.PI*2); ctxClino.stroke();
+            
+            // Agar surface
+            ctxClino.fillStyle = 'rgba(56, 189, 248, 0.08)';
+            ctxClino.fill();
+
+            // Central plant
+            ctxClino.fillStyle = '#d97706';
+            ctxClino.beginPath(); ctxClino.ellipse(0, 0, 10, 6, 0, 0, Math.PI*2); ctxClino.fill();
+
+            // Root extending straight (omnilateral gravity)
+            ctxClino.strokeStyle = '#f8fafc';
+            ctxClino.lineWidth = 4;
+            ctxClino.beginPath(); ctxClino.moveTo(0, 5); ctxClino.lineTo(0, 65); ctxClino.stroke();
+
+            // Shoot
+            ctxClino.strokeStyle = '#22c55e';
+            ctxClino.lineWidth = 3;
+            ctxClino.beginPath(); ctxClino.moveTo(0, -5); ctxClino.lineTo(0, -50); ctxClino.stroke();
+
+            ctxClino.restore();
+
+            // Rotation speed label
+            ctxClino.fillStyle = '#94a3b8';
+            ctxClino.font = '11px sans-serif';
+            ctxClino.fillText('Omnilateral Clinostat (1.0 RPM)', 15, 25);
+
+            if (isPlayingClino) {
+                thetaClino += 0.03;
+                animClino = requestAnimationFrame(drawClino);
+            }
+        }
+        drawClino();
+
+        document.getElementById('btn-play-clino').addEventListener('click', function() {
+            isPlayingClino = !isPlayingClino;
+            this.innerText = isPlayingClino ? '⏸ Pause' : '▶ Play';
+            if (isPlayingClino) drawClino();
+        });
+        document.getElementById('btn-reset-clino').addEventListener('click', function() {
+            isPlayingClino = false;
+            document.getElementById('btn-play-clino').innerText = '▶ Play';
+            cancelAnimationFrame(animClino);
+            thetaClino = 0;
+            drawClino();
+        });
+
+        // --- LOCAL VIDEO DROPZONE ---
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('file-input');
+        const userVideoContainer = document.getElementById('user-video-container');
+        const userVideo = document.getElementById('user-video');
+        const userVideoInfo = document.getElementById('user-video-info');
+
+        dropzone.addEventListener('click', () => fileInput.click());
+        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.style.borderColor = '#2d7a4f'; });
+        dropzone.addEventListener('dragleave', () => { dropzone.style.borderColor = '#4a5568'; });
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (e.dataTransfer.files.length > 0) {
+                loadVideoFile(e.dataTransfer.files[0]);
+            }
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                loadVideoFile(e.target.files[0]);
+            }
+        });
+
+        function loadVideoFile(file) {
+            const url = URL.createObjectURL(file);
+            userVideo.src = url;
+            userVideoContainer.style.display = 'block';
+            userVideoInfo.innerText = `Loaded: ${file.name} (${(file.size / (1024*1024)).toFixed(2)} MB)`;
+            userVideo.play();
+            userVideo.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>

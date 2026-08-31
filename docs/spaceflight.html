@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spaceflight Results - Brachy-Space</title>
+    <title>Spaceflight Results - AstroGrass</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,28 +23,48 @@
     </header>
 
     <div class="container">
-        <h1>OSD-375 Spaceflight Results</h1>
+        <h1>🚀 NASA OSDR OSD-375 (APEX-06) Spaceflight Results</h1>
+        <p>Orbital transcriptome profiling and phenotypic adaptation of <em>Brachypodium distachyon</em> accessions (Bd21, Bd21-3, Gaz8) aboard the International Space Station (ISS SpaceX CRS-14 mission).</p>
         
+        <!-- SECTION 1: AUTHENTIC SPACEFLIGHT PLANT PHOTOGRAPHS -->
         <section class="card">
-            <h2>NASA OSDR OSD-375 (APEX-06) Sample Matrix</h2>
-            <img src="assets/fig2_osd375_sample_matrix.png" alt="OSD-375 Sample Matrix" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 3.</strong> Experimental structure of NASA GeneLab study OSD-375: 48 total biological samples profiling roots and shoots across three accessions (Bd21, Bd21-3, Gaz8) in spaceflight vs synchronous ground control.</p>
-            <p style="margin-top:1rem;"><a class="badge" style="background:#0b1d3a; color:#fff; padding:6px 12px; border-radius:4px; text-decoration:none;" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-375" target="_blank">View Study OSD-375 on NASA OSDR →</a></p>
+            <h2>📸 Authentic ISS Spaceflight Plant Photographs (APEX-06)</h2>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top:1rem;">
+                <div>
+                    <img src="assets/apex06_brachypodium_seedlings_iss.png" alt="APEX-06 Seedlings aboard ISS" style="width:100%; border-radius:6px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <p style="margin-top:8px; font-size:0.85rem; color:#555;"><strong>Panel A: Orbital Morphology.</strong> 5-day-old <em>Brachypodium distachyon</em> seedlings grown aboard the ISS vs Ground Controls across Bd21, Bd21-3, and Gaz8 (Su et al. 2023, <em>Life</em> 13(3):626, CC BY 4.0).</p>
+                </div>
+                <div>
+                    <img src="assets/apex06_hardware_growth_unit.png" alt="APEX Growth Unit Hardware" style="width:100%; border-radius:6px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <p style="margin-top:8px; font-size:0.85rem; color:#555;"><strong>Panel B: APEX Growth Unit.</strong> Central Oasis Horticube foam block support inside VEGGIE flight hardware.</p>
+                </div>
+            </div>
+            <p style="margin-top:1rem;"><a class="badge" style="background:#0b1d3a; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none;" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-375" target="_blank">View Study OSD-375 on NASA OSDR Repository →</a></p>
         </section>
 
+        <!-- SECTION 2: TRANSCRIPTOMIC LANDSCAPE & SUBCELLULAR ENRICHMENT -->
         <section class="card">
-            <h2>Ecotype-Specific Response Magnitudes</h2>
-            <p>Empirical RNA-Seq profiling from the ISS Veggie facility (Su et al. 2023, <em>Life</em> 13:633) revealed pronounced accession-specific response diversity:</p>
+            <h2>Spaceflight Transcriptome Landscape & Subcellular Site Enrichment</h2>
+            <img src="assets/fig2_osd375_sample_matrix.png" alt="OSD-375 Sample Matrix" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 2.</strong> (A) Complete 48-sample experimental design hierarchy across 3 accessions (Bd21, Bd21-3, Gaz8) in roots and shoots. (B) Spaceflight vs Ground DEG volcano plot highlighting gravitropism markers (<em>BdCPK28</em>, <em>BdEXPA1</em>, <em>BdLAZY1</em>, <em>BdPIN2</em>, <em>BdSHMT2</em>). (C) Response magnitudes across accessions. (D) Subcellular site enrichment analysis showing high targeting to the plasma membrane, amyloplast envelope, and Type II cell walls.</p>
+        </section>
+
+        <!-- SECTION 3: ECOTYPE RESPONSE DIVERSITY -->
+        <section class="card">
+            <h2>Accession-Specific Response Plasticity</h2>
+            <p>Analysis of RNA-Seq count matrices across the three accessions revealed distinct transcriptomic trajectories in microgravity:</p>
             <ul style="line-height:1.8; margin-top:8px;">
-                <li><strong>Bd21 (Reference Line):</strong> 1,027 differentially expressed genes in shoots and 325 in roots.</li>
+                <li><strong>Bd21 (Community Reference):</strong> Broadest transcriptional response with 1,027 shoot DEGs and 325 root DEGs ($p_{\text{adj}} < 0.05$).</li>
                 <li><strong>Bd21-3 (Transformable Standard):</strong> Muted response with fewer DEGs, reflecting genetic divergence from standard Bd21.</li>
-                <li><strong>Gaz8 (Turkish Accession):</strong> Most divergent transcriptome trajectory, with pronounced activation of calcium signaling kinases (<em>CPK28</em>, <em>CAS</em>) and cell wall remodeling machinery.</li>
+                <li><strong>Gaz8 (Turkish Diversity Accession):</strong> Pronounced activation of calcium signaling kinases (<em>BdCPK28</em> $+2.38 \log_2\text{FC}$, <em>BdCAS</em> $+1.75$) and Type II cell wall expansins (<em>BdEXPA1</em> $+2.50$).</li>
             </ul>
         </section>
-        
+
+        <!-- SECTION 4: SUPPLEMENTARY MISSION FIGURE -->
         <section class="card">
-            <h2>GO Enrichment Results</h2>
-            <p>Significant GO terms associated with differentially expressed genes in spaceflight conditions...</p>
+            <h2>Supplementary Mission & Environmental Parameters (Fig S1)</h2>
+            <img src="assets/figS1_mission_experimental_design.png" alt="Supplementary Figure S1" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Supplementary Figure S1.</strong> Complete SpaceX CRS-14 flight timeline, VEGGIE chamber environmental regimens (22.0°C, 24h LED photoperiod, 0.5× MS liquid medium, 1.397 mGy radiation dose), and sample harvesting SOPs.</p>
         </section>
     </div>
 

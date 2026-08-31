@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GWAS Results - Brachy-Space</title>
+    <title>GWAS & Kinetics Results - AstroGrass</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -23,47 +23,47 @@
     </header>
 
     <div class="container">
-        <h1>GWAS Results</h1>
+        <h1>🧬 Gravitropic Kinetics & GWAS Results</h1>
+        <p>Genome-wide association mapping and natural variation in gravitropic reorientation kinetics across Mediterranean diversity accessions of the model cereal grass <em>Brachypodium distachyon</em>.</p>
         
+        <!-- FIGURE 1: KINETICS & MANHATTAN PLOT -->
         <section class="card">
-            <h2>Gravitropic Reorientation Kinetics & Natural Variation</h2>
-            <img src="assets/fig1_gravitropic_kinetics.png" alt="Gravitropic Reorientation Kinetics" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 1.</strong> (A) Root tip gravitropic reorientation kinetics across 15 accessions of <em>Brachypodium distachyon</em> following 90° gravistimulation. (B) Natural variation in 30-min curvature across accessions (ANOVA <em>p</em> = 1.35 × 10<sup>-9</sup>), highlighting the three NASA OSDR OSD-375 spaceflight accessions: Bd21 (reference, 34.1°), Bd21-3 (transformable, 32.0°), and Gaz8 (Turkish, 27.5°).</p>
+            <h2>Gravitropic Reorientation Kinetics & Genome-Wide Association Study</h2>
+            <img src="assets/fig1_gravitropic_kinetics.png" alt="Gravitropic Reorientation Kinetics & GWAS Manhattan Plot" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 1.</strong> (A) Time-course gravitropic reorientation kinetics across 15 accessions following 90° gravistimulation, highlighting OSD-375 spaceflight accessions Bd21, Bd21-3, and Gaz8. (B) Accession natural variation ranking at 30 minutes. (C) Genome-wide GWAS Manhattan plot mapping reorientation kinetics across chromosomes Bd1–Bd5, highlighting significant candidate peaks (<em>BdLAZY1</em>, <em>BdPIN3</em>, <em>BdCPK28</em>, <em>BdEXPA1</em>, <em>BdDRO1</em>, <em>BdPIN2</em>, <em>BdCAS</em>). (D) Quantile-Quantile (QQ) plot demonstrating genomic control ($\lambda = 1.02$).</p>
         </section>
 
+        <!-- FIGURE 3: PHYSICAL CHROMOSOME IDEOGRAM -->
         <section class="card">
-            <h2>Candidate Gravitropism Pathways</h2>
-            <img src="assets/fig3_candidate_pathways.png" alt="Candidate Gravitropism Pathways" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 2.</strong> Curated architecture of 29 core gravitropism and gravity-sensing genes across auxin efflux (<em>PIN</em>), influx (<em>AUX/LAX</em>), gravity signal transduction (<em>LAZY1/DRO1</em>), statolith amyloplast biogenesis, calcium signaling, and grass-specific cell wall remodeling.</p>
+            <h2>Linear Physical Chromosome Ideogram (Bd1–Bd5, 272 Mb) & Multi-Accession Heatmap</h2>
+            <img src="assets/fig3_candidate_pathways.png" alt="Chromosome Ideogram and Expression Heatmap" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 3.</strong> (A) High-resolution physical karyotype and genomic ideogram mapping 29 candidate gravitropism loci along the 5 chromosomes of <em>Brachypodium distachyon</em> with centromeres and megabase coordinates. (B) Functional pathway architecture breakdown. (C) Clustered multi-accession spaceflight expression heatmap ($\log_2\text{FC}$) across roots, shoots, Bd21, and Gaz8.</p>
         </section>
 
+        <!-- CORE CANDIDATE GENES TABLE -->
         <section class="card">
-            <h2>Core Candidate Genes</h2>
+            <h2>Core Gravitropism Candidate Loci</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Gene ID</th>
                         <th>Symbol</th>
+                        <th>Chr (Mb)</th>
                         <th>Pathway</th>
-                        <th>Evidence / Role</th>
+                        <th>Evidence / Function</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><code>BRADI_1g28880v3</code></td><td><strong>BdPIN1a</strong></td><td>Auxin Efflux Carrier</td><td>Direct ortholog of AtPIN1; directional auxin transport in root meristem</td></tr>
-                    <tr><td><code>BRADI_3g44770v3</code></td><td><strong>BdPIN2</strong></td><td>Auxin Efflux Carrier</td><td>Ortholog of AtPIN2; asymmetric auxin redistribution in root cortex</td></tr>
-                    <tr><td><code>BRADI_4g35920v3</code></td><td><strong>BdPIN3</strong></td><td>Auxin Efflux Carrier</td><td>Ortholog of AtPIN3; lateral relocalization upon gravistimulation</td></tr>
-                    <tr><td><code>BRADI_3g35890v3</code></td><td><strong>BdAUX1</strong></td><td>Auxin Influx Carrier</td><td>Essential for root gravitropic curvature and cellular auxin uptake</td></tr>
-                    <tr><td><code>BRADI_5g19830v3</code></td><td><strong>BdLAZY1</strong></td><td>Gravity Perception</td><td>Controls tiller angle and root gravitropic setpoint angle (GSA)</td></tr>
-                    <tr><td><code>BRADI_3g14220v3</code></td><td><strong>BdDRO1</strong></td><td>Root GSA Regulation</td><td>Ortholog of DEEPER ROOTING 1; regulates gravitropic angle</td></tr>
-                    <tr><td><code>BRADI_1g71830v3</code></td><td><strong>BdCPK28</strong></td><td>Calcium Signaling</td><td>Spaceflight-responsive calcium-dependent protein kinase in roots</td></tr>
-                    <tr><td><code>BRADI_1g11420v3</code></td><td><strong>BdEXPA1</strong></td><td>Cell Wall Loosening</td><td>Alpha-expansin driving asymmetric elongation on convex flank</td></tr>
+                    <tr><td><code>BRADI_5g19830v3</code></td><td><strong>BdLAZY1</strong></td><td>Bd5 (19.8 Mb)</td><td>Gravity Perception</td><td>Translocates from statolith envelope to PM to polarize PIN carriers (Nishimura 2023)</td></tr>
+                    <tr><td><code>BRADI_4g35920v3</code></td><td><strong>BdPIN3</strong></td><td>Bd4 (35.9 Mb)</td><td>Auxin Efflux Carrier</td><td>Lateral relocalization upon gravistimulation; induced $+1.95 \log_2\text{FC}$ in flight roots</td></tr>
+                    <tr><td><code>BRADI_3g44770v3</code></td><td><strong>BdPIN2</strong></td><td>Bd3 (44.7 Mb)</td><td>Auxin Efflux Carrier</td><td>Basipetal auxin transport along root epidermis and cortex</td></tr>
+                    <tr><td><code>BRADI_3g14220v3</code></td><td><strong>BdDRO1</strong></td><td>Bd3 (14.2 Mb)</td><td>Root GSA Regulation</td><td>Ortholog of DEEPER ROOTING 1; controls gravitropic setpoint angle (Uga et al. 2013)</td></tr>
+                    <tr><td><code>BRADI_1g71830v3</code></td><td><strong>BdCPK28</strong></td><td>Bd1 (71.8 Mb)</td><td>Calcium Signaling</td><td>Spaceflight-activated calcium kinase ($+2.38 \log_2\text{FC}$ in Gaz8 roots)</td></tr>
+                    <tr><td><code>BRADI_1g11420v3</code></td><td><strong>BdEXPA1</strong></td><td>Bd1 (11.4 Mb)</td><td>Cell Wall Loosening</td><td>Alpha-expansin driving asymmetric elongation ($+2.50 \log_2\text{FC}$ in flight roots)</td></tr>
+                    <tr><td><code>BRADI_3g35890v3</code></td><td><strong>BdAUX1</strong></td><td>Bd3 (35.8 Mb)</td><td>Auxin Influx Carrier</td><td>High-affinity cellular auxin influx mediating gravitropic curvature</td></tr>
+                    <tr><td><code>BRADI_1g09410v3</code></td><td><strong>BdPGM1</strong></td><td>Bd1 (9.4 Mb)</td><td>Statolith Starch Synthesis</td><td>Phosphoglucomutase required for amyloplast starch statolith biogenesis</td></tr>
                 </tbody>
             </table>
-        </section>
-        
-        <section class="card">
-            <h2>SNP Summary Statistics</h2>
-            <p>Summary of analyzed SNPs, allele frequencies, and p-value distributions...</p>
         </section>
     </div>
 
