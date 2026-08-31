@@ -55,21 +55,34 @@
         </section>
 
         <section class="card">
-            <h2>Gravitropism Assays</h2>
-            <div class="video-container">
-                <!-- Placeholder for video -->
-                <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#333; color:#fff;">
-                    Brachypodium gravitropic reorientation time-lapse — video coming soon
+            <h2>🌱 Gravitropic Reorientation Dynamic Time-lapse</h2>
+            <p>Interactive kinematic time-lapse tracking of <em>Brachypodium distachyon</em> root tip curvature following 90° gravistimulation over 180 minutes (AIR Stage VI assay). Press <strong>Play</strong> to simulate root bending in real time:</p>
+            
+            <div style="background:#111; border-radius:8px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.3); margin-top:1rem;">
+                <div style="position:relative; width:100%; height:280px; background:#1a202c; display:flex; align-items:center; justify-content:center;">
+                    <canvas id="index-sim-90" width="480" height="280" style="background:#0f172a; width:100%; height:100%; border-radius:6px;"></canvas>
                 </div>
+                <div style="background:#1e293b; padding:10px 15px; display:flex; align-items:center; justify-content:space-between; color:#fff; font-size:0.85rem;">
+                    <div>
+                        <button id="index-btn-play" style="background:#2d7a4f; color:#fff; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-weight:bold;">▶ Play</button>
+                        <button id="index-btn-reset" style="background:#475569; color:#fff; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-weight:bold;">↺ Reset</button>
+                    </div>
+                    <span id="index-label-time" style="font-weight:bold; color:#38a169;">Time: 0 min | Curvature: 0.0°</span>
+                </div>
+            </div>
+
+            <div style="margin-top:1.2rem; display:flex; gap:1rem; align-items:center;">
+                <a href="videos.html" class="badge" style="background:#2d7a4f; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none;">View Full Video Gallery & Clinostat Assays →</a>
+                <a href="https://youtu.be/YIqCwYKDBqA" target="_blank" style="color:#2d7a4f; text-decoration:none; font-weight:bold;">▶ Watch Astrobotany Stream on YouTube ↗</a>
             </div>
         </section>
 
         <section class="card">
             <h2>Resources</h2>
             <ul>
-                <li><a href="https://osdr.nasa.gov/osdr/data/osd/files/375">NASA OSDR OSD-375 Dataset</a></li>
-                <li><a href="https://doi.org/10.3390/life13030633">Su et al. (2023) Life 13(3):633</a></li>
-                <li><a href="#">GitHub Repository</a></li>
+                <li><a href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-375" target="_blank">NASA OSDR OSD-375 Dataset (APEX-06)</a></li>
+                <li><a href="https://doi.org/10.3390/life13030626" target="_blank">Su et al. (2023) Life 13(3):626 (DOI: 10.3390/life13030626)</a></li>
+                <li><a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight" target="_blank">GitHub Repository (dr-richard-barker/brachypodium-gwas-spaceflight)</a></li>
             </ul>
         </section>
     </div>
@@ -81,5 +94,95 @@
 
     <button id="scroll-top-btn" title="Go to top">↑</button>
     <script src="js/main.js"></script>
+    <script>
+        // Index Simulator
+        const canvasIdx = document.getElementById('index-sim-90');
+        if (canvasIdx) {
+            const ctxIdx = canvasIdx.getContext('2d');
+            let tIdx = 0;
+            let isPlayingIdx = false;
+            let animIdx;
+
+            function drawIdx() {
+                ctxIdx.clearRect(0, 0, canvasIdx.width, canvasIdx.height);
+                
+                // Grid
+                ctxIdx.strokeStyle = '#1e293b';
+                ctxIdx.lineWidth = 1;
+                for(let x = 0; x < canvasIdx.width; x += 30) {
+                    ctxIdx.beginPath(); ctxIdx.moveTo(x, 0); ctxIdx.lineTo(x, canvasIdx.height); ctxIdx.stroke();
+                }
+                for(let y = 0; y < canvasIdx.height; y += 30) {
+                    ctxIdx.beginPath(); ctxIdx.moveTo(0, y); ctxIdx.lineTo(canvasIdx.width, y); ctxIdx.stroke();
+                }
+
+                // Gravity vector
+                ctxIdx.strokeStyle = '#e53e3e';
+                ctxIdx.fillStyle = '#e53e3e';
+                ctxIdx.lineWidth = 2;
+                ctxIdx.beginPath(); ctxIdx.moveTo(420, 30); ctxIdx.lineTo(420, 70); ctxIdx.stroke();
+                ctxIdx.beginPath(); ctxIdx.moveTo(415, 60); ctxIdx.lineTo(420, 70); ctxIdx.lineTo(425, 60); ctxIdx.fill();
+                ctxIdx.font = '10px sans-serif'; ctxIdx.fillText('1g Gravity', 395, 20);
+
+                // Angle
+                const angleDeg = 42 * (1 - Math.exp(-tIdx / 45));
+                const angleRad = (angleDeg * Math.PI) / 180;
+
+                // Seed
+                ctxIdx.fillStyle = '#d97706';
+                ctxIdx.beginPath(); ctxIdx.ellipse(140, 100, 14, 7, Math.PI/4, 0, Math.PI*2); ctxIdx.fill();
+                
+                // Shoot
+                ctxIdx.strokeStyle = '#22c55e';
+                ctxIdx.lineWidth = 4;
+                ctxIdx.beginPath(); ctxIdx.moveTo(140, 95); ctxIdx.lineTo(125, 45); ctxIdx.stroke();
+
+                // Curved root
+                ctxIdx.strokeStyle = '#f8fafc';
+                ctxIdx.lineWidth = 5;
+                ctxIdx.lineCap = 'round';
+                ctxIdx.beginPath();
+                ctxIdx.moveTo(145, 105);
+                
+                const ctrlX = 220;
+                const ctrlY = 105;
+                const endX = 145 + 150 * Math.cos(angleRad);
+                const endY = 105 + 150 * Math.sin(angleRad);
+                
+                ctxIdx.quadraticCurveTo(ctrlX, ctrlY, endX, endY);
+                ctxIdx.stroke();
+
+                // Tip
+                ctxIdx.fillStyle = '#fbbf24';
+                ctxIdx.beginPath(); ctxIdx.arc(endX, endY, 5, 0, Math.PI*2); ctxIdx.fill();
+
+                // Statoliths
+                ctxIdx.fillStyle = '#78350f';
+                ctxIdx.beginPath(); ctxIdx.arc(endX, endY + 2, 2, 0, Math.PI*2); ctxIdx.fill();
+
+                document.getElementById('index-label-time').innerText = `Time: ${Math.round(tIdx)} min | Curvature: ${angleDeg.toFixed(1)}°`;
+
+                if (isPlayingIdx) {
+                    tIdx += 0.5;
+                    if (tIdx > 180) tIdx = 180;
+                    animIdx = requestAnimationFrame(drawIdx);
+                }
+            }
+            drawIdx();
+
+            document.getElementById('index-btn-play').addEventListener('click', function() {
+                isPlayingIdx = !isPlayingIdx;
+                this.innerText = isPlayingIdx ? '⏸ Pause' : '▶ Play';
+                if (isPlayingIdx) drawIdx();
+            });
+            document.getElementById('index-btn-reset').addEventListener('click', function() {
+                isPlayingIdx = false;
+                document.getElementById('index-btn-play').innerText = '▶ Play';
+                cancelAnimationFrame(animIdx);
+                tIdx = 0;
+                drawIdx();
+            });
+        }
+    </script>
 </body>
 </html>

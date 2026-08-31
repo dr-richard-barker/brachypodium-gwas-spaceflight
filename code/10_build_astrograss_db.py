@@ -43,7 +43,7 @@ OSDR_GRASS_STUDIES = [
         "tissues": "Roots, Shoots",
         "assays": "RNA-Seq (Illumina)",
         "doi": "10.26030/2x6b-3v89",
-        "reference": "Su et al. (2023) Life 13(3):633",
+        "reference": "Su et al. (2023) Life 13(3):626",
         "category": "Spaceflight (ISS)"
     },
     {
@@ -217,6 +217,19 @@ def build_database(tables_dir: Path, docs_dir: Path, osdr_dir: Path):
         json.dump(export_payload, f, indent=2)
     logger.info(f"Saved AstroGrass JSON ({json_path.stat().st_size / 1024:.1f} KB) to {json_path}")
 
+    # Synchronize all tables to docs/tables/ for GitHub Pages downloads
+    docs_tables = docs_dir / "tables"
+    docs_tables.mkdir(parents=True, exist_ok=True)
+    for csv_file in tables_dir.glob("*.csv"):
+        (docs_tables / csv_file.name).write_bytes(csv_file.read_bytes())
+    if studies_path.exists():
+        (docs_tables / studies_path.name).write_bytes(studies_path.read_bytes())
+    # Also sync sample_metadata.csv if present
+    sample_meta = osdr_dir / "sample_metadata.csv"
+    if sample_meta.exists():
+        (docs_tables / sample_meta.name).write_bytes(sample_meta.read_bytes())
+    logger.info(f"✓ Synchronized all CSV tables to {docs_tables} for GitHub Pages downloads")
+
 
 def main():
     args = parse_args()
@@ -226,3 +239,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
