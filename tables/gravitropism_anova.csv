@@ -1,0 +1,4 @@
+stimulation_min,f_statistic,p_value,n_accessions,significant
+10,6.672,1.458025351394019e-08,15,True
+20,7.567,1.3452329030228604e-09,15,True
+30,5.657,2.571909867010184e-07,15,True

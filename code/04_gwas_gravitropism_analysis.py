@@ -27,6 +27,8 @@ Usage:
 Author: Richard Barker (ORCID: 0000-0002-4525-3341)
 """
 
+from __future__ import annotations
+
 import argparse
 import logging
 import sys

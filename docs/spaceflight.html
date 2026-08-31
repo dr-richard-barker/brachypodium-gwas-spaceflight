@@ -25,38 +25,20 @@
         <h1>OSD-375 Spaceflight Results</h1>
         
         <section class="card">
-            <h2>Experimental Design</h2>
-            <div style="display:flex; justify-content:space-around; background:#f9f9f9; padding:2rem; border-radius:8px;">
-                <div>
-                    <h3>Ecotypes</h3>
-                    <ul><li>Bd21</li><li>Bd21-3</li><li>Gaz8</li></ul>
-                </div>
-                <div>
-                    <h3>Tissues</h3>
-                    <ul><li>Root</li><li>Shoot</li></ul>
-                </div>
-                <div>
-                    <h3>Conditions</h3>
-                    <ul><li>Flight</li><li>Ground Control</li></ul>
-                </div>
-            </div>
-            <p style="margin-top:1rem;"><a href="https://osdr.nasa.gov/osdr/data/osd/files/375">View Study on OSDR</a></p>
+            <h2>NASA OSDR OSD-375 (APEX-06) Sample Matrix</h2>
+            <img src="assets/fig2_osd375_sample_matrix.png" alt="OSD-375 Sample Matrix" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 3.</strong> Experimental structure of NASA GeneLab study OSD-375: 48 total biological samples profiling roots and shoots across three accessions (Bd21, Bd21-3, Gaz8) in spaceflight vs synchronous ground control.</p>
+            <p style="margin-top:1rem;"><a class="badge" style="background:#0b1d3a; color:#fff; padding:6px 12px; border-radius:4px; text-decoration:none;" href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-375" target="_blank">View Study OSD-375 on NASA OSDR →</a></p>
         </section>
 
         <section class="card">
-            <h2>Differential Expression (Volcano Plots)</h2>
-            <div class="grid-3">
-                <div style="background:#eee; height:200px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">[Bd21 Plot]</div>
-                <div style="background:#eee; height:200px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">[Bd21-3 Plot]</div>
-                <div style="background:#eee; height:200px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">[Gaz8 Plot]</div>
-            </div>
-        </section>
-
-        <section class="card">
-            <h2>Expression Heatmap</h2>
-            <div style="background:#eee; height:300px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">
-                [Placeholder: Heatmap]
-            </div>
+            <h2>Ecotype-Specific Response Magnitudes</h2>
+            <p>Empirical RNA-Seq profiling from the ISS Veggie facility (Su et al. 2023, <em>Life</em> 13:633) revealed pronounced accession-specific response diversity:</p>
+            <ul style="line-height:1.8; margin-top:8px;">
+                <li><strong>Bd21 (Reference Line):</strong> 1,027 differentially expressed genes in shoots and 325 in roots.</li>
+                <li><strong>Bd21-3 (Transformable Standard):</strong> Muted response with fewer DEGs, reflecting genetic divergence from standard Bd21.</li>
+                <li><strong>Gaz8 (Turkish Accession):</strong> Most divergent transcriptome trajectory, with pronounced activation of calcium signaling kinases (<em>CPK28</em>, <em>CAS</em>) and cell wall remodeling machinery.</li>
+            </ul>
         </section>
         
         <section class="card">

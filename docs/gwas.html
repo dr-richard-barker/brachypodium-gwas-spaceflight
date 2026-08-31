@@ -25,37 +25,37 @@
         <h1>GWAS Results</h1>
         
         <section class="card">
-            <h2>Gravitropic Reorientation Curves</h2>
-            <div style="background:#eee; height:300px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">
-                [Placeholder: Reorientation Curves Image]
-            </div>
+            <h2>Gravitropic Reorientation Kinetics & Natural Variation</h2>
+            <img src="assets/fig1_gravitropic_kinetics.png" alt="Gravitropic Reorientation Kinetics" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 1.</strong> (A) Root tip gravitropic reorientation kinetics across 15 accessions of <em>Brachypodium distachyon</em> following 90° gravistimulation. (B) Natural variation in 30-min curvature across accessions (ANOVA <em>p</em> = 1.35 × 10<sup>-9</sup>), highlighting the three NASA OSDR OSD-375 spaceflight accessions: Bd21 (reference, 34.1°), Bd21-3 (transformable, 32.0°), and Gaz8 (Turkish, 27.5°).</p>
         </section>
 
         <section class="card">
-            <h2>Manhattan Plot</h2>
-            <div style="background:#eee; height:400px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">
-                [Placeholder: Manhattan Plot Image]
-            </div>
+            <h2>Candidate Gravitropism Pathways</h2>
+            <img src="assets/fig3_candidate_pathways.png" alt="Candidate Gravitropism Pathways" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 2.</strong> Curated architecture of 29 core gravitropism and gravity-sensing genes across auxin efflux (<em>PIN</em>), influx (<em>AUX/LAX</em>), gravity signal transduction (<em>LAZY1/DRO1</em>), statolith amyloplast biogenesis, calcium signaling, and grass-specific cell wall remodeling.</p>
         </section>
 
         <section class="card">
-            <h2>Candidate Genes</h2>
+            <h2>Core Candidate Genes</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Gene ID</th>
                         <th>Symbol</th>
                         <th>Pathway</th>
-                        <th>Evidence</th>
+                        <th>Evidence / Role</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Bradi1g12345</td>
-                        <td>PIN3</td>
-                        <td>Auxin Transport</td>
-                        <td>GWAS peak</td>
-                    </tr>
+                    <tr><td><code>BRADI_1g28880v3</code></td><td><strong>BdPIN1a</strong></td><td>Auxin Efflux Carrier</td><td>Direct ortholog of AtPIN1; directional auxin transport in root meristem</td></tr>
+                    <tr><td><code>BRADI_3g44770v3</code></td><td><strong>BdPIN2</strong></td><td>Auxin Efflux Carrier</td><td>Ortholog of AtPIN2; asymmetric auxin redistribution in root cortex</td></tr>
+                    <tr><td><code>BRADI_4g35920v3</code></td><td><strong>BdPIN3</strong></td><td>Auxin Efflux Carrier</td><td>Ortholog of AtPIN3; lateral relocalization upon gravistimulation</td></tr>
+                    <tr><td><code>BRADI_3g35890v3</code></td><td><strong>BdAUX1</strong></td><td>Auxin Influx Carrier</td><td>Essential for root gravitropic curvature and cellular auxin uptake</td></tr>
+                    <tr><td><code>BRADI_5g19830v3</code></td><td><strong>BdLAZY1</strong></td><td>Gravity Perception</td><td>Controls tiller angle and root gravitropic setpoint angle (GSA)</td></tr>
+                    <tr><td><code>BRADI_3g14220v3</code></td><td><strong>BdDRO1</strong></td><td>Root GSA Regulation</td><td>Ortholog of DEEPER ROOTING 1; regulates gravitropic angle</td></tr>
+                    <tr><td><code>BRADI_1g71830v3</code></td><td><strong>BdCPK28</strong></td><td>Calcium Signaling</td><td>Spaceflight-responsive calcium-dependent protein kinase in roots</td></tr>
+                    <tr><td><code>BRADI_1g11420v3</code></td><td><strong>BdEXPA1</strong></td><td>Cell Wall Loosening</td><td>Alpha-expansin driving asymmetric elongation on convex flank</td></tr>
                 </tbody>
             </table>
         </section>

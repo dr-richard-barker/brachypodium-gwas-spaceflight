@@ -49,7 +49,11 @@ def fetch_file_manifest() -> List[Dict[str, Any]]:
     data = response.json()
     
     # OSDR API response parsing
-    files = data.get("study", {}).get("375", {}).get("files", [])
+    files = data.get("studies", {}).get("OSD-375", {}).get("study_files", [])
+    if not files:
+        files = data.get("study_files", [])
+    if not files:
+        files = data.get("study", {}).get("375", {}).get("files", [])
     
     if not files:
         logger.warning("No files found in the API response under expected keys. Parsing tree...")
@@ -58,9 +62,8 @@ def fetch_file_manifest() -> List[Dict[str, Any]]:
             if isinstance(node, dict):
                 if "file_name" in node and "remote_url" in node:
                     extracted.append(node)
-                if "children" in node:
-                    for child in node["children"]:
-                        extracted.extend(extract_files(child))
+                for v in node.values():
+                    extracted.extend(extract_files(v))
             elif isinstance(node, list):
                 for item in node:
                     extracted.extend(extract_files(item))

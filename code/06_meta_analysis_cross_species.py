@@ -11,6 +11,8 @@ Author: Richard Barker (ORCID: 0000-0002-4525-3341)
 Affiliation: Phylo
 """
 
+from __future__ import annotations
+
 import argparse
 import logging
 import time
@@ -45,10 +47,10 @@ def parse_args() -> argparse.Namespace:
                         default=Path("../arabidopsis-gwas-spaceflight/tables/meta_analysis_consensus_genes.csv"),
                         help="Path to Arabidopsis consensus DEGs CSV.")
     parser.add_argument("--brachypodium-deg-dir", type=Path,
-                        default=Path("../data/osdr"),
+                        default=Path("data/osdr"),
                         help="Directory containing Brachypodium OSD-375 DEG tables.")
     parser.add_argument("--out-dir", type=Path,
-                        default=Path("../tables"),
+                        default=Path("tables"),
                         help="Output directory for results.")
     return parser.parse_args()
 

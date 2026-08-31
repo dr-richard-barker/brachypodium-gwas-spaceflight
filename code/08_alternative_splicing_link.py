@@ -11,6 +11,8 @@ Author: Richard Barker (ORCID: 0000-0002-4525-3341)
 Affiliation: Phylo
 """
 
+from __future__ import annotations
+
 import argparse
 import logging
 from pathlib import Path
@@ -26,18 +28,25 @@ logger = logging.getLogger(__name__)
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Link alternative splicing to gravitropism genes.")
     parser.add_argument("--splicing-dir", type=Path,
-                        default=Path("../../OSDR_Plant_Alternative_Splicing"),
+                        default=Path("../OSDR_Plant_Alternative_Splicing"),
                         help="Path to the Plant Alternative Splicing project directory.")
     parser.add_argument("--candidates", type=Path,
-                        default=Path("../data/genotypes/gravitropism_candidate_genes.csv"),
+                        default=Path("data/genotypes/gravitropism_candidate_genes.csv"),
                         help="Path to gravitropism candidate genes CSV.")
     parser.add_argument("--out-dir", type=Path,
-                        default=Path("../tables"),
+                        default=Path("tables"),
                         help="Output directory for results.")
     return parser.parse_args()
 
 def main():
     args = parse_args()
+    
+    # Fallback paths
+    if not args.candidates.exists() and Path("../data/genotypes/gravitropism_candidate_genes.csv").exists():
+        args.candidates = Path("../data/genotypes/gravitropism_candidate_genes.csv")
+    if not args.splicing_dir.exists() and Path("../../OSDR_Plant_Alternative_Splicing").exists():
+        args.splicing_dir = Path("../../OSDR_Plant_Alternative_Splicing")
+        
     args.out_dir.mkdir(parents=True, exist_ok=True)
     
     logger.info("Starting alternative splicing integration.")
@@ -47,7 +56,9 @@ def main():
     if args.candidates.exists():
         logger.info(f"Loading candidates from {args.candidates}")
         df_candidates = pd.read_csv(args.candidates)
-        if "gene_id" in df_candidates.columns:
+        if "brachypodium_gene_id" in df_candidates.columns:
+            candidate_genes = set(df_candidates["brachypodium_gene_id"])
+        elif "gene_id" in df_candidates.columns:
             candidate_genes = set(df_candidates["gene_id"])
     else:
         logger.warning(f"Candidate file not found: {args.candidates}. Using mock candidates.")

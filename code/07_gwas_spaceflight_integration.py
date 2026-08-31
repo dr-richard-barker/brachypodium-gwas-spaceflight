@@ -10,6 +10,8 @@ Author: Richard Barker (ORCID: 0000-0002-4525-3341)
 Affiliation: Phylo
 """
 
+from __future__ import annotations
+
 import argparse
 import logging
 from pathlib import Path
@@ -31,18 +33,25 @@ UNIVERSE_SIZE = 30000  # Approx genes in Brachypodium genome
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Integrate GWAS gravitropism candidates with spaceflight DEGs.")
     parser.add_argument("--candidates", type=Path,
-                        default=Path("../data/genotypes/gravitropism_candidate_genes.csv"),
+                        default=Path("data/genotypes/gravitropism_candidate_genes.csv"),
                         help="Path to gravitropism candidate genes CSV.")
     parser.add_argument("--deg-dir", type=Path,
-                        default=Path("../tables"),
+                        default=Path("tables"),
                         help="Directory containing OSD-375 DEG tables.")
     parser.add_argument("--out-dir", type=Path,
-                        default=Path("../tables"),
+                        default=Path("tables"),
                         help="Output directory for results.")
     return parser.parse_args()
 
 def main():
     args = parse_args()
+    
+    # Fallback path checking
+    if not args.candidates.exists() and Path("../data/genotypes/gravitropism_candidate_genes.csv").exists():
+        args.candidates = Path("../data/genotypes/gravitropism_candidate_genes.csv")
+    if not args.out_dir.exists() and Path("../tables").exists() and str(args.out_dir) == "tables":
+        args.out_dir = Path("tables")
+    
     args.out_dir.mkdir(parents=True, exist_ok=True)
     
     logger.info("Starting GWAS-spaceflight integration.")
@@ -52,7 +61,9 @@ def main():
     if args.candidates.exists():
         logger.info(f"Loading candidates from {args.candidates}")
         df_candidates = pd.read_csv(args.candidates)
-        if "gene_id" in df_candidates.columns:
+        if "brachypodium_gene_id" in df_candidates.columns:
+            candidate_genes = set(df_candidates["brachypodium_gene_id"])
+        elif "gene_id" in df_candidates.columns:
             candidate_genes = set(df_candidates["gene_id"])
     else:
         logger.warning(f"Candidate file not found: {args.candidates}. Using mock data.")

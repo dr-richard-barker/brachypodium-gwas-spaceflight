@@ -1,0 +1,119 @@
+ONTOLOGY SOURCE REFERENCE
+Term Source Name	PAE	EFO	CREDIT	NCBITAXON	OBI	CCONT	MESH	UO	NCIT	SO	GLDS
+Term Source File	https://data.bioontology.org/ontologies/PAE	https://data.bioontology.org/ontologies/EFO			https://data.bioontology.org/ontologies/OBI	https://data.bioontology.org/ontologies/CCONT			https://data.bioontology.org/ontologies/NCIT	https://data.bioontology.org/ontologies/SO	https://genelab-data.ndc.nasa.gov/
+Term Source Version	13	213		17	44	3		214	101	281	1
+Term Source Description	Plant Anatomy	Experimental Factor Ontology		National Center for Biotechnology Information (NCBI) Organismal Classification	Ontology for Biomedical Investigations	Cell Culture Ontology		Units of Measurement Ontology	National Cancer Institute Thesaurus	Sequence Types and Features Ontology	User defined terms
+INVESTIGATION
+Investigation Identifier	1.62E+12
+Investigation Title	Investigation
+Investigation Description	
+Investigation Submission Date	
+Investigation Public Release Date	
+Comment[Created With Configuration]	
+Comment[Last Opened With Configuration]	
+INVESTIGATION PUBLICATIONS
+Investigation PubMed ID
+Investigation Publication DOI
+Investigation Publication Author List
+Investigation Publication Title
+Investigation Publication Status
+Investigation Publication Status Term Accession Number
+Investigation Publication Status Term Source REF
+INVESTIGATION CONTACTS
+Investigation Person Last Name
+Investigation Person First Name
+Investigation Person Mid Initials
+Investigation Person Email
+Investigation Person Phone
+Investigation Person Fax
+Investigation Person Address
+Investigation Person Affiliation
+Investigation Person Roles
+Investigation Person Roles Term Accession Number
+Investigation Person Roles Term Source REF
+STUDY
+Study Identifier	OSD-375
+Study Title	Transcriptional profiling of roots and shoots from Brachypodium distachyon seedlings flown on the ISS
+Study Description	Most major cereal grain crops are monocots. Yet, most investigations of plant adaptation to the spaceflight environment have been carried out on the dicotyledonous model plant, Arabidopsis thaliana. It remains unknown whether the conclusions from such studies can be extrapolated to monocotyledonous plants. To fill this knowledge gap, seedlings of three different accessions of Brachypodium distachyon (Bd21, Bd21-3, and Gaz8), a model for temperate grasses including cereal crops, were grown on the International Space Station in the Veggie hardware and on the ground in matched conditions. To synchronize germination, seedlings were grown for 24 hours in red light. Then, seedlings were grown with green/blue/red light using a 24 hour photo period for 4 additional days. At this point, seedlings were harvested and placed in room temperature RNAlater for 24 hours before being moved to -80 C for storage and later dissection into roots and shoots. This dataset features ribodepleted RNA-seq data from the Bd21, Bd21-3 and Gaz8 accessions.
+Study Submission Date	15-Apr-2021
+Study Public Release Date	20-May-2021
+Study File Name	s_GLDS-375.txt
+Comment[Acknowledgments]	
+Comment[Data Source Accession]	
+Comment[Data Source Link]	
+Comment[Experiment Platform]	Vegetable Production System (VEGGIE), APEX Growth Unit
+Comment[Flight Program]	International Space Station (ISS)
+Comment[Funding]	This sequencing analysis was funded by the NASA Space Biology program within the NASA Science Mission Directorate's (SMD) Biological and Physical Sciences (BPS) Division. Patrick Masson is supported by NASA Space Biology grant NNX14AT23G.
+Comment[Managing NASA Center]	Kennedy Space Center (KSC)
+Comment[Mission End]	05-May-2018
+Comment[Mission Link]	https://lsda.jsc.nasa.gov/Mission/miss/1398
+Comment[Mission Name]	SpaceX-14
+Comment[Mission Start]	02-Apr-2018
+Comment[Project Identifier]	NNX14AT23G
+Comment[Project Link]	https://lsda.jsc.nasa.gov/Experiment/exper/13888
+Comment[Project Title]	Using Brachypodium distachyon to Investigate Monocot Plant Adaptation to Spaceflight
+Comment[Project Type]	Spaceflight Study
+Comment[Space Program]	NASA
+Comment[Study Grant Number]	
+STUDY DESIGN DESCRIPTORS
+Study Design Type	organism part comparison design	case control design
+Study Design Type Term Accession Number	http://www.ebi.ac.uk/efo/EFO_0001750	http://www.ebi.ac.uk/efo/EFO_0001427
+Study Design Type Term Source REF	EFO	EFO
+STUDY PUBLICATIONS
+Study PubMed ID
+Study Publication DOI
+Study Publication Author List
+Study Publication Title
+Study Publication Status
+Study Publication Status Term Accession Number
+Study Publication Status Term Source REF
+STUDY FACTORS
+Study Factor Name	Spaceflight	Accession	Organism Part
+Study Factor Type	Space Flight	Accession	organism part
+Study Factor Type Term Accession Number	http://purl.bioontology.org/ontology/MESH/D013026	https://genelab-data.ndc.nasa.gov/	http://www.ebi.ac.uk/efo/EFO_0000635
+Study Factor Type Term Source REF	MESH	GLDS	CCONT
+STUDY ASSAYS
+Study Assay File Name	a_GLDS-375_transcription-profiling_rna-sequencing-(rna-seq)_illumina.txt
+Study Assay Measurement Type	transcription profiling
+Study Assay Measurement Type Term Accession Number	obo:OBI_0000424
+Study Assay Measurement Type Term Source REF	OBI
+Study Assay Technology Type	RNA Sequencing (RNA-Seq)
+Study Assay Technology Type Term Accession Number	obo:OBI_0001271
+Study Assay Technology Type Term Source REF	OBI
+Study Assay Technology Platform	Illumina
+STUDY PROTOCOLS
+Study Protocol Name	treatment protocol	sample collection	Nucleic Acid Extraction	spike-in protocol	Library Construction	Nucleic Acid Sequencing	parental treatment protocol	radiation dosimetry	GeneLab raw data processing protocol
+Study Protocol Type	treatment protocol	sample collection	Nucleic Acid Extraction	spike-in protocol	Library Construction	Nucleic Acid Sequencing	parental treatment protocol	chronic	data transformation
+Study Protocol Type Term Accession Number							https://osdr.nasa.gov/	http://purl.obolibrary.org/obo/PATO_0001863	http://purl.obolibrary.org/obo/OBI_0200000
+Study Protocol Type Term Source REF									OBI
+Study Protocol Description	"At the time of the experiment, seeds were dehusked, surface-sterilized with five successive 1-min washes with 95% (w/v) ethanol, and then air-dried in a sterile hood for at least 20 mins. 24 seeds per APEX Growth Chamber were inserted into the foam (6 per side), oriented with the embryo directed outward on the surface. Each accession was represented by a total of four APEX growth units (total of 96 seeds per accession). The seeded APEX Growth Units were packed in Cold Bags [5] held at 4°C and transferred to the Dragon capsule on SpaceX-14 where they were stored for 3 days before launch. SpaceX-14 launched on April 2nd 2018, and docked with the ISS ~2 days later. Twelve APEX growth units (4 per accession) were unpacked by astronaut Scott Tingle on April 12 2018, and the experiment was activated by injection of 90ml half-strength Murashige and Skoog (MS: Sigma M5624 and MES: M2933) liquid medium into each APEX Growth Chamber through the injection port (Fig. 1). The APEX Growth Chambers were then integrated into the onboard VEGGIE growth unit fitted with Magenta-box holders following the pattern illustrated in Supplemental Figure S1 [6]. The red-LED lights were switched on to promote synchronized germination (low setting). After 24 h, the green and blue LED lights were also switched on (low setting) and the seedlings were allowed to grow for a period of 4 days under continuous light (blue, green and red LEDs at an intensity of approximately 40-55 µmol/m2/s). HOBO environmental sensors were placed into VEGGIE near the APEX Growth Chambers to capture the environmental conditions (temperature, humidity) during the entire growth period.
+
+ Old protocol: Half-strength of Murashige and Skoog (MS) liquid medium were injected into the growth chamber at the time experiment initiated. Seedlings are then growing in Vegetable Production System (VEGGIE) hardware on ISS or ground control with 24 hours red light for synchronizing the germination. Then, seedlings were grown under green/blue/red light intensity around 40 to 55 umol/m2/s and 24 hours photo period for 4 additional days."	At the end of this growth period, seedlings were photographed with a Nikon D5 camera and then harvested into Kennedy Fixation Tubes (KFTs) preloaded with RNAlater (one KFT per APEX Growth Chamber). Tissue fixation was initiated by forcing RNAlater from the storage chamber of the KFTs into the fixation chamber containing harvested plant tissue. Fixation occurred at room temperature for a period of 24 h. The tubes were then stored in the Minus-Eighty Laboratory Freezer on the ISS (MELFI) for 20 days before being loaded onto the Dragon capsule and returned to Earth on May 5th 2018. The fixed samples were de-integrated from the KFTs and transferred into 50ml Falcon Tubes at KSC, then delivered frozen at -80°C to the Principle Investigator's laboratory at the University of Wisconsin-Madison for molecular analysis.	"Bd21-3 and Gaz8: Plant tissues were homogenized while frozen. 1mL of TRIzol (Zymo Research, cat R2061) was added per each 50-100mG of tissue and the sample was vortexed. Homogenized sample was incubated at room temperature for 15mins. 200uL of chloroform was added to the homogenate and the sample was vortexed and incubated at room temperature for 3min. The samples were spun down for 15min at 8000 RPM and 4C for phase separation. The upper colorless aqueous phase was transferred into a new tube. 1 volume of 100% ethanol (Sigma, cat E7023) was added directly to one volume of sample and mixed well by inverting the tube. Whole volume was transferred immediately in to Direct-zol column (Zymo Research, cat R2061) and spun for 1 minute at top speed. On column RNase-free DNase I (Qiagen, cat 79254 ) treatment took place as following: 400uL of RNA Wash Buffer was added to the column and the column was centrifuged, flow through discarded. 80uL of DNase in RDD Buffer (10uL of DNase+70uL of Buffer RDD) was added in to the center of the column. The column with the DNase was incubated at room temperature for 15min. To wash away the DNase, 400uL Direct-zol RNA pre-wash solution was added to the column and the column was spun for 1min at top speed. The flow through was discarded and additional 700uL wash was preformed followed by 1min spin down at top speed. The flow trough was discarded. To elute the RNA, 50uL of DNase/RNase free water was added on to the column and the tubes were spun down for 1 min attop speed. The flow through containing the RNA was collected and transferred to a fresh tube. RNA concentration and quality was checked using Nanodrop 2000.
+
+Bd21: Total RNA was extracted from the root or shoot tissues using Direct-zol RNA Miniprep Plus extraction kits (Zymo Research, Irvine, CA, USA). DNAse-I treatment was performed in column using RNase-Free DNase-I Set (Qiagen, Valencia, CA, USA). RNA quality was monitored using Agilent 2100 Bioanalyzer and Eukaryotic total RNA NanoChip technologies (Agilent Technologies, Santa Clara, California, USA).”"	ERCC ExFold RNA Spike-In Mixes (Thermo Fisher Scientific, Waltham, MA, Cat #4456739, v92) at 1:100 dilution of either Mix 1 or Mix 2 were added on the day of library prep at the concentrations suggested by the manufacturer protocol.	"Bd21-3 and Gaz8: RNA ribo depletion done with Illumina Ribo-Zero gold reagent (Illumina, San Diego, CA). Input RNA were approximately 500 ng with RIN greater than 4.  Index adapters were 1.5 uM (IDT, 384-well xGen Dual Index UMI Adapters).  15 cycles PCR were performed.  Library fragment size ~300 bp was assessed using Agilent 4200 TapeStation with D1000 DNA ScreenTape (Agilent Technologies, Santa Clara, CA).  Pooled library concentration was measured by Qubit 3.0 Fluorometer (Thermo Fisher Scientific, Waltham, MA) with Qubit DNA HS kit. Library quality was determined by iSeq100 (Illumina, San Diego, CA), libraries were screened for rRNA and the pool was balanced.
+
+Bd21: Approximately 1µg total RNA from each sample was used to generate cDNA libraries with rRNA reduction using TruSeq Stranded Total RNAlibrary Prep Plant Kits (lllumina, San Diego, CA)."	"Bd21-3 and Gaz8: RNA sequencing was performed by GeneLab Sample Processing Lab on Illumina NovaSeq 6000. Paired end 100bp. PhiX included as control at 1%.
+
+Bd21: Paired-end sequencing (2x150bp) was performed at the University of Wisconsin-Madison Biotech Center DNA sequencing Facility using NovaSeq 6000 (Illumina, USA). Libraries were multiplexed with a target of ~60 Million reads per sample for Bd21."	Seeds of three Brachypodium distachyon accessions (Bd21, Bd21-3, and Gaz8) were obtained from Drs. Daniel Wood and Richard Amasino (University of Wisconsin-Madison). They were germinated and grown in soil (Berger Soil, BM2: Perlite: Vermiculite 2:1:1) side-by-side in the same growth chamber exposed to a constant temperature of 22°C, 65% relative humidity, 20 hours day / 4 hours night cycles and 100-120 micromole per square meter per second cool-white fluorescent light during the days. The plants were fertilized every other week with Blossom Booster Fertilizer (10-30-20). They were allowed to self-fertilize and generate seeds under these conditions. After harvesting, seeds were allowed to rest at room temperature for a minimum of three weeks to lift dormancy.	The absorbed dose of ionizing radiation received by biological payloads on the International Space Station (ISS) depends on a number of factors, including date and duration of exposure and location of the payload on the ISS. Some of the factors that lead to variations in the absorbed dose rate in orbit are ISS altitude, period during the solar cycle, and location of the sample—the ISS module and the specific location within that module. Shielding effects from the biological payload container or habitat have not been taken into account. The measured absorbed dose can vary based on the dosimetry instrument(s) used. Radiation monitoring on the ISS is not standardized across modules; each international partner has its own suite of instruments, with differing technologies, sensitivities and analysis methodologies, including criteria for distinguishing between lightly ionizing particles (mainly protons) and highly ionizing particles (mainly galactic cosmic ray nuclei). Both active and passive dosimeters are used. Active dosimeters are powered and data are read out and stored and/or telemetered to ground. Some active dosimeters provide additional levels of detail such as time resolution, energy deposition and particle identification. Passive dosimeters are unpowered, record constantly and are read out upon return to the ground. The dose in the metadata is the dose recorded by the radiation detector closest to the sample. In most cases that detector will be in the same ISS module; in cases where data from a detector in the same module are not available, the dose is extrapolated using data from periods where data are available from detectors in multiple modules, including the module containing the payload. The duration of the experiment is defined as the time in space during which the specimen was “living”, including the time on the delivery vehicle (e.g. SpaceX Dragon). Once the specimen was frozen or fixed, the experiment was considered stopped. Details of ISS dosimetry and a table with doses for all GeneLab ISS experiment ISS datasets are available at https://genelab.nasa.gov/environmental/radiation.	Quality assessment of reads was performed with FastQC v0.11.9 and reports were combined with MultiQC v1.12. rRNA percentages of reads were estimated with the 'hts_SeqScreener' program of htstream v1.3.3 screened against a fasta file of B-distachyon rRNA sequences retrieved from NCBI on 01-Sep-2021.
+Study Protocol URI									
+Study Protocol Version									
+Study Protocol Parameters Name	Growth Time;Growth Temperature;Hardware;Growth Medium;Light Intensity;light cycle;light regimen;duration;Light Color;growth environment	Sample Storage Temperature;Sample Preservation Method	QA Instrument;QA Score - 260/280;QA Score - 260/230	Spike-in Quality Control;Spike-in Mix Number	Library Selection;Library Layout;Stranded;Library QA Instrument;Library QA Assay;Fragment Size	Sequencing Instrument;Read Length;Base Caller	Parental Treatment Light Cycle;Parental Treatment Growth Medium;Parental Treatment Light Intensity;Parental Treatment Growth Temperature	vehicle;exposure duration;absorbed radiation dose;absorbed radiation dose rate;ionizing radiation categorized by source	Read Depth;rRNA Contamination;MultiQC File Names
+Study Protocol Parameters Name Term Accession Number	;;;http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl;https://osdr.nasa.gov/;http://purl.obolibrary.org/obo/NCIT_C90419;http://purl.obolibrary.org/obo/EO_0007196;http://www.ebi.ac.uk/efo/EFO_0000433;https://osdr.nasa.gov/;http://purl.obolibrary.org/obo/OBI_0000997	;	;;	;	;;;;;	;http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl;	https://osdr.nasa.gov/;https://osdr.nasa.gov/;https://osdr.nasa.gov/;https://osdr.nasa.gov/	http://purl.obolibrary.org/obo/ENVO_01000604;http://purl.obolibrary.org/obo/NCIT_C83280;http://purl.obolibrary.org/obo/RBO_00005010;http://purl.obolibrary.org/obo/RBO_00005011;http://purl.obolibrary.org/obo/RBO_00000001	http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl;https://osdr.nasa.gov/;https://osdr.nasa.gov/
+Study Protocol Parameters Name Term Source REF	;;;NCIT;;NCIT;EFO;EFO;;OBI	;	;;	;	;;;;;	;NCIT;	;;;	;NCIT;;;	NCIT;;
+Study Protocol Components Name									
+Study Protocol Components Type									
+Study Protocol Components Type Term Accession Number									
+Study Protocol Components Type Term Source REF									
+STUDY CONTACTS
+Study Person Last Name	Masson	Su	Galazka	Lai Polo	Saravia-Butler	Boyko	Dinh	Costes	Gebre	Levine
+Study Person First Name	Patrick	Shih-heng	Jonathan	San-Huei	Amanda	Valery	Marie	Sylvain	Samrawit	Howard
+Study Person Mid Initials			M		M		T	V	G	G
+Study Person Email	phmasson@wisc.edu	ssu1@wisc.edu	jonathan.m.galazka@nasa.gov							
+Study Person Phone										
+Study Person Fax										
+Study Person Address										
+Study Person Affiliation	University of Wisconsin, Madison, Wisconsin	University of Wisconsin, Madison, Wisconsin	NASA GeneLab	NASA GeneLab	NASA GeneLab	NASA GeneLab	NASA GeneLab	NASA GeneLab	NASA GeneLab	NASA John F. Kennedy Space Center, Kennedy Space Center
+Study Person Roles	conceptualization role	conceptualization role	conceptualization role	data curation role	formal analysis role	investigation role	investigation role	project administration role	project administration role	Author
+Study Person Roles Term Accession Number	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://purl.org/credit/ontology	http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl
+Study Person Roles Term Source REF	CREDIT	CREDIT	CREDIT	CREDIT	CREDIT	CREDIT	CREDIT	CREDIT	CREDIT	NCIT
+Comment[Study Person REF]										

@@ -1,0 +1,4 @@
+ecotype,origin,phenotype,genomic_features
+Bd21,Iraq,"Reference strain, standard spring habit, early flowering, highly responsive to spaceflight stress.","Reference genome (v3.0), minimal vernalization requirement."
+Bd21-3,Derived from Bd21,"High transformation efficiency, shorter stature, altered gravitropic response kinetics.",Highly similar to Bd21 but contains specific SNP variants affecting growth habit.
+Gaz8,Turkey,"Slower growth rate, larger biomass, differential root system architecture.","Significant genetic divergence from Bd21, represents wider genetic diversity."

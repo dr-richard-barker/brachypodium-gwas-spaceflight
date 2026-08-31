@@ -1,0 +1,271 @@
+accession,replicate,stimulation_min,root_angle_pre,root_angle_post,curvature_angle,root_length_mm,measurement_tool,notes
+Bd21,1,10,-0.3,12.2,12.5,28.2,RootNav2,Demo data - Reference genome
+Bd21,1,20,-0.5,27.9,28.4,23.8,RootNav2,Demo data - Reference genome
+Bd21,1,30,1.5,44.4,42.9,22.7,RootNav2,Demo data - Reference genome
+Bd21,2,10,-0.9,11.6,12.6,22.7,RootNav2,Demo data - Reference genome
+Bd21,2,20,-3.8,20.3,24.1,16.4,RootNav2,Demo data - Reference genome
+Bd21,2,30,-2.0,30.2,32.2,26.6,RootNav2,Demo data - Reference genome
+Bd21,3,10,-2.8,7.3,10.2,32.3,RootNav2,Demo data - Reference genome
+Bd21,3,20,0.1,22.7,22.6,17.9,RootNav2,Demo data - Reference genome
+Bd21,3,30,0.2,32.5,32.3,19.2,RootNav2,Demo data - Reference genome
+Bd21,4,10,-1.2,11.1,12.3,23.5,RootNav2,Demo data - Reference genome
+Bd21,4,20,3.7,25.0,21.3,24.9,RootNav2,Demo data - Reference genome
+Bd21,4,30,1.6,31.4,29.7,18.9,RootNav2,Demo data - Reference genome
+Bd21,5,10,-3.9,8.1,12.0,18.4,RootNav2,Demo data - Reference genome
+Bd21,5,20,1.5,25.5,24.0,25.9,RootNav2,Demo data - Reference genome
+Bd21,5,30,-0.6,33.8,34.4,17.6,RootNav2,Demo data - Reference genome
+Bd21,6,10,-0.9,9.5,10.5,30.3,RootNav2,Demo data - Reference genome
+Bd21,6,20,-3.5,21.0,24.5,26.6,RootNav2,Demo data - Reference genome
+Bd21,6,30,-1.4,31.7,33.1,28.1,RootNav2,Demo data - Reference genome
+Bd21-3,1,10,1.9,14.1,12.2,20.8,RootNav2,Demo data - Transformable standard
+Bd21-3,1,20,0.7,21.1,20.4,29.9,RootNav2,Demo data - Transformable standard
+Bd21-3,1,30,-0.4,29.5,29.8,19.5,RootNav2,Demo data - Transformable standard
+Bd21-3,2,10,1.6,10.5,8.9,31.8,RootNav2,Demo data - Transformable standard
+Bd21-3,2,20,2.0,23.1,21.1,26.8,RootNav2,Demo data - Transformable standard
+Bd21-3,2,30,0.7,29.8,29.1,32.7,RootNav2,Demo data - Transformable standard
+Bd21-3,3,10,3.1,13.7,10.6,11.9,RootNav2,Demo data - Transformable standard
+Bd21-3,3,20,0.2,24.0,23.8,23.5,RootNav2,Demo data - Transformable standard
+Bd21-3,3,30,-4.0,28.4,32.4,23.9,RootNav2,Demo data - Transformable standard
+Bd21-3,4,10,3.0,14.2,11.2,22.4,RootNav2,Demo data - Transformable standard
+Bd21-3,4,20,-1.0,17.9,18.9,29.6,RootNav2,Demo data - Transformable standard
+Bd21-3,4,30,-1.1,32.4,33.5,27.6,RootNav2,Demo data - Transformable standard
+Bd21-3,5,10,1.9,12.7,10.8,21.5,RootNav2,Demo data - Transformable standard
+Bd21-3,5,20,-0.8,19.6,20.4,17.7,RootNav2,Demo data - Transformable standard
+Bd21-3,5,30,0.5,33.9,33.3,25.0,RootNav2,Demo data - Transformable standard
+Bd21-3,6,10,-2.8,7.5,10.3,22.9,RootNav2,Demo data - Transformable standard
+Bd21-3,6,20,-1.6,18.7,20.3,24.2,RootNav2,Demo data - Transformable standard
+Bd21-3,6,30,3.8,37.6,33.8,25.9,RootNav2,Demo data - Transformable standard
+Gaz8,1,10,-0.1,9.7,9.8,15.4,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,1,20,0.1,18.7,18.6,37.3,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,1,30,0.6,27.4,26.8,24.8,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,2,10,2.3,9.3,7.0,28.8,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,2,20,-1.8,20.0,21.8,32.0,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,2,30,1.2,20.8,19.6,36.0,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,3,10,-1.1,6.2,7.4,25.5,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,3,20,-3.1,13.6,16.7,25.3,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,3,30,0.9,22.6,21.6,20.4,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,4,10,-1.6,10.9,12.4,23.4,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,4,20,-2.5,19.5,21.9,26.1,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,4,30,-3.2,32.6,35.8,25.9,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,5,10,1.6,11.4,9.9,18.8,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,5,20,1.0,14.4,13.4,26.5,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,5,30,0.7,30.2,29.5,21.6,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,6,10,0.6,10.4,9.8,21.4,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,6,20,0.9,27.1,26.1,19.0,RootNav2,Demo data - Turkish (Gaziemir)
+Gaz8,6,30,-1.9,30.0,31.9,28.9,RootNav2,Demo data - Turkish (Gaziemir)
+ABR1,1,10,-1.6,13.1,14.8,29.8,RootNav2,Demo data - Spain
+ABR1,1,20,1.6,28.5,26.8,34.5,RootNav2,Demo data - Spain
+ABR1,1,30,-1.5,35.1,36.7,20.6,RootNav2,Demo data - Spain
+ABR1,2,10,-0.2,11.0,11.2,26.7,RootNav2,Demo data - Spain
+ABR1,2,20,1.7,28.0,26.3,25.1,RootNav2,Demo data - Spain
+ABR1,2,30,-0.5,45.5,46.0,38.6,RootNav2,Demo data - Spain
+ABR1,3,10,-1.7,12.1,13.8,19.6,RootNav2,Demo data - Spain
+ABR1,3,20,-0.4,26.7,27.1,28.6,RootNav2,Demo data - Spain
+ABR1,3,30,-0.1,40.5,40.6,20.8,RootNav2,Demo data - Spain
+ABR1,4,10,-0.9,9.0,9.9,29.3,RootNav2,Demo data - Spain
+ABR1,4,20,-2.5,23.6,26.1,25.9,RootNav2,Demo data - Spain
+ABR1,4,30,-1.8,38.4,40.1,25.8,RootNav2,Demo data - Spain
+ABR1,5,10,-2.3,10.5,12.8,26.8,RootNav2,Demo data - Spain
+ABR1,5,20,2.2,29.6,27.4,30.3,RootNav2,Demo data - Spain
+ABR1,5,30,-1.9,28.5,30.4,27.6,RootNav2,Demo data - Spain
+ABR1,6,10,1.0,14.6,13.6,44.3,RootNav2,Demo data - Spain
+ABR1,6,20,2.3,29.7,27.4,29.8,RootNav2,Demo data - Spain
+ABR1,6,30,-0.6,41.0,41.6,28.8,RootNav2,Demo data - Spain
+ABR2,1,10,-0.5,8.5,9.0,22.6,RootNav2,Demo data - Spain
+ABR2,1,20,4.6,24.8,20.2,15.7,RootNav2,Demo data - Spain
+ABR2,1,30,-3.2,29.5,32.7,22.6,RootNav2,Demo data - Spain
+ABR2,2,10,0.1,11.6,11.5,19.6,RootNav2,Demo data - Spain
+ABR2,2,20,1.4,19.5,18.1,21.3,RootNav2,Demo data - Spain
+ABR2,2,30,0.1,31.0,30.9,21.7,RootNav2,Demo data - Spain
+ABR2,3,10,1.3,14.1,12.9,14.9,RootNav2,Demo data - Spain
+ABR2,3,20,-1.3,19.2,20.5,29.3,RootNav2,Demo data - Spain
+ABR2,3,30,-0.2,26.6,26.8,27.5,RootNav2,Demo data - Spain
+ABR2,4,10,-2.4,8.8,11.2,23.3,RootNav2,Demo data - Spain
+ABR2,4,20,-1.3,17.4,18.7,33.8,RootNav2,Demo data - Spain
+ABR2,4,30,-2.5,29.1,31.6,29.6,RootNav2,Demo data - Spain
+ABR2,5,10,2.1,14.9,12.8,17.4,RootNav2,Demo data - Spain
+ABR2,5,20,2.5,21.2,18.7,21.5,RootNav2,Demo data - Spain
+ABR2,5,30,1.5,33.3,31.8,20.4,RootNav2,Demo data - Spain
+ABR2,6,10,-6.5,3.4,9.9,19.9,RootNav2,Demo data - Spain
+ABR2,6,20,-2.5,16.8,19.3,33.2,RootNav2,Demo data - Spain
+ABR2,6,30,-0.9,23.4,24.3,25.7,RootNav2,Demo data - Spain
+ABR6,1,10,-2.9,8.8,11.7,30.8,RootNav2,Demo data - Spain
+ABR6,1,20,-2.0,14.8,16.7,27.3,RootNav2,Demo data - Spain
+ABR6,1,30,-1.2,25.2,26.4,25.3,RootNav2,Demo data - Spain
+ABR6,2,10,0.2,7.7,7.4,28.3,RootNav2,Demo data - Spain
+ABR6,2,20,-2.5,21.6,24.1,35.7,RootNav2,Demo data - Spain
+ABR6,2,30,-0.3,11.0,11.3,27.9,RootNav2,Demo data - Spain
+ABR6,3,10,-1.2,7.7,9.0,24.0,RootNav2,Demo data - Spain
+ABR6,3,20,-1.2,13.2,14.4,29.2,RootNav2,Demo data - Spain
+ABR6,3,30,-1.4,26.1,27.5,29.5,RootNav2,Demo data - Spain
+ABR6,4,10,1.6,10.7,9.1,28.1,RootNav2,Demo data - Spain
+ABR6,4,20,-1.1,11.7,12.8,28.7,RootNav2,Demo data - Spain
+ABR6,4,30,-0.0,29.2,29.3,25.6,RootNav2,Demo data - Spain
+ABR6,5,10,-1.2,10.1,11.3,27.7,RootNav2,Demo data - Spain
+ABR6,5,20,-0.4,15.3,15.7,30.5,RootNav2,Demo data - Spain
+ABR6,5,30,1.6,32.4,30.8,31.5,RootNav2,Demo data - Spain
+ABR6,6,10,1.4,9.7,8.4,23.4,RootNav2,Demo data - Spain
+ABR6,6,20,-0.3,17.9,18.2,25.5,RootNav2,Demo data - Spain
+ABR6,6,30,-1.6,27.5,29.2,35.5,RootNav2,Demo data - Spain
+Bd1-1,1,10,-2.4,6.9,9.3,30.8,RootNav2,Demo data - Iraq
+Bd1-1,1,20,1.2,25.9,24.6,28.1,RootNav2,Demo data - Iraq
+Bd1-1,1,30,-1.8,31.1,32.9,25.4,RootNav2,Demo data - Iraq
+Bd1-1,2,10,2.0,11.8,9.9,24.3,RootNav2,Demo data - Iraq
+Bd1-1,2,20,-0.6,18.6,19.2,27.1,RootNav2,Demo data - Iraq
+Bd1-1,2,30,-1.6,28.5,30.2,26.2,RootNav2,Demo data - Iraq
+Bd1-1,3,10,-1.0,10.4,11.4,22.6,RootNav2,Demo data - Iraq
+Bd1-1,3,20,-2.9,19.9,22.8,18.0,RootNav2,Demo data - Iraq
+Bd1-1,3,30,-0.4,29.0,29.4,26.6,RootNav2,Demo data - Iraq
+Bd1-1,4,10,1.7,15.2,13.5,24.2,RootNav2,Demo data - Iraq
+Bd1-1,4,20,-2.0,19.9,21.9,24.9,RootNav2,Demo data - Iraq
+Bd1-1,4,30,0.6,32.2,31.6,20.9,RootNav2,Demo data - Iraq
+Bd1-1,5,10,3.1,14.9,11.9,24.5,RootNav2,Demo data - Iraq
+Bd1-1,5,20,1.4,24.7,23.3,23.0,RootNav2,Demo data - Iraq
+Bd1-1,5,30,0.0,34.1,34.1,25.5,RootNav2,Demo data - Iraq
+Bd1-1,6,10,0.0,9.8,9.7,27.5,RootNav2,Demo data - Iraq
+Bd1-1,6,20,1.9,28.8,26.8,35.8,RootNav2,Demo data - Iraq
+Bd1-1,6,30,1.7,30.9,29.2,25.9,RootNav2,Demo data - Iraq
+Bd2-3,1,10,-1.6,13.3,14.9,20.8,RootNav2,Demo data - Iraq
+Bd2-3,1,20,-4.2,18.2,22.4,22.4,RootNav2,Demo data - Iraq
+Bd2-3,1,30,0.3,33.3,33.0,26.7,RootNav2,Demo data - Iraq
+Bd2-3,2,10,1.9,16.4,14.5,22.1,RootNav2,Demo data - Iraq
+Bd2-3,2,20,1.0,22.6,21.6,18.4,RootNav2,Demo data - Iraq
+Bd2-3,2,30,2.4,45.7,43.3,22.7,RootNav2,Demo data - Iraq
+Bd2-3,3,10,2.7,12.4,9.7,24.4,RootNav2,Demo data - Iraq
+Bd2-3,3,20,-3.2,24.1,27.3,22.0,RootNav2,Demo data - Iraq
+Bd2-3,3,30,0.1,36.1,36.0,22.7,RootNav2,Demo data - Iraq
+Bd2-3,4,10,-2.1,10.7,12.8,24.3,RootNav2,Demo data - Iraq
+Bd2-3,4,20,1.0,25.3,24.3,28.6,RootNav2,Demo data - Iraq
+Bd2-3,4,30,-3.1,28.4,31.5,31.4,RootNav2,Demo data - Iraq
+Bd2-3,5,10,-1.5,10.9,12.4,32.8,RootNav2,Demo data - Iraq
+Bd2-3,5,20,2.4,26.7,24.3,25.3,RootNav2,Demo data - Iraq
+Bd2-3,5,30,3.5,47.8,44.2,23.8,RootNav2,Demo data - Iraq
+Bd2-3,6,10,1.3,14.6,13.3,31.8,RootNav2,Demo data - Iraq
+Bd2-3,6,20,1.4,22.8,21.4,30.3,RootNav2,Demo data - Iraq
+Bd2-3,6,30,-2.4,26.6,29.0,14.8,RootNav2,Demo data - Iraq
+Bd3-1,1,10,1.4,10.5,9.1,32.5,RootNav2,Demo data - Iraq
+Bd3-1,1,20,3.3,22.9,19.7,18.1,RootNav2,Demo data - Iraq
+Bd3-1,1,30,-0.1,17.8,17.9,26.9,RootNav2,Demo data - Iraq
+Bd3-1,2,10,-4.1,5.5,9.6,24.6,RootNav2,Demo data - Iraq
+Bd3-1,2,20,1.3,15.0,13.7,26.8,RootNav2,Demo data - Iraq
+Bd3-1,2,30,-1.0,21.9,22.9,19.7,RootNav2,Demo data - Iraq
+Bd3-1,3,10,1.9,11.4,9.5,20.1,RootNav2,Demo data - Iraq
+Bd3-1,3,20,-1.1,20.5,21.5,21.0,RootNav2,Demo data - Iraq
+Bd3-1,3,30,-2.1,26.2,28.3,22.2,RootNav2,Demo data - Iraq
+Bd3-1,4,10,3.9,11.0,7.1,25.2,RootNav2,Demo data - Iraq
+Bd3-1,4,20,0.4,16.7,16.3,24.4,RootNav2,Demo data - Iraq
+Bd3-1,4,30,1.2,28.8,27.6,28.8,RootNav2,Demo data - Iraq
+Bd3-1,5,10,-1.2,7.4,8.5,23.6,RootNav2,Demo data - Iraq
+Bd3-1,5,20,-3.0,6.3,9.4,31.8,RootNav2,Demo data - Iraq
+Bd3-1,5,30,-0.5,39.2,39.7,27.9,RootNav2,Demo data - Iraq
+Bd3-1,6,10,6.2,16.5,10.3,30.6,RootNav2,Demo data - Iraq
+Bd3-1,6,20,-1.9,16.9,18.8,17.0,RootNav2,Demo data - Iraq
+Bd3-1,6,30,-1.5,28.8,30.3,17.9,RootNav2,Demo data - Iraq
+Koz1,1,10,-2.2,10.3,12.5,33.4,RootNav2,Demo data - Turkey (rapid)
+Koz1,1,20,-0.0,29.0,29.0,32.4,RootNav2,Demo data - Turkey (rapid)
+Koz1,1,30,-1.7,38.6,40.3,32.6,RootNav2,Demo data - Turkey (rapid)
+Koz1,2,10,-2.1,12.0,14.1,24.0,RootNav2,Demo data - Turkey (rapid)
+Koz1,2,20,-2.8,21.6,24.3,29.6,RootNav2,Demo data - Turkey (rapid)
+Koz1,2,30,-2.8,44.8,47.6,27.8,RootNav2,Demo data - Turkey (rapid)
+Koz1,3,10,-1.0,11.5,12.5,22.0,RootNav2,Demo data - Turkey (rapid)
+Koz1,3,20,0.1,24.5,24.4,20.8,RootNav2,Demo data - Turkey (rapid)
+Koz1,3,30,-0.1,41.0,41.1,23.8,RootNav2,Demo data - Turkey (rapid)
+Koz1,4,10,-1.2,11.0,12.1,28.8,RootNav2,Demo data - Turkey (rapid)
+Koz1,4,20,-2.0,26.0,28.0,25.5,RootNav2,Demo data - Turkey (rapid)
+Koz1,4,30,-3.3,39.7,43.0,27.7,RootNav2,Demo data - Turkey (rapid)
+Koz1,5,10,1.1,13.6,12.4,21.2,RootNav2,Demo data - Turkey (rapid)
+Koz1,5,20,-3.3,18.6,21.9,25.2,RootNav2,Demo data - Turkey (rapid)
+Koz1,5,30,-1.8,39.2,41.0,28.2,RootNav2,Demo data - Turkey (rapid)
+Koz1,6,10,-0.1,11.0,11.1,18.9,RootNav2,Demo data - Turkey (rapid)
+Koz1,6,20,0.1,25.0,24.9,20.7,RootNav2,Demo data - Turkey (rapid)
+Koz1,6,30,2.0,40.5,38.5,22.1,RootNav2,Demo data - Turkey (rapid)
+Koz3,1,10,-2.3,7.2,9.4,27.6,RootNav2,Demo data - Turkey (slow)
+Koz3,1,20,-4.9,16.9,21.9,21.0,RootNav2,Demo data - Turkey (slow)
+Koz3,1,30,-0.4,25.9,26.3,26.9,RootNav2,Demo data - Turkey (slow)
+Koz3,2,10,0.2,6.0,5.8,24.2,RootNav2,Demo data - Turkey (slow)
+Koz3,2,20,0.5,21.0,20.5,26.7,RootNav2,Demo data - Turkey (slow)
+Koz3,2,30,-1.0,17.9,18.9,22.8,RootNav2,Demo data - Turkey (slow)
+Koz3,3,10,-0.8,7.5,8.3,26.4,RootNav2,Demo data - Turkey (slow)
+Koz3,3,20,1.7,26.8,25.0,23.4,RootNav2,Demo data - Turkey (slow)
+Koz3,3,30,-0.8,30.2,31.0,14.8,RootNav2,Demo data - Turkey (slow)
+Koz3,4,10,-3.7,1.1,4.8,23.2,RootNav2,Demo data - Turkey (slow)
+Koz3,4,20,3.4,18.1,14.8,26.6,RootNav2,Demo data - Turkey (slow)
+Koz3,4,30,1.7,22.0,20.4,13.9,RootNav2,Demo data - Turkey (slow)
+Koz3,5,10,1.5,9.5,7.9,17.6,RootNav2,Demo data - Turkey (slow)
+Koz3,5,20,0.7,21.1,20.4,22.9,RootNav2,Demo data - Turkey (slow)
+Koz3,5,30,4.5,31.3,26.7,25.9,RootNav2,Demo data - Turkey (slow)
+Koz3,6,10,-0.9,7.0,8.0,20.8,RootNav2,Demo data - Turkey (slow)
+Koz3,6,20,-1.7,17.1,18.8,25.4,RootNav2,Demo data - Turkey (slow)
+Koz3,6,30,1.0,19.4,18.4,26.7,RootNav2,Demo data - Turkey (slow)
+Mon3,1,10,-1.0,11.0,12.1,23.7,RootNav2,Demo data - France
+Mon3,1,20,-0.9,16.5,17.4,26.9,RootNav2,Demo data - France
+Mon3,1,30,-1.8,32.9,34.8,29.3,RootNav2,Demo data - France
+Mon3,2,10,0.8,13.4,12.6,34.4,RootNav2,Demo data - France
+Mon3,2,20,-2.5,15.6,18.1,16.1,RootNav2,Demo data - France
+Mon3,2,30,1.3,39.8,38.5,24.7,RootNav2,Demo data - France
+Mon3,3,10,-2.3,8.5,10.8,37.2,RootNav2,Demo data - France
+Mon3,3,20,0.2,21.3,21.1,28.6,RootNav2,Demo data - France
+Mon3,3,30,0.4,33.9,33.4,21.0,RootNav2,Demo data - France
+Mon3,4,10,3.8,14.9,11.1,31.7,RootNav2,Demo data - France
+Mon3,4,20,-1.0,25.0,26.0,20.1,RootNav2,Demo data - France
+Mon3,4,30,0.1,30.5,30.4,30.5,RootNav2,Demo data - France
+Mon3,5,10,3.1,10.6,7.5,24.2,RootNav2,Demo data - France
+Mon3,5,20,-2.0,17.2,19.2,16.7,RootNav2,Demo data - France
+Mon3,5,30,0.1,35.3,35.1,18.6,RootNav2,Demo data - France
+Mon3,6,10,-0.7,7.5,8.2,33.3,RootNav2,Demo data - France
+Mon3,6,20,-3.0,16.8,19.8,23.8,RootNav2,Demo data - France
+Mon3,6,30,-5.4,24.2,29.6,24.7,RootNav2,Demo data - France
+Tek2,1,10,1.4,12.3,10.9,34.2,RootNav2,Demo data - Turkey
+Tek2,1,20,-0.5,26.3,26.8,19.5,RootNav2,Demo data - Turkey
+Tek2,1,30,0.1,48.3,48.2,25.1,RootNav2,Demo data - Turkey
+Tek2,2,10,0.4,11.7,11.3,24.3,RootNav2,Demo data - Turkey
+Tek2,2,20,-1.1,19.5,20.6,24.8,RootNav2,Demo data - Turkey
+Tek2,2,30,-1.4,29.6,31.0,25.5,RootNav2,Demo data - Turkey
+Tek2,3,10,3.0,13.9,10.9,11.7,RootNav2,Demo data - Turkey
+Tek2,3,20,2.5,29.2,26.7,14.6,RootNav2,Demo data - Turkey
+Tek2,3,30,-0.7,31.4,32.1,18.0,RootNav2,Demo data - Turkey
+Tek2,4,10,-2.2,7.7,9.9,33.8,RootNav2,Demo data - Turkey
+Tek2,4,20,2.5,28.6,26.1,28.6,RootNav2,Demo data - Turkey
+Tek2,4,30,-1.0,26.7,27.8,27.4,RootNav2,Demo data - Turkey
+Tek2,5,10,1.4,10.5,9.1,23.8,RootNav2,Demo data - Turkey
+Tek2,5,20,1.4,22.7,21.3,27.2,RootNav2,Demo data - Turkey
+Tek2,5,30,2.3,34.3,32.0,19.6,RootNav2,Demo data - Turkey
+Tek2,6,10,1.2,13.6,12.5,23.5,RootNav2,Demo data - Turkey
+Tek2,6,20,-2.5,21.4,23.9,29.6,RootNav2,Demo data - Turkey
+Tek2,6,30,-1.0,31.9,33.0,30.2,RootNav2,Demo data - Turkey
+Adi2,1,10,-2.8,4.8,7.6,17.2,RootNav2,Demo data - Turkey
+Adi2,1,20,-2.6,17.9,20.4,33.8,RootNav2,Demo data - Turkey
+Adi2,1,30,3.4,17.9,14.5,26.1,RootNav2,Demo data - Turkey
+Adi2,2,10,-1.1,7.7,8.8,27.0,RootNav2,Demo data - Turkey
+Adi2,2,20,2.2,20.1,17.8,25.6,RootNav2,Demo data - Turkey
+Adi2,2,30,-0.7,27.2,27.9,24.7,RootNav2,Demo data - Turkey
+Adi2,3,10,-3.4,6.2,9.6,18.3,RootNav2,Demo data - Turkey
+Adi2,3,20,0.3,21.3,21.0,24.1,RootNav2,Demo data - Turkey
+Adi2,3,30,0.7,27.8,27.1,22.3,RootNav2,Demo data - Turkey
+Adi2,4,10,0.4,7.8,7.4,20.1,RootNav2,Demo data - Turkey
+Adi2,4,20,-3.4,16.2,19.6,30.1,RootNav2,Demo data - Turkey
+Adi2,4,30,0.5,30.3,29.8,29.9,RootNav2,Demo data - Turkey
+Adi2,5,10,2.0,14.4,12.3,15.8,RootNav2,Demo data - Turkey
+Adi2,5,20,-1.2,11.6,12.9,25.1,RootNav2,Demo data - Turkey
+Adi2,5,30,-1.5,28.7,30.1,25.9,RootNav2,Demo data - Turkey
+Adi2,6,10,-1.2,6.3,7.5,18.0,RootNav2,Demo data - Turkey
+Adi2,6,20,-2.7,11.6,14.3,20.1,RootNav2,Demo data - Turkey
+Adi2,6,30,-1.9,31.4,33.3,38.2,RootNav2,Demo data - Turkey
+BdTR3C,1,10,0.4,13.4,13.1,20.7,RootNav2,Demo data - Turkey
+BdTR3C,1,20,-1.2,25.6,26.8,25.6,RootNav2,Demo data - Turkey
+BdTR3C,1,30,-0.2,48.3,48.5,30.7,RootNav2,Demo data - Turkey
+BdTR3C,2,10,-0.1,11.2,11.3,33.9,RootNav2,Demo data - Turkey
+BdTR3C,2,20,3.6,26.4,22.8,28.5,RootNav2,Demo data - Turkey
+BdTR3C,2,30,1.3,35.7,34.5,29.9,RootNav2,Demo data - Turkey
+BdTR3C,3,10,-3.1,10.1,13.3,21.4,RootNav2,Demo data - Turkey
+BdTR3C,3,20,-0.1,23.8,23.9,28.1,RootNav2,Demo data - Turkey
+BdTR3C,3,30,-2.7,35.1,37.8,26.9,RootNav2,Demo data - Turkey
+BdTR3C,4,10,1.1,14.4,13.2,30.4,RootNav2,Demo data - Turkey
+BdTR3C,4,20,0.9,28.1,27.2,24.6,RootNav2,Demo data - Turkey
+BdTR3C,4,30,0.9,30.4,29.5,26.0,RootNav2,Demo data - Turkey
+BdTR3C,5,10,-2.6,10.2,12.7,19.6,RootNav2,Demo data - Turkey
+BdTR3C,5,20,-0.1,27.7,27.8,28.4,RootNav2,Demo data - Turkey
+BdTR3C,5,30,0.1,37.2,37.1,29.7,RootNav2,Demo data - Turkey
+BdTR3C,6,10,0.2,11.8,11.6,22.7,RootNav2,Demo data - Turkey
+BdTR3C,6,20,-0.6,22.7,23.4,26.1,RootNav2,Demo data - Turkey
+BdTR3C,6,30,2.5,37.4,34.8,20.5,RootNav2,Demo data - Turkey

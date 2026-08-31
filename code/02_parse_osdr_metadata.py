@@ -53,23 +53,27 @@ def parse_metadata(input_dir: str):
         logger.error(f"Failed to read {sample_file}: {e}")
         return
         
-    # Attempt to locate key columns conceptually
+    # Attempt to locate key columns accurately
     col_mapping = {}
-    for col in s_df.columns:
-        col_lower = col.lower()
-        if "sample name" in col_lower:
-            col_mapping["Sample_Name"] = col
-        elif "organism" in col_lower and "part" not in col_lower:
-            col_mapping["Organism"] = col
-        elif "ecotype" in col_lower or "accession" in col_lower or "strain" in col_lower:
-            col_mapping["Ecotype"] = col
-        elif "tissue" in col_lower or "organism part" in col_lower:
-            col_mapping["Tissue"] = col
-        elif "spaceflight" in col_lower or "condition" in col_lower or "factor" in col_lower:
-            if "Condition" not in col_mapping:
-                col_mapping["Condition"] = col
-        elif "replicate" in col_lower:
-            col_mapping["Replicate"] = col
+    
+    # Priority matching for exact ISA-Tab headers
+    for target, candidates in [
+        ("Sample_Name", ["Sample Name", "Source Name"]),
+        ("Organism", ["Characteristics[Organism]", "Organism"]),
+        ("Ecotype", ["Factor Value[Accession]", "Characteristics[Genotype]", "Characteristics[Ecotype]", "Factor Value[Genotype]"]),
+        ("Tissue", ["Factor Value[Organism Part]", "Characteristics[Organism Part]", "Tissue"]),
+        ("Condition", ["Factor Value[Spaceflight]", "Factor Value[Condition]", "Condition"]),
+    ]:
+        for c in candidates:
+            if c in s_df.columns:
+                col_mapping[target] = c
+                break
+        if target not in col_mapping:
+            # Fallback search
+            for col in s_df.columns:
+                if target.lower() in col.lower() and "term" not in col.lower() and "protocol" not in col.lower():
+                    col_mapping[target] = col
+                    break
             
     extracted_s_df = pd.DataFrame()
     for nice_name, orig_name in col_mapping.items():
