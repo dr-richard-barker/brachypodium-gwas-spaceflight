@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroGrass Database | Spaceflight Omics & Gravitropism Knowledgebase</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            background: #f4f6f9;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .filter-item label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #4a5568;
+            margin-bottom: 0.35rem;
+        }
+        .filter-item select, .filter-item input {
+            width: 100%;
+            padding: 0.55rem 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background: white;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .stat-card {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0b1d3a;
+            margin-bottom: 0.25rem;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .gene-table-container {
+            overflow-x: auto;
+            margin-top: 1rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .gene-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        .gene-table th {
+            background: #0b1d3a;
+            color: white;
+            text-align: left;
+            padding: 0.75rem 0.85rem;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+        }
+        .gene-table td {
+            padding: 0.75rem 0.85rem;
+            border-bottom: 1px solid #edf2f7;
+            vertical-align: middle;
+        }
+        .gene-table tr:hover {
+            background: #f7fafc;
+            cursor: pointer;
+        }
+        .badge-up {
+            background: #feebc8;
+            color: #c05621;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        .badge-down {
+            background: #bee3f8;
+            color: #2b6cb0;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        .badge-pathway {
+            background: #e6fffa;
+            color: #234e52;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            border: 1px solid #b2f5ea;
+        }
+        .study-card {
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #38a169;
+            padding: 1rem;
+            border-radius: 6px;
+            background: #fafafa;
+            margin-bottom: 0.75rem;
+        }
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(3px);
+        }
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #718096;
+        }
+        .close-modal:hover { color: #000; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">🌾 AstroGrass DB</a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="astrograss.html" class="active">AstroGrass DB</a>
+                <a href="gwas.html">GWAS</a>
+                <a href="spaceflight.html">Spaceflight</a>
+                <a href="integration.html">Integration</a>
+                <a href="videos.html">Videos</a>
+                <a href="data.html">Data</a>
+                <a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div style="margin-top: 1.5rem;">
+            <span class="badge" style="background:#2d7a4f; color:#fff; padding:4px 10px; border-radius:4px; font-size:0.8rem;">NASA OSDR OSD-375 Integration</span>
+            <h1 style="margin-top:0.5rem; color:#0b1d3a;">AstroGrass Knowledgebase & Gene Explorer</h1>
+            <p style="color:#4a5568; font-size:1.05rem; max-width:850px;">
+                The unified astrobotany resource linking <em>Brachypodium distachyon</em> natural variation in gravitropism,
+                ISS spaceflight transcriptomics (APEX-06), terrestrial analogues (auxin & cold stress), and cereal crop orthologs (Rice & Wheat).
+            </p>
+        </div>
+
+        <!-- Database Metrics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-num" id="stat-total-genes">31</div>
+                <div class="stat-label">Curated Core Genes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-deg-genes">29</div>
+                <div class="stat-label">Spaceflight DEGs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-studies">5</div>
+                <div class="stat-label">Integrated Studies</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">3</div>
+                <div class="stat-label">Accessions (Bd21/3/Gaz8)</div>
+            </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <section class="card" style="margin-top:1.5rem;">
+            <h2 style="margin-bottom:0.5rem;">🔍 Search & Filter AstroGrass</h2>
+            
+            <div class="filter-grid">
+                <div class="filter-item">
+                    <label for="search-input">Search (Symbol / ID / Name)</label>
+                    <input type="text" id="search-input" placeholder="e.g. PIN2, LAZY1, BRADI_1g...">
+                </div>
+                <div class="filter-item">
+                    <label for="pathway-select">Functional Pathway</label>
+                    <select id="pathway-select">
+                        <option value="">All Pathways</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="chr-select">Chromosome</label>
+                    <select id="chr-select">
+                        <option value="">All Chromosomes</option>
+                        <option value="Chr1">Chr 1</option>
+                        <option value="Chr2">Chr 2</option>
+                        <option value="Chr3">Chr 3</option>
+                        <option value="Chr4">Chr 4</option>
+                        <option value="Chr5">Chr 5</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="status-select">Spaceflight Response</label>
+                    <select id="status-select">
+                        <option value="">All Responses</option>
+                        <option value="Root">Root Spaceflight DEGs</option>
+                        <option value="Shoot">Shoot Spaceflight DEGs</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Interactive Results Table -->
+            <div class="gene-table-container">
+                <table class="gene-table">
+                    <thead>
+                        <tr>
+                            <th>Gene ID</th>
+                            <th>Symbol</th>
+                            <th>Chr</th>
+                            <th>Pathway</th>
+                            <th>GWAS Gravitropic QTL Role</th>
+                            <th>OSD-375 Root log₂FC</th>
+                            <th>OSD-375 Shoot log₂FC</th>
+                            <th>Arabidopsis Ortholog</th>
+                            <th>Rice / Wheat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gene-table-body">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="margin-top:1rem; display:flex; justify-content:space-between; align-items:center;">
+                <span id="results-count" style="font-size:0.9rem; color:#718096;">Showing 31 of 31 genes</span>
+                <div>
+                    <a href="../tables/astrograss_master_table.csv" download class="badge" style="background:#0b1d3a; color:white; padding:6px 12px; border-radius:4px; text-decoration:none; margin-right:6px;">Download Master CSV</a>
+                    <a href="js/astrograss_database.json" download class="badge" style="background:#2d7a4f; color:white; padding:6px 12px; border-radius:4px; text-decoration:none;">Download JSON</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- OSDR Studies Catalog -->
+        <section class="card" style="margin-top:2rem;">
+            <h2>🛰️ Integrated NASA OSDR & Grass Omics Studies</h2>
+            <p style="margin-bottom:1rem; color:#4a5568;">The AstroGrass knowledgebase synthesizes findings across primary spaceflight missions, ISS microgravity payloads, and terrestrial gravitropic analogues:</p>
+
+            <div id="studies-container">
+                <!-- Populated by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Gene Detail Modal -->
+    <div id="gene-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                <!-- Populated on click -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>AstroGrass Database &copy; 2026 | Principal Investigator: Richard Barker (<a href="https://orcid.org/0000-0002-4525-3341">ORCID: 0000-0002-4525-3341</a>)</p>
+        <p><span class="badge">NASA GeneLab / OSDR</span> <span class="badge">FAIR Data</span> <span class="badge">CC BY 4.0</span></p>
+    </footer>
+
+    <script>
+        let dbData = null;
+
+        // Fetch database JSON
+        fetch('js/astrograss_database.json')
+            .then(res => res.json())
+            .then(data => {
+                dbData = data;
+                initApp();
+            })
+            .catch(err => console.error("Error loading AstroGrass JSON:", err));
+
+        function initApp() {
+            populatePathways();
+            renderTable(dbData.genes);
+            renderStudies(dbData.studies);
+
+            document.getElementById('search-input').addEventListener('input', applyFilters);
+            document.getElementById('pathway-select').addEventListener('change', applyFilters);
+            document.getElementById('chr-select').addEventListener('change', applyFilters);
+            document.getElementById('status-select').addEventListener('change', applyFilters);
+        }
+
+        function populatePathways() {
+            const pathways = [...new Set(dbData.genes.map(g => g.pathway))].sort();
+            const select = document.getElementById('pathway-select');
+            pathways.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p;
+                opt.textContent = p;
+                select.appendChild(opt);
+            });
+        }
+
+        function renderTable(genes) {
+            const tbody = document.getElementById('gene-table-body');
+            tbody.innerHTML = '';
+
+            if (genes.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:2rem; color:#718096;">No matching genes found. Try adjusting your filters.</td></tr>`;
+                document.getElementById('results-count').textContent = 'Showing 0 genes';
+                return;
+            }
+
+            genes.forEach(g => {
+                const tr = document.createElement('tr');
+                tr.onclick = () => openModal(g);
+
+                const rootBadge = g.root_log2fc > 0 
+                    ? `<span class="badge-up">+${g.root_log2fc.toFixed(2)}</span>` 
+                    : (g.root_log2fc < 0 ? `<span class="badge-down">${g.root_log2fc.toFixed(2)}</span>` : `<span style="color:#a0aec0">0.00</span>`);
+
+                const shootBadge = g.shoot_log2fc > 0 
+                    ? `<span class="badge-up">+${g.shoot_log2fc.toFixed(2)}</span>` 
+                    : (g.shoot_log2fc < 0 ? `<span class="badge-down">${g.shoot_log2fc.toFixed(2)}</span>` : `<span style="color:#a0aec0">0.00</span>`);
+
+                tr.innerHTML = `
+                    <td><code>${g.gene_id}</code></td>
+                    <td><strong>${g.symbol}</strong></td>
+                    <td>${g.chr}</td>
+                    <td><span class="badge-pathway">${g.pathway}</span></td>
+                    <td style="font-size:0.83rem; color:#4a5568;">${g.gwas_qtl}</td>
+                    <td>${rootBadge}</td>
+                    <td>${shootBadge}</td>
+                    <td><code style="color:#2b6cb0;">${g.at_ortholog}</code></td>
+                    <td style="font-size:0.8rem;">${g.os_ortholog} / ${g.ta_ortholog}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('results-count').textContent = `Showing ${genes.length} of ${dbData.genes.length} genes`;
+        }
+
+        function renderStudies(studies) {
+            const container = document.getElementById('studies-container');
+            container.innerHTML = '';
+            studies.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'study-card';
+                card.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                        <div>
+                            <span class="badge" style="background:#0b1d3a; color:#fff; font-size:0.75rem; padding:2px 6px; border-radius:3px;">${s.study_id}</span>
+                            <span class="badge" style="background:#38a169; color:#fff; font-size:0.75rem; padding:2px 6px; border-radius:3px; margin-left:4px;">${s.category}</span>
+                            <h3 style="margin:0.4rem 0 0.2rem 0; font-size:1.05rem; color:#1a202c;">${s.title}</h3>
+                            <p style="margin:0; font-size:0.85rem; color:#4a5568;"><strong>Mission:</strong> ${s.mission} | <strong>Hardware:</strong> ${s.hardware} | <strong>Assays:</strong> ${s.assays}</p>
+                            <p style="margin:0.2rem 0 0 0; font-size:0.85rem; color:#718096;"><strong>Reference:</strong> ${s.reference} (DOI: <code>${s.doi}</code>)</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function applyFilters() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const pathway = document.getElementById('pathway-select').value;
+            const chr = document.getElementById('chr-select').value;
+            const status = document.getElementById('status-select').value;
+
+            const filtered = dbData.genes.filter(g => {
+                const matchQuery = !query || 
+                    g.symbol.toLowerCase().includes(query) || 
+                    g.gene_id.toLowerCase().includes(query) || 
+                    g.name.toLowerCase().includes(query) ||
+                    g.at_ortholog.toLowerCase().includes(query);
+
+                const matchPathway = !pathway || g.pathway === pathway;
+                const matchChr = !chr || g.chr === chr;
+                const matchStatus = !status || (status === 'Root' && Math.abs(g.root_log2fc) >= 0.5) || (status === 'Shoot' && Math.abs(g.shoot_log2fc) >= 0.5);
+
+                return matchQuery && matchPathway && matchChr && matchStatus;
+            });
+
+            renderTable(filtered);
+        }
+
+        function openModal(g) {
+            const modal = document.getElementById('gene-modal');
+            const body = document.getElementById('modal-body');
+            body.innerHTML = `
+                <span class="badge" style="background:#0b1d3a; color:#fff;">${g.chr}</span>
+                <span class="badge-pathway" style="margin-left:6px;">${g.pathway}</span>
+                <h2 style="margin:0.5rem 0 0.2rem 0; color:#0b1d3a;">${g.symbol} (${g.name})</h2>
+                <p style="margin:0; color:#718096; font-size:0.9rem;">Ensembl ID: <code>${g.gene_id}</code></p>
+                <hr style="margin:1rem 0; border:0; border-top:1px solid #e2e8f0;">
+                
+                <h4 style="margin-bottom:0.4rem;">🛰️ Spaceflight Microgravity Response (NASA OSD-375)</h4>
+                <p style="margin:0 0 0.5rem 0; font-size:0.92rem;">
+                    <strong>Root log₂FC:</strong> ${g.root_log2fc > 0 ? '+' : ''}${g.root_log2fc} | 
+                    <strong>Shoot log₂FC:</strong> ${g.shoot_log2fc > 0 ? '+' : ''}${g.shoot_log2fc} | 
+                    <strong>FDR (padj):</strong> ${g.padj}
+                </p>
+                <p style="font-size:0.88rem; color:#4a5568;">
+                    <strong>Ecotype Responsiveness:</strong> 
+                    Bd21: ${g.de_bd21 ? '✅ DEG' : '⚪ NS'} | 
+                    Bd21-3: ${g.de_bd21_3 ? '✅ DEG' : '⚪ NS'} | 
+                    Gaz8: ${g.de_gaz8 ? '✅ DEG' : '⚪ NS'}
+                </p>
+
+                <h4 style="margin:1rem 0 0.4rem 0;">🌱 Gravitropic Reorientation & GWAS QTL Role</h4>
+                <p style="font-size:0.92rem; color:#2d3748; background:#f7fafc; padding:0.75rem; border-radius:6px; border:1px solid #edf2f7;">
+                    ${g.gwas_qtl}
+                </p>
+
+                <h4 style="margin:1rem 0 0.4rem 0;">🌾 Cross-Species Orthologs</h4>
+                <ul style="font-size:0.9rem; line-height:1.6; margin:0; padding-left:1.2rem; color:#4a5568;">
+                    <li><strong>Arabidopsis thaliana:</strong> <code>${g.at_ortholog}</code></li>
+                    <li><strong>Oryza sativa (Rice):</strong> <code>${g.os_ortholog}</code></li>
+                    <li><strong>Triticum aestivum (Wheat):</strong> <code>${g.ta_ortholog}</code></li>
+                </ul>
+            `;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('gene-modal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('gene-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
