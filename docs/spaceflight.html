@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaceflight Results - Brachy-Space</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Brachy-Space</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="gwas.html">GWAS</a>
+                <a href="spaceflight.html">Spaceflight</a>
+                <a href="integration.html">Integration</a>
+                <a href="videos.html">Videos</a>
+                <a href="data.html">Data</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>OSD-375 Spaceflight Results</h1>
+        
+        <section class="card">
+            <h2>Experimental Design</h2>
+            <div style="display:flex; justify-content:space-around; background:#f9f9f9; padding:2rem; border-radius:8px;">
+                <div>
+                    <h3>Ecotypes</h3>
+                    <ul><li>Bd21</li><li>Bd21-3</li><li>Gaz8</li></ul>
+                </div>
+                <div>
+                    <h3>Tissues</h3>
+                    <ul><li>Root</li><li>Shoot</li></ul>
+                </div>
+                <div>
+                    <h3>Conditions</h3>
+                    <ul><li>Flight</li><li>Ground Control</li></ul>
+                </div>
+            </div>
+            <p style="margin-top:1rem;"><a href="https://osdr.nasa.gov/osdr/data/osd/files/375">View Study on OSDR</a></p>
+        </section>
+
+        <section class="card">
+            <h2>Differential Expression (Volcano Plots)</h2>
+            <div class="grid-3">
+                <div style="background:#eee; height:200px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">[Bd21 Plot]</div>
+                <div style="background:#eee; height:200px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">[Bd21-3 Plot]</div>
+                <div style="background:#eee; height:200px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">[Gaz8 Plot]</div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Expression Heatmap</h2>
+            <div style="background:#eee; height:300px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc;">
+                [Placeholder: Heatmap]
+            </div>
+        </section>
+        
+        <section class="card">
+            <h2>GO Enrichment Results</h2>
+            <p>Significant GO terms associated with differentially expressed genes in spaceflight conditions...</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>Author: Richard Barker (<a href="https://orcid.org/0000-0002-4525-3341">ORCID: 0000-0002-4525-3341</a>) | Affiliation: Phylo</p>
+        <p><span class="badge">FAIR Data</span> <span class="badge">CC BY 4.0</span></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

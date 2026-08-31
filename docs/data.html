@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Downloads - Brachy-Space</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Brachy-Space</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="gwas.html">GWAS</a>
+                <a href="spaceflight.html">Spaceflight</a>
+                <a href="integration.html">Integration</a>
+                <a href="videos.html">Videos</a>
+                <a href="data.html">Data</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Data Downloads & Resources</h1>
+        
+        <section class="card">
+            <h2>Output Data Files</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Description</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>gwas_results.csv</td>
+                        <td>Full summary statistics from gravitropism GWAS</td>
+                        <td><a href="#">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>deg_osd375.csv</td>
+                        <td>Differentially expressed genes across all ecotypes in OSD-375</td>
+                        <td><a href="#">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>integrated_loci.csv</td>
+                        <td>Intersection of GWAS candidates and spaceflight DEGs</td>
+                        <td><a href="#">Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Data Dictionary</h2>
+            <p>Documentation for schema and column names used in the datasets provided above.</p>
+        </section>
+
+        <section class="card">
+            <h2>External Data Sources</h2>
+            <ul>
+                <li><a href="https://osdr.nasa.gov/osdr/data/osd/files/375">NASA OSDR (OSD-375)</a></li>
+                <li><a href="https://plants.ensembl.org/Brachypodium_distachyon/Info/Index">Ensembl Plants</a></li>
+                <li><a href="#">BrachyPan</a></li>
+                <li><a href="https://phytozome-next.jgi.doe.gov/info/Bdistachyon_v3_1">JGI Phytozome</a></li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Zenodo Archive</h2>
+            <div style="background:#eee; padding:1rem; border-radius:4px; display:inline-block;">
+                [Placeholder: Zenodo DOI Badge]
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Author: Richard Barker (<a href="https://orcid.org/0000-0002-4525-3341">ORCID: 0000-0002-4525-3341</a>) | Affiliation: Phylo</p>
+        <p><span class="badge">FAIR Data</span> <span class="badge">CC BY 4.0</span></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

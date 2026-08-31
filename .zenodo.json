@@ -1,0 +1,45 @@
+{
+  "title": "Brachypodium GWAS-Spaceflight Integration: Connecting Gravitropic Reorientation Natural Variation with ISS Microgravity Transcriptomics (OSD-375)",
+  "description": "Integration of Brachypodium distachyon natural genetic variation and GWAS (gravitropic reorientation, root architecture, abiotic stress) with NASA Open Science Data Repository (OSDR) spaceflight transcriptomics data (OSD-375 / APEX-06). Uses machine learning, differential expression, meta-analysis, and knowledge graphs to identify conserved and monocot-specific spaceflight response loci.",
+  "creators": [
+    {
+      "name": "Barker, Richard",
+      "affiliation": "Phylo",
+      "orcid": "0000-0002-4525-3341"
+    }
+  ],
+  "keywords": [
+    "Brachypodium distachyon",
+    "GWAS",
+    "gravitropism",
+    "spaceflight",
+    "NASA OSDR",
+    "OSD-375",
+    "APEX-06",
+    "transcriptomics",
+    "ISS",
+    "monocot",
+    "cereal crops"
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "upload_type": "software",
+  "language": "eng",
+  "communities": [
+    {
+      "identifier": "nasa-geneLab"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.3390/life13030633",
+      "relation": "isDerivedFrom",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.26030/2x6b-3v89",
+      "relation": "isDerivedFrom",
+      "resource_type": "dataset"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+name: brachypodium-gwas-spaceflight
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.11
+  - r-base=4.3
+  - pip
+  # Python packages
+  - requests
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - plotly
+  - biopython
+  - statsmodels
+  - networkx
+  - tqdm
+  # R packages (conda-forge & bioconda)
+  - r-tidyverse
+  - r-ggplot2
+  - r-pheatmap
+  - r-svglite
+  - r-data.table
+  - bioconductor-deseq2
+  - bioconductor-clusterprofiler
+  - bioconductor-org.at.tair.db
+  # Pip packages
+  - pip:
+      - pydeseq2
+      - genelab-utils
