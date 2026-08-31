@@ -443,21 +443,6 @@
                 tags: ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity"]
             },
             {
-                id: "cyverse-gravatron",
-                type: "cyverse",
-                series_name: "Gravatron_FlashLapse_DEMO",
-                title: "Gravatron FlashLapse Microgravity Demo",
-                author: "Dr. Richard Barker (CyVerse / iRODS)",
-                category: "Clinostat / Microgravity",
-                organism: "Plant Biology / Multi-species",
-                frames: 200,
-                cadence_seconds: 30.0,
-                irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Gravatron_FlashLapse_DEMO",
-                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Gravatron_FlashLapse_DEMO/timelapse.mp4",
-                description: "Demonstration series inside the Gravatron FlashLapse simulated microgravity rotational apparatus.",
-                tags: ["Gravatron", "FlashLapse", "Microgravity"]
-            },
-            {
                 id: "sim-90",
                 type: "simulator",
                 simulator_type: "90deg",
@@ -484,9 +469,9 @@
         // Load catalog from localStorage or initial state
         let catalog = [];
         try {
-            const saved = localStorage.getItem('astrograss_video_catalog');
+            const saved = localStorage.getItem('astrograss_video_catalog_v2');
             if (saved) {
-                catalog = JSON.parse(saved);
+                catalog = JSON.parse(saved).filter(i => i.id !== 'cyverse-gravatron' && !i.title.includes('Gravatron'));
             } else {
                 catalog = [...INITIAL_CATALOG];
             }
@@ -636,7 +621,7 @@
 
             catalog.unshift(newVideo);
             try {
-                localStorage.setItem('astrograss_video_catalog', JSON.stringify(catalog));
+                localStorage.setItem('astrograss_video_catalog_v2', JSON.stringify(catalog));
             } catch (err) {}
 
             modal.style.display = 'none';

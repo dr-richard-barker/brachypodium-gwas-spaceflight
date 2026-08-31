@@ -162,22 +162,6 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "tags": ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity", "iRODS"]
     },
     {
-        "id": "cyverse-gravatron-demo",
-        "type": "cyverse",
-        "series_name": "Gravatron_FlashLapse_DEMO",
-        "title": "Gravatron FlashLapse Microgravity Demonstration",
-        "author": "Dr. Richard Barker (CyVerse / iRODS)",
-        "category": "Clinostat / Microgravity",
-        "organism": "Plant Biology / Multi-species",
-        "frames": 200,
-        "cadence_seconds": 30.0,
-        "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Gravatron_FlashLapse_DEMO",
-        "video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Gravatron_FlashLapse_DEMO/timelapse.mp4",
-        "description": "Demonstration series of seedling reorientation inside the Gravatron FlashLapse simulated microgravity rotational apparatus.",
-        "thumbnail_url": "assets/fig1_gravitropic_kinetics.png",
-        "tags": ["Gravatron", "FlashLapse", "Microgravity", "Simulation"]
-    },
-    {
         "id": "cyverse-flashlapse-straight",
         "type": "cyverse",
         "series_name": "FlashLapse_Straight_growth",

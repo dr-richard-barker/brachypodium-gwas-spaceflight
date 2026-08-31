@@ -3,9 +3,9 @@
     "name": "AstroGrass Video Knowledgebase",
     "version": "1.1.0",
     "curator": "Richard Barker (Phylo)",
-    "total_items": 12,
+    "total_items": 11,
     "youtube_videos": 3,
-    "cyverse_series": 7,
+    "cyverse_series": 6,
     "simulators": 2,
     "updated_at": "2026-08-31"
   },
@@ -183,27 +183,6 @@
         "Brachypodium",
         "Turkish Diversity",
         "iRODS"
-      ]
-    },
-    {
-      "id": "cyverse-gravatron-demo",
-      "type": "cyverse",
-      "series_name": "Gravatron_FlashLapse_DEMO",
-      "title": "Gravatron FlashLapse Microgravity Demonstration",
-      "author": "Dr. Richard Barker (CyVerse / iRODS)",
-      "category": "Clinostat / Microgravity",
-      "organism": "Plant Biology / Multi-species",
-      "frames": 200,
-      "cadence_seconds": 30.0,
-      "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Gravatron_FlashLapse_DEMO",
-      "video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Gravatron_FlashLapse_DEMO/timelapse.mp4",
-      "description": "Demonstration series of seedling reorientation inside the Gravatron FlashLapse simulated microgravity rotational apparatus.",
-      "thumbnail_url": "assets/fig1_gravitropic_kinetics.png",
-      "tags": [
-        "Gravatron",
-        "FlashLapse",
-        "Microgravity",
-        "Simulation"
       ]
     },
     {
