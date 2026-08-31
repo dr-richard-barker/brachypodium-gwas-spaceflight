@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "source": "CyVerse Data Store (iRODS)",
+    "curator": "Dr. Richard Barker",
+    "total_series": 6,
+    "total_frames": 1030,
+    "organism": "Brachypodium distachyon",
+    "date_updated": "2026-08-31"
+  },
+  "series": [
+    {
+      "series_id": "cyv-brachy-per1-11",
+      "series_name": "Brachy_Enhanced_Per1_DB_1_1",
+      "accession": "Per1",
+      "organism": "Brachypodium distachyon",
+      "condition": "Gravistimulation 90\u00b0",
+      "frame_count": 84,
+      "cadence_seconds": 15.0,
+      "duration_minutes": 21.0,
+      "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_1_1",
+      "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_1_1/timelapse.mp4",
+      "has_manifest": true,
+      "has_metadata_csv": true,
+      "status": "Extracted & Available"
+    },
+    {
+      "series_id": "cyv-brachy-per1-23",
+      "series_name": "Brachy_Enhanced_Per1_DB_2_3",
+      "accession": "Per1",
+      "organism": "Brachypodium distachyon",
+      "condition": "Gravistimulation 90\u00b0",
+      "frame_count": 84,
+      "cadence_seconds": 15.0,
+      "duration_minutes": 21.0,
+      "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_2_3",
+      "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_2_3/timelapse.mp4",
+      "has_manifest": true,
+      "has_metadata_csv": true,
+      "status": "Extracted & Available"
+    },
+    {
+      "series_id": "cyv-brachy-per1-32",
+      "series_name": "Brachy_Enhanced_Per1_DB_3_2",
+      "accession": "Per1",
+      "organism": "Brachypodium distachyon",
+      "condition": "Gravistimulation 90\u00b0",
+      "frame_count": 83,
+      "cadence_seconds": 15.0,
+      "duration_minutes": 20.75,
+      "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_3_2",
+      "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_3_2/timelapse.mp4",
+      "has_manifest": true,
+      "has_metadata_csv": true,
+      "status": "Extracted & Available"
+    },
+    {
+      "series_id": "cyv-brachy-tr7a-13",
+      "series_name": "Brachy_Enhanced_TR7a_DB_1_3",
+      "accession": "BdTR7a",
+      "organism": "Brachypodium distachyon",
+      "condition": "Gravistimulation 90\u00b0 (Turkish Diversity)",
+      "frame_count": 83,
+      "cadence_seconds": 15.0,
+      "duration_minutes": 20.75,
+      "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_1_3",
+      "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_1_3/timelapse.mp4",
+      "has_manifest": true,
+      "has_metadata_csv": true,
+      "status": "Extracted & Available"
+    },
+    {
+      "series_id": "cyv-brachy-tr7a-22",
+      "series_name": "Brachy_Enhanced_TR7a_DB_2_2",
+      "accession": "BdTR7a",
+      "organism": "Brachypodium distachyon",
+      "condition": "Gravistimulation 90\u00b0 (Turkish Diversity)",
+      "frame_count": 84,
+      "cadence_seconds": 15.0,
+      "duration_minutes": 21.0,
+      "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_2_2",
+      "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_2_2/timelapse.mp4",
+      "has_manifest": true,
+      "has_metadata_csv": true,
+      "status": "Extracted & Available"
+    },
+    {
+      "series_id": "cyv-flashlapse-ctrl",
+      "series_name": "FlashLapse_Straight_growth",
+      "accession": "Baseline",
+      "organism": "Pisum sativum",
+      "condition": "Straight Vertical Growth",
+      "frame_count": 612,
+      "cadence_seconds": 15.0,
+      "duration_minutes": 153.0,
+      "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/FlashLapse_Straight_growth",
+      "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/FlashLapse_Straight_growth/timelapse.mp4",
+      "has_manifest": true,
+      "has_metadata_csv": true,
+      "status": "Extracted & Available"
+    }
+  ]
+}
