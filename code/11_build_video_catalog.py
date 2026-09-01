@@ -88,9 +88,9 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "frames": 84,
         "cadence_seconds": 15.0,
         "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_1_1",
-        "video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_1_1/timelapse.mp4",
+        "video_url": "assets/videos/Brachy_Enhanced_Per1_DB_1_1.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_Per1_DB_1_1_poster.jpg",
         "description": "High-contrast enhanced time-lapse series of Brachypodium distachyon Per1 accession root gravitropic kinematics extracted from CyVerse Data Store.",
-        "thumbnail_url": "assets/fig1_gravitropic_kinetics.png",
         "tags": ["CyVerse", "Per1", "Brachypodium", "Time-lapse", "iRODS"]
     },
     {
@@ -105,9 +105,9 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "frames": 84,
         "cadence_seconds": 15.0,
         "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_2_3",
-        "video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_2_3/timelapse.mp4",
+        "video_url": "assets/videos/Brachy_Enhanced_Per1_DB_2_3.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_Per1_DB_2_3_poster.jpg",
         "description": "Replicate time-lapse series of Brachypodium distachyon Per1 accession root growth under controlled gravistimulation.",
-        "thumbnail_url": "assets/fig1_gravitropic_kinetics.png",
         "tags": ["CyVerse", "Per1", "Brachypodium", "Time-lapse", "iRODS"]
     },
     {
@@ -122,9 +122,9 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "frames": 83,
         "cadence_seconds": 15.0,
         "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_3_2",
-        "video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_3_2/timelapse.mp4",
+        "video_url": "assets/videos/Brachy_Enhanced_Per1_DB_3_2.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_Per1_DB_3_2_poster.jpg",
         "description": "Gravitropic reorientation series for Brachypodium distachyon accession Per1.",
-        "thumbnail_url": "assets/fig1_gravitropic_kinetics.png",
         "tags": ["CyVerse", "Per1", "Brachypodium", "Time-lapse", "iRODS"]
     },
     {
@@ -139,9 +139,9 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "frames": 83,
         "cadence_seconds": 15.0,
         "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_1_3",
-        "video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_1_3/timelapse.mp4",
+        "video_url": "assets/videos/Brachy_Enhanced_TR7a_DB_1_3.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_TR7a_DB_1_3_poster.jpg",
         "description": "High-contrast time-lapse capture of Brachypodium distachyon Turkish accession BdTR7a during gravitropic curvature.",
-        "thumbnail_url": "assets/fig1_gravitropic_kinetics.png",
         "tags": ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity", "iRODS"]
     },
     {
@@ -156,26 +156,10 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "frames": 84,
         "cadence_seconds": 15.0,
         "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_2_2",
-        "video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_2_2/timelapse.mp4",
+        "video_url": "assets/videos/Brachy_Enhanced_TR7a_DB_2_2.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_TR7a_DB_2_2_poster.jpg",
         "description": "Replicate kinematic series of Brachypodium distachyon accession BdTR7a.",
-        "thumbnail_url": "assets/fig1_gravitropic_kinetics.png",
         "tags": ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity", "iRODS"]
-    },
-    {
-        "id": "cyverse-flashlapse-straight",
-        "type": "cyverse",
-        "series_name": "FlashLapse_Straight_growth",
-        "title": "FlashLapse Straight Growth Baseline Control",
-        "author": "Dr. Richard Barker (CyVerse / iRODS)",
-        "category": "Gravitropism Assays",
-        "organism": "Pisum sativum / Model Seedling",
-        "frames": 612,
-        "cadence_seconds": 15.0,
-        "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/FlashLapse_Straight_growth",
-        "video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/FlashLapse_Straight_growth/timelapse.mp4",
-        "description": "High-frequency 612-frame straight vertical growth baseline capture for kinematic calibration.",
-        "thumbnail_url": "assets/fig1_gravitropic_kinetics.png",
-        "tags": ["FlashLapse", "Baseline", "Control", "Calibration"]
     },
     # Interactive Simulators
     {

@@ -43,10 +43,11 @@ CYVERSE_BRACHY_SERIES: List[Dict[str, Any]] = [
         "cadence_seconds": 15.0,
         "duration_minutes": 21.0,
         "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_1_1",
-        "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_1_1/timelapse.mp4",
+        "remote_video_url": "assets/videos/Brachy_Enhanced_Per1_DB_1_1.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_Per1_DB_1_1_poster.jpg",
         "has_manifest": True,
         "has_metadata_csv": True,
-        "status": "Extracted & Available"
+        "status": "Extracted & Hosted"
     },
     {
         "series_id": "cyv-brachy-per1-23",
@@ -58,10 +59,11 @@ CYVERSE_BRACHY_SERIES: List[Dict[str, Any]] = [
         "cadence_seconds": 15.0,
         "duration_minutes": 21.0,
         "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_2_3",
-        "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_2_3/timelapse.mp4",
+        "remote_video_url": "assets/videos/Brachy_Enhanced_Per1_DB_2_3.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_Per1_DB_2_3_poster.jpg",
         "has_manifest": True,
         "has_metadata_csv": True,
-        "status": "Extracted & Available"
+        "status": "Extracted & Hosted"
     },
     {
         "series_id": "cyv-brachy-per1-32",
@@ -73,10 +75,11 @@ CYVERSE_BRACHY_SERIES: List[Dict[str, Any]] = [
         "cadence_seconds": 15.0,
         "duration_minutes": 20.75,
         "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_3_2",
-        "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_3_2/timelapse.mp4",
+        "remote_video_url": "assets/videos/Brachy_Enhanced_Per1_DB_3_2.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_Per1_DB_3_2_poster.jpg",
         "has_manifest": True,
         "has_metadata_csv": True,
-        "status": "Extracted & Available"
+        "status": "Extracted & Hosted"
     },
     {
         "series_id": "cyv-brachy-tr7a-13",
@@ -88,10 +91,11 @@ CYVERSE_BRACHY_SERIES: List[Dict[str, Any]] = [
         "cadence_seconds": 15.0,
         "duration_minutes": 20.75,
         "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_1_3",
-        "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_1_3/timelapse.mp4",
+        "remote_video_url": "assets/videos/Brachy_Enhanced_TR7a_DB_1_3.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_TR7a_DB_1_3_poster.jpg",
         "has_manifest": True,
         "has_metadata_csv": True,
-        "status": "Extracted & Available"
+        "status": "Extracted & Hosted"
     },
     {
         "series_id": "cyv-brachy-tr7a-22",
@@ -103,25 +107,11 @@ CYVERSE_BRACHY_SERIES: List[Dict[str, Any]] = [
         "cadence_seconds": 15.0,
         "duration_minutes": 21.0,
         "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_2_2",
-        "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_2_2/timelapse.mp4",
+        "remote_video_url": "assets/videos/Brachy_Enhanced_TR7a_DB_2_2.mp4",
+        "thumbnail_url": "assets/thumbnails/Brachy_Enhanced_TR7a_DB_2_2_poster.jpg",
         "has_manifest": True,
         "has_metadata_csv": True,
-        "status": "Extracted & Available"
-    },
-    {
-        "series_id": "cyv-flashlapse-ctrl",
-        "series_name": "FlashLapse_Straight_growth",
-        "accession": "Baseline",
-        "organism": "Pisum sativum",
-        "condition": "Straight Vertical Growth",
-        "frame_count": 612,
-        "cadence_seconds": 15.0,
-        "duration_minutes": 153.0,
-        "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/FlashLapse_Straight_growth",
-        "remote_video_url": "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/FlashLapse_Straight_growth/timelapse.mp4",
-        "has_manifest": True,
-        "has_metadata_csv": True,
-        "status": "Extracted & Available"
+        "status": "Extracted & Hosted"
     }
 ]
 

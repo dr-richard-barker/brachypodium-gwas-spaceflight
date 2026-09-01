@@ -390,9 +390,10 @@
                 frames: 84,
                 cadence_seconds: 15.0,
                 irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_1_1",
-                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_1_1/timelapse.mp4",
+                video_url: "assets/videos/Brachy_Enhanced_Per1_DB_1_1.mp4",
+                thumbnail_url: "assets/thumbnails/Brachy_Enhanced_Per1_DB_1_1_poster.jpg",
                 description: "High-contrast enhanced time-lapse series of Brachypodium distachyon Per1 accession root gravitropic kinematics extracted from CyVerse Data Store.",
-                tags: ["CyVerse", "Per1", "Brachypodium", "iRODS"]
+                tags: ["CyVerse", "Per1", "Brachypodium", "Time-lapse", "iRODS"]
             },
             {
                 id: "cyverse-brachy-per1-2",
@@ -406,9 +407,27 @@
                 frames: 84,
                 cadence_seconds: 15.0,
                 irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_2_3",
-                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_Per1_DB_2_3/timelapse.mp4",
+                video_url: "assets/videos/Brachy_Enhanced_Per1_DB_2_3.mp4",
+                thumbnail_url: "assets/thumbnails/Brachy_Enhanced_Per1_DB_2_3_poster.jpg",
                 description: "Replicate time-lapse series of Brachypodium distachyon Per1 accession root growth under controlled gravistimulation.",
-                tags: ["CyVerse", "Per1", "Brachypodium", "iRODS"]
+                tags: ["CyVerse", "Per1", "Brachypodium", "Time-lapse", "iRODS"]
+            },
+            {
+                id: "cyverse-brachy-per1-3",
+                type: "cyverse",
+                series_name: "Brachy_Enhanced_Per1_DB_3_2",
+                title: "Brachypodium Per1 Accession - Series 3.2",
+                author: "Dr. Richard Barker (CyVerse / iRODS)",
+                category: "CyVerse Time-Lapses",
+                organism: "Brachypodium distachyon",
+                accession: "Per1",
+                frames: 83,
+                cadence_seconds: 15.0,
+                irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_Per1_DB_3_2",
+                video_url: "assets/videos/Brachy_Enhanced_Per1_DB_3_2.mp4",
+                thumbnail_url: "assets/thumbnails/Brachy_Enhanced_Per1_DB_3_2_poster.jpg",
+                description: "Gravitropic reorientation series for Brachypodium distachyon accession Per1.",
+                tags: ["CyVerse", "Per1", "Brachypodium", "Time-lapse", "iRODS"]
             },
             {
                 id: "cyverse-brachy-tr7a-1",
@@ -422,9 +441,10 @@
                 frames: 83,
                 cadence_seconds: 15.0,
                 irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_1_3",
-                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_1_3/timelapse.mp4",
+                video_url: "assets/videos/Brachy_Enhanced_TR7a_DB_1_3.mp4",
+                thumbnail_url: "assets/thumbnails/Brachy_Enhanced_TR7a_DB_1_3_poster.jpg",
                 description: "High-contrast time-lapse capture of Brachypodium distachyon Turkish accession BdTR7a during gravitropic curvature.",
-                tags: ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity"]
+                tags: ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity", "iRODS"]
             },
             {
                 id: "cyverse-brachy-tr7a-2",
@@ -438,9 +458,10 @@
                 frames: 84,
                 cadence_seconds: 15.0,
                 irods_path: "/iplant/home/dr_richard_barker/timelapse_extract/Brachy_Enhanced_TR7a_DB_2_2",
-                video_url: "https://raw.githubusercontent.com/dr-richard-barker/timelapse-image-series/main/Brachy_Enhanced_TR7a_DB_2_2/timelapse.mp4",
+                video_url: "assets/videos/Brachy_Enhanced_TR7a_DB_2_2.mp4",
+                thumbnail_url: "assets/thumbnails/Brachy_Enhanced_TR7a_DB_2_2_poster.jpg",
                 description: "Replicate kinematic series of Brachypodium distachyon accession BdTR7a.",
-                tags: ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity"]
+                tags: ["CyVerse", "BdTR7a", "Brachypodium", "Turkish Diversity", "iRODS"]
             },
             {
                 id: "sim-90",
@@ -469,7 +490,7 @@
         // Load catalog from localStorage or initial state
         let catalog = [];
         try {
-            const saved = localStorage.getItem('astrograss_video_catalog_v2');
+            const saved = localStorage.getItem('astrograss_video_catalog_v3');
             if (saved) {
                 catalog = JSON.parse(saved).filter(i => i.id !== 'cyverse-gravatron' && !i.title.includes('Gravatron'));
             } else {
@@ -494,16 +515,28 @@
                 card.className = 'video-card';
 
                 let headerHtml = '';
+                let extraBodyHtml = '';
+
                 if (item.type === 'youtube') {
                     headerHtml = `<iframe src="https://www.youtube.com/embed/${item.youtube_id}" title="${item.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
                 } else if (item.type === 'cyverse') {
                     headerHtml = `
-                        <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(135deg, #0b1d3a, #1e3a8a); color:white; padding:1rem; text-align:center;">
-                            <span style="font-size:2.5rem; margin-bottom:0.5rem;">🌱</span>
-                            <strong style="font-size:0.95rem;">${item.series_name}</strong>
-                            <span style="font-size:0.8rem; color:#93c5fd; margin-top:4px;">${item.frames} frames • ${item.cadence_seconds}s cadence</span>
-                            <a href="${item.video_url}" target="_blank" class="badge" style="background:#38bdf8; color:#0b1d3a; margin-top:8px; text-decoration:none; font-weight:bold;">▶ Stream CyVerse MP4</a>
+                        <div style="position:relative; width:100%; height:100%; background:#0b1d3a; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                            <video controls preload="metadata" playsinline poster="${item.thumbnail_url || ''}" style="width:100%; height:100%; object-fit:contain; background:#000;">
+                                <source src="${item.video_url}" type="video/mp4">
+                                Your browser does not support HTML5 video playback.
+                            </video>
                         </div>`;
+                    extraBodyHtml = `
+                        <div style="margin-top:8px; font-size:0.8rem; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px 10px;">
+                            <div style="color:#0f766e; font-weight:600; margin-bottom:2px;">🔬 Series: <code>${item.series_name || ''}</code> (${item.frames || 84} frames • ${item.cadence_seconds || 15}s cadence)</div>
+                            <div style="color:#64748b; font-size:0.75rem; word-break:break-all; font-family:monospace;">iRODS: ${item.irods_path || '/iplant/home/dr_richard_barker/...'}</div>
+                        </div>
+                        <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+                            <a href="${item.video_url}" download class="sim-btn" style="background:#2d7a4f; color:white; text-decoration:none; padding:4px 10px; font-size:0.8rem; display:inline-flex; align-items:center; gap:4px; border-radius:4px;">📥 Download MP4</a>
+                            <button onclick="navigator.clipboard.writeText('${item.irods_path || ''}'); alert('Copied iRODS collection URI to clipboard!');" class="sim-btn" style="background:#e2e8f0; color:#334155; border:none; padding:4px 10px; font-size:0.8rem; cursor:pointer; border-radius:4px;">📋 Copy iRODS</button>
+                        </div>
+                    `;
                 } else if (item.type === 'simulator') {
                     if (item.simulator_type === '90deg') {
                         headerHtml = `
@@ -541,7 +574,8 @@
                         <div class="video-title">${item.title}</div>
                         <div class="video-author">👤 ${item.author} ${item.organism ? `• <em>${item.organism}</em>` : ''}</div>
                         <div class="video-desc">${item.description || ''}</div>
-                        <div class="video-tags">${tagsHtml}</div>
+                        ${extraBodyHtml}
+                        <div class="video-tags" style="margin-top:8px;">${tagsHtml}</div>
                     </div>
                 `;
                 container.appendChild(card);
@@ -621,7 +655,7 @@
 
             catalog.unshift(newVideo);
             try {
-                localStorage.setItem('astrograss_video_catalog_v2', JSON.stringify(catalog));
+                localStorage.setItem('astrograss_video_catalog_v3', JSON.stringify(catalog));
             } catch (err) {}
 
             modal.style.display = 'none';
