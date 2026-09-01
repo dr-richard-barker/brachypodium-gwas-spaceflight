@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-09-01T16:11:45.056031</dc:date>
+    <dc:date>2026-09-01T16:29:49.018182</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -40,7 +40,7 @@ Q 44.4627 58.1652 44.4627 72.216
 L 44.4627 446.904 
 Q 44.4627 460.9548 59.121 460.9548 
 z
-" clip-path="url(#p1a8f3c5449)" style="fill: #f1f8e9; stroke: #2e7d32; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#pa9b8c483f6)" style="fill: #f1f8e9; stroke: #2e7d32; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 181.2735 395.3844 
@@ -53,7 +53,7 @@ C 150.674612 345.56467 147.0708 353.904463 147.0708 362.5992
 C 147.0708 371.293937 150.674612 379.63373 157.088539 385.781837 
 C 163.502466 391.929945 172.202838 395.3844 181.2735 395.3844 
 z
-" clip-path="url(#p1a8f3c5449)" style="fill: #8d6e63; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
+" clip-path="url(#pa9b8c483f6)" style="fill: #8d6e63; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 254.565 395.3844 
@@ -66,7 +66,7 @@ C 223.966112 345.56467 220.3623 353.904463 220.3623 362.5992
 C 220.3623 371.293937 223.966112 379.63373 230.380039 385.781837 
 C 236.793966 391.929945 245.494338 395.3844 254.565 395.3844 
 z
-" clip-path="url(#p1a8f3c5449)" style="fill: #8d6e63; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
+" clip-path="url(#pa9b8c483f6)" style="fill: #8d6e63; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 327.8565 395.3844 
@@ -79,7 +79,7 @@ C 297.257612 345.56467 293.6538 353.904463 293.6538 362.5992
 C 293.6538 371.293937 297.257612 379.63373 303.671539 385.781837 
 C 310.085466 391.929945 318.785838 395.3844 327.8565 395.3844 
 z
-" clip-path="url(#p1a8f3c5449)" style="fill: #8d6e63; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
+" clip-path="url(#pa9b8c483f6)" style="fill: #8d6e63; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- Root Columella Statocyte (1g) -->
@@ -2128,7 +2128,7 @@ Q 543.3327 58.1652 543.3327 72.216
 L 543.3327 446.904 
 Q 543.3327 460.9548 557.991 460.9548 
 z
-" clip-path="url(#p66823a4f2e)" style="fill: #fbe9e7; stroke: #b71c1c; stroke-width: 2; stroke-linejoin: miter"/>
+" clip-path="url(#p7523134bb5)" style="fill: #fbe9e7; stroke: #b71c1c; stroke-width: 2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
     <path d="M 655.713 243.1674 
@@ -2141,7 +2141,7 @@ C 627.299747 196.906222 623.95335 204.650316 623.95335 212.724
 C 623.95335 220.797684 627.299747 228.541778 633.255536 234.250735 
 C 639.211325 239.959691 647.290242 243.1674 655.713 243.1674 
 z
-" clip-path="url(#p66823a4f2e)" style="fill: #bcaaa4; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
+" clip-path="url(#p7523134bb5)" style="fill: #bcaaa4; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
     <path d="M 851.157 266.5854 
@@ -2154,7 +2154,7 @@ C 822.743747 220.324222 819.39735 228.068316 819.39735 236.142
 C 819.39735 244.215684 822.743747 251.959778 828.699536 257.668735 
 C 834.655325 263.377691 842.734242 266.5854 851.157 266.5854 
 z
-" clip-path="url(#p66823a4f2e)" style="fill: #bcaaa4; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
+" clip-path="url(#p7523134bb5)" style="fill: #bcaaa4; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="patch_13">
     <path d="M 743.6628 346.2066 
@@ -2167,7 +2167,7 @@ C 715.249547 299.945422 711.90315 307.689516 711.90315 315.7632
 C 711.90315 323.836884 715.249547 331.580978 721.205336 337.289935 
 C 727.161125 342.998891 735.240042 346.2066 743.6628 346.2066 
 z
-" clip-path="url(#p66823a4f2e)" style="fill: #bcaaa4; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
+" clip-path="url(#p7523134bb5)" style="fill: #bcaaa4; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #5d4037; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="text_10">
     <!-- Root Columella Statocyte (ISS μg) -->
@@ -3044,10 +3044,10 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p1a8f3c5449">
+  <clipPath id="pa9b8c483f6">
    <rect x="10.26" y="25.38" width="488.61" height="468.36"/>
   </clipPath>
-  <clipPath id="p66823a4f2e">
+  <clipPath id="p7523134bb5">
    <rect x="509.13" y="25.38" width="488.61" height="468.36"/>
   </clipPath>
  </defs>

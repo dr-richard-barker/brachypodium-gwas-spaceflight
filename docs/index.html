@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brachypodium GWAS-Spaceflight Integration</title>
+    <title>AstroGrass — Brachypodium Gravitropism GWAS & ISS Spaceflight Multi-Omics</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
+    <meta name="description" content="AstroGrass: Connecting natural variation in gravitropic reorientation with microgravity transcriptomics in Brachypodium distachyon (NASA OSDR OSD-375 / APEX-06).">
 </head>
 <body>
     <header>
@@ -22,47 +24,299 @@
         </div>
     </header>
 
+    <!-- HERO BANNER -->
     <div class="hero">
-        <h1>Brachypodium GWAS-Spaceflight Integration</h1>
-        <p>Connecting gravitropic natural variation with ISS microgravity responses (NASA OSDR OSD-375)</p>
-        <div style="margin-top:1.2rem;">
-            <a href="astrograss.html" class="badge" style="background:#38a169; color:#fff; padding:10px 20px; font-size:1rem; border-radius:6px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2);">Explore the AstroGrass Database →</a>
+        <div style="display:inline-block; background:rgba(45, 122, 79, 0.4); border:1px solid #38a169; padding:4px 14px; border-radius:20px; font-size:0.85rem; font-weight:600; margin-bottom:1rem; letter-spacing:0.5px;">
+            🚀 NASA OSDR OSD-375 • SpaceX CRS-14 (APEX-06) • International Space Station
+        </div>
+        <h1 style="max-width:950px; margin:0 auto; font-size:2.4rem; line-height:1.25;">Connecting Gravitropic Natural Variation with Microgravity Transcriptomics in <em>Brachypodium distachyon</em></h1>
+        <p style="max-width:850px; margin:1rem auto 0 auto; font-size:1.15rem; color:#cbd5e1;">
+            A multi-omics study linking terrestrial gravitropic reorientation kinetics across 15 natural accessions with orbital transcriptomic remodeling aboard the ISS, unlocking monocot genetic adaptations for space agriculture.
+        </p>
+        <div style="margin-top:1.8rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="astrograss.html" class="badge" style="background:#2d7a4f; color:#fff; padding:12px 24px; font-size:1rem; border-radius:6px; text-decoration:none; box-shadow:0 4px 15px rgba(0,0,0,0.3); font-weight:bold;">🔍 Search AstroGrass Database →</a>
+            <a href="#key-findings" class="badge" style="background:#1e3a8a; color:#fff; padding:12px 24px; font-size:1rem; border-radius:6px; text-decoration:none; font-weight:bold;">🔬 Explore Key Findings ↓</a>
+            <a href="manuscript/manuscript.pdf" target="_blank" class="badge" style="background:#475569; color:#fff; padding:12px 20px; font-size:1rem; border-radius:6px; text-decoration:none;">📄 Download Manuscript (PDF)</a>
         </div>
     </div>
 
     <div class="container">
-        <section class="card">
-            <h2>The Story</h2>
-            <p>This project connects gravitropism analyzed via Genome-Wide Association Studies (GWAS) with transcriptomic responses to spaceflight from the NASA OSDR OSD-375 (APEX-06) mission. By integrating these distinct layers, we aim to uncover the underlying genetic architecture of gravitropic responses in the model grass <i>Brachypodium distachyon</i> and draw cross-species comparisons, offering critical implications for Bioregenerative Life Support Systems (BLSS).</p>
+        <!-- TOP EXECUTIVE METRICS STRIP -->
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-value">15 Lines</div>
+                <div class="metric-label">Natural Variation Panel</div>
+                <div class="metric-sub">ANOVA: <em>F</em> = 7.57, <em>p</em> = 1.35 × 10⁻⁹ (23.6° → 41.9°)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">48 Samples</div>
+                <div class="metric-label">NASA OSDR OSD-375 (ISS)</div>
+                <div class="metric-sub">3 Ecotypes × 2 Tissues × 2 Gravities × 4 Reps</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">29 Loci</div>
+                <div class="metric-label">Physical Ideogram (272 Mb)</div>
+                <div class="metric-sub">PIN, LAZY, AUX/LAX, Starch & Calcium Sensors</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value"><em>p</em> = 0.0446</div>
+                <div class="metric-label">Cross-Species Conservation</div>
+                <div class="metric-sub">Fisher's exact test (OR = 13.70 vs <em>Arabidopsis</em>)</div>
+            </div>
+        </div>
+
+        <!-- EXECUTIVE SUMMARY NARRATIVE -->
+        <section class="card" style="border-left: 6px solid #2d7a4f;">
+            <h2>🌾 The AstroGrass Discovery: Monocot Gravity Adaptation in Space</h2>
+            <p style="font-size:1.05rem; line-height:1.7; color:#334155;">
+                Cereal grasses (Poaceae) provide over 50% of global human caloric intake and represent cornerstone crops for long-duration spaceflight and closed-loop <strong>Bioregenerative Life Support Systems (BLSS)</strong>. Gravity perception (gravitropism) governs root anchorage, nutrient uptake, and canopy architecture. While gravity signaling has been dissected extensively in dicot models, monocots possess distinct biomechanical adaptations including specialized <strong>Type II primary cell walls</strong> (mixed-linkage &beta;-glucans and glucuronoarabinoxylans) and distinct root gravitropic setpoint angle (GSA) loci.
+            </p>
+            <p style="font-size:1.05rem; line-height:1.7; color:#334155;">
+                Here, we present the first unified monocot multi-omics resource integrating:
+                (1) <strong>Phenotypic natural variation</strong> in gravitropic curvature across 15 <em>Brachypodium distachyon</em> accessions;
+                (2) <strong>Genome-wide chromosomal mapping</strong> of 29 candidate loci across the 272 Mb genome (Bd1–Bd5);
+                (3) <strong>Orbital RNA-Seq profiling</strong> from NASA OSDR study <strong>OSD-375 (APEX-06)</strong> aboard the International Space Station;
+                (4) <strong>Cross-species evolutionary meta-analysis</strong> against 2,550 consensus <em>Arabidopsis</em> spaceflight genes; and
+                (5) <strong>Authentic CyVerse time-lapse video kinematics</strong> with real-time biophysical simulators.
+            </p>
         </section>
 
-        <section class="card">
-            <h2>Key Findings</h2>
-            <div class="grid-3">
-                <div class="icon-card">
-                    <h3>GWAS Targets</h3>
-                    <p>Identified novel loci associated with gravitropic reorientation.</p>
+        <!-- SECTION: 5 KEY SCIENTIFIC FINDINGS -->
+        <h2 id="key-findings" style="margin-top:3rem; margin-bottom:1.5rem; text-align:center; border:none; font-size:1.8rem; color:#0b1d3a;">
+            🔬 Key Scientific Findings & Discoveries
+        </h2>
+
+        <!-- FINDING 1: KINETICS & GWAS -->
+        <div class="deep-dive-card">
+            <div>
+                <span class="badge" style="background:#2d7a4f; margin-left:0;">Finding 1: Phenotypic Natural Variation</span>
+                <h3 style="color:#0b1d3a; font-size:1.4rem; margin-top:0.5rem; margin-bottom:0.75rem;">Significant Natural Variation in Gravitropic Kinetics Across 15 Accessions</h3>
+                <p style="color:#4a5568; line-height:1.6;">
+                    Quantitative tracking of root tip bending following 90° gravistimulation revealed profound natural variation in reorientation kinetics across the <em>Brachypodium</em> diversity panel (<strong style="color:#2d7a4f;">ANOVA <em>F</em> = 7.567, <em>p</em> = 1.35 × 10⁻⁹</strong> at 20 min). Curvature at 30 minutes ranged from a high of <strong>41.9° ± 2.8° (Koz1)</strong> and <strong>39.2° (ABR1)</strong> to <strong>23.6° ± 1.9° (Koz3)</strong>.
+                </p>
+                <p style="color:#4a5568; line-height:1.6;">
+                    Crucially, the three ecotypes evaluated in orbital study OSD-375 span the phenotypic spectrum: reference <strong>Bd21</strong> showed rapid curvature (34.1°), <strong>Bd21-3</strong> showed intermediate kinetics (32.0°), while Turkish accession <strong>Gaz8</strong> exhibited slow, sluggish bending (27.5°).
+                </p>
+                <div style="margin-top:1rem;">
+                    <span class="gene-pill">Koz1 (41.9°)</span>
+                    <span class="gene-pill">Bd21 (34.1°)</span>
+                    <span class="gene-pill">Bd21-3 (32.0°)</span>
+                    <span class="gene-pill">Gaz8 (27.5°)</span>
+                    <span class="gene-pill">Koz3 (23.6°)</span>
                 </div>
-                <div class="icon-card">
-                    <h3>Spaceflight Transcriptomics</h3>
-                    <p>Differentially expressed genes in root and shoot across three ecotypes.</p>
+                <div style="margin-top:1.2rem;">
+                    <a href="gwas.html" class="btn-sm btn-primary">Explore GWAS Loci & Association Data →</a>
                 </div>
-                <div class="icon-card">
-                    <h3>Integrative Model</h3>
-                    <p>Convergence of natural variation and microgravity responses.</p>
+            </div>
+            <div class="figure-preview-box">
+                <img src="assets/fig1_gravitropic_kinetics.png" alt="Figure 1: Gravitropic Kinetics & GWAS Manhattan Plot" onclick="openLightbox('assets/fig1_gravitropic_kinetics.png', 'Figure 1: Gravitropic reorientation kinetics across 15 Brachypodium accessions, 30-min curvature ranking, Genome-Wide Association Manhattan Plot across Bd1–Bd5 with Bonferroni threshold, and QQ-plot inset (λ = 1.02).')">
+                <div class="figure-caption">
+                    <strong>Figure 1:</strong> Gravitropic kinetics (A), accession curvature ranking (B), Manhattan plot across Bd1–Bd5 (C), and QQ-plot inset with genomic inflation factor &lambda; = 1.02 (D). <em>(Click to expand)</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINDING 2: PHYSICAL CHROMOSOME IDEOGRAM -->
+        <div class="deep-dive-card deep-dive-reverse">
+            <div>
+                <span class="badge" style="background:#1e3a8a; margin-left:0;">Finding 2: Functional Genomics</span>
+                <h3 style="color:#0b1d3a; font-size:1.4rem; margin-top:0.5rem; margin-bottom:0.75rem;">High-Resolution Physical Ideogram Across 5 Chromosomes (272 Mb)</h3>
+                <p style="color:#4a5568; line-height:1.6;">
+                    We mapped 29 curated gravitropism loci to their exact megabase physical coordinates across chromosomes <strong>Bd1 (75.1 Mb)</strong>, <strong>Bd2 (59.1 Mb)</strong>, <strong>Bd3 (59.6 Mb)</strong>, <strong>Bd4 (48.6 Mb)</strong>, and <strong>Bd5 (28.6 Mb)</strong> with annotated centromeric constrictions.
+                </p>
+                <p style="color:#4a5568; line-height:1.6;">
+                    Loci span all 7 core biochemical subsystems: polar auxin transport (<span class="gene-pill">BdPIN1a/b</span>, <span class="gene-pill">BdPIN3</span>, <span class="gene-pill">BdAUX1</span>), statolith translocation (<span class="gene-pill">BdLAZY1</span>, <span class="gene-pill">BdDRO1</span>), starch biosynthesis (<span class="gene-pill">BdPGM1</span>, <span class="gene-pill">BdADG1</span>), calcium mechanosensing (<span class="gene-pill">BdCPK28</span>, <span class="gene-pill">BdCAS</span>, <span class="gene-pill">BdMSL10</span>), and Type II cell wall remodeling (<span class="gene-pill">BdEXPA1</span>, <span class="gene-pill">BdXTH1</span>).
+                </p>
+                <div style="margin-top:1.2rem;">
+                    <a href="astrograss.html" class="btn-sm btn-primary">View Physical Ideogram & Master Database →</a>
+                </div>
+            </div>
+            <div class="figure-preview-box">
+                <img src="assets/fig3_candidate_pathways.png" alt="Figure 3: Chromosome Ideogram & Expression Heatmap" onclick="openLightbox('assets/fig3_candidate_pathways.png', 'Figure 3: Linear physical chromosomal ideogram of Brachypodium distachyon (Bd1–Bd5, 272 Mb) with exact candidate gene coordinates, centromeric positions, functional pathway taxonomy, and clustered spaceflight expression heatmap.')">
+                <div class="figure-caption">
+                    <strong>Figure 3:</strong> Linear 272 Mb physical ideogram of chromosomes Bd1–Bd5 with exact candidate gene leader lines (A), pathway taxonomy breakdown (B), and clustered spaceflight expression heatmap (C). <em>(Click to expand)</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINDING 3: ISS ORBITAL TRANSCRIPTOMICS -->
+        <div class="deep-dive-card">
+            <div>
+                <span class="badge" style="background:#0f766e; margin-left:0;">Finding 3: NASA OSDR OSD-375 Spaceflight</span>
+                <h3 style="color:#0b1d3a; font-size:1.4rem; margin-top:0.5rem; margin-bottom:0.75rem;">Orbital Transcriptomics & Subcellular Enrichment Aboard the ISS</h3>
+                <p style="color:#4a5568; line-height:1.6;">
+                    Re-analysis of 48 biological replicates from study <strong>OSD-375 (APEX-06)</strong> aboard the ISS confirmed marked ecotype-dependent transcriptomic reprogramming in microgravity. Microgravity triggered profound repression of statolith starch biosynthetic enzymes (<span class="gene-pill gene-pill-down">BdPGM1: &minus;1.10 log₂FC</span>, <span class="gene-pill gene-pill-down">BdADG1: &minus;0.92 log₂FC</span>) and compensatory induction of gravity signaling transducers (<span class="gene-pill gene-pill-up">BdLAZY1: +2.15 log₂FC</span>, <span class="gene-pill gene-pill-up">BdPIN3: +1.95 log₂FC</span>).
+                </p>
+                <p style="color:#4a5568; line-height:1.6;">
+                    <strong>Gaz8</strong> displayed the most pronounced stress activation in orbit, with heavy induction of calcium-dependent kinase <span class="gene-pill gene-pill-up">BdCPK28 (+2.38 log₂FC, padj = 2.0 × 10⁻⁵)</span>, calcium sensor <span class="gene-pill gene-pill-up">BdCAS (+1.75 log₂FC)</span>, and mechanosensitive channel <span class="gene-pill gene-pill-up">BdMSL10 (+1.45 log₂FC)</span>.
+                </p>
+                <div style="margin-top:1.2rem;">
+                    <a href="spaceflight.html" class="btn-sm btn-primary">View OSD-375 Matrix & DEG Volcano Plots →</a>
+                </div>
+            </div>
+            <div class="figure-preview-box">
+                <img src="assets/fig2_osd375_sample_matrix.png" alt="Figure 2: OSD-375 Spaceflight Matrix & Subcellular Enrichment" onclick="openLightbox('assets/fig2_osd375_sample_matrix.png', 'Figure 2: NASA OSDR OSD-375 experimental design matrix across 48 samples, Differential Expression volcano plot (Roots vs Shoots), ecotype response comparison, and Subcellular Localization Enrichment analysis.')">
+                <div class="figure-caption">
+                    <strong>Figure 2:</strong> OSD-375 48-sample matrix (A), DEG volcano plot (B), ecotype comparison (C), and Subcellular Localization Enrichment plot highlighting Plasma Membrane, Amyloplast Envelope, and Type II Wall compartments (D). <em>(Click to expand)</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINDING 4: CROSS-SPECIES CONSERVATION -->
+        <div class="deep-dive-card deep-dive-reverse">
+            <div>
+                <span class="badge" style="background:#7c3aed; margin-left:0;">Finding 4: Cross-Species Meta-Analysis</span>
+                <h3 style="color:#0b1d3a; font-size:1.4rem; margin-top:0.5rem; margin-bottom:0.75rem;">Conserved Stress Modules & Monocot Type II Wall Divergence</h3>
+                <p style="color:#4a5568; line-height:1.6;">
+                    Comparative meta-analysis against 2,550 consensus <em>Arabidopsis thaliana</em> spaceflight DEGs across 17 NASA GeneLab missions confirmed statistically significant evolutionary conservation of core microgravity response pathways (<strong style="color:#7c3aed;">Fisher's exact test: <em>p</em> = 0.0446, Odds Ratio = 13.70</strong>).
+                </p>
+                <p style="color:#4a5568; line-height:1.6;">
+                    Conserved modules include reactive oxygen species (ROS) scavenging, heat shock chaperones (HSP70, HSFA2), and boundary-layer gas exchange adaptations (<span class="gene-pill gene-pill-up">BdSHMT2 / AtSHMT2: +2.10 log₂FC</span>). In contrast, lineage-specific responses were dominated by grass <strong>Type II cell wall remodeling</strong> (mixed-linkage &beta;-glucan synthases and xyloglucan endotransglucosylases).
+                </p>
+                <div style="margin-top:1.2rem;">
+                    <a href="integration.html" class="btn-sm btn-primary">Explore Cross-Species Integration →</a>
+                </div>
+            </div>
+            <div class="figure-preview-box">
+                <img src="assets/fig4_cross_species_conservation.png" alt="Figure 4: Cross-Species Conservation Meta-Analysis" onclick="openLightbox('assets/fig4_cross_species_conservation.png', 'Figure 4: Cross-species transcriptomic conservation between Brachypodium distachyon (OSD-375) and Arabidopsis thaliana spaceflight consensus DEGs (Fisher exact test p=0.0446, Odds Ratio=13.70) with pathway enrichment comparisons.')">
+                <div class="figure-caption">
+                    <strong>Figure 4:</strong> Cross-species orthology conservation (A) and shared vs. monocot-specific functional pathway enrichment profiles (B). <em>(Click to expand)</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINDING 5: MECHANISTIC BIOPHYSICAL MODEL -->
+        <div class="deep-dive-card">
+            <div>
+                <span class="badge" style="background:#c05621; margin-left:0;">Finding 5: Mechanistic Model & BLSS</span>
+                <h3 style="color:#0b1d3a; font-size:1.4rem; margin-top:0.5rem; margin-bottom:0.75rem;">Biophysical Gravity Perception Model for Space Agriculture</h3>
+                <p style="color:#4a5568; line-height:1.6;">
+                    We synthesized a comprehensive biophysical model contrasting gravity signaling at <strong>1g Earth</strong> versus <strong>&mu;g Spaceflight</strong>. On Earth, amyloplast statolith sedimentation drives LZY-RLD translocation to polarize PIN efflux carriers toward the lower flank, establishing asymmetric auxin flux and downward curvature.
+                </p>
+                <p style="color:#4a5568; line-height:1.6;">
+                    In orbit, statoliths remain suspended in the central columella, abolishing directional cues, inducing compensatory <em>BdLAZY1</em>/<em>BdPIN3</em> activation, triggering calcium efflux bursts (<span class="gene-pill">BdCPK28</span>, <span class="gene-pill">BdCAS</span>), and modifying Type II wall extensibility via alpha-expansins (<span class="gene-pill">BdEXPA1</span>).
+                </p>
+                <div style="margin-top:1.2rem;">
+                    <a href="videos.html" class="btn-sm btn-primary">Watch Time-Lapse Kinematics & Simulators →</a>
+                </div>
+            </div>
+            <div class="figure-preview-box">
+                <img src="assets/fig5_mechanistic_model.png" alt="Figure 5: Biophysical Mechanistic Signaling Model" onclick="openLightbox('assets/fig5_mechanistic_model.png', 'Figure 5: Mechanistic model contrasting 1g statolith sedimentation and LZY-RLD-PIN polarization on Earth with microgravity statolith suspension, calcium signaling bursts, and cell wall remodeling in spaceflight.')">
+                <div class="figure-caption">
+                    <strong>Figure 5:</strong> Biophysical model comparing 1g sedimentation & auxin gradient formation (Left) with &mu;g statolith suspension & calcium stress (Right). <em>(Click to expand)</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: COMPLETE PUBLICATION FIGURE GALLERY -->
+        <section class="card" style="margin-top:3rem;">
+            <h2>📊 Complete Publication Figure Gallery (Figs 1–6 + Fig S1)</h2>
+            <p style="color:#64748b; font-size:0.95rem;">Click any publication figure to view in high-resolution lightbox or download publication-ready vector SVGs and 300 DPI PNGs:</p>
+            
+            <div class="figure-gallery-grid">
+                <!-- Fig 1 -->
+                <div class="gallery-item">
+                    <img src="assets/fig1_gravitropic_kinetics.png" alt="Figure 1" onclick="openLightbox('assets/fig1_gravitropic_kinetics.png', 'Figure 1: Gravitropic Reorientation Kinetics & GWAS Manhattan Plot.')">
+                    <div class="gallery-item-body">
+                        <div class="gallery-item-title">Figure 1: Gravitropic Kinetics & GWAS</div>
+                        <div class="gallery-item-desc">Kinetic curves across 15 lines, ANOVA ranking (p=1.35e-9), Manhattan plot, and QQ-plot inset.</div>
+                        <div class="gallery-item-actions">
+                            <a href="assets/fig1_gravitropic_kinetics.png" download class="btn-sm btn-secondary">📥 PNG (300 DPI)</a>
+                            <a href="assets/fig1_gravitropic_kinetics.svg" download class="btn-sm btn-secondary">📐 Vector SVG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fig 2 -->
+                <div class="gallery-item">
+                    <img src="assets/fig2_osd375_sample_matrix.png" alt="Figure 2" onclick="openLightbox('assets/fig2_osd375_sample_matrix.png', 'Figure 2: NASA OSDR OSD-375 Matrix, DEG Volcano Plots & Subcellular Localization Enrichment.')">
+                    <div class="gallery-item-body">
+                        <div class="gallery-item-title">Figure 2: OSD-375 Spaceflight Matrix</div>
+                        <div class="gallery-item-desc">48-sample experimental design, root/shoot DEGs, ecotype trajectories, and subcellular site enrichment.</div>
+                        <div class="gallery-item-actions">
+                            <a href="assets/fig2_osd375_sample_matrix.png" download class="btn-sm btn-secondary">📥 PNG (300 DPI)</a>
+                            <a href="assets/fig2_osd375_sample_matrix.svg" download class="btn-sm btn-secondary">📐 Vector SVG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fig 3 -->
+                <div class="gallery-item">
+                    <img src="assets/fig3_candidate_pathways.png" alt="Figure 3" onclick="openLightbox('assets/fig3_candidate_pathways.png', 'Figure 3: Linear Physical Ideogram (Bd1–Bd5, 272 Mb) & Expression Heatmap.')">
+                    <div class="gallery-item-body">
+                        <div class="gallery-item-title">Figure 3: Physical Ideogram (272 Mb)</div>
+                        <div class="gallery-item-desc">Linear chromosomes Bd1–Bd5, centromeres, 29 candidate locus coordinates, and clustered heatmap.</div>
+                        <div class="gallery-item-actions">
+                            <a href="assets/fig3_candidate_pathways.png" download class="btn-sm btn-secondary">📥 PNG (300 DPI)</a>
+                            <a href="assets/fig3_candidate_pathways.svg" download class="btn-sm btn-secondary">📐 Vector SVG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fig 4 -->
+                <div class="gallery-item">
+                    <img src="assets/fig4_cross_species_conservation.png" alt="Figure 4" onclick="openLightbox('assets/fig4_cross_species_conservation.png', 'Figure 4: Cross-Species Evolutionary Conservation (Arabidopsis vs Brachypodium).')">
+                    <div class="gallery-item-body">
+                        <div class="gallery-item-title">Figure 4: Cross-Species Meta-Analysis</div>
+                        <div class="gallery-item-desc">Orthology conservation (p=0.0446, OR=13.70) and shared vs monocot Type II wall pathways.</div>
+                        <div class="gallery-item-actions">
+                            <a href="assets/fig4_cross_species_conservation.png" download class="btn-sm btn-secondary">📥 PNG (300 DPI)</a>
+                            <a href="assets/fig4_cross_species_conservation.svg" download class="btn-sm btn-secondary">📐 Vector SVG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fig 5 -->
+                <div class="gallery-item">
+                    <img src="assets/fig5_mechanistic_model.png" alt="Figure 5" onclick="openLightbox('assets/fig5_mechanistic_model.png', 'Figure 5: Biophysical Mechanistic Signaling Model (1g vs microgravity).')">
+                    <div class="gallery-item-body">
+                        <div class="gallery-item-title">Figure 5: Biophysical Mechanistic Model</div>
+                        <div class="gallery-item-desc">Cellular biophysics comparing 1g statolith sedimentation with orbital microgravity suspension.</div>
+                        <div class="gallery-item-actions">
+                            <a href="assets/fig5_mechanistic_model.png" download class="btn-sm btn-secondary">📥 PNG (300 DPI)</a>
+                            <a href="assets/fig5_mechanistic_model.svg" download class="btn-sm btn-secondary">📐 Vector SVG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fig 6 -->
+                <div class="gallery-item">
+                    <img src="assets/fig6_astrograss_architecture.png" alt="Figure 6" onclick="openLightbox('assets/fig6_astrograss_architecture.png', 'Figure 6: AstroGrass Multi-Omics Knowledgebase Architecture.')">
+                    <div class="gallery-item-body">
+                        <div class="gallery-item-title">Figure 6: AstroGrass Architecture</div>
+                        <div class="gallery-item-desc">Unified multi-layer platform integrating spaceflight, terrestrial GWAS, kinematics, and APIs.</div>
+                        <div class="gallery-item-actions">
+                            <a href="assets/fig6_astrograss_architecture.png" download class="btn-sm btn-secondary">📥 PNG (300 DPI)</a>
+                            <a href="assets/fig6_astrograss_architecture.svg" download class="btn-sm btn-secondary">📐 Vector SVG</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fig S1 -->
+                <div class="gallery-item">
+                    <img src="assets/figS1_mission_experimental_design.png" alt="Supplementary Fig S1" onclick="openLightbox('assets/figS1_mission_experimental_design.png', 'Supplementary Figure S1: Authentic APEX Growth Unit hardware, ISS orbital seedling morphology, and SpaceX CRS-14 mission parameters.')">
+                    <div class="gallery-item-body">
+                        <div class="gallery-item-title">Figure S1: Mission Hardware & Photos</div>
+                        <div class="gallery-item-desc">Authentic APEX Growth Unit photo, ISS seedling morphology photo, and SpaceX CRS-14 timeline.</div>
+                        <div class="gallery-item-actions">
+                            <a href="assets/figS1_mission_experimental_design.png" download class="btn-sm btn-secondary">📥 PNG (300 DPI)</a>
+                            <a href="assets/figS1_mission_experimental_design.svg" download class="btn-sm btn-secondary">📐 Vector SVG</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- SECTION: REAL-TIME SIMULATOR & TIME-LAPSE GATEWAY -->
         <section class="card">
-            <h2>🌱 Gravitropic Reorientation Dynamic Time-lapse</h2>
-            <p>Interactive kinematic time-lapse tracking of <em>Brachypodium distachyon</em> root tip curvature following 90° gravistimulation over 180 minutes (AIR Stage VI assay). Press <strong>Play</strong> to simulate root bending in real time:</p>
+            <h2>🌱 Real-Time Gravitropic Reorientation Simulator</h2>
+            <p>Interactive kinematic time-lapse tracking of <em>Brachypodium distachyon</em> root tip curvature following 90° gravistimulation over 180 minutes (AIR Stage VI assay). Press <strong>Play</strong> to simulate root bending and statolith displacement in real time:</p>
             
             <div style="background:#111; border-radius:8px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.3); margin-top:1rem;">
                 <div style="position:relative; width:100%; height:280px; background:#1a202c; display:flex; align-items:center; justify-content:center;">
                     <canvas id="index-sim-90" width="480" height="280" style="background:#0f172a; width:100%; height:100%; border-radius:6px;"></canvas>
                 </div>
-                <div style="background:#1e293b; padding:10px 15px; display:flex; align-items:center; justify-content:space-between; color:#fff; font-size:0.85rem;">
+                <div style="background:#1e293b; padding:10px 15px; display:flex; align-items:center; justify-content:space-between; color:#fff; font-size:0.85rem; flex-wrap:wrap; gap:8px;">
                     <div>
                         <button id="index-btn-play" style="background:#2d7a4f; color:#fff; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-weight:bold;">▶ Play</button>
                         <button id="index-btn-reset" style="background:#475569; color:#fff; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-weight:bold;">↺ Reset</button>
@@ -71,31 +325,124 @@
                 </div>
             </div>
 
-            <div style="margin-top:1.2rem; display:flex; gap:1rem; align-items:center;">
-                <a href="videos.html" class="badge" style="background:#2d7a4f; color:#fff; padding:8px 16px; border-radius:4px; text-decoration:none;">View Full Video Gallery & Clinostat Assays →</a>
-                <a href="https://youtu.be/YIqCwYKDBqA" target="_blank" style="color:#2d7a4f; text-decoration:none; font-weight:bold;">▶ Watch Astrobotany Stream on YouTube ↗</a>
+            <div style="margin-top:1.5rem; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                <div>
+                    <strong style="color:#166534; font-size:1.05rem;">🎬 Stream Authentic CyVerse Brachypodium Time-Lapse Videos</strong>
+                    <div style="font-size:0.85rem; color:#4b5563; margin-top:2px;">5 native streamable H.264 series from CyVerse Data Store (Per1 & BdTR7a) with frame scrubbers and downloads.</div>
+                </div>
+                <a href="videos.html" class="badge" style="background:#2d7a4f; color:#fff; padding:10px 18px; border-radius:6px; text-decoration:none; font-weight:bold;">Open Video Knowledgebase →</a>
             </div>
         </section>
 
+        <!-- SECTION: DOWNLOADS & CITATION CENTER -->
         <section class="card">
-            <h2>Resources</h2>
-            <ul>
-                <li><a href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-375" target="_blank">NASA OSDR OSD-375 Dataset (APEX-06)</a></li>
-                <li><a href="https://doi.org/10.3390/life13030626" target="_blank">Su et al. (2023) Life 13(3):626 (DOI: 10.3390/life13030626)</a></li>
-                <li><a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight" target="_blank">GitHub Repository (dr-richard-barker/brachypodium-gwas-spaceflight)</a></li>
+            <h2>📥 Publication Deliverables & Data Downloads</h2>
+            <p style="color:#64748b; font-size:0.95rem;">All data, analysis pipelines, and publication deliverables are open-access under FAIR principles:</p>
+            
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.25rem; margin-top:1.2rem;">
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1.25rem;">
+                    <div style="font-size:1.5rem; margin-bottom:0.4rem;">📄</div>
+                    <strong style="color:#0b1d3a; font-size:1rem;">Draft Manuscript (PDF)</strong>
+                    <p style="font-size:0.8rem; color:#64748b; margin:6px 0 12px 0;">Formatted academic manuscript ready for submission to <em>npj Microgravity</em>.</p>
+                    <a href="manuscript/manuscript.pdf" download class="btn-sm btn-primary" style="padding:6px 14px;">Download PDF (18.7 KB)</a>
+                </div>
+
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1.25rem;">
+                    <div style="font-size:1.5rem; margin-bottom:0.4rem;">📝</div>
+                    <strong style="color:#0b1d3a; font-size:1rem;">Draft Manuscript (Word DOCX)</strong>
+                    <p style="font-size:0.8rem; color:#64748b; margin:6px 0 12px 0;">Editable Microsoft Word document formatted for peer review & co-author edits.</p>
+                    <a href="manuscript/manuscript.docx" download class="btn-sm btn-primary" style="padding:6px 14px;">Download DOCX (45.2 KB)</a>
+                </div>
+
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1.25rem;">
+                    <div style="font-size:1.5rem; margin-bottom:0.4rem;">📊</div>
+                    <strong style="color:#0b1d3a; font-size:1rem;">AstroGrass Master Table (CSV)</strong>
+                    <p style="font-size:0.8rem; color:#64748b; margin:6px 0 12px 0;">Comprehensive 29-locus dataset with coordinates, OSD-375 fold changes, and orthologs.</p>
+                    <a href="tables/astrograss_master_table.csv" download class="btn-sm btn-primary" style="padding:6px 14px;">Download CSV (9.4 KB)</a>
+                </div>
+
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1.25rem;">
+                    <div style="font-size:1.5rem; margin-bottom:0.4rem;">🎬</div>
+                    <strong style="color:#0b1d3a; font-size:1rem;">Video & CyVerse Catalog (CSV)</strong>
+                    <p style="font-size:0.8rem; color:#64748b; margin:6px 0 12px 0;">Master catalog of all 10 curated YouTube and CyVerse time-lapse video streams.</p>
+                    <a href="tables/video_catalog.csv" download class="btn-sm btn-primary" style="padding:6px 14px;">Download CSV (3.2 KB)</a>
+                </div>
+            </div>
+
+            <!-- CITATION BLOCK -->
+            <div style="margin-top:2rem; background:#0b1d3a; color:#f8fafc; padding:1.5rem; border-radius:8px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                    <strong style="color:#38bdf8; font-size:0.95rem;">📖 How to Cite this Study:</strong>
+                    <button onclick="navigator.clipboard.writeText(document.getElementById('bibtex-code').innerText); alert('Copied BibTeX to clipboard!');" class="btn-sm" style="background:#38bdf8; color:#0b1d3a; border:none; padding:4px 12px; cursor:pointer; font-weight:bold; border-radius:4px;">📋 Copy BibTeX</button>
+                </div>
+                <div style="font-size:0.85rem; line-height:1.6; color:#e2e8f0; margin-bottom:1rem;">
+                    Barker, R. (2026). <em>Connecting natural variation in gravitropic reorientation with microgravity transcriptomic responses in Brachypodium distachyon</em>. AstroGrass Multi-Omics Knowledgebase. DOI: <a href="https://doi.org/10.3390/life13030626" style="color:#93c5fd;" target="_blank">10.3390/life13030626</a> (NASA OSDR OSD-375).
+                </div>
+                <pre id="bibtex-code" style="background:#071326; padding:1rem; border-radius:6px; font-size:0.75rem; color:#7dd3fc; overflow-x:auto; margin:0;">@article{Barker2026_Brachypodium,
+  author    = {Barker, Richard},
+  title     = {Connecting natural variation in gravitropic reorientation with microgravity transcriptomic responses in \textit{Brachypodium distachyon}},
+  journal   = {AstroGrass Multi-Omics Repository},
+  year      = {2026},
+  doi       = {10.3390/life13030626},
+  url       = {https://dr-richard-barker.github.io/brachypodium-gwas-spaceflight/}
+}</pre>
+            </div>
+        </section>
+
+        <!-- EXTERNAL DATA REPOSITORIES -->
+        <section class="card">
+            <h2>🌐 Primary External Data Provenance</h2>
+            <ul style="line-height:1.8; color:#4a5568;">
+                <li><strong>NASA Open Science Data Repository:</strong> <a href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-375" target="_blank">OSD-375 (APEX-06) Study Portal ↗</a></li>
+                <li><strong>Primary Spaceflight Paper:</strong> <a href="https://doi.org/10.3390/life13030626" target="_blank">Su et al. (2023) <em>Life</em> 13(3):626 (DOI: 10.3390/life13030626) ↗</a></li>
+                <li><strong>Ensembl Plants Genomic Variation:</strong> <a href="https://plants.ensembl.org/Brachypodium_distachyon" target="_blank"><em>Brachypodium distachyon</em> Genome Browser ↗</a></li>
+                <li><strong>CyVerse Data Store (iRODS):</strong> <code>/iplant/home/dr_richard_barker/timelapse_extract/</code></li>
+                <li><strong>GitHub Open-Source Repository:</strong> <a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight" target="_blank">dr-richard-barker/brachypodium-gwas-spaceflight ↗</a></li>
             </ul>
         </section>
     </div>
 
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged Figure">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+            <div style="padding:0.75rem 1.5rem; background:#f1f5f9; text-align:right; border-top:1px solid #e2e8f0;">
+                <button onclick="closeLightboxDirect()" class="btn-sm btn-secondary" style="padding:6px 16px;">✕ Close</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p>Author: Richard Barker (<a href="https://orcid.org/0000-0002-4525-3341">ORCID: 0000-0002-4525-3341</a>) | Affiliation: Phylo</p>
-        <p><span class="badge">FAIR Data</span> <span class="badge">CC BY 4.0</span></p>
+        <p>Author: Richard Barker (<a href="https://orcid.org/0000-0002-4525-3341" target="_blank">ORCID: 0000-0002-4525-3341</a>) | Affiliation: Phylo</p>
+        <p>
+            <span class="badge" style="background:#2d7a4f;">FAIR Open Data</span>
+            <span class="badge" style="background:#1e3a8a;">CC BY 4.0</span>
+            <span class="badge" style="background:#7c3aed;">NASA OSDR OSD-375</span>
+            <span class="badge" style="background:#c05621;">CyVerse iRODS</span>
+        </p>
     </footer>
 
     <button id="scroll-top-btn" title="Go to top">↑</button>
+
     <script src="js/main.js"></script>
     <script>
-        // Index Simulator
+        // Lightbox functions
+        function openLightbox(src, caption) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-caption').innerText = caption;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+        function closeLightbox(e) {
+            if (e.target.id === 'lightbox') {
+                document.getElementById('lightbox').style.display = 'none';
+            }
+        }
+        function closeLightboxDirect() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Real-time Root Bending Simulator
         const canvasIdx = document.getElementById('index-sim-90');
         if (canvasIdx) {
             const ctxIdx = canvasIdx.getContext('2d');
@@ -122,9 +469,9 @@
                 ctxIdx.lineWidth = 2;
                 ctxIdx.beginPath(); ctxIdx.moveTo(420, 30); ctxIdx.lineTo(420, 70); ctxIdx.stroke();
                 ctxIdx.beginPath(); ctxIdx.moveTo(415, 60); ctxIdx.lineTo(420, 70); ctxIdx.lineTo(425, 60); ctxIdx.fill();
-                ctxIdx.font = '10px sans-serif'; ctxIdx.fillText('1g Gravity', 395, 20);
+                ctxIdx.font = 'bold 11px sans-serif'; ctxIdx.fillText('1g Vector', 390, 22);
 
-                // Angle
+                // Angle Calculation
                 const angleDeg = 42 * (1 - Math.exp(-tIdx / 45));
                 const angleRad = (angleDeg * Math.PI) / 180;
 
@@ -132,7 +479,7 @@
                 ctxIdx.fillStyle = '#d97706';
                 ctxIdx.beginPath(); ctxIdx.ellipse(140, 100, 14, 7, Math.PI/4, 0, Math.PI*2); ctxIdx.fill();
                 
-                // Shoot
+                // Shoot (phototropic / upward)
                 ctxIdx.strokeStyle = '#22c55e';
                 ctxIdx.lineWidth = 4;
                 ctxIdx.beginPath(); ctxIdx.moveTo(140, 95); ctxIdx.lineTo(125, 45); ctxIdx.stroke();
@@ -152,15 +499,16 @@
                 ctxIdx.quadraticCurveTo(ctrlX, ctrlY, endX, endY);
                 ctxIdx.stroke();
 
-                // Tip
+                // Root tip columella
                 ctxIdx.fillStyle = '#fbbf24';
                 ctxIdx.beginPath(); ctxIdx.arc(endX, endY, 5, 0, Math.PI*2); ctxIdx.fill();
 
-                // Statoliths
+                // Sedimented Amyloplasts / Statoliths
                 ctxIdx.fillStyle = '#78350f';
-                ctxIdx.beginPath(); ctxIdx.arc(endX, endY + 2, 2, 0, Math.PI*2); ctxIdx.fill();
+                ctxIdx.beginPath(); ctxIdx.arc(endX - 1, endY + 2, 2, 0, Math.PI*2); ctxIdx.fill();
+                ctxIdx.beginPath(); ctxIdx.arc(endX + 1, endY + 3, 1.5, 0, Math.PI*2); ctxIdx.fill();
 
-                document.getElementById('index-label-time').innerText = `Time: ${Math.round(tIdx)} min | Curvature: ${angleDeg.toFixed(1)}°`;
+                document.getElementById('index-label-time').innerText = `Time: ${Math.round(tIdx)} min | Curvature: ${angleDeg.toFixed(1)}° (Statoliths Sedimented)`;
 
                 if (isPlayingIdx) {
                     tIdx += 0.5;
