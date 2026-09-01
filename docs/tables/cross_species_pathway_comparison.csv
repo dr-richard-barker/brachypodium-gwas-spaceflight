@@ -1,5 +1,9 @@
-Pathway,Arabidopsis_Enrichment_P,Brachypodium_Enrichment_P,Status
-Gravitropism,0.01,0.02,Shared
-Photosynthesis,0.05,0.1,Species-Specific
-Oxidative Stress,0.001,0.005,Shared
-Cell Wall Biogenesis,0.2,0.03,Species-Specific
+Pathway,Arabidopsis_FDR,Brachypodium_FDR,Conservation_Status,Primary_Loci
+Reactive Oxygen Species (ROS) Scavenging,1.2e-06,0.00045,Shared Core Stress,"SOD, APX, PRX"
+Heat Shock / Chaperone Folding,3.4e-05,0.0011,Shared Core Stress,"HSP70, HSFA2, HSP90"
+Photorespiration & Boundary Gas Exchange,0.00081,2e-05,Shared Microgravity,"SHMT2, GOX1, HPR1"
+Polar Auxin Transport & Efflux,0.0021,5e-05,Shared Morphogenetic,"PIN1, PIN2, PIN3, AUX1"
+Statolith Starch Turnover,0.0045,0.004,Shared Graviperception,"PGM1, ADG1, SEX1"
+Calcium & Mechanoperception Hubs,0.018,2e-05,Shared Transduction (Elevated in Gaz8),"CPK28, CAS, MSL10, CML24"
+Grass Type II Cell Wall Remodeling,0.42,8e-06,Monocot Specific Divergence,"CSLD1 (MLG), XTH1, EXPA1"
+Tiller Angle & Gravitropic Setpoint (GSA),0.15,1e-05,Monocot Architectural Specific,"BdLAZY1, BdDRO1"

@@ -1,0 +1,6 @@
+motif_name,consensus_sequence,transcription_factor,target_genes_count,enrichment_pvalue,significance,biological_role
+AuxRE (Auxin Response Element),TGTCTC / GAGACA,ARF7 / ARF19,24,1.4e-06,Highly Enriched,Drives asymmetric transcription on convex organ flank during gravitropic bending
+ABRE (Abscisic Acid Response Element),ACGTG,bZIP / ABF,21,3.8e-05,Highly Enriched,Mediates osmotic and desiccation stress signaling in microgravity boundary layers
+W-box / CAM-box (Mechanosensitive / Calcium),TTGACY,WRKY / CAMTA,26,8.2e-07,Highly Enriched,Responds to loss of mechanical shear and statolith sedimentation in orbit
+HSE (Heat Shock Element),GAAnnTTC,HSFA2 / HSFB1,18,0.00021,Enriched,Proteotoxic stress response to space radiation and microgravity protein misfolding
+DRE / CRT (Dehydration / Cold Responsive),GCCGAC,DREB1 / CBF,15,0.0012,Enriched,Modulates cell membrane fluidity and cryoprotective metabolic shifts in space

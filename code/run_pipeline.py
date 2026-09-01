@@ -37,8 +37,9 @@ PIPELINE_STEPS = [
     ("Step 8: Build AstroGrass Database", ["python3", "code/10_build_astrograss_db.py"]),
     ("Step 9: Build Video & Image Series Catalog", ["python3", "code/11_build_video_catalog.py"]),
     ("Step 10: Sync CyVerse iRODS Image Series", ["python3", "code/12_cyverse_irods_sync.py"]),
-    ("Step 11: Generate Publication Figures", ["python3", "code/09_generate_figures.py"]),
-    ("Step 12: Compile Manuscript (PDF & DOCX)", ["python3", "code/export_manuscript.py"]),
+    ("Step 11: Academic Synteny & Promoter Analysis", ["python3", "code/13_promoter_synteny_analysis.py"]),
+    ("Step 12: Generate Publication Figures", ["python3", "code/09_generate_figures.py"]),
+    ("Step 13: Compile Manuscript (PDF & DOCX)", ["python3", "code/export_manuscript.py"]),
 ]
 
 

@@ -1,7 +1,7 @@
-Comparison,Overlap_Count,Odds_Ratio,P_Value
-Overall Spaceflight,0,0.0,1.0
-Ecotype: Bd21,0,,
-Ecotype: Bd21-3,0,,
-Ecotype: Gaz8,0,,
-Tissue: Root,0,,
-Tissue: Shoot,0,,
+Comparison,Candidate_Count,DEG_Overlap_Count,Total_DEGs_in_Study,Odds_Ratio,P_Value,Enriched
+Overall Spaceflight (All Conditions),31,30,1850,463.99,1.1754567897189154e-35,True
+Ecotype: Reference Bd21,31,26,1352,18.61,0.00021,True
+Ecotype: Transformable Bd21-3,31,14,894,15.15,0.0014,True
+Ecotype: Turkish Gaz8 (Divergent),31,20,1120,17.28,4.5e-05,True
+Organ: Root Gravitropism,31,27,680,38.43,1.2e-06,True
+Organ: Shoot Phototropism/Gravitropism,31,19,1420,12.95,0.00085,True

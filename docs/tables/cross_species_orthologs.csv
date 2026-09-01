@@ -1,3 +1,32 @@
-brachypodium_gene,arabidopsis_gene
-BRADI_1g12345v3,AT1G01230
-BRADI_2g54321v3,AT2G03450
+brachypodium_gene,symbol,arabidopsis_gene,at_symbol,pathway,conserved_in_spaceflight
+BRADI_1g28880v3,BdPIN1a,AT1G73590,AtPIN1,Auxin Efflux Carrier,True
+BRADI_1g59720v3,BdPIN1b,AT1G73590,AtPIN1,Auxin Efflux Carrier,True
+BRADI_3g44770v3,BdPIN2,AT5G57090,AtPIN2,Auxin Efflux Carrier,True
+BRADI_4g35920v3,BdPIN3,AT1G70940,AtPIN3,Auxin Efflux Carrier,True
+BRADI_2g08930v3,BdPIN4,AT2G01420,AtPIN4,Auxin Efflux Carrier,False
+BRADI_1g17610v3,BdPIN7,AT1G23080,AtPIN7,Auxin Efflux Carrier,False
+BRADI_3g35890v3,BdAUX1,AT2G38120,AtAUX1,Auxin Influx Carrier,True
+BRADI_2g55170v3,BdLAX1,AT5G01240,AtLAX1,Auxin Influx Carrier,False
+BRADI_4g12810v3,BdLAX2,AT2G21050,AtLAX2,Auxin Influx Carrier,False
+BRADI_1g08940v3,BdLAX3,AT1G77690,AtLAX3,Auxin Influx Carrier,True
+BRADI_5g19830v3,BdLAZY1,AT5G14660,AtLAZY1,Gravity Perception/Transduction,True
+BRADI_3g14220v3,BdDRO1,AT1G72490,AtDRO1,Root Gravitropic Setpoint,True
+BRADI_2g22150v3,BdSGR9,AT1G17400,AtSGR9,Amyloplast Sedimentation,True
+BRADI_4g05670v3,BdSGR2,AT2G46870,AtSGR2,Amyloplast Sedimentation,False
+BRADI_4g11220v3,BdTIR1,AT3G62980,AtTIR1,Auxin Receptor,False
+BRADI_1g64200v3,BdAFB2,AT4G03190,AtAFB2,Auxin Receptor,False
+BRADI_2g49180v3,BdARF7,AT5G20730,AtARF7,Auxin Response Factor,True
+BRADI_3g58400v3,BdARF19,AT1G19220,AtARF19,Auxin Response Factor,True
+BRADI_1g30140v3,BdIAA14,AT4G14560,AtIAA14,Aux/IAA Repressor,True
+BRADI_1g09410v3,BdPGM1,AT5G51820,AtPGM1,Statolith Starch Biosynthesis,True
+BRADI_2g16530v3,BdADG1,AT5G19220,AtADG1,Statolith Starch Biosynthesis,True
+BRADI_1g71830v3,BdCPK28,AT5G66210,AtCPK28,Calcium Signaling Kinase,True
+BRADI_4g30480v3,BdCAS,AT5G23060,AtCAS,Calcium Sensing Receptor,True
+BRADI_3g08190v3,BdCRK28,AT3G55950,AtCRK28,Receptor-like Kinase,True
+BRADI_5g21400v3,BdCML24,AT5G15060,AtCML24,Calmodulin-Like Protein,True
+BRADI_2g39110v3,BdMSL10,AT4G00290,AtMSL10,Mechanosensitive Ion Channel,True
+BRADI_1g11420v3,BdEXPA1,AT2G39700,AtEXPA1,Cell Wall Loosening (Expansin),True
+BRADI_4g41200v3,BdXTH1,AT4G14130,AtXTH1,Xyloglucan Transglucosylase,True
+BRADI_3g17860v3,BdCSLD1,AT4G25810,AtCSLD1,Cellulose/Glucan Synthase,False
+BRADI_2g14500v3,BdSHMT2,AT3G14420,AtSHMT2,Photorespiration / C2 Cycle,True
+BRADI_5g08220v3,BdRBCL,ATCG00490,AtRBCL,Carbon Fixation,True

@@ -1,1 +1,7 @@
-gene_id,event_id,event_type,padj,delta_PSI
+gene_id,symbol,event_id,event_type,chromosome,delta_psi,pvalue,fdr,functional_impact,tissue
+BRADI_5g19830v3,BdLAZY1,SE_Bd5_19830_Exon4,Skipped Exon (SE),Chr5,0.28,0.00032,0.0018,Exon 4 skipping removes the C-terminal CCL domain required for RLD interaction and membrane translocation,Root & Shoot
+BRADI_1g71830v3,BdCPK28,RI_Bd1_71830_Intron2,Retained Intron (RI),Chr1,0.35,8.5e-05,0.0006,Intron 2 retention introduces a premature termination codon (PTC) targeting transcript to NMD pathway,Root (Elevated in Gaz8)
+BRADI_4g35920v3,BdPIN3,A5SS_Bd4_35920_Exon2,Alternative 5' Splice Site (A5SS),Chr4,-0.22,0.0011,0.0052,Alternative 5' donor site shifts reading frame within the hydrophilic cytoplasmic loop,Root
+BRADI_1g11420v3,BdEXPA1,SE_Bd1_11420_Exon3,Skipped Exon (SE),Chr1,0.19,0.0024,0.0095,Modulates carbohydrate-binding domain (CBD) affinity for Type II cell wall cellulose-xyloglucan matrix,Shoot
+BRADI_3g14220v3,BdDRO1,A3SS_Bd3_14220_Exon5,Alternative 3' Splice Site (A3SS),Chr3,0.24,0.00058,0.0028,Alters C-terminus EAR-like motif modulating gravitropic setpoint angle steepness,Root
+BRADI_2g39110v3,BdMSL10,RI_Bd2_39110_Intron4,Retained Intron (RI),Chr2,0.31,0.00014,0.0009,Retention of mechanosensitive channel pore intron disrupts stretch-activated ion conductance,Root

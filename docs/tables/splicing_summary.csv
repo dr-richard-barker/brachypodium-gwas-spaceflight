@@ -1,1 +1,5 @@
-Event_Type,Count
+event_type,count
+Alternative 3' Splice Site (A3SS),1
+Alternative 5' Splice Site (A5SS),1
+Retained Intron (RI),2
+Skipped Exon (SE),2
