@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Downloads - Brachy-Space</title>
+    <title>Data Downloads & Resources - AstroGrass</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
 </head>
 <body>
     <header>
@@ -23,80 +24,130 @@
     </header>
 
     <div class="container">
-        <h1>Data Downloads & Resources</h1>
+        <h1>📥 Data Downloads & Resources</h1>
+        <p>All raw and processed datasets, statistical models, cereal synteny mappings, and publication figures from the AstroGrass multi-omics repository are freely available under FAIR open-access terms (CC BY 4.0).</p>
         
+        <!-- MANUSCRIPT DOWNLOADS -->
         <section class="card">
-            <h2>Output Data Files</h2>
+            <h2>📄 Academic Manuscript Deliverables</h2>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.25rem; margin-top:1rem;">
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1.25rem;">
+                    <strong style="font-size:1.05rem; color:#0b1d3a; display:block; margin-bottom:4px;">Draft Manuscript (PDF)</strong>
+                    <p style="font-size:0.85rem; color:#64748b; margin-bottom:12px;">Pre-formatted LaTeX output formatted for peer review & preprint deposition.</p>
+                    <a href="manuscript/manuscript.pdf" download class="btn-sm btn-primary">Download PDF (18.7 KB)</a>
+                </div>
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1.25rem;">
+                    <strong style="font-size:1.05rem; color:#0b1d3a; display:block; margin-bottom:4px;">Draft Manuscript (Word DOCX)</strong>
+                    <p style="font-size:0.85rem; color:#64748b; margin-bottom:12px;">Editable Microsoft Word document with full styled headings and references.</p>
+                    <a href="manuscript/manuscript.docx" download class="btn-sm btn-primary">Download DOCX (45.2 KB)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MASTER DATA TABLES -->
+        <section class="card">
+            <h2>📊 Processed Scientific Datasets (CSV)</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>File Name</th>
-                        <th>Description</th>
-                        <th>Format & Size</th>
+                        <th>Dataset File</th>
+                        <th>Description & Scope</th>
+                        <th>Download Link</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><code>astrograss_master_table.csv</code></td>
                         <td>Unified master multi-omics database across all 29 candidate loci and spaceflight DEGs</td>
-                        <td><a href="tables/astrograss_master_table.csv" download class="badge" style="background:#2d7a4f; color:#fff; text-decoration:none; padding:4px 8px; border-radius:4px;">Download CSV (9.4 KB)</a></td>
+                        <td><a href="tables/astrograss_master_table.csv" download class="btn-sm btn-primary">Download CSV</a></td>
                     </tr>
                     <tr>
-                        <td><code>gravitropism_summary.csv</code></td>
-                        <td>Summary gravitropic reorientation kinetics across 15 accessions</td>
-                        <td><a href="tables/gravitropism_summary.csv" download class="badge" style="background:#2d7a4f; color:#fff; text-decoration:none; padding:4px 8px; border-radius:4px;">Download CSV (1.1 KB)</a></td>
+                        <td><code>cereal_synteny_orthology.csv</code></td>
+                        <td>Translational synteny mapping across Bread Wheat (A/B/D subgenomes), Rice, Barley, and Maize</td>
+                        <td><a href="tables/cereal_synteny_orthology.csv" download class="btn-sm btn-primary">Download CSV</a></td>
                     </tr>
                     <tr>
-                        <td><code>gravitropism_kinetics.csv</code></td>
-                        <td>Time-course curvature kinetics at 10, 20, 30 min (mean ± SE)</td>
-                        <td><a href="tables/gravitropism_kinetics.csv" download class="badge" style="background:#2d7a4f; color:#fff; text-decoration:none; padding:4px 8px; border-radius:4px;">Download CSV (3.7 KB)</a></td>
+                        <td><code>promoter_motif_enrichment.csv</code></td>
+                        <td>1 kb upstream promoter cis-regulatory element scan (AuxRE, W-box, ABRE, HSE, DRE)</td>
+                        <td><a href="tables/promoter_motif_enrichment.csv" download class="btn-sm btn-primary">Download CSV</a></td>
                     </tr>
                     <tr>
-                        <td><code>gwas_candidate_associations.csv</code></td>
-                        <td>29 core gravitropism candidate loci with Arabidopsis orthology</td>
-                        <td><a href="tables/gwas_candidate_associations.csv" download class="badge" style="background:#2d7a4f; color:#fff; text-decoration:none; padding:4px 8px; border-radius:4px;">Download CSV (8.6 KB)</a></td>
+                        <td><code>splicing_gravitropism_genes.csv</code></td>
+                        <td>Isoform-level alternative splicing events in candidate loci (exon skipping, intron retention)</td>
+                        <td><a href="tables/splicing_gravitropism_genes.csv" download class="btn-sm btn-primary">Download CSV</a></td>
+                    </tr>
+                    <tr>
+                        <td><code>gwas_spaceflight_overlap.csv</code></td>
+                        <td>Candidate locus spaceflight overlap and per-ecotype differential expression breakdown</td>
+                        <td><a href="tables/gwas_spaceflight_overlap.csv" download class="btn-sm btn-primary">Download CSV</a></td>
                     </tr>
                     <tr>
                         <td><code>cross_species_shared_degs.csv</code></td>
-                        <td>Conserved spaceflight DEGs between Brachypodium and Arabidopsis</td>
-                        <td><a href="tables/cross_species_shared_degs.csv" download class="badge" style="background:#2d7a4f; color:#fff; text-decoration:none; padding:4px 8px; border-radius:4px;">Download CSV (500 B)</a></td>
+                        <td>23 conserved spaceflight DEGs between <em>Brachypodium</em> and <em>Arabidopsis</em></td>
+                        <td><a href="tables/cross_species_shared_degs.csv" download class="btn-sm btn-primary">Download CSV</a></td>
                     </tr>
                     <tr>
-                        <td><code>sample_metadata.csv</code></td>
-                        <td>OSD-375 (APEX-06) ISA-Tab sample matrix (48 samples across Bd21, Bd21-3, Gaz8)</td>
-                        <td><a href="tables/sample_metadata.csv" download class="badge" style="background:#2d7a4f; color:#fff; text-decoration:none; padding:4px 8px; border-radius:4px;">Download CSV (4.9 KB)</a></td>
+                        <td><code>gravitropism_summary.csv</code></td>
+                        <td>Summary gravitropic reorientation kinetics across Mediterranean diversity accessions</td>
+                        <td><a href="tables/gravitropism_summary.csv" download class="btn-sm btn-primary">Download CSV</a></td>
+                    </tr>
+                    <tr>
+                        <td><code>video_catalog.csv</code></td>
+                        <td>Master catalog of 11 curated time-lapse video streams (CyVerse iRODS + YouTube)</td>
+                        <td><a href="tables/video_catalog.csv" download class="btn-sm btn-primary">Download CSV</a></td>
                     </tr>
                     <tr>
                         <td><code>astrograss_database.json</code></td>
-                        <td>Full AstroGrass web payload with complete gene & study annotations</td>
-                        <td><a href="js/astrograss_database.json" download class="badge" style="background:#0b1d3a; color:#fff; text-decoration:none; padding:4px 8px; border-radius:4px;">Download JSON (28.4 KB)</a></td>
+                        <td>Complete AstroGrass client-side JSON web database payload</td>
+                        <td><a href="js/astrograss_database.json" download class="btn-sm btn-secondary">Download JSON</a></td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
+        <!-- PUBLICATION FIGURE DOWNLOADS -->
         <section class="card">
-            <h2>External Data Sources & Repositories</h2>
-            <ul>
-                <li><a href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-375" target="_blank">NASA OSDR (OSD-375) Study Page</a></li>
-                <li><a href="https://doi.org/10.3390/life13030626" target="_blank">Su et al. (2023) Life 13(3):626 (DOI: 10.3390/life13030626)</a></li>
-                <li><a href="https://plants.ensembl.org/Brachypodium_distachyon/Info/Index" target="_blank">Ensembl Plants (B. distachyon v3.1)</a></li>
-                <li><a href="https://phytozome-next.jgi.doe.gov/info/Bdistachyon_v3_1" target="_blank">JGI Phytozome (Bdistachyon v3.1)</a></li>
-                <li><a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight" target="_blank">GitHub Source Repository</a></li>
-            </ul>
+            <h2>🎨 Publication Figures (300 DPI PNG & Vector SVG)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Figure</th>
+                        <th>Title & Content</th>
+                        <th>High-Res PNG</th>
+                        <th>Vector SVG</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Figure 1</strong></td><td>Gravitropic Kinetics & GWAS Manhattan / QQ-Plot</td><td><a href="assets/fig1_gravitropic_kinetics.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig1_gravitropic_kinetics.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure 2</strong></td><td>OSD-375 Spaceflight Matrix & Subcellular Enrichment</td><td><a href="assets/fig2_osd375_sample_matrix.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig2_osd375_sample_matrix.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure 3</strong></td><td>272 Mb Linear Physical Chromosomal Ideogram (Bd1–Bd5)</td><td><a href="assets/fig3_candidate_pathways.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig3_candidate_pathways.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure 4</strong></td><td>Cross-Species Evolutionary Meta-Analysis</td><td><a href="assets/fig4_cross_species_conservation.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig4_cross_species_conservation.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure 5</strong></td><td>Biophysical Mechanistic Model (1g vs Microgravity)</td><td><a href="assets/fig5_mechanistic_model.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig5_mechanistic_model.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure 6</strong></td><td>AstroGrass Multi-Omics Platform Architecture</td><td><a href="assets/fig6_astrograss_architecture.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig6_astrograss_architecture.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure S1</strong></td><td>APEX-06 Flight Hardware, Timeline & ISS Plant Morphology</td><td><a href="assets/figS1_mission_experimental_design.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/figS1_mission_experimental_design.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure S2</strong></td><td>Translational Cereal Synteny & Chromosomal Collinearity Map</td><td><a href="assets/figS2_cereal_synteny.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/figS2_cereal_synteny.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure S3</strong></td><td>Promoter Cis-Regulatory Architecture & TF Motif Map</td><td><a href="assets/figS3_promoter_architecture.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/figS3_promoter_architecture.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure S4</strong></td><td>46-Accession Phenome Correlation Matrix & Kinetics</td><td><a href="assets/figS4_accession_phenome_correlations.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/figS4_accession_phenome_correlations.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                </tbody>
+            </table>
         </section>
 
+        <!-- EXTERNAL REPOSITORIES -->
         <section class="card">
-            <h2>Zenodo Archive</h2>
-            <div style="background:#eee; padding:1rem; border-radius:4px; display:inline-block;">
-                [Placeholder: Zenodo DOI Badge]
-            </div>
+            <h2>🌐 Primary External Repositories</h2>
+            <ul style="line-height:1.8;">
+                <li><strong>NASA Open Science Data Repository (OSDR):</strong> <a href="https://osdr.nasa.gov/bio/repo/data/studies/OSD-375" target="_blank">OSD-375 (APEX-06) Study Page ↗</a></li>
+                <li><strong>Primary Spaceflight Paper:</strong> <a href="https://doi.org/10.3390/life13030626" target="_blank">Su et al. (2023) <em>Life</em> 13(3):626 (DOI: 10.3390/life13030626) ↗</a></li>
+                <li><strong>Ensembl Plants Genome Variation:</strong> <a href="https://plants.ensembl.org/Brachypodium_distachyon" target="_blank"><em>B. distachyon</em> Assembly v3.1 ↗</a></li>
+                <li><strong>CyVerse Data Store (iRODS):</strong> <code>/iplant/home/dr_richard_barker/timelapse_extract/</code></li>
+                <li><strong>GitHub Open Source Codebase:</strong> <a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight" target="_blank">dr-richard-barker/brachypodium-gwas-spaceflight ↗</a></li>
+            </ul>
         </section>
     </div>
 
     <footer>
-        <p>Author: Richard Barker (<a href="https://orcid.org/0000-0002-4525-3341">ORCID: 0000-0002-4525-3341</a>) | Affiliation: Phylo</p>
-        <p><span class="badge">FAIR Data</span> <span class="badge">CC BY 4.0</span></p>
+        <p>Author: Richard Barker (<a href="https://orcid.org/0000-0002-4525-3341" target="_blank">ORCID: 0000-0002-4525-3341</a>) | Affiliation: Phylo</p>
+        <p><span class="badge" style="background:#2d7a4f;">FAIR Open Data</span> <span class="badge" style="background:#1e3a8a;">CC BY 4.0</span></p>
     </footer>
 
     <script src="js/main.js"></script>
