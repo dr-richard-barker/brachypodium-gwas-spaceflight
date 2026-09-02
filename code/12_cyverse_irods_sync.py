@@ -112,6 +112,22 @@ CYVERSE_BRACHY_SERIES: List[Dict[str, Any]] = [
         "has_manifest": True,
         "has_metadata_csv": True,
         "status": "Extracted & Hosted"
+    },
+    {
+        "series_id": "cyv-brachy-per1-green-rot",
+        "series_name": "Per1_DB_1_1_Green_Rotation",
+        "accession": "Per1",
+        "organism": "Brachypodium distachyon",
+        "condition": "Gravistimulation 90° Green Light (AIRI Stage VI)",
+        "frame_count": 394,
+        "cadence_seconds": 6.0,
+        "duration_minutes": 39.4,
+        "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Per1_DB_1-1_001 Green Rotation.MOV",
+        "remote_video_url": "assets/videos/Per1_DB_1_1_Green_Rotation.mp4",
+        "thumbnail_url": "assets/thumbnails/Per1_DB_1_1_Green_Rotation_poster.jpg",
+        "has_manifest": True,
+        "has_metadata_csv": True,
+        "status": "Extracted & Hosted (Featured 10 fps)"
     }
 ]
 

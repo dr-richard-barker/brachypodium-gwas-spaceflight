@@ -2,8 +2,8 @@
   "metadata": {
     "source": "CyVerse Data Store (iRODS)",
     "curator": "Dr. Richard Barker",
-    "total_series": 5,
-    "total_frames": 418,
+    "total_series": 6,
+    "total_frames": 812,
     "organism": "Brachypodium distachyon",
     "date_updated": "2026-08-31"
   },
@@ -87,6 +87,22 @@
       "has_manifest": true,
       "has_metadata_csv": true,
       "status": "Extracted & Hosted"
+    },
+    {
+      "series_id": "cyv-brachy-per1-green-rot",
+      "series_name": "Per1_DB_1_1_Green_Rotation",
+      "accession": "Per1",
+      "organism": "Brachypodium distachyon",
+      "condition": "Gravistimulation 90\u00b0 Green Light (AIRI Stage VI)",
+      "frame_count": 394,
+      "cadence_seconds": 6.0,
+      "duration_minutes": 39.4,
+      "irods_collection": "/iplant/home/dr_richard_barker/timelapse_extract/Per1_DB_1-1_001 Green Rotation.MOV",
+      "remote_video_url": "assets/videos/Per1_DB_1_1_Green_Rotation.mp4",
+      "thumbnail_url": "assets/thumbnails/Per1_DB_1_1_Green_Rotation_poster.jpg",
+      "has_manifest": true,
+      "has_metadata_csv": true,
+      "status": "Extracted & Hosted (Featured 10 fps)"
     }
   ]
 }

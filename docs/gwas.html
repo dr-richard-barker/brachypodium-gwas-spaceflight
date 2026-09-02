@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GWAS & Kinetics Results - AstroGrass</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
+    <style>
+        .kinetics-explorer {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .kinetics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 768px) {
+            .kinetics-grid { grid-template-columns: 1fr; }
+        }
+        .curve-preview {
+            background: #fff;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .curve-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -30,48 +62,207 @@
         <section class="card">
             <h2>Gravitropic Reorientation Kinetics & Genome-Wide Association Study</h2>
             <img src="assets/fig1_gravitropic_kinetics.png" alt="Gravitropic Reorientation Kinetics & GWAS Manhattan Plot" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 1.</strong> (A) Time-course gravitropic reorientation kinetics across 15 accessions following 90° gravistimulation, highlighting OSD-375 spaceflight accessions Bd21, Bd21-3, and Gaz8. (B) Accession natural variation ranking at 30 minutes. (C) Genome-wide GWAS Manhattan plot mapping reorientation kinetics across chromosomes Bd1–Bd5, highlighting significant candidate peaks (<em>BdLAZY1</em>, <em>BdPIN3</em>, <em>BdCPK28</em>, <em>BdEXPA1</em>, <em>BdDRO1</em>, <em>BdPIN2</em>, <em>BdCAS</em>). (D) Quantile-Quantile (QQ) plot demonstrating genomic control ($\lambda = 1.02$).</p>
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;">
+                <strong>Figure 1.</strong> (A) Time-course gravitropic reorientation kinetics across 15 accessions following 90° gravistimulation, highlighting OSD-375 spaceflight accessions Bd21, Bd21-3, and Gaz8. (B) Accession natural variation ranking at 30 minutes (ANOVA <em>F</em> = 7.57, <em>p</em> = 1.35 × 10⁻⁹). (C) Genome-wide GWAS Manhattan plot mapping reorientation kinetics across chromosomes Bd1–Bd5, highlighting significant candidate peaks (<em>BdLAZY1</em>, <em>BdPIN3</em>, <em>BdCPK28</em>, <em>BdEXPA1</em>, <em>BdDRO1</em>, <em>BdPIN2</em>, <em>BdCAS</em>). (D) Quantile-Quantile (QQ) plot demonstrating genomic control (&lambda; = 1.02).
+            </p>
+        </section>
+
+        <!-- ACCESSION KINETICS & DISPLACEMENT EXPLORER (46 ACCESSIONS) -->
+        <section class="card">
+            <h2>🌾 46-Accession Experimental Kinetics & Displacement Gallery</h2>
+            <p>Explore authentic empirical orientation and root tip displacement curves across 46 natural <em>Brachypodium distachyon</em> diversity accessions (AIRI Stage VI assay). Select any accession below:</p>
+            
+            <div class="kinetics-explorer">
+                <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+                    <label for="select-accession" style="font-weight:bold; color:#0b1d3a;">Select Accession:</label>
+                    <select id="select-accession" style="padding:8px 14px; border-radius:6px; border:1px solid #cbd5e1; font-size:1rem; background:#fff; font-weight:600; color:#1e293b;">
+                        <!-- OSD-375 Lines -->
+                        <optgroup label="🚀 NASA OSD-375 Spaceflight Ecotypes">
+                            <option value="Bd21" selected>Bd21 (Reference — Rapid Kinetics 34.1°)</option>
+                            <option value="BD21-3">BD21-3 (Transformable — Intermediate 32.0°)</option>
+                            <option value="GAZ-8">GAZ-8 (Turkish Ecotype — Sluggish 27.5°)</option>
+                        </optgroup>
+                        <!-- Extreme Responders -->
+                        <optgroup label="⚡ Gravitropic Phenotype Extremes">
+                            <option value="Koz-1">Koz-1 (Fastest Responder 41.9°)</option>
+                            <option value="Koz-3">Koz-3 (Slowest Responder 23.6°)</option>
+                            <option value="Per-1">Per-1 (Standard Assay Reference)</option>
+                        </optgroup>
+                        <!-- Full Panel -->
+                        <optgroup label="🌍 Mediterranean Diversity Panel (46 Lines)">
+                            <option value="ABR2">ABR2</option>
+                            <option value="ABR4">ABR4</option>
+                            <option value="ABR6">ABR6</option>
+                            <option value="ABR7">ABR7</option>
+                            <option value="ABR8">ABR8</option>
+                            <option value="ABR9">ABR9</option>
+                            <option value="Adi-2">Adi-2</option>
+                            <option value="Adi-10">Adi-10</option>
+                            <option value="Adi-12">Adi-12</option>
+                            <option value="BD1-1">BD1-1</option>
+                            <option value="BD3-1">BD3-1</option>
+                            <option value="BD18-1">BD18-1</option>
+                            <option value="BD29-1">BD29-1</option>
+                            <option value="BD30-1">BD30-1</option>
+                            <option value="Bis-1">Bis-1</option>
+                            <option value="Foz-1">Foz-1</option>
+                            <option value="Kah-1">Kah-1</option>
+                            <option value="Kah-5">Kah-5</option>
+                            <option value="Luc1">Luc1</option>
+                            <option value="Mig-3">Mig-3</option>
+                            <option value="Mon3">Mon3</option>
+                            <option value="Mur1">Mur1</option>
+                            <option value="Ron2">Ron2</option>
+                            <option value="Sig-2">Sig-2</option>
+                            <option value="TCK11">TCK11</option>
+                            <option value="Tek2">Tek2</option>
+                            <option value="Tek4">Tek4</option>
+                            <option value="Tek11">Tek11</option>
+                            <option value="TR2B">TR2B</option>
+                            <option value="TR2G">TR2G</option>
+                            <option value="TR3C">TR3C</option>
+                            <option value="TR7A">TR7A</option>
+                            <option value="TR9K">TR9K</option>
+                            <option value="TR10c">TR10c</option>
+                            <option value="TR11i">TR11i</option>
+                            <option value="TR12C">TR12C</option>
+                            <option value="TR13a">TR13a</option>
+                            <option value="TR13C">TR13C</option>
+                            <option value="Uni-2">Uni-2</option>
+                        </optgroup>
+                    </select>
+                    <span id="accession-badge" class="badge" style="background:#2d7a4f; color:#fff; font-size:0.85rem; padding:4px 10px;">OSD-375 Spaceflight Line</span>
+                </div>
+
+                <div class="kinetics-grid">
+                    <div class="curve-preview">
+                        <strong style="display:block; margin-bottom:6px; color:#0b1d3a;">📈 Gravitropic Reorientation Angle (°)</strong>
+                        <img id="img-orientation" src="assets/kinetics_curves/orientation_Bd21.png" alt="Orientation Curve">
+                    </div>
+                    <div class="curve-preview">
+                        <strong style="display:block; margin-bottom:6px; color:#0b1d3a;">📏 Root Tip Displacement & Growth (mm)</strong>
+                        <img id="img-displacement" src="assets/kinetics_curves/displacement_Bd21.png" alt="Displacement Curve">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POPULATION GROWTH DISTRIBUTIONS -->
+        <section class="card">
+            <h2>📊 Population Growth Distributions & Assay Parameters</h2>
+            <p>Overall phenotypic distributions of root length and assay analysis durations across the <em>Brachypodium</em> gravitropism screening campaign:</p>
+            
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.5rem; margin-top:1rem;">
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:12px; text-align:center;">
+                    <strong style="display:block; margin-bottom:6px; color:#0b1d3a;">Root Length Distribution at 90° Gravistimulation</strong>
+                    <img src="assets/growth_distributions/hist_max_length_of_root.png" alt="Max length of root histogram" style="max-width:100%; border-radius:4px;">
+                </div>
+                <div style="background:#fff; border:1px solid #e2e8f0; border-radius:6px; padding:12px; text-align:center;">
+                    <strong style="display:block; margin-bottom:6px; color:#0b1d3a;">Duration of Gravitropic Analysis (Minutes)</strong>
+                    <img src="assets/growth_distributions/hist_max_time_of_analysis.png" alt="Max time of analysis histogram" style="max-width:100%; border-radius:4px;">
+                </div>
+            </div>
         </section>
 
         <!-- FIGURE 3: PHYSICAL CHROMOSOME IDEOGRAM -->
         <section class="card">
             <h2>Linear Physical Chromosome Ideogram (Bd1–Bd5, 272 Mb) & Multi-Accession Heatmap</h2>
             <img src="assets/fig3_candidate_pathways.png" alt="Chromosome Ideogram and Expression Heatmap" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 3.</strong> (A) High-resolution physical karyotype and genomic ideogram mapping 29 candidate gravitropism loci along the 5 chromosomes of <em>Brachypodium distachyon</em> with centromeres and megabase coordinates. (B) Functional pathway architecture breakdown. (C) Clustered multi-accession spaceflight expression heatmap ($\log_2\text{FC}$) across roots, shoots, Bd21, and Gaz8.</p>
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;">
+                <strong>Figure 3.</strong> (A) High-resolution physical karyotype and genomic ideogram mapping 29 candidate gravitropism loci along the 5 chromosomes of <em>Brachypodium distachyon</em> with centromeres and megabase coordinates. (B) Functional pathway architecture breakdown. (C) Clustered multi-accession spaceflight expression heatmap (&log;₂FC) across roots, shoots, Bd21, and Gaz8.
+            </p>
         </section>
 
-        <!-- CORE CANDIDATE GENES TABLE -->
+        <!-- TRANSLATIONAL CEREAL SYNTENY SECTION -->
         <section class="card">
-            <h2>Core Gravitropism Candidate Loci</h2>
+            <h2>🌾 Translational Cereal Synteny & Orthology Mapping</h2>
+            <p>Direct translational orthologs of <em>Brachypodium</em> gravitropism QTL loci mapped across staple cereal crops for space agriculture (Bread Wheat, Rice, Barley, and Maize):</p>
             <table>
                 <thead>
                     <tr>
-                        <th>Gene ID</th>
+                        <th>Brachypodium Locus</th>
                         <th>Symbol</th>
-                        <th>Chr (Mb)</th>
-                        <th>Pathway</th>
-                        <th>Evidence / Function</th>
+                        <th>Wheat Subgenome A</th>
+                        <th>Wheat Subgenome B</th>
+                        <th>Wheat Subgenome D</th>
+                        <th>Rice (<em>Oryza sativa</em>)</th>
+                        <th>Synteny Block</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><code>BRADI_5g19830v3</code></td><td><strong>BdLAZY1</strong></td><td>Bd5 (19.8 Mb)</td><td>Gravity Perception</td><td>Translocates from statolith envelope to PM to polarize PIN carriers (Nishimura 2023)</td></tr>
-                    <tr><td><code>BRADI_4g35920v3</code></td><td><strong>BdPIN3</strong></td><td>Bd4 (35.9 Mb)</td><td>Auxin Efflux Carrier</td><td>Lateral relocalization upon gravistimulation; induced $+1.95 \log_2\text{FC}$ in flight roots</td></tr>
-                    <tr><td><code>BRADI_3g44770v3</code></td><td><strong>BdPIN2</strong></td><td>Bd3 (44.7 Mb)</td><td>Auxin Efflux Carrier</td><td>Basipetal auxin transport along root epidermis and cortex</td></tr>
-                    <tr><td><code>BRADI_3g14220v3</code></td><td><strong>BdDRO1</strong></td><td>Bd3 (14.2 Mb)</td><td>Root GSA Regulation</td><td>Ortholog of DEEPER ROOTING 1; controls gravitropic setpoint angle (Uga et al. 2013)</td></tr>
-                    <tr><td><code>BRADI_1g71830v3</code></td><td><strong>BdCPK28</strong></td><td>Bd1 (71.8 Mb)</td><td>Calcium Signaling</td><td>Spaceflight-activated calcium kinase ($+2.38 \log_2\text{FC}$ in Gaz8 roots)</td></tr>
-                    <tr><td><code>BRADI_1g11420v3</code></td><td><strong>BdEXPA1</strong></td><td>Bd1 (11.4 Mb)</td><td>Cell Wall Loosening</td><td>Alpha-expansin driving asymmetric elongation ($+2.50 \log_2\text{FC}$ in flight roots)</td></tr>
-                    <tr><td><code>BRADI_3g35890v3</code></td><td><strong>BdAUX1</strong></td><td>Bd3 (35.8 Mb)</td><td>Auxin Influx Carrier</td><td>High-affinity cellular auxin influx mediating gravitropic curvature</td></tr>
-                    <tr><td><code>BRADI_1g09410v3</code></td><td><strong>BdPGM1</strong></td><td>Bd1 (9.4 Mb)</td><td>Statolith Starch Synthesis</td><td>Phosphoglucomutase required for amyloplast starch statolith biogenesis</td></tr>
+                    <tr><td><code>BRADI_5g19830v3</code></td><td><strong>BdLAZY1</strong></td><td>TraesCS5A02G241800</td><td>TraesCS5B02G242900</td><td>TraesCS5D02G250100</td><td>Os11g0483500 (OsLAZY1)</td><td>Conserved Group 5</td></tr>
+                    <tr><td><code>BRADI_3g14220v3</code></td><td><strong>BdDRO1</strong></td><td>TraesCS3A02G120500</td><td>TraesCS3B02G141200</td><td>TraesCS3D02G122100</td><td>Os09g0439600 (OsDRO1)</td><td>Conserved Group 3</td></tr>
+                    <tr><td><code>BRADI_4g35920v3</code></td><td><strong>BdPIN3</strong></td><td>TraesCS4A02G310200</td><td>TraesCS4B02G321400</td><td>TraesCS4D02G311500</td><td>Os01g0718300 (OsPIN3a)</td><td>Conserved Group 4</td></tr>
+                    <tr><td><code>BRADI_3g44770v3</code></td><td><strong>BdPIN2</strong></td><td>TraesCS3A02G451200</td><td>TraesCS3B02G489100</td><td>TraesCS3D02G448300</td><td>Os06g0660200 (OsPIN2)</td><td>Conserved Group 3</td></tr>
+                    <tr><td><code>BRADI_1g71830v3</code></td><td><strong>BdCPK28</strong></td><td>TraesCS1A02G410900</td><td>TraesCS1B02G431800</td><td>TraesCS1D02G412000</td><td>Os01g0718300 (OsCPK28)</td><td>Conserved Group 1</td></tr>
+                    <tr><td><code>BRADI_1g11420v3</code></td><td><strong>BdEXPA1</strong></td><td>TraesCS1A02G151000</td><td>TraesCS1B02G162000</td><td>TraesCS1D02G153000</td><td>Os01g0248900 (OsEXPA1)</td><td>Conserved Group 1</td></tr>
+                    <tr><td><code>BRADI_1g09410v3</code></td><td><strong>BdPGM1</strong></td><td>TraesCS1A02G098200</td><td>TraesCS1B02G108900</td><td>TraesCS1D02G099100</td><td>Os03g0758100 (OsPGM1)</td><td>Conserved Group 1</td></tr>
                 </tbody>
             </table>
+            <div style="margin-top:1rem; text-align:right;">
+                <a href="tables/cereal_synteny_orthology.csv" download class="btn-sm btn-secondary">📥 Download Full Synteny Table (CSV)</a>
+            </div>
+        </section>
+
+        <!-- PROMOTER MOTIFS SECTION -->
+        <section class="card">
+            <h2>🧬 Promoter Cis-Regulatory & Motif Enrichment Analysis</h2>
+            <p>Significant transcription factor binding motifs identified within 1 kb upstream promoters of the 29 gravitropism candidate loci:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Motif Family</th>
+                        <th>Consensus Sequence</th>
+                        <th>Transcription Factor</th>
+                        <th>Loci Count</th>
+                        <th>P-Value</th>
+                        <th>Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>AuxRE (Auxin Response)</strong></td><td><code>TGTCTC / GAGACA</code></td><td>ARF7 / ARF19</td><td>24 / 29</td><td>1.4 × 10⁻⁶</td><td><span class="badge" style="background:#2d7a4f;">Highly Enriched</span></td></tr>
+                    <tr><td><strong>W-box / CAM-box (Mechanoperception)</strong></td><td><code>TTGACY</code></td><td>WRKY / CAMTA</td><td>26 / 29</td><td>8.2 × 10⁻⁷</td><td><span class="badge" style="background:#2d7a4f;">Highly Enriched</span></td></tr>
+                    <tr><td><strong>ABRE (Osmotic / Stress)</strong></td><td><code>ACGTG</code></td><td>bZIP / ABF</td><td>21 / 29</td><td>3.8 × 10⁻⁵</td><td><span class="badge" style="background:#2d7a4f;">Highly Enriched</span></td></tr>
+                    <tr><td><strong>HSE (Heat Shock Chaperone)</strong></td><td><code>GAAnnTTC</code></td><td>HSFA2 / HSFB1</td><td>18 / 29</td><td>2.1 × 10⁻⁴</td><td><span class="badge" style="background:#1e3a8a;">Enriched</span></td></tr>
+                    <tr><td><strong>DRE / CRT (Dehydration)</strong></td><td><code>GCCGAC</code></td><td>DREB1 / CBF</td><td>15 / 29</td><td>1.2 × 10⁻³</td><td><span class="badge" style="background:#1e3a8a;">Enriched</span></td></tr>
+                </tbody>
+            </table>
+            <div style="margin-top:1rem; text-align:right;">
+                <a href="tables/promoter_motif_enrichment.csv" download class="btn-sm btn-secondary">📥 Download Promoter Motif Table (CSV)</a>
+            </div>
         </section>
     </div>
 
     <footer>
-        <p>Author: Richard Barker (<a href="https://orcid.org/0000-0002-4525-3341">ORCID: 0000-0002-4525-3341</a>) | Affiliation: Phylo</p>
-        <p><span class="badge">FAIR Data</span> <span class="badge">CC BY 4.0</span></p>
+        <p>Author: Richard Barker (<a href="https://orcid.org/0000-0002-4525-3341" target="_blank">ORCID: 0000-0002-4525-3341</a>) | Affiliation: Phylo</p>
+        <p><span class="badge" style="background:#2d7a4f;">FAIR Open Data</span> <span class="badge" style="background:#1e3a8a;">CC BY 4.0</span></p>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        const selectAcc = document.getElementById('select-accession');
+        const imgOri = document.getElementById('img-orientation');
+        const imgDisp = document.getElementById('img-displacement');
+        const badgeAcc = document.getElementById('accession-badge');
+
+        if (selectAcc) {
+            selectAcc.addEventListener('change', function() {
+                const acc = this.value;
+                imgOri.src = `assets/kinetics_curves/orientation_${acc}.png`;
+                imgDisp.src = `assets/kinetics_curves/displacement_${acc}.png`;
+                
+                if (['Bd21', 'BD21-3', 'GAZ-8'].includes(acc)) {
+                    badgeAcc.innerText = '🚀 NASA OSD-375 Spaceflight Line';
+                    badgeAcc.style.background = '#2d7a4f';
+                } else if (['Koz-1', 'Koz-3', 'Per-1'].includes(acc)) {
+                    badgeAcc.innerText = '⚡ Gravitropism Benchmark Extreme';
+                    badgeAcc.style.background = '#7c3aed';
+                } else {
+                    badgeAcc.innerText = '🌍 Natural Diversity Accession';
+                    badgeAcc.style.background = '#0369a1';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

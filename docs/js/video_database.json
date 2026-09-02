@@ -3,9 +3,9 @@
     "name": "AstroGrass Video Knowledgebase",
     "version": "1.1.0",
     "curator": "Richard Barker (Phylo)",
-    "total_items": 10,
+    "total_items": 11,
     "youtube_videos": 3,
-    "cyverse_series": 5,
+    "cyverse_series": 6,
     "simulators": 2,
     "updated_at": "2026-08-31"
   },
@@ -183,6 +183,31 @@
         "Brachypodium",
         "Turkish Diversity",
         "iRODS"
+      ]
+    },
+    {
+      "id": "cyverse-brachy-per1-green-rot",
+      "type": "cyverse",
+      "series_name": "Per1_DB_1_1_Green_Rotation",
+      "title": "Brachypodium Per1 Accession \u2014 90\u00b0 Green Rotation (Full 394-frame Series)",
+      "author": "Dr. Richard Barker (AIRI Stage VI / CyVerse)",
+      "category": "CyVerse Time-Lapses",
+      "organism": "Brachypodium distachyon",
+      "accession": "Per1",
+      "frames": 394,
+      "cadence_seconds": 6.0,
+      "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Per1_DB_1-1_001 Green Rotation.MOV",
+      "video_url": "assets/videos/Per1_DB_1_1_Green_Rotation.mp4",
+      "thumbnail_url": "assets/thumbnails/Per1_DB_1_1_Green_Rotation_poster.jpg",
+      "description": "Premier full-length 394-frame (10 fps, 39.4 s) optical time-lapse tracking of Brachypodium distachyon Per1 root gravitropic green rotation and reorientation kinematics.",
+      "tags": [
+        "Featured",
+        "CyVerse",
+        "Per1",
+        "Brachypodium",
+        "Green Rotation",
+        "Time-lapse",
+        "AIRI"
       ]
     },
     {
