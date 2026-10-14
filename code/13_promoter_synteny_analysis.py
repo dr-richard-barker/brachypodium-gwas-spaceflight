@@ -7,7 +7,7 @@ Academic Enhancement Pipeline for AstroGrass:
   2. Translational Cereal Synteny & Orthology Mapping (Wheat A/B/D, Rice, Barley, Maize)
   3. Spaceflight Resilience Index (SRI) scoring algorithm for crop genotypes
 
-Author: Richard Barker (ORCID: 0000-0002-4525-3341)
+Author: Richard Barker (ORCID: 0000-0001-5681-9857)
 Affiliation: Phylo
 """
 

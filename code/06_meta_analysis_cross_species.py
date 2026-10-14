@@ -9,7 +9,7 @@ and Arabidopsis consensus spaceflight DEGs (2,550 genes from 17 GeneLab studies;
 Computes exact orthology mappings, shared response contingency tables, Fisher's exact test,
 and comparative Gene Ontology pathway enrichment.
 
-Author: Richard Barker (ORCID: 0000-0002-4525-3341)
+Author: Richard Barker (ORCID: 0000-0001-5681-9857)
 Affiliation: Phylo
 """
 

@@ -15,7 +15,7 @@ Produces:
 
 Outputs saved to figures/ and synchronized to docs/assets/ (300 DPI PNG + vector SVG).
 
-Author: Richard Barker (ORCID: 0000-0002-4525-3341)
+Author: Richard Barker (ORCID: 0000-0001-5681-9857)
 Affiliation: Phylo
 """
 

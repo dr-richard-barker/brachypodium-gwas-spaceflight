@@ -14,7 +14,7 @@ Functionality:
        - data/osdr/cyverse_image_series.json
   5. Updates AstroGrass web portal with direct CyVerse streaming links
 
-Author: Richard Barker (ORCID: 0000-0002-4525-3341)
+Author: Richard Barker (ORCID: 0000-0001-5681-9857)
 Affiliation: Phylo
 """
 

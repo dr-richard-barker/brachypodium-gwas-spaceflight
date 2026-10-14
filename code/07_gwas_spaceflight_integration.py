@@ -7,7 +7,7 @@ Integrate gravitropism candidate loci with NASA OSDR OSD-375 spaceflight transcr
 Evaluates the overlap between gravitropic QTL candidate genes and spaceflight DEGs in Brachypodium distachyon,
 testing statistical enrichment across ecotypes (Bd21, Bd21-3, Gaz8) and organ tissues (roots vs. shoots).
 
-Author: Richard Barker (ORCID: 0000-0002-4525-3341)
+Author: Richard Barker (ORCID: 0000-0001-5681-9857)
 Affiliation: Phylo
 """
 
