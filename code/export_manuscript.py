@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
-Convert the Brachypodium GWAS-Spaceflight manuscript from LaTeX to PDF and Word.
+Convert the AstroGrass Brachypodium manuscript from LaTeX to PDF and Word.
 
-Parses the manuscript.tex file, strips LaTeX commands, and generates:
+Parses manuscript.tex and references.bib, strips LaTeX commands, lists the cited references,
+and generates:
   - manuscript/manuscript.pdf (via fpdf2)
   - manuscript/manuscript.docx (via python-docx)
 """
 
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 from docx import Document
@@ -21,6 +23,7 @@ from fpdf import FPDF
 
 MANUSCRIPT_DIR = Path(__file__).resolve().parent.parent / "manuscript"
 TEX_FILE = MANUSCRIPT_DIR / "manuscript.tex"
+BIB_FILE = MANUSCRIPT_DIR / "references.bib"
 
 
 # =============================================================================
@@ -32,7 +35,7 @@ def parse_latex(tex_path: Path) -> dict:
     raw = tex_path.read_text(encoding="utf-8")
 
     # Extract metadata
-    title_m = re.search(r"\\title\[.*?\]\{(.+?)\}", raw, re.DOTALL)
+    title_m = re.search(r"\\title\[.*?\]\{((?:[^{}]|\{[^{}]*\})+)\}", raw, re.DOTALL)
     title = clean_latex(title_m.group(1)) if title_m else "Untitled"
 
     author_m = re.search(r"\\author\*?\[.*?\]\{\\fnm\{(.+?)\}\s*\\sur\{(.+?)\}\}", raw)
@@ -52,7 +55,7 @@ def parse_latex(tex_path: Path) -> dict:
 
     # Extract body (between \mainmatter and \bibliographystyle or \end{document})
     body_m = re.search(
-        r"\\mainmatter\s*(.+?)(?:\\bibliographystyle|\\end\{document\})",
+        r"\\mainmatter\s*(.+?)(?:\\section\*\{Acknowledgments\}|\\bibliographystyle|\\end\{document\})",
         raw, re.DOTALL
     )
     body_tex = body_m.group(1) if body_m else ""
@@ -71,6 +74,7 @@ def parse_latex(tex_path: Path) -> dict:
     competing = clean_latex(competing_m.group(1)) if competing_m else ""
 
     return {
+        "references": format_references(raw),
         "title": title,
         "author": author,
         "email": email,
@@ -82,6 +86,58 @@ def parse_latex(tex_path: Path) -> dict:
         "author_contributions": contrib,
         "competing_interests": competing,
     }
+
+
+def parse_bib(bib_path: Path) -> dict:
+    """Parse references.bib into {key: {field: value}}."""
+    entries = {}
+    text = bib_path.read_text(encoding="utf-8")
+    for m in re.finditer(r"@(\w+)\{([^,]+),(.*?)\n\}", text, re.DOTALL):
+        _, key, body = m.groups()
+        fields = re.findall(r"(\w+)\s*=\s*\{((?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*)\}", body)
+        entries[key.strip()] = {k.lower(): v.strip() for k, v in fields}
+    return entries
+
+
+def format_references(raw_tex: str) -> list:
+    """Cited references, in order of first citation, as (key, formatted text)."""
+    if not BIB_FILE.exists():
+        return []
+    bib = parse_bib(BIB_FILE)
+    cited = []
+    for group in re.findall(r"\\cite\{(.+?)\}", raw_tex):
+        for key in (k.strip() for k in group.split(",")):
+            if key not in cited:
+                cited.append(key)
+    refs = []
+    for key in cited:
+        f = bib.get(key)
+        if f is None:
+            refs.append((key, "MISSING FROM references.bib"))
+            continue
+        names = []
+        for a in f.get("author", "").split(" and "):
+            a = a.strip()
+            if a.startswith("{"):
+                names.append(a.strip("{}"))
+            elif "," in a:
+                family, given = (x.strip() for x in a.split(",", 1))
+                initials = "".join(p[0] for p in re.split(r"[\s.-]+", given) if p)
+                names.append(f"{family} {initials}")
+            else:
+                names.append(a)
+        authors = ", ".join(names) if len(names) <= 6 else ", ".join(names[:3]) + ", et al."
+        locator = f.get("volume", "")
+        if f.get("number"):
+            locator += f"({f['number']})"
+        if f.get("pages"):
+            locator += f":{f['pages'].replace('--', '-')}"
+        title = f.get("title", "").rstrip(".")
+        text = f"{authors} ({f.get('year', '')}). {title}. {f.get('journal', '')} {locator}."
+        if f.get("doi"):
+            text += f" doi:{f['doi']}"
+        refs.append((key, clean_latex(text)))
+    return refs
 
 
 def parse_sections(body_tex: str) -> list:
@@ -117,6 +173,9 @@ def clean_latex(text: str) -> str:
     # Remove comments
     text = re.sub(r"(?<!\\)%.*$", "", text, flags=re.MULTILINE)
 
+    # Escaped characters and control spaces (underscores are protected from the subscript rule)
+    text = text.replace("\\_", "\x00").replace("\\&", "&").replace("\\ ", " ")
+
     # Handle common commands
     text = re.sub(r"\\textit\{(.+?)\}", r"\1", text)
     text = re.sub(r"\\textbf\{(.+?)\}", r"\1", text)
@@ -125,11 +184,13 @@ def clean_latex(text: str) -> str:
     text = re.sub(r"\\text\{(.+?)\}", r"\1", text)
 
     # Math
+    text = re.sub(r"\\mu(?![a-zA-Z])", "µ", text)
     text = re.sub(r"\$(.+?)\$", r"\1", text)
     text = re.sub(r"\\times", "×", text)
     text = re.sub(r"\\sim", "~", text)
     text = re.sub(r"\\rho", "ρ", text)
     text = re.sub(r"\\beta", "β", text)
+    text = re.sub(r"\\[v'`^\"~]\{?\\?([a-zA-Z])\}?", lambda m: _accent(m.group(0), m.group(1)), text)
     text = re.sub(r"\\log_?2?", "log₂", text)
     text = re.sub(r"\\geq?", "≥", text)
     text = re.sub(r"\\leq?", "≤", text)
@@ -154,6 +215,7 @@ def clean_latex(text: str) -> str:
     text = re.sub(r"\\[a-zA-Z]+\{(.+?)\}", r"\1", text)
     text = re.sub(r"\\[a-zA-Z]+", " ", text)
     text = re.sub(r"[{}]", "", text)
+    text = text.replace("\x00", "_").replace("---", "—").replace("--", "–")
 
     # Clean whitespace
     text = re.sub(r"\n\s*\n\s*\n+", "\n\n", text)
@@ -161,6 +223,12 @@ def clean_latex(text: str) -> str:
     text = text.strip()
 
     return text
+
+
+def _accent(command: str, letter: str) -> str:
+    """Turn a LaTeX accent such as \\v{r} or \\'{a} into the accented character."""
+    marks = {"v": "\u030c", "'": "\u0301", "`": "\u0300", "^": "\u0302", '"': "\u0308", "~": "\u0303"}
+    return unicodedata.normalize("NFC", letter + marks[command[1]])
 
 
 def _superscript(s: str) -> str:
@@ -264,6 +332,13 @@ def generate_docx(parsed: dict, output_path: Path):
         doc.add_heading("Competing Interests", level=1)
         doc.add_paragraph(parsed["competing_interests"])
 
+    if parsed["references"]:
+        doc.add_heading("References", level=1)
+        for key, text in parsed["references"]:
+            p = doc.add_paragraph()
+            p.add_run(f"[{key}] ").bold = True
+            p.add_run(text).font.size = Pt(10)
+
     # Save
     doc.save(str(output_path))
     print(f"  ✓ Word document saved: {output_path}")
@@ -283,7 +358,7 @@ class ManuscriptPDF(FPDF):
     def header(self):
         self.set_font("Helvetica", "I", 8)
         self.set_text_color(150, 150, 150)
-        self.cell(0, 8, "DRAFT -- Brachypodium GWAS-Spaceflight Integration", align="C")
+        self.cell(0, 8, "DRAFT -- AstroGrass: Brachypodium spaceflight resource", align="C")
         self.ln(10)
 
     def footer(self):
@@ -413,6 +488,11 @@ def generate_pdf(parsed: dict, output_path: Path):
     if parsed["competing_interests"]:
         pdf.chapter_title("Competing Interests", 1)
         pdf.body_text(parsed["competing_interests"])
+
+    if parsed["references"]:
+        pdf.chapter_title("References", 1)
+        for key, text in parsed["references"]:
+            pdf.body_text(f"[{key}] {text}")
 
     # Save
     pdf.output(str(output_path))

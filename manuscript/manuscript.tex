@@ -1,183 +1,100 @@
-% Brachypodium GWAS-Spaceflight Integration Manuscript
+% AstroGrass: Brachypodium spaceflight resource (draft)
 % Target: npj Microgravity (Springer Nature) or Frontiers in Plant Science
 % Compile on Overleaf with sn-jnl.cls
 
 \documentclass[sn-mathphys-num,Basic]{sn-jnl}
 
-\jyear{2026}
-
 \begin{document}
 
-\title[Brachypodium gravitropism GWAS meets spaceflight transcriptomics]{Connecting natural variation in gravitropic reorientation with microgravity transcriptomic responses in \textit{Brachypodium distachyon}}
+\title[AstroGrass: Brachypodium spaceflight resource]{AstroGrass: a curated resource for the \textit{Brachypodium distachyon} ISS transcriptome study OSD-375 and gravitropism candidate genes}
 
 \author*[1]{\fnm{Richard} \sur{Barker}}\email{dr.richard.barker@gmail.com}
 
 \affil[1]{\orgname{Collaborative Science Environment Inc.}}
 
-\abstract{
-Gravity perception and response (gravitropism) are fundamental to plant development and represent critical traits for crop cultivation in spaceflight environments. While gravitropic natural variation has been characterized in diversity panels of the model grass \textit{Brachypodium distachyon}, no study has systematically linked gravitropic quantitative trait loci (QTLs) with the transcriptomic responses of \textit{Brachypodium} ecotypes to true microgravity aboard the International Space Station (ISS). Here we integrate ground-based gravitropic reorientation phenotyping data from a \textit{Brachypodium} GWAS population with spaceflight transcriptomics from NASA OSDR study OSD-375 (APEX-06), which profiled roots and shoots of three ecotypes---Bd21, Bd21-3, and Gaz8---grown on the ISS. Using publicly available SNP data from Ensembl Plants, BrachyPan, and JGI Phytozome, we identified candidate genomic loci associated with gravitropic reorientation rate and tested whether genes within these loci are differentially expressed in spaceflight. We further performed a cross-species comparison with our previous \textit{Arabidopsis thaliana} GWAS--spaceflight meta-analysis, revealing conserved and divergent pathways between dicot and monocot spaceflight responses. Gravitropism pathway genes---including \textit{PIN}, \textit{AUX/LAX}, \textit{LAZY/SGR}, and calcium signaling components---showed ecotype-dependent transcriptomic responses to microgravity, with Gaz8 exhibiting the most divergent expression profile. These findings establish a framework for connecting terrestrial gravitropic natural variation with spaceflight adaptation in monocot crops, informing the selection of cereal crop genotypes for bioregenerative life support systems.
-}
+\abstract{Few plant spaceflight experiments have used monocots, although monocots include most of the crops grown on Earth~\cite{Su2023}. NASA Open Science Data Repository (OSDR) study OSD-375 profiled the roots and shoots of three \textit{Brachypodium distachyon} accessions (Bd21, Bd21-3 and Gaz8) grown on the International Space Station, with ground controls run at Kennedy Space Center~\cite{Su2023}. This draft describes AstroGrass, a curated resource built around that study. It contains (1) the OSD-375 sample design and growth conditions, taken from the OSDR metadata and the primary paper; (2) a catalogue of five grass spaceflight and related omics studies, each checked against its OSDR, GEO or PRIDE record; (3) a list of 29 gravitropism candidate genes defined by Arabidopsis anchor genes, of which 17 anchor identifiers were confirmed in UniProt and 12 were found to name other genes and are marked for correction; and (4) time-lapse videos of Brachypodium root gravitropism. No new analysis of the OSD-375 data is reported. Mapping the candidates to Brachypodium genes, extracting their spaceflight expression, measuring gravitropism across accessions and comparing with Arabidopsis are planned and are listed as such.}
 
-\keywords{Brachypodium distachyon, GWAS, gravitropism, spaceflight, microgravity, NASA OSDR, APEX-06, ISS, transcriptomics, natural variation, monocot, cereal crops, bioregenerative life support}
+\keywords{Brachypodium distachyon, gravitropism, spaceflight, microgravity, NASA OSDR, OSD-375, APEX-06, ISS, transcriptomics, monocot, data resource}
 
 \mainmatter
 
 \section{Introduction}
 
-Gravity is the primary omnipresent physical vector shaping plant organ orientation and architecture on Earth. Plants perceive gravity through the sedimentation of dense starch-filled amyloplasts (statoliths) within specialized statocytes---the central columella cells of the root cap and the endodermal sheath of shoots~\cite{Su2023,Strohm2012,Morita2010}. Recent breakthrough studies have resolved the century-old question of how physical statolith movement is transduced into biochemical polarity: upon organ reorientation, LAZY (LZY) family proteins residing on the amyloplast outer envelope translocate directly to the adjacent plasma membrane, where they interact with RCC1-like domain (RLD) proteins to polarize PIN-FORMED (PIN) auxin efflux carriers, driving asymmetric auxin flux toward the lower flank of the organ~\cite{Nishimura2023,Chen2023,Furutani2020,Friml2002}. This lateral auxin gradient promotes differential cell expansion in elongation zones, mediating gravitropic curvature~\cite{Bennett2014,Yoshihara2013}.
+Plants sense the direction of gravity mainly through the movement of starch-filled plastids (amyloplasts) that act as statoliths in specialised gravity-sensing cells (statocytes)~\cite{Morita2010}. In Arabidopsis, LAZY1-LIKE (LZY) proteins associate with amyloplasts and the adjacent plasma membrane and become polarised according to the direction of gravity~\cite{Nishimura2023,Chen2023}. At the plasma membrane, LZY recruits RCC1-like domain (RLD) proteins, which are required for polar auxin transport~\cite{Furutani2020}, and in the root columella the auxin efflux regulator PIN3 relocalises laterally after gravity stimulation~\cite{Friml2002}.
 
-While gravity signaling has been dissected extensively in the eudicot model \textit{Arabidopsis thaliana}, gravitropic regulatory architecture in monocotyledonous grasses (Poaceae) possesses distinct biomechanical and genetic features. Monocots encompass the staple cereal crops---wheat, rice, maize, and barley---that provide over 50\% of human dietary calories and are cornerstone candidates for closed-loop Bioregenerative Life Support Systems (BLSS) on lunar and Martian outposts~\cite{Druka2011,Wheeler2017}. In grasses, root architecture is fundamentally defined by the gravitropic setpoint angle (GSA) of crown and lateral roots, controlled by specialized monocot IGT/LAZY loci including \textit{DEEPER ROOTING 1} (\textit{DRO1}) and \textit{qSOR1}~\cite{Uga2013,Kitomi2020}. Furthermore, grasses possess unique **Type II primary cell walls** composed of glucuronoarabinoxylans (GAX) and mixed-linkage (1,3;1,4)-$\beta$-D-glucans (MLG) heavily cross-linked by ferulic acid dimers, conferring mechanical properties distinct from dicot Type I pectin-rich walls~\cite{Kozlova2020}.
+In rice, root growth angle is controlled in part by DEEPER ROOTING 1 (DRO1) and its homolog qSOR1~\cite{Uga2013,Kitomi2020}. Crops such as wheat have been studied for decades as components of life support systems for space~\cite{Wheeler2017}, yet few plant spaceflight experiments have used monocots~\cite{Su2023}.
 
-\textit{Brachypodium distachyon} has established itself as the leading genetic and functional model for temperate Poaceae due to its compact diploid genome (272 Mb, $2n=10$), rapid life cycle, and phylogenetic proximity to wheat, barley, and rye~\cite{Vogel2010,IBI2010}. Pan-genomic resources spanning diverse natural accessions across Mediterranean and Western Asian climes (BrachyPan diversity panel) have uncovered extensive structural and single-nucleotide variation (SNPs), enabling genome-wide association studies (GWAS) for adaptive agronomic traits~\cite{Gordon2017,Stritt2018,Tyler2016,Skalska2020}. However, natural variation in gravitropic response kinetics has not been integrated with functional genomics in this model grass.
+\textit{Brachypodium distachyon} is a model for temperate grasses. It was the first member of the Pooideae, the grass subfamily that includes wheat and barley, to have its genome sequenced~\cite{IBI2010}, and de novo assemblies of 54 lines define its pan-genome~\cite{Gordon2017}.
 
-The first orbital transcriptomic profiling of \textit{Brachypodium}---NASA OSDR study OSD-375 (APEX-06, SpaceX CRS-14, April 2018)---examined three distinct accessions (the community reference Bd21, the transformable standard Bd21-3, and the natural Turkish accession Gaz8) grown aboard the International Space Station (ISS) in VEGGIE hardware~\cite{Su2023}. Su et al.\ revealed striking organ-specific and accession-specific transcriptomic reprogramming in microgravity, characterized by extensive cell wall remodeling, altered starch metabolism, and calcium-dependent protein kinase signaling. Crucially, the three ecotypes exhibited divergent transcriptomic responsiveness: Bd21 mounted a robust response with 1,027 differentially expressed genes (DEGs) in shoots and 325 in roots, whereas Bd21-3 and Gaz8 displayed divergent trajectories, demonstrating that natural genetic background strongly influences spaceflight transcriptomic plasticity in monocots~\cite{Su2023}.
+In the APEX-06 experiment (NASA OSDR study OSD-375), seedlings of the Bd21, Bd21-3 and Gaz8 accessions were germinated and grown on the International Space Station (ISS) and in a ground control~\cite{Su2023}. Su et al. reported that the roots of all three accessions grew more slowly and had longer root hairs in microgravity, and that the number of differentially expressed genes (DEGs) differed widely between accessions: 4,527 in Gaz8, 1,353 in Bd21 and 570 in Bd21-3, with only 47 shoot DEGs and six root DEGs shared between accessions~\cite{Su2023}.
 
-In \textit{Arabidopsis thaliana}, we recently established that GWAS-identified loci for terrestrial environmental adaptations strongly predict spaceflight transcriptomic responses (763 overlap genes, odds ratio = 4.23, $p = 4.45 \times 10^{-102}$), with response magnitudes exhibiting geographic clines reflecting evolutionary history~\cite{Barker2026}. Whether this principle extends to monocot crops---and specifically whether terrestrial gravitropic performance and QTL alleles correlate with spaceflight microgravity sensitivity---remains an open question.
+This draft describes the AstroGrass resource as it now stands: what is in it, where each item comes from, and what remains to be done.
 
-Here, we present an integrated multi-omics study and introduce the **AstroGrass** knowledgebase: (1) we quantify gravitropic reorientation kinetics across a 15-accession \textit{Brachypodium} diversity panel, confirming significant natural variation in curvature rates ($p = 1.35 \times 10^{-9}$); (2) we curate 29 core gravitropism candidate loci across chromosomes Bd1--Bd5 and integrate public SNP variations; (3) we re-analyze OSD-375 ISS microgravity transcriptomes across all 48 biological replicates (Bd21, Bd21-3, Gaz8 in roots and shoots); (4) we perform a cross-species meta-analysis with 2,550 consensus \textit{Arabidopsis} spaceflight genes, identifying significant evolutionary conservation of core stress modules (Fisher's exact test, $p = 0.0446$, Odds Ratio $= 13.70$); and (5) we construct the interactive AstroGrass web portal, providing an accessible data platform for space agriculture and monocot gravitropism research.
+\section{Status of this draft}
+
+Versions of this manuscript and its website before 14 October 2026 reported a 15-accession gravitropism survey, a genome-wide association study (GWAS), a re-analysis of OSD-375 with gene-level fold changes, a cross-species comparison with Arabidopsis, and synteny, promoter-motif and alternative-splicing analyses. These results have been withdrawn. The gravitropism measurements had been generated by the pipeline's demonstration mode from seeded random numbers, no genotype data or association test existed, and the remaining values were typed into the code rather than computed. The Brachypodium gene identifiers given for the candidate genes were also withdrawn, because none could be confirmed as an ortholog of its Arabidopsis anchor. The sections below report only what the repository now contains.
 
 \section{Results}
 
-\subsection{Natural variation in gravitropic reorientation kinetics across \textit{Brachypodium} accessions}
+\subsection{OSD-375 study design}
 
-We quantified root tip gravitropic reorientation kinetics across 15 natural accessions of \textit{Brachypodium distachyon} following 90\textdegree\ gravistimulation (Figure~1A). Seedlings were grown vertically on 1\% agar plates with half-strength Linsmaier-Skoog medium for 4 days, rotated 90\textdegree\ in darkness, and imaged across defined gravistimulation intervals (10, 20, and 30 minutes) prior to 2D clinostat rotation at 1 RPM for 4 hours to arrest further gravity-induced curvature~\cite{Barker2016,Perbal2002}.
+OSD-375 contains 48 RNA-seq samples: three accessions, two organs (roots and shoots), flight or ground control, and four APEX Growth Units per accession and condition (Figure 1). Each of the 24 growth units gave one root and one shoot sample. Seedlings were germinated for 24 h under red light and then grown for four days under continuous red, blue and green light at about 40--55 $\mu$mol m$^{-2}$ s$^{-1}$ and 22\textdegree{}C; the flight samples received an absorbed radiation dose of 1.397 mGy (OSDR metadata;~\cite{Su2023}). The ground control was run in a VEGGIE unit inside the ISS Environmental Simulator at Kennedy Space Center with a two-day delay~\cite{Su2023}. Supplementary Figure S1 summarises the hardware, timeline and conditions.
 
-Significant natural variation in gravitropic bending was observed across the panel (ANOVA across all timepoints, $p < 10^{-6}$; Figure~1B). At 20 minutes of stimulation, accession differences were most pronounced ($F = 7.567, p = 1.35 \times 10^{-9}$), continuing through 30 minutes ($F = 5.657, p = 2.57 \times 10^{-7}$). Mean root tip curvature at 30 minutes ranged from a high of $41.9\textdegree \pm 2.8\textdegree$ in the Turkish accession Koz1 and $39.2\textdegree \pm 2.6\textdegree$ in ABR1, down to $23.6\textdegree \pm 1.9\textdegree$ in Koz3 and $25.8\textdegree \pm 2.0\textdegree$ in ABR6 (Table~1). 
+All 48 libraries were sequenced on Illumina NovaSeq 6000 instruments, but Bd21 was sequenced at the University of Wisconsin--Madison with 2 $\times$ 150 bp reads, and Bd21-3 and Gaz8 by the NASA GeneLab Sample Processing Lab with 2 $\times$ 100 bp reads~\cite{Su2023}. Accession is therefore confounded with sequencing batch. Flight-versus-ground comparisons within an accession are not affected, but differences between accessions in the number of DEGs cannot be separated from batch effects.
 
-Critically, the three ecotypes evaluated in NASA spaceflight study OSD-375 displayed distinct gravitropic kinetics: reference line **Bd21** exhibited rapid, robust curvature ($34.1\textdegree \pm 2.3\textdegree$), **Bd21-3** exhibited intermediate kinetics ($32.0\textdegree \pm 2.1\textdegree$), while **Gaz8** (from Gaziemir, Turkey) exhibited slower initial reorientation ($27.5\textdegree \pm 2.0\textdegree$), ranking among the slower third of the diversity panel.
+\subsection{Study catalogue}
 
-\subsection{Chromosomal mapping and functional curation of candidate gravitropism loci}
+AstroGrass catalogues five studies (Figure 2): OSD-375~\cite{Su2023}; OSD-622, a microarray study of leaves of dwarf wheat (cultivar USU Apogee) grown on the ISS in the Biomass Production System during the PESTO experiment~\cite{Stutte2006}; two ground RNA-seq studies of Brachypodium, GSE97940 (roots treated with 2,4-D to induce nodule-like structures)~\cite{Thomas2018} and GSE48040 (cold-treated seedlings of accession ABR5)~\cite{Zhang2013}; and the leaf phosphoproteome PXD000868~\cite{Lv2014}. Each entry was checked against its OSDR, GEO or PRIDE record, and each DOI against CrossRef or DataCite. Fields that a record does not state are marked as such rather than filled in.
 
-To establish the genomic basis of gravitropic variation in \textit{Brachypodium}, we curated a comprehensive repertoire of 29 candidate gravitropism loci across the 5 chromosomes of the \textit{B.\ distachyon} genome (Figure~3A; Supplementary Table~S1). These loci encompass all major biochemical stages of gravity perception and response:
-\begin{enumerate}
-    \item \textbf{Auxin Efflux Carriers (PIN family):} \textit{BdPIN1a} (BRADI\_1g28880v3), \textit{BdPIN1b} (BRADI\_1g59720v3), \textit{BdPIN2} (BRADI\_3g44770v3), \textit{BdPIN3} (BRADI\_4g35920v3), \textit{BdPIN4} (BRADI\_2g08930v3), and \textit{BdPIN7} (BRADI\_1g17610v3).
-    \item \textbf{Auxin Influx Carriers (AUX/LAX family):} \textit{BdAUX1} (BRADI\_3g35890v3), \textit{BdLAX1} (BRADI\_2g55170v3), \textit{BdLAX2} (BRADI\_4g12810v3), and \textit{BdLAX3} (BRADI\_1g08940v3).
-    \item \textbf{Gravity Transduction & Setpoint Control (LAZY/DRO/SGR):} \textit{BdLAZY1} (BRADI\_5g19830v3), \textit{BdDRO1} (BRADI\_3g14220v3), \textit{BdSGR9} (BRADI\_2g22150v3), and \textit{BdSGR2} (BRADI\_4g05670v3).
-    \item \textbf{Auxin Receptors & Transcriptional Regulators:} \textit{BdTIR1} (BRADI\_4g11220v3), \textit{BdAFB2} (BRADI\_1g64200v3), \textit{BdARF7} (BRADI\_2g49180v3), \textit{BdARF19} (BRADI\_3g58400v3), and \textit{BdIAA14} (BRADI\_1g30140v3).
-    \item \textbf{Statolith Starch Synthesis:} \textit{BdPGM1} (BRADI\_1g09410v3) and \textit{BdADG1} (BRADI\_2g16530v3).
-    \item \textbf{Calcium & Mechanosensation Signaling:} \textit{BdCPK28} (BRADI\_1g71830v3), \textit{BdCAS} (BRADI\_4g30480v3), \textit{BdCRK28} (BRADI\_3g08190v3), \textit{BdCML24} (BRADI\_5g21400v3), and \textit{BdMSL10} (BRADI\_2g39110v3).
-    \item \textbf{Grass Type II Cell Wall Remodeling:} \textit{BdEXPA1} (BRADI\_1g11420v3), \textit{BdXTH1} (BRADI\_4g41200v3), and \textit{BdCSLD1} (BRADI\_3g17860v3).
-\end{enumerate}
+\subsection{Gravitropism candidate genes}
 
-\subsection{Transcriptomic reprogramming in microgravity (OSD-375 / APEX-06)}
+The candidate list contains 29 genes chosen from the Arabidopsis gravitropism literature: PIN and AUX/LAX auxin carriers, LAZY/DRO and SGR genes, TIR1/AFB auxin receptors, ARF and Aux/IAA transcription factors, starch-synthesis genes, calcium and mechanosensing genes, and cell-wall genes. Each candidate is defined by an Arabidopsis anchor gene. For 17 candidates the Arabidopsis identifier (AGI) given in the list was confirmed: UniProt lists the intended gene name for that AGI. For the other 12, the AGI names a different gene; for example, the AGI given for LAZY1 is PDF1B, the AGI given for SGR9 is LAZY2, and the AGI given for MSL10 is MSL1. Those 12 anchors are marked TODO in the table, together with the gene each wrong AGI actually names.
 
-Re-analysis of the complete 48-sample ISA-Tab dataset from OSD-375 (3 ecotypes $\times$ 2 tissues $\times$ 2 conditions $\times$ 4 biological replicates; Figure~2A) confirmed marked accession-specific transcriptomic remodeling in orbit~\cite{Su2023}. 
+No Brachypodium gene identifiers are assigned yet. The earlier list gave a BRADI identifier for each candidate. Nine of the 29 do not exist in Ensembl Plants (Ensembl Genomes release 63), and for the 17 candidates with a verified anchor, none of the given identifiers is among the anchor's Brachypodium orthologs in Ensembl Compara (data/genotypes/withdrawn\_bradi\_id\_check.csv). All 29 were therefore withdrawn. Two markers in the earlier table, a serine hydroxymethyltransferase and the chloroplast-encoded RuBisCO large subunit, were not gravitropism candidates and were dropped with the typed-in expression values attached to them.
 
-In roots, spaceflight triggered differential expression of key gravitropism and stress genes (Figure~2B). Bd21 displayed 325 root DEGs and 1,027 shoot DEGs (FDR $< 0.05$). Gaz8 exhibited the most pronounced activation of calcium and mechanosensing transducers, including significant upregulation of calcium-dependent protein kinase \textit{BdCPK28} ($\log_2\text{FC} = +2.38, p_{\text{adj}} = 2.0 \times 10^{-5}$), calcium-sensing receptor \textit{BdCAS} ($\log_2\text{FC} = +1.75$), and mechanosensitive channel \textit{BdMSL10} ($\log_2\text{FC} = +1.45$). In parallel, statolith starch biosynthetic enzymes \textit{BdPGM1} and \textit{BdADG1} were downregulated in microgravity roots ($\log_2\text{FC} = -1.10$ and $-0.92$, respectively), consistent with statolith starch depletion in the absence of a continuous 1g vector.
+\subsection{Time-lapse videos and kinetics plots}
 
-\subsection{Gravitropism loci are functionally active during spaceflight adaptation}
+The website hosts time-lapse videos of Brachypodium roots of accessions Per1 and BdTR7a after a 90\textdegree{} rotation, from the author's CyVerse Data Store. The repository also holds per-accession plots of root orientation and root-tip displacement over time for 45 accessions, added to the repository as Barker 2016 data. The numbers behind these plots are not in the repository, so no statistics are drawn from them here.
 
-Candidate gravitropism genes exhibited coordinated, organ-specific expression changes in microgravity (Figure~3B). Notably, \textit{BdLAZY1} was strongly upregulated in both roots ($\log_2\text{FC} = +2.15$) and shoots ($+1.78$), suggesting a compensatory activation of gravity signal transduction machinery when directional statolith displacement is lost. The primary auxin efflux carrier \textit{BdPIN3} was significantly induced in spaceflight roots ($\log_2\text{FC} = +1.95, p_{\text{adj}} = 5.0 \times 10^{-5}$), whereas \textit{BdPIN2} was downregulated ($-1.85$), reflecting a profound disturbance in polar auxin redistribution in orbit. Cell wall loosening alpha-expansin \textit{BdEXPA1} exhibited strong upregulation in roots ($+2.50$) and shoots ($+1.95$), indicating active remodeling of cell wall extensibility under microgravity.
+\section{Planned analyses (not yet run)}
 
-\subsection{Cross-species meta-analysis: conserved vs.\ monocot-specific spaceflight pathways}
+TODO: Correct the 12 Arabidopsis anchors, then map Brachypodium orthologs of all 29 candidates with Ensembl Compara, recording the Ensembl release and any one-to-many cases.
 
-Comparing the OSD-375 \textit{Brachypodium} spaceflight transcriptome with our consensus \textit{Arabidopsis} spaceflight meta-analysis (2,550 consensus DEGs across 17 NASA GeneLab studies~\cite{Barker2026}) revealed significant cross-species conservation of core stress and metabolic responses (Fisher's exact test, Odds Ratio $= 13.70, p = 0.0446$; Figure~4A).
+TODO: Extract the expression of the candidate genes from the per-accession DEG tables published by Su et al.~\cite{Su2023} (supplementary tables, CC BY 4.0), crediting the values to that study.
 
-Shared spaceflight-responsive orthologs between \textit{Brachypodium} and \textit{Arabidopsis} were enriched in: (1) reactive oxygen species (ROS) detoxifying peroxidases and superoxide dismutases; (2) heat shock factors (HSFA2, HSP70); and (3) photorespiratory and gas exchange adaptation enzymes, including serine hydroxymethyltransferase (\textit{BdSHMT2} / \textit{AtSHMT2}, induced $+2.10 \log_2\text{FC}$ in shoots in response to boundary-layer gas stagnation aboard the ISS; Figure~4B). 
+TODO: If a new differential-expression analysis of OSD-375 is needed, start from the FASTQ files (the only expression data in OSDR for this study) and account for the confounding of accession with sequencing batch.
 
-In contrast, lineage-specific responses were dominated by monocot cell wall pathways: \textit{Brachypodium} seedlings uniquely modulated mixed-linkage $\beta$-(1,3;1,4)-glucan synthases (\textit{BdCSLD1}) and xyloglucan endotransglucosylases (\textit{BdXTH1}), reflecting the unique biomechanical requirements of grass Type II cell walls.
+TODO: Add gravitropism measurements for the accession panel, with their source documented. The kinetics plots above would need their underlying numbers before any comparison between accessions.
 
-\subsection{Translational cereal synteny and collinearity with staple grain crops}
+TODO: An association study would need genotype data for the phenotyped accessions; with tens of accessions it would be a candidate-gene comparison rather than a GWAS.
 
-To evaluate the direct translational utility of \textit{Brachypodium} gravitropism loci for crop improvement in spaceflight, we mapped all 29 candidate loci against the fully sequenced genomes of hexaploid bread wheat (\textit{Triticum aestivum}, RefSeq v2.1), rice (\textit{Oryza sativa}, IRGSP-1.0), barley (\textit{Hordeum vulgare}, MorexV3), and maize (\textit{Zea mays}, B73 RefGen_v5) (Supplementary Figure~S2; Supplementary Table~S2). 
-
-Collinearity analysis revealed 100\% syntenic retention across the grass lineage. For example, the master gravity perception locus \textit{BdLAZY1} on chromosome Bd5 is collinear with the homoeologous triplet on wheat group 5 (\textit{TraesCS5A02G241800}, \textit{TraesCS5B02G242900}, \textit{TraesCS5D02G250100}) and \textit{OsLAZY1} (\textit{Os11g0483500}) on rice chromosome 11. Similarly, the deep rooting setpoint regulator \textit{BdDRO1} on Bd3 maps to wheat group 3 (\textit{TraesCS3A/B/D02G120500}) and \textit{OsDRO1} (\textit{Os09g0439600}), and the primary spaceflight-induced calcium kinase \textit{BdCPK28} on Bd1 maps to wheat group 1 (\textit{TraesCS1A/B/D02G410900}) and \textit{OsCPK28} (\textit{Os01g0718300}). This strict collinearity confirms that gravitropic QTL alleles identified in \textit{Brachypodium} provide direct molecular targets for breeding or CRISPR-editing dwarf cereal varieties (such as Apogee space wheat) for closed-loop life support systems.
-
-\subsection{Promoter cis-regulatory architecture and transcription factor regulons}
-
-To identify the upstream transcriptional machinery coordinating gravity responses, we scanned 1.0~kb upstream promoter regions of the 29 candidate loci for enriched cis-regulatory elements (Supplementary Figure~S3; Supplementary Table~S3). 
-
-Five major transcription factor binding motif families were significantly enriched:
-\begin{enumerate}
-    \item \textbf{Mechanosensory and Calcium W-boxes / CAM-boxes} (\texttt{TTGACY}, $p = 8.2 \times 10^{-7}$; present in 26 of 29 promoters), recognized by WRKY and CAMTA transcription factors responding rapidly to gravity vector disruption and statolith unweighting.
-    \item \textbf{Auxin Response Elements (AuxRE)} (\texttt{TGTCTC} / \texttt{GAGACA}, $p = 1.4 \times 10^{-6}$; present in 24 promoters), targeted by ARF7/ARF19 during asymmetric organ curvature.
-    \item \textbf{Abscisic Acid Response Elements (ABRE)} (\texttt{ACGTG}, $p = 3.8 \times 10^{-5}$; present in 21 promoters), governing osmotic and boundary-layer desiccation responses in orbit.
-    \item \textbf{Heat Shock Elements (HSE)} (\texttt{GAAnnTTC}, $p = 2.1 \times 10^{-4}$), reflecting proteotoxic chaperone activation under cosmic radiation and microgravity stress.
-    \item \textbf{Dehydration-Responsive Elements (DRE / CRT)} (\texttt{GCCGAC}, $p = 1.2 \times 10^{-3}$), modulating cell membrane integrity.
-\end{enumerate}
-Promoters of the core spaceflight regulon---\textit{BdLAZY1}, \textit{BdPIN3}, and \textit{BdCPK28}---contain overlapping clusters of W-box, AuxRE, and ABRE elements within 500~bp of the transcription start site (TSS), providing a mechanistic model for how calcium bursts and auxin signaling converge during orbital adaptation.
-
-\subsection{Microgravity disrupts alternative splicing of core gravity signaling transcripts}
-
-Beyond steady-state expression changes, re-analysis of junction reads in OSD-375 revealed significant alternative splicing (AS) disruption in gravitropic loci aboard the ISS (Supplementary Table~S4). Microgravity induced exon skipping in \textit{BdLAZY1} ($\Delta\Psi = 0.28, \text{FDR} = 0.0018$), removing exon 4 which encodes the conserved C-terminal CCL motif required for RLD interaction and plasma membrane recruitment~\cite{Nishimura2023}. In \textit{BdCPK28}, spaceflight promoted intron retention ($\Delta\Psi = 0.35, \text{FDR} = 0.0006$) introducing a premature stop codon, while \textit{BdPIN3} exhibited alternative 5' splice site usage ($\Delta\Psi = -0.22$) within its central cytoplasmic regulatory loop. These AS events demonstrate that post-transcriptional processing represents an additional regulatory layer modulating gravity perception in space.
-
-\subsection{46-Accession phenotypic diversity and growth displacement kinetics}
-
-Extending beyond the core 15-accession GWAS panel, analysis of 46 Mediterranean natural accessions from the AIRI Stage VI screening campaign revealed a wide spectrum of gravitropic reorientation velocities and total root tip displacements (Supplementary Figure~S4). Mean 30-minute curvature angles correlated positively with maximum root growth displacement ($R = 0.68, p < 0.001$). Accessions grouped into distinct quartile phenotypic classes, with fast-bending lines exhibiting coordinated root elongation and rapid statolith sedimentation, whereas sluggish lines (including Gaz8) showed uncoupled growth kinematics.
-
-\subsection{The AstroGrass database and interactive gene explorer}
-
-To provide a community resource for space agriculture and gravitropism genetics, we developed the **AstroGrass Knowledgebase** (\url{https://dr-richard-barker.github.io/brachypodium-gwas-spaceflight/astrograss.html}; Figure~6). AstroGrass integrates 5 primary datasets spanning spaceflight missions (OSD-375, OSD-622 wheat), terrestrial auxin/cold analogues (GSE97940, GSE48040), and proteomics (PXD000868). The interactive web interface allows real-time searching, chromosome/pathway filtering, multi-accession fold-change inspection, and cross-species ortholog mapping (Arabidopsis, Rice, Wheat), accompanied by video time-lapse documentation of gravitropic assays.
-
-\section{Discussion}
-
-This study represents the first integration of gravitropic natural variation data from a GWAS population with spaceflight transcriptomics in a monocot crop model. Our results extend the GWAS--spaceflight connection previously demonstrated in \textit{Arabidopsis}~\cite{Barker2026} to the monocot lineage, providing evidence that genetic variation underlying terrestrial gravitropic performance also influences transcriptomic responses to true microgravity aboard the ISS.
-
-\subsection*{Formulation of a Spaceflight Resilience Index (SRI) for BLSS crop selection}
-
-To translate our findings into actionable breeding guidelines for lunar and Martian greenhouse cultivation, we propose a composite **Spaceflight Resilience Index (SRI)** for evaluating cereal crop candidates:
-\begin{equation}
-\text{SRI} = w_1 \cdot \left(\frac{\theta_{30}}{\bar{\theta}}\right) + w_2 \cdot \left(\frac{\text{Starch}_{\text{Retention}}}{\bar{\text{S}}}\right) - w_3 \cdot \left(\frac{\Delta\text{Ca}^{2+}_{\text{Stress}}}{\bar{\text{C}}}\right)
-\end{equation}
-where $\theta_{30}$ represents 30-minute gravitropic curvature velocity, $\text{Starch}_{\text{Retention}}$ quantifies statolith amyloplast stability, and $\Delta\text{Ca}^{2+}_{\text{Stress}}$ measures hyper-activation of stress kinases (\textit{CPK28}/\textit{CAS}). Genotypes scoring high on the SRI (such as Koz1 and Bd21) maintain rapid root anchorage and balanced auxin transport with minimal proteotoxic stress, making them ideal genetic backgrounds for spaceflight agriculture.
-
-\subsection*{Mechanistic crosstalk: Calcium mechanosensation and the LZY-RLD-PIN polarity axis}
-
-Our integrated biophysical model (Figure~5) synthesizes the molecular chain of events distinguishing 1g Earth from $\mu$g orbit. On Earth, amyloplast statolith sedimentation delivers LZY1 to the lower plasma membrane, recruiting RLD and polarizing PIN efflux carriers to establish the classic lateral auxin gradient~\cite{Nishimura2023,Chen2023}. In microgravity, the absence of statolith sedimentation prevents directional LZY-RLD assembly. The statocyte responds through a dual compensatory mechanism: transcriptional upregulation of \textit{BdLAZY1} and \textit{BdPIN3} accompanied by a profound mechanosensory calcium burst mediated by \textit{BdMSL10}, \textit{BdCAS}, and \textit{BdCPK28}. Downstream, this activation alters cell wall loosening via alpha-expansins (\textit{BdEXPA1}) and modulates mixed-linkage glucan deposition (\textit{BdCSLD1}) within the grass Type II wall.
-
-\subsection*{Monocot-specific spaceflight responses and BLSS implications}
-
-The cross-species comparison confirmed that while core stress modules (ROS detoxification, HSP chaperones, and boundary-layer gas exchange via \textit{SHMT2}) are conserved across land plants ($p = 3.54 \times 10^{-12}$, Odds Ratio $= 14.16$), structural adaptations diverge sharply. Cereal crops possess specialized Type II cell walls and unique tiller/root setpoint architecture regulated by \textit{DRO1} and \textit{LAZY1}. Extrapolating spaceflight findings solely from dicot models (such as \textit{Arabidopsis}) overlooks these cereal-specific traits. By establishing the AstroGrass resource, we provide the foundational multi-omics map required to engineer resilient cereal crops for long-duration human space exploration.
-
-\subsection*{Limitations and future directions}
-
-This study has several limitations. First, while candidate association mapping identified 29 high-confidence loci, full-scale de novo GWAS across 300+ sequenced accessions will be required to resolve fine-scale QTL architecture. Second, OSD-375 examined three ecotypes; future orbital missions should evaluate multi-accession panels selected via the Spaceflight Resilience Index. Third, functional validation of candidate genes via CRISPR-Cas9 in \textit{Brachypodium} and dwarf wheat lines will establish causal mechanisms.
+TODO: Compare Brachypodium spaceflight responses with the author's Arabidopsis spaceflight analysis, which is in preparation.
 
 \section{Methods}
 
-\subsection{Gravitropic reorientation assays}
+\subsection{OSD-375 metadata}
 
-Gravitropic reorientation was quantified using the 2D clinostat protocol adapted from Barker et al.~\cite{Barker2016}. Seeds of \textit{Brachypodium distachyon} accessions were surface sterilized in 70\% ethanol for 15 minutes, sown horizontally on 1\% agar plates containing half-strength Linsmaier-Skoog (LS) salts, and stratified at 4\textdegree C in darkness for 3 days. Plates were transferred to a controlled environment chamber (22\textdegree C, 16h light/8h dark) and positioned vertically for 4 days. On day 4, plates were scanned at 600 dpi to record baseline root positions, then rotated 90\textdegree\ in darkness. After defined gravitropic stimulation periods (10, 20, or 30 minutes), plates were transferred to a 2D clinostat rotating at 1 RPM for 4 hours to arrest further gravitropic curvature. Post-clinostat scans were aligned with pre-rotation images, and root tip curvature angles were measured using RootNav 2 and the CyVerse Discovery Environment~\cite{Yasrab2019}. Presentation times were calculated using the $L$ and $H$ models of Perbal et al.~\cite{Perbal2002}.
+The OSD-375 file listing and ISA-Tab metadata were downloaded from the OSDR API (\url{https://osdr.nasa.gov/osdr/data/osd/files/375}) by code/01\_download\_osdr\_osd375.py. The sample table (s\_GLDS-375.txt) was parsed by code/02\_parse\_osdr\_metadata.py to count samples per accession, organ and condition (Figure 1). Growth conditions and the radiation dose were read from the same table; the timeline and sequencing details are from Su et al.~\cite{Su2023}.
 
-\subsection{NASA OSDR OSD-375 data acquisition}
+\subsection{Study catalogue}
 
-Processed RNA-Seq gene expression data (count matrices and differential expression tables) from OSDR study OSD-375~\cite{Su2023} were downloaded programmatically via the OSDR REST API (\url{https://osdr.nasa.gov/osdr/data/osd/files/375}). Sample metadata (ISA-JSON format) was parsed to map samples to ecotypes (Bd21, Bd21-3, Gaz8), tissues (root, shoot), and conditions (spaceflight vs.\ ground control). The study used APEX Growth Units in the VEGGIE facility aboard the ISS (SpaceX CRS-14, launched April 2, 2018), with seedlings grown for 5 days (24h germination + 4 days growth) and preserved in RNAlater~\cite{Su2023}.
+Catalogue entries (code/10\_build\_astrograss\_db.py) were checked on 14 October 2026 against the OSDR study metadata API, NCBI GEO (E-utilities and the GEO sample records), the PRIDE Archive API, CrossRef and DataCite.
 
-\subsection{SNP and genotype data}
+\subsection{Candidate-gene anchors}
 
-\textit{Brachypodium distachyon} variation data were obtained from multiple public sources: (1) Ensembl Plants release 60 VCF files for \textit{B.\ distachyon} v3.0 (\url{https://plants.ensembl.org/Brachypodium_distachyon}); (2) the BrachyPan pan-genome diversity panel (54 inbred lines)~\cite{Gordon2017}; and (3) JGI Phytozome v13 (\url{https://phytozome-next.jgi.doe.gov/}). SNPs within 10 kb of gravitropism candidate genes were extracted and annotated for predicted functional effects.
-
-\subsection{Candidate gravitropism gene curation}
-
-A curated set of gravitropism candidate genes was compiled from: (a) \textit{Brachypodium} orthologs of \textit{Arabidopsis} genes annotated to GO:0009630 (gravitropism) and GO:0009958/GO:0009959 (positive/negative gravitropism); (b) PIN auxin efflux carriers, AUX1/LAX influx carriers, TIR1/AFB F-box receptors, ARF and Aux/IAA transcription factors; (c) LAZY/SGR gravity signaling family members; (d) statolith biogenesis genes (PGM, ADG1); (e) calcium signaling genes highlighted by Su et al.~\cite{Su2023} (CPK28, CAS, CRK28). Orthologs were identified using Ensembl Compara and reciprocal BLAST.
-
-\subsection{Differential expression analysis}
-
-Processed GeneLab count matrices from OSD-375 were analyzed using DESeq2 with the design formula $\sim \text{condition}$ (spaceflight vs.\ ground control), performed separately for each ecotype $\times$ tissue combination. Genes with adjusted $p < 0.05$ (Benjamini-Hochberg) and $|\log_2\text{FC}| > 0.5$ were classified as differentially expressed.
-
-\subsection{GWAS--spaceflight integration}
-
-Enrichment of gravitropism candidate genes among spaceflight DEGs was tested using Fisher's exact test, with all expressed genes as background. Trait-level enrichment was assessed for gravitropism-related GO terms and pathways using clusterProfiler with custom \textit{Brachypodium} GO annotations.
-
-\subsection{Cross-species comparison}
-
-\textit{Brachypodium}--\textit{Arabidopsis} orthologous gene pairs were obtained from Ensembl Compara (one-to-one orthologs). Spaceflight DEGs from OSD-375 were compared with our published \textit{Arabidopsis} spaceflight meta-analysis (2,550 consensus genes from 17 studies~\cite{Barker2026}) using hypergeometric enrichment tests. Pathway-level comparison was performed using Gene Ontology enrichment of shared vs.\ species-specific DEG sets.
-
-\subsection{Alternative splicing analysis}
-
-Differential splicing events in OSD-375 were obtained from our multi-species alternative splicing analysis~\cite{BarkerSplicing2026}, which used rMATS and SUPPA2 on aligned BAM files to identify differential exon usage, intron retention, and alternative 5'/3' splice site events between spaceflight and ground control samples.
+For each AGI in the curated list (data/genotypes/candidate\_genes\_curated.csv), code/14\_check\_arabidopsis\_anchors.py retrieved the reviewed UniProt entry cross-referenced to that Araport identifier (UniProt release 2026\_03). An anchor was accepted only if the intended Arabidopsis gene symbol was among the entry's gene names. The same script looked up each withdrawn BRADI identifier in Ensembl (REST API, Ensembl Genomes release 63) and, for verified anchors, retrieved the anchor's Brachypodium orthologs from Ensembl Compara (plants). code/03\_candidate\_genes.py combines the list and the anchor check into data/genotypes/gravitropism\_candidate\_genes.csv.
 
 \subsection{Data and code availability}
 
-All code and processed data are available at \url{https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight}. The interactive results dashboard is available at \url{https://dr-richard-barker.github.io/brachypodium-gwas-spaceflight/}. Raw sequencing data are available from NASA OSDR under accession OSD-375 (\url{https://osdr.nasa.gov/bio/repo/data/studies/OSD-375}; DOI: 10.26030/2x6b-3v89). SNP data sources are documented in the repository.
+All code and tables are available at \url{https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight}, and the website at \url{https://dr-richard-barker.github.io/brachypodium-gwas-spaceflight/}. Raw sequencing data are available from NASA OSDR under accession OSD-375 (\url{https://osdr.nasa.gov/bio/repo/data/studies/OSD-375}; DOI: 10.26030/2x6b-3v89).
 
 \section*{Acknowledgments}
 
-This work uses data from the NASA Open Science Data Repository (OSDR) study OSD-375 (APEX-06). We thank Dr.\ Patrick Masson, Dr.\ Shih-Heng Su, and Dr.\ Howard Levine for generating the OSD-375 dataset, and Dr.\ Daniel Woods and Dr.\ Richard Amasino for providing seed lines. We acknowledge the BrachyPan consortium, Ensembl Plants, and JGI Phytozome for providing publicly accessible \textit{Brachypodium} genomic resources. The AstroBotany Investigation Resource (AIR) program provided gravitropism assay protocols and educational framework.
+This work uses data from the NASA Open Science Data Repository (OSDR) study OSD-375 (APEX-06). We thank Dr.\ Patrick Masson, Dr.\ Shih-Heng Su, and Dr.\ Howard Levine for generating the OSD-375 dataset, and Dr.\ Daniel Wood and Dr.\ Richard Amasino for providing seed lines. We acknowledge UniProt, Ensembl Plants, NCBI GEO and PRIDE for public data resources. The AstroBotany Investigation Resource (AIR) program provided gravitropism assay protocols and educational framework.
 
 \section*{Author contributions}
 
-R.B.\ conceived the study, designed and implemented the analysis pipeline, performed gravitropic reorientation assays, and wrote the manuscript.
+R.B.\ conceived the study, curated the resource, built the data pipeline and website, and wrote the manuscript.
 
 \section*{Competing interests}
 
