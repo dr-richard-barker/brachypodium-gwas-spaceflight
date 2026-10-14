@@ -5,7 +5,7 @@
 Compile and maintain the AstroGrass Video & Time-Lapse Knowledgebase.
 Combines:
   1. Curated YouTube scientific videos (Brachypodium 360°, Clinostats, Gravitropism assays)
-  2. CyVerse iRODS Brachy_* time-lapse series (Per1, TR7a, Gravatron, FlashLapse)
+  2. CyVerse iRODS Brachy_* time-lapse series (Per1, TR7a)
   3. Interactive canvas kinematic simulators
 
 Outputs:
@@ -166,7 +166,7 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "type": "cyverse",
         "series_name": "Per1_DB_1_1_Green_Rotation",
         "title": "Brachypodium Per1 Accession — 90° Green Rotation (Full 394-frame Series)",
-        "author": "Dr. Richard Barker (AIRI Stage VI / CyVerse)",
+        "author": "Dr. Richard Barker (CyVerse / iRODS)",
         "category": "CyVerse Time-Lapses",
         "organism": "Brachypodium distachyon",
         "accession": "Per1",
@@ -175,8 +175,8 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Per1_DB_1-1_001 Green Rotation.MOV",
         "video_url": "assets/videos/Per1_DB_1_1_Green_Rotation.mp4",
         "thumbnail_url": "assets/thumbnails/Per1_DB_1_1_Green_Rotation_poster.jpg",
-        "description": "Premier full-length 394-frame (10 fps, 39.4 s) optical time-lapse tracking of Brachypodium distachyon Per1 root gravitropic green rotation and reorientation kinematics.",
-        "tags": ["Featured", "CyVerse", "Per1", "Brachypodium", "Green Rotation", "Time-lapse", "AIRI"]
+        "description": "Full-length 394-frame time-lapse (10 fps, 39.4 s) of Brachypodium distachyon Per1 roots after a 90° rotation (green-light imaging).",
+        "tags": ["Featured", "CyVerse", "Per1", "Brachypodium", "Green Rotation", "Time-lapse"]
     },
     # Interactive Simulators
     {
@@ -186,8 +186,8 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "author": "AstroGrass Modeling Engine",
         "category": "Interactive Simulators",
         "organism": "Brachypodium distachyon",
-        "description": "Real-time HTML5 Canvas biophysical simulation of monocot root columella bending from 0° to 42° following a 90° gravistimulation vector shift.",
-        "thumbnail_url": "assets/fig5_mechanistic_model.png",
+        "description": "Illustrative HTML5 Canvas animation of a root bending after a 90° rotation. The curve (0° to 42°) is a drawing, not fitted to measured data.",
+        "thumbnail_url": "",
         "tags": ["Simulator", "Kinematics", "1g", "Interactive", "Canvas"]
     },
     {
@@ -197,8 +197,8 @@ MASTER_VIDEO_CATALOG: List[Dict[str, Any]] = [
         "author": "AstroGrass Modeling Engine",
         "category": "Interactive Simulators",
         "organism": "Plant Biology / Ground Analogue",
-        "description": "Interactive rotational simulation modeling the dispersion of gravitational sedimentation vectors during 1.0 RPM clinorotation.",
-        "thumbnail_url": "assets/fig5_mechanistic_model.png",
+        "description": "Illustrative animation of a sample rotating on a 2D clinostat at 1.0 RPM. Not a physical model.",
+        "thumbnail_url": "",
         "tags": ["Simulator", "Clinostat", "RPM", "Microgravity", "Interactive"]
     }
 ]

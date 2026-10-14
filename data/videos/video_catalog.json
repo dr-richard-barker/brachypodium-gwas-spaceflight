@@ -190,7 +190,7 @@
       "type": "cyverse",
       "series_name": "Per1_DB_1_1_Green_Rotation",
       "title": "Brachypodium Per1 Accession \u2014 90\u00b0 Green Rotation (Full 394-frame Series)",
-      "author": "Dr. Richard Barker (AIRI Stage VI / CyVerse)",
+      "author": "Dr. Richard Barker (CyVerse / iRODS)",
       "category": "CyVerse Time-Lapses",
       "organism": "Brachypodium distachyon",
       "accession": "Per1",
@@ -199,15 +199,14 @@
       "irods_path": "/iplant/home/dr_richard_barker/timelapse_extract/Per1_DB_1-1_001 Green Rotation.MOV",
       "video_url": "assets/videos/Per1_DB_1_1_Green_Rotation.mp4",
       "thumbnail_url": "assets/thumbnails/Per1_DB_1_1_Green_Rotation_poster.jpg",
-      "description": "Premier full-length 394-frame (10 fps, 39.4 s) optical time-lapse tracking of Brachypodium distachyon Per1 root gravitropic green rotation and reorientation kinematics.",
+      "description": "Full-length 394-frame time-lapse (10 fps, 39.4 s) of Brachypodium distachyon Per1 roots after a 90\u00b0 rotation (green-light imaging).",
       "tags": [
         "Featured",
         "CyVerse",
         "Per1",
         "Brachypodium",
         "Green Rotation",
-        "Time-lapse",
-        "AIRI"
+        "Time-lapse"
       ]
     },
     {
@@ -217,8 +216,8 @@
       "author": "AstroGrass Modeling Engine",
       "category": "Interactive Simulators",
       "organism": "Brachypodium distachyon",
-      "description": "Real-time HTML5 Canvas biophysical simulation of monocot root columella bending from 0\u00b0 to 42\u00b0 following a 90\u00b0 gravistimulation vector shift.",
-      "thumbnail_url": "assets/fig5_mechanistic_model.png",
+      "description": "Illustrative HTML5 Canvas animation of a root bending after a 90\u00b0 rotation. The curve (0\u00b0 to 42\u00b0) is a drawing, not fitted to measured data.",
+      "thumbnail_url": "",
       "tags": [
         "Simulator",
         "Kinematics",
@@ -234,8 +233,8 @@
       "author": "AstroGrass Modeling Engine",
       "category": "Interactive Simulators",
       "organism": "Plant Biology / Ground Analogue",
-      "description": "Interactive rotational simulation modeling the dispersion of gravitational sedimentation vectors during 1.0 RPM clinorotation.",
-      "thumbnail_url": "assets/fig5_mechanistic_model.png",
+      "description": "Illustrative animation of a sample rotating on a 2D clinostat at 1.0 RPM. Not a physical model.",
+      "thumbnail_url": "",
       "tags": [
         "Simulator",
         "Clinostat",
