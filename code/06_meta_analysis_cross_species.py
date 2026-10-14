@@ -10,7 +10,7 @@ Computes exact orthology mappings, shared response contingency tables, Fisher's 
 and comparative Gene Ontology pathway enrichment.
 
 Author: Richard Barker (ORCID: 0000-0001-5681-9857)
-Affiliation: Phylo
+Affiliation: Collaborative Science Environment Inc.
 """
 
 from __future__ import annotations

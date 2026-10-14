@@ -8,7 +8,7 @@ Evaluates the overlap between gravitropic QTL candidate genes and spaceflight DE
 testing statistical enrichment across ecotypes (Bd21, Bd21-3, Gaz8) and organ tissues (roots vs. shoots).
 
 Author: Richard Barker (ORCID: 0000-0001-5681-9857)
-Affiliation: Phylo
+Affiliation: Collaborative Science Environment Inc.
 """
 
 from __future__ import annotations

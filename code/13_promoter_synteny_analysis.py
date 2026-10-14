@@ -8,7 +8,7 @@ Academic Enhancement Pipeline for AstroGrass:
   3. Spaceflight Resilience Index (SRI) scoring algorithm for crop genotypes
 
 Author: Richard Barker (ORCID: 0000-0001-5681-9857)
-Affiliation: Phylo
+Affiliation: Collaborative Science Environment Inc.
 """
 
 from __future__ import annotations

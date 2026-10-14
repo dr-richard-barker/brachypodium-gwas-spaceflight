@@ -15,7 +15,7 @@ Outputs:
   - docs/js/video_database.json
 
 Author: Richard Barker (ORCID: 0000-0001-5681-9857)
-Affiliation: Phylo
+Affiliation: Collaborative Science Environment Inc.
 """
 
 from __future__ import annotations
@@ -227,7 +227,7 @@ def build_catalog(tables_dir: Path, docs_dir: Path, data_dir: Path):
         "metadata": {
             "name": "AstroGrass Video Knowledgebase",
             "version": "1.1.0",
-            "curator": "Richard Barker (Phylo)",
+            "curator": "Richard Barker (Collaborative Science Environment Inc.)",
             "total_items": len(MASTER_VIDEO_CATALOG),
             "youtube_videos": sum(1 for v in MASTER_VIDEO_CATALOG if v["type"] == "youtube"),
             "cyverse_series": sum(1 for v in MASTER_VIDEO_CATALOG if v["type"] == "cyverse"),
