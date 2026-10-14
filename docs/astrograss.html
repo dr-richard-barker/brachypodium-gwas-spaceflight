@@ -177,8 +177,9 @@
             <span class="badge" style="background:#2d7a4f; color:#fff; padding:4px 10px; border-radius:4px; font-size:0.8rem;">NASA OSDR OSD-375</span>
             <h1 style="margin-top:0.5rem; color:#0b1d3a;">AstroGrass Database: Studies and Candidate Genes</h1>
             <p style="color:#4a5568; font-size:1.05rem; max-width:850px;">
-                A catalogue of grass spaceflight and related omics studies, and a list of gravitropism candidate genes defined by Arabidopsis anchor genes.
-                The table holds no expression values: no differential-expression analysis of OSD-375 has been run here, and Brachypodium gene IDs are still to be mapped.
+                A catalogue of grass spaceflight and related omics studies, and 29 gravitropism candidate genes defined by Arabidopsis anchor genes, with their
+                Brachypodium, rice and wheat orthologs from Ensembl Compara. Spaceflight values are Su et al.'s (2023, Supplemental Tables S2–S4, CC BY 4.0) and appear
+                only where Su et al. list a gene as a DEG; no new analysis of OSD-375 has been run here.
             </p>
         </div>
 
@@ -189,16 +190,16 @@
                 <div class="stat-label">Candidate Genes</div>
             </div>
             <div class="stat-card">
-                <div class="stat-num" id="stat-verified">–</div>
-                <div class="stat-label">Arabidopsis Anchors Verified</div>
+                <div class="stat-num" id="stat-orthologs">–</div>
+                <div class="stat-label">With a Brachypodium Ortholog (Compara)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="stat-degs">–</div>
+                <div class="stat-label">With a DEG Call in Su et al. 2023</div>
             </div>
             <div class="stat-card">
                 <div class="stat-num" id="stat-studies">–</div>
                 <div class="stat-label">Catalogued Studies</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-num">3</div>
-                <div class="stat-label">OSD-375 Accessions (Bd21/Bd21-3/Gaz8)</div>
             </div>
         </div>
 
@@ -208,8 +209,8 @@
 
             <div class="filter-grid">
                 <div class="filter-item">
-                    <label for="search-input">Search (candidate / Arabidopsis gene / AGI)</label>
-                    <input type="text" id="search-input" placeholder="e.g. PIN2, LAZY1, AT1G70940">
+                    <label for="search-input">Search (candidate / Arabidopsis gene / AGI / BRADI ID)</label>
+                    <input type="text" id="search-input" placeholder="e.g. PIN2, LAZY1, AT1G70940, BRADI_1g31530v3">
                 </div>
                 <div class="filter-item">
                     <label for="pathway-select">Functional Pathway</label>
@@ -218,11 +219,20 @@
                     </select>
                 </div>
                 <div class="filter-item">
-                    <label for="status-select">Anchor Status</label>
-                    <select id="status-select">
+                    <label for="ortholog-select">Brachypodium Ortholog</label>
+                    <select id="ortholog-select">
                         <option value="">All</option>
-                        <option value="verified">Verified in UniProt</option>
-                        <option value="todo">TODO (AGI names another gene)</option>
+                        <option value="yes">In Ensembl Compara</option>
+                        <option value="no">None in Compara (TODO)</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="deg-select">Spaceflight DEG (Su et al. 2023)</label>
+                    <select id="deg-select">
+                        <option value="">All</option>
+                        <option value="compara">DEG via a Compara ortholog</option>
+                        <option value="any">Any DEG call</option>
+                        <option value="none">No DEG call</option>
                     </select>
                 </div>
             </div>
@@ -234,10 +244,9 @@
                         <tr>
                             <th>Candidate</th>
                             <th>Pathway</th>
-                            <th>Arabidopsis Gene</th>
-                            <th>Arabidopsis AGI</th>
-                            <th>Anchor Status</th>
-                            <th>Brachypodium Gene ID</th>
+                            <th>Arabidopsis Anchor</th>
+                            <th>Brachypodium Orthologs (Compara)</th>
+                            <th>Spaceflight DEG Calls (Su et al. 2023)</th>
                         </tr>
                     </thead>
                     <tbody id="gene-table-body">
@@ -298,16 +307,18 @@
             .catch(err => console.error("Error loading AstroGrass JSON:", err));
 
         function initApp() {
-            document.getElementById('stat-total-genes').textContent = dbData.genes.length;
-            document.getElementById('stat-verified').textContent = dbData.genes.filter(g => g.arabidopsis_agi).length;
+            const genes = dbData.genes;
+            document.getElementById('stat-total-genes').textContent = genes.length;
+            document.getElementById('stat-orthologs').textContent = genes.filter(g => g.brachypodium_orthologs).length;
+            document.getElementById('stat-degs').textContent = genes.filter(g => g.spaceflight_degs.length).length;
             document.getElementById('stat-studies').textContent = dbData.studies.length;
             populatePathways();
-            renderTable(dbData.genes);
+            renderTable(genes);
             renderStudies(dbData.studies);
 
             document.getElementById('search-input').addEventListener('input', applyFilters);
-            document.getElementById('pathway-select').addEventListener('change', applyFilters);
-            document.getElementById('status-select').addEventListener('change', applyFilters);
+            ['pathway-select', 'ortholog-select', 'deg-select'].forEach(id =>
+                document.getElementById(id).addEventListener('change', applyFilters));
         }
 
         function populatePathways() {
@@ -321,10 +332,18 @@
             });
         }
 
-        function statusBadge(g) {
-            return g.arabidopsis_agi
-                ? '<span class="badge" style="background:#2d7a4f; color:#fff;">verified</span>'
-                : '<span class="badge" style="background:#c05621; color:#fff;">TODO</span>';
+        function fc(v) {
+            const n = Number(v);
+            return (n > 0 ? '+' : '') + n.toFixed(2);
+        }
+
+        function degBadges(g) {
+            if (!g.spaceflight_degs.length) return '<span style="color:#a0aec0;">none listed</span>';
+            return g.spaceflight_degs.map(d => {
+                const up = Number(d.deseq_log2fc) > 0;
+                const star = d.match.startsWith('Compara') ? '' : '*';
+                return `<span class="badge" style="background:${up ? '#fde8e8' : '#e3eefb'}; color:#1a202c; margin:1px;" title="${esc(d.brachypodium_gene_id)}: ${esc(d.match)}">${esc(d.accession)} ${esc(d.organ)} ${fc(d.deseq_log2fc)}${star}</span>`;
+            }).join(' ');
         }
 
         function renderTable(genes) {
@@ -332,7 +351,7 @@
             tbody.innerHTML = '';
 
             if (genes.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:#718096;">No matching genes found. Try adjusting your filters.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:2rem; color:#718096;">No matching genes found. Try adjusting your filters.</td></tr>`;
                 document.getElementById('results-count').textContent = 'Showing 0 genes';
                 return;
             }
@@ -340,18 +359,22 @@
             genes.forEach(g => {
                 const tr = document.createElement('tr');
                 tr.onclick = () => openModal(g);
+                const orth = g.brachypodium_orthologs
+                    ? g.brachypodium_orthologs.split(' ').map(id => `<code>${esc(id)}</code>`).join('<br>') +
+                      `<div style="font-size:0.75rem; color:#718096;">${esc(g.brachypodium_homology)}</div>`
+                    : '<span style="color:#c05621;">TODO: none in Compara</span>';
                 tr.innerHTML = `
                     <td><strong>${esc(g.candidate)}</strong></td>
                     <td><span class="badge-pathway">${esc(g.pathway)}</span></td>
-                    <td>${esc(g.arabidopsis_gene)}</td>
-                    <td><code style="color:#2b6cb0;">${esc(g.arabidopsis_agi) || '–'}</code></td>
-                    <td>${statusBadge(g)}</td>
-                    <td style="color:#a0aec0;">${esc(g.brachypodium_gene_id)}</td>
+                    <td>${esc(g.arabidopsis_gene)}<br><code style="color:#2b6cb0;">${esc(g.arabidopsis_agi)}</code></td>
+                    <td>${orth}</td>
+                    <td style="font-size:0.8rem;">${degBadges(g)}</td>
                 `;
                 tbody.appendChild(tr);
             });
 
-            document.getElementById('results-count').textContent = `Showing ${genes.length} of ${dbData.genes.length} genes`;
+            document.getElementById('results-count').textContent =
+                `Showing ${genes.length} of ${dbData.genes.length} genes. * DEG matched through Su et al.'s best-hit Arabidopsis ortholog only.`;
         }
 
         function renderStudies(studies) {
@@ -377,16 +400,18 @@
         function applyFilters() {
             const query = document.getElementById('search-input').value.toLowerCase();
             const pathway = document.getElementById('pathway-select').value;
-            const status = document.getElementById('status-select').value;
+            const orth = document.getElementById('ortholog-select').value;
+            const deg = document.getElementById('deg-select').value;
 
             const filtered = dbData.genes.filter(g => {
-                const matchQuery = !query ||
-                    g.candidate.toLowerCase().includes(query) ||
-                    g.arabidopsis_gene.toLowerCase().includes(query) ||
-                    g.arabidopsis_agi.toLowerCase().includes(query);
-                const matchPathway = !pathway || g.pathway === pathway;
-                const matchStatus = !status || (status === 'verified') === Boolean(g.arabidopsis_agi);
-                return matchQuery && matchPathway && matchStatus;
+                const text = [g.candidate, g.arabidopsis_gene, g.arabidopsis_agi, g.brachypodium_orthologs,
+                              ...g.spaceflight_degs.map(d => d.brachypodium_gene_id)].join(' ').toLowerCase();
+                const hasCompara = g.spaceflight_degs.some(d => d.match.startsWith('Compara'));
+                return (!query || text.includes(query)) &&
+                    (!pathway || g.pathway === pathway) &&
+                    (!orth || (orth === 'yes') === Boolean(g.brachypodium_orthologs)) &&
+                    (!deg || (deg === 'compara' && hasCompara) || (deg === 'any' && g.spaceflight_degs.length > 0) ||
+                     (deg === 'none' && g.spaceflight_degs.length === 0));
             });
 
             renderTable(filtered);
@@ -395,23 +420,33 @@
         function openModal(g) {
             const modal = document.getElementById('gene-modal');
             const body = document.getElementById('modal-body');
+            const list = ids => ids ? ids.split(' ').map(id => `<code>${esc(id)}</code>`).join(', ') : '<span style="color:#a0aec0;">none in Compara</span>';
+            const degRows = g.spaceflight_degs.map(d => `
+                <tr><td>${esc(d.accession)}</td><td>${esc(d.organ)}</td><td><code>${esc(d.brachypodium_gene_id)}</code></td>
+                <td>${esc(d.match)}</td><td>${fc(d.deseq_log2fc)}</td><td>${Number(d.deseq_padj).toExponential(1)}</td>
+                <td>${fc(d.edger_log2fc)}</td><td>${Number(d.edger_q).toExponential(1)}</td></tr>`).join('');
             body.innerHTML = `
                 <span class="badge-pathway">${esc(g.pathway)}</span>
                 <h2 style="margin:0.5rem 0 0.2rem 0; color:#0b1d3a;">${esc(g.candidate)}</h2>
-                <p style="margin:0; color:#718096; font-size:0.9rem;">Arabidopsis anchor gene: <strong>${esc(g.arabidopsis_gene)}</strong></p>
+                <p style="margin:0; color:#718096; font-size:0.9rem;">Arabidopsis anchor gene: <strong>${esc(g.arabidopsis_gene)}</strong> (<code>${esc(g.arabidopsis_agi)}</code>)</p>
+                <p style="margin:0.3rem 0 0 0; font-size:0.85rem; color:#4a5568;">${esc(g.anchor_status)}</p>
                 <hr style="margin:1rem 0; border:0; border-top:1px solid #e2e8f0;">
 
-                <h4 style="margin-bottom:0.4rem;">Arabidopsis anchor</h4>
-                <p style="margin:0 0 0.5rem 0; font-size:0.92rem;">
-                    <strong>AGI:</strong> <code>${esc(g.arabidopsis_agi) || '–'}</code> ${statusBadge(g)}<br>
-                    <span style="color:#4a5568;">${esc(g.anchor_status)}</span>
-                </p>
+                <h4 style="margin-bottom:0.4rem;">Orthologs (Ensembl Compara, plants)</h4>
+                <ul style="font-size:0.9rem; line-height:1.6; margin:0; padding-left:1.2rem; color:#4a5568;">
+                    <li><strong>Brachypodium distachyon:</strong> ${list(g.brachypodium_orthologs)} ${g.brachypodium_homology ? '(' + esc(g.brachypodium_homology) + ')' : ''}</li>
+                    <li><strong>Oryza sativa (rice):</strong> ${list(g.rice_orthologs)}</li>
+                    <li><strong>Triticum aestivum (wheat):</strong> ${list(g.wheat_orthologs)}</li>
+                </ul>
+                ${g.ortholog_note ? `<p style="font-size:0.85rem; color:#718096; margin-top:0.4rem;">${esc(g.ortholog_note)}</p>` : ''}
 
-                <h4 style="margin:1rem 0 0.4rem 0;">Brachypodium gene</h4>
-                <p style="font-size:0.92rem; color:#4a5568;">${esc(g.brachypodium_gene_id)}: to be mapped from the verified Arabidopsis anchor with Ensembl Compara.</p>
-
-                <h4 style="margin:1rem 0 0.4rem 0;">Spaceflight expression</h4>
-                <p style="font-size:0.92rem; color:#4a5568;">Not available yet. No differential-expression analysis of OSD-375 has been run in this repository.</p>
+                <h4 style="margin:1rem 0 0.4rem 0;">Spaceflight DEG calls (Su et al. 2023)</h4>
+                ${g.spaceflight_degs.length ? `
+                <div style="overflow-x:auto;"><table class="gene-table" style="font-size:0.8rem;">
+                    <thead><tr><th>Accession</th><th>Organ</th><th>Gene</th><th>Match</th><th>DESeq log₂FC</th><th>padj</th><th>edgeR log₂FC</th><th>q</th></tr></thead>
+                    <tbody>${degRows}</tbody></table></div>` :
+                '<p style="font-size:0.9rem; color:#4a5568;">No Brachypodium gene for this candidate is in Su et al.\'s DEG lists. That is not evidence of no change: unlisted genes may be unexpressed or below significance.</p>'}
+                <p style="font-size:0.8rem; color:#718096; margin-top:0.5rem;">Values from Su et al. (2023) <em>Life</em> 13:626, Supplemental Tables S2–S4 (CC BY 4.0); log₂FC is ISS / ground control. Differences between accessions are confounded with sequencing batch.</p>
             `;
             modal.style.display = 'block';
         }

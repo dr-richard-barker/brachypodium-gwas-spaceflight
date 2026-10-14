@@ -58,8 +58,18 @@
                 <tbody>
                     <tr>
                         <td><code>astrograss_master_table.csv</code></td>
-                        <td>29 gravitropism candidate genes: Arabidopsis anchor, verification status, pathway (Brachypodium IDs TODO)</td>
+                        <td>29 gravitropism candidate genes: Arabidopsis anchor and its UniProt check, Compara orthologs (Brachypodium, rice, wheat), and Su et al.'s DEG calls</td>
                         <td><a href="tables/astrograss_master_table.csv" download class="btn-sm btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><code>candidate_spaceflight_degs.csv</code></td>
+                        <td>Candidate genes listed as spaceflight DEGs by Su et al. (2023): accession, organ, DESeq and edgeR values, and how the gene was matched</td>
+                        <td><a href="tables/candidate_spaceflight_degs.csv" download class="btn-sm btn-primary">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td><code>su2023_deg_counts.csv</code></td>
+                        <td>DEGs per accession, organ and direction, counted from Su et al.'s Supplemental Tables S2–S4</td>
+                        <td><a href="tables/su2023_deg_counts.csv" download class="btn-sm btn-primary">Download</a></td>
                     </tr>
                     <tr>
                         <td><code>astrograss_studies_catalog.csv</code></td>
@@ -92,6 +102,21 @@
                         <td><a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight/blob/main/data/genotypes/arabidopsis_anchor_check.csv" target="_blank" class="btn-sm btn-secondary">Open on GitHub</a></td>
                     </tr>
                     <tr>
+                        <td><code>compara_orthologs.csv</code></td>
+                        <td>Brachypodium, rice and wheat orthologs of each Arabidopsis anchor from Ensembl Compara (plants), with homology type and percent identity</td>
+                        <td><a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight/blob/main/data/genotypes/compara_orthologs.csv" target="_blank" class="btn-sm btn-secondary">Open on GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td><code>su2023_degs.csv</code></td>
+                        <td>All rows of Su et al.'s Supplemental Tables S2–S4 (6,582 DEG rows), with Ensembl gene IDs; CC BY 4.0</td>
+                        <td><a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight/blob/main/data/su2023/su2023_degs.csv" target="_blank" class="btn-sm btn-secondary">Open on GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td><code>id_mapping_check.csv</code></td>
+                        <td>Check that Su et al.'s Phytozome gene IDs map to Ensembl identifiers</td>
+                        <td><a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight/blob/main/data/su2023/id_mapping_check.csv" target="_blank" class="btn-sm btn-secondary">Open on GitHub</a></td>
+                    </tr>
+                    <tr>
                         <td><code>withdrawn_bradi_id_check.csv</code></td>
                         <td>Ensembl and Compara check of the withdrawn Brachypodium identifiers</td>
                         <td><a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight/blob/main/data/genotypes/withdrawn_bradi_id_check.csv" target="_blank" class="btn-sm btn-secondary">Open on GitHub</a></td>
@@ -115,6 +140,8 @@
                 <tbody>
                     <tr><td><strong>Figure 1</strong></td><td>OSD-375 sample design</td><td><a href="assets/fig1_osd375_sample_design.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig1_osd375_sample_design.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
                     <tr><td><strong>Figure 2</strong></td><td>AstroGrass resource</td><td><a href="assets/fig2_astrograss_architecture.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig2_astrograss_architecture.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure 3</strong></td><td>Spaceflight DEG counts from Su et al. 2023</td><td><a href="assets/fig3_su2023_deg_counts.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig3_su2023_deg_counts.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
+                    <tr><td><strong>Figure 4</strong></td><td>Candidate genes in Su et al.'s DEG lists</td><td><a href="assets/fig4_candidate_spaceflight_degs.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/fig4_candidate_spaceflight_degs.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
                     <tr><td><strong>Figure S1</strong></td><td>APEX-06 hardware, timeline and growth conditions</td><td><a href="assets/figS1_mission_experimental_design.png" download class="btn-sm btn-secondary">PNG</a></td><td><a href="assets/figS1_mission_experimental_design.svg" download class="btn-sm btn-secondary">SVG</a></td></tr>
                 </tbody>
             </table>

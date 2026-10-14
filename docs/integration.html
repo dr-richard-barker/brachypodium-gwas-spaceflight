@@ -36,16 +36,25 @@
             </p>
         </section>
 
+        <!-- DONE -->
+        <section class="card">
+            <h2>Added in October 2026</h2>
+            <ul style="line-height:1.8;">
+                <li><strong>Arabidopsis anchors corrected.</strong> 12 of the 29 anchor identifiers named a different gene; each was replaced, and all 29 now match their UniProt gene names.</li>
+                <li><strong>Orthologs.</strong> Brachypodium, rice and wheat orthologs of each anchor from Ensembl Compara (plants), with one-to-many and many-to-many cases labelled. Eight anchors have none there.</li>
+                <li><strong>Spaceflight values for the candidates.</strong> Taken from the per-accession DEG tables Su et al. (2023) published (CC BY 4.0) and credited to them: 13 of the 29 candidates have a DEG call.</li>
+            </ul>
+        </section>
+
         <!-- PLANNED ANALYSES -->
         <section class="card">
             <h2>Planned Analyses (Not Yet Run)</h2>
             <ol style="line-height:1.8;">
-                <li><strong>Brachypodium orthologs.</strong> Correct the 12 Arabidopsis anchors that name the wrong gene, then map Brachypodium orthologs of all 29 candidates with Ensembl Compara, recording the release and any one-to-many cases.</li>
-                <li><strong>Spaceflight expression of the candidates.</strong> Take the per-accession DEG tables published by Su et al. (2023, supplementary tables, CC BY 4.0) and report the candidates' values, credited to that study.</li>
-                <li><strong>New differential expression, if needed.</strong> Start from the OSD-375 FASTQ files and account for the confounding of accession with sequencing batch.</li>
+                <li><strong>Remaining orthologs.</strong> Find Brachypodium orthologs for the eight anchors without one in Compara (LAX2, LAX3, LAZY1, DRO1, CRK28, CML24, EXPA1, CSLD1), and decide which ortholog each candidate name refers to where Compara gives several.</li>
+                <li><strong>Values for genes Su et al. did not list.</strong> Needs a new differential-expression analysis from the OSD-375 FASTQ files, accounting for the confounding of accession with sequencing batch.</li>
                 <li><strong>Gravitropism measurements.</strong> Add numeric measurements for the accession panel, with their source documented.</li>
                 <li><strong>Association with genotype.</strong> Needs genotype data for the phenotyped accessions; with tens of accessions it would be a candidate-gene comparison rather than a GWAS.</li>
-                <li><strong>Comparison with Arabidopsis.</strong> Compare with the author's Arabidopsis spaceflight analysis, which is in preparation.</li>
+                <li><strong>Comparison with Arabidopsis.</strong> Compare with the author's Arabidopsis spaceflight analysis, which is in preparation, once its consensus gene set can be regenerated from code.</li>
             </ol>
         </section>
 
@@ -60,7 +69,7 @@
                 <li>The cross-species meta-analysis with <em>Arabidopsis</em> (odds ratio 13.70, p = 0.0446; and odds ratio 14.16, p = 3.54 × 10⁻¹²): computed from hand-entered flags.</li>
                 <li>The cereal synteny map and table, the promoter-motif enrichment and the alternative-splicing tables: typed-in values.</li>
                 <li>The mechanistic model's spaceflight panel, which listed up- and down-regulated genes taken from the typed-in values.</li>
-                <li>The Brachypodium gene IDs, chromosome positions and rice/wheat orthologs of the candidate genes: none of the IDs could be confirmed as an ortholog of its Arabidopsis anchor.</li>
+                <li>The Brachypodium gene IDs, chromosome positions and rice/wheat orthologs of the candidate genes: none of the IDs is an ortholog of its Arabidopsis anchor in Ensembl Compara. They were replaced by Compara orthologs.</li>
             </ul>
         </section>
     </div>

@@ -54,10 +54,20 @@
             <h2>What Su et al. (2023) Reported</h2>
             <ul style="line-height:1.8; margin-top:8px;">
                 <li>Roots of all three accessions grew more slowly and had longer root hairs in microgravity than in the ground control; Bd21 shoots also grew more slowly.</li>
-                <li>Differentially expressed genes (DEGs), flight versus ground: <strong>Gaz8 4,527</strong>, <strong>Bd21 1,353</strong>, <strong>Bd21-3 570</strong>. Only 47 shoot DEGs and six root DEGs were shared between accessions.</li>
+                <li>Differentially expressed genes (DEGs), flight versus ground, in the abstract: <strong>Gaz8 4,527</strong>, <strong>Bd21 1,353</strong>, <strong>Bd21-3 570</strong>, with only 47 shoot DEGs and six root DEGs shared between accessions. Their supplementary tables list slightly different numbers per organ (Figure 3).</li>
                 <li>Bd21 was sequenced at the University of Wisconsin–Madison (2 × 150 bp) and Bd21-3 and Gaz8 by NASA GeneLab (2 × 100 bp), both on NovaSeq 6000. Differences between accessions are therefore confounded with sequencing batch.</li>
             </ul>
-            <p style="font-size:0.9rem; color:#64748b;">Source: Su, Levine &amp; Masson (2023) <em>Life</em> 13(3):626, <a href="https://doi.org/10.3390/life13030626" target="_blank">doi:10.3390/life13030626</a>. No re-analysis of OSD-375 has been run in this repository; OSDR holds the raw FASTQ files for this study. The gene-level fold changes shown here before 14 October 2026 were typed-in values and were withdrawn.</p>
+            <img src="assets/fig3_su2023_deg_counts.png" alt="Su et al. 2023 DEG counts" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top:0.5rem;">
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 3.</strong> DEGs per accession, organ and direction, counted from Su et al.'s Supplemental Tables S2–S4: Bd21 325 root and 1,027 shoot, Bd21-3 224 and 345, Gaz8 475 and 4,186. Every listed gene has DESeq padj and edgeR q below 0.05; direction is the sign of the DESeq log₂ fold change.</p>
+            <p style="font-size:0.9rem; color:#64748b;">Source: Su, Levine &amp; Masson (2023) <em>Life</em> 13(3):626, <a href="https://doi.org/10.3390/life13030626" target="_blank">doi:10.3390/life13030626</a>, CC BY 4.0. No new analysis of OSD-375 has been run in this repository; OSDR holds the raw FASTQ files for this study. The gene-level fold changes shown here before 14 October 2026 were typed-in values and were withdrawn.</p>
+        </section>
+
+        <!-- SECTION 3b: CANDIDATE GENES IN THE DEG LISTS -->
+        <section class="card">
+            <h2>Gravitropism Candidate Genes in the DEG Lists</h2>
+            <img src="assets/fig4_candidate_spaceflight_degs.png" alt="Candidate genes in Su et al.'s DEG lists" style="width:100%; max-width:900px; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <p style="margin-top:12px; font-size:0.95rem; color:#555;"><strong>Figure 4.</strong> Brachypodium genes of the 29 gravitropism candidates that Su et al. list as spaceflight DEGs, with their DESeq log₂ fold changes (ISS / ground). Genes are Ensembl Compara orthologs of the candidate's Arabidopsis anchor; * marks a match only through Su et al.'s best-hit Arabidopsis ortholog. Thirteen candidates have at least one DEG call, seven of them through a Compara ortholog; no gene matched to LAZY1 or CPK28 is listed.</p>
+            <p style="font-size:0.9rem; color:#64748b;">Blank cells mean "not listed as a DEG", which may mean unexpressed or below significance, not a measured zero. Being a spaceflight DEG does not by itself link a gene to gravitropism. Full values per gene are in the <a href="astrograss.html">AstroGrass database</a> and in <a href="tables/candidate_spaceflight_degs.csv" download>candidate_spaceflight_degs.csv</a>.</p>
         </section>
 
         <!-- SECTION 4: SUPPLEMENTARY MISSION FIGURE -->
