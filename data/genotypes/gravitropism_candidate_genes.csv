@@ -1,30 +1,30 @@
-brachypodium_gene_id,arabidopsis_ortholog,gene_symbol,pathway,evidence
-BRADI_1g28880v3,AT1G73590,BdPIN1a,Auxin Efflux Carrier,Direct ortholog of AtPIN1; directional auxin transport in root meristem
-BRADI_1g59720v3,AT1G73590,BdPIN1b,Auxin Efflux Carrier,Paralog of BdPIN1a involved in shoot-to-root polar auxin flux
-BRADI_3g44770v3,AT5G57090,BdPIN2,Auxin Efflux Carrier,Ortholog of AtPIN2 (EIR1/AGR1); asymmetric auxin redistribution in root cortex/epidermis
-BRADI_4g35920v3,AT1G70940,BdPIN3,Auxin Efflux Carrier,Ortholog of AtPIN3; lateral relocalization in columella statocytes upon gravistimulation
-BRADI_2g08930v3,AT2G01420,BdPIN4,Auxin Efflux Carrier,Ortholog of AtPIN4; root tip auxin maximum maintenance
-BRADI_1g17610v3,AT1G23080,BdPIN7,Auxin Efflux Carrier,Ortholog of AtPIN7; columella auxin redirection
-BRADI_3g35890v3,AT2G38120,BdAUX1,Auxin Influx Carrier,Ortholog of AtAUX1; essential for root gravitropic curvature and cellular auxin uptake
-BRADI_2g55170v3,AT5G01240,BdLAX1,Auxin Influx Carrier,Ortholog of AtLAX1; auxiliary auxin influx in vascular tissues
-BRADI_4g12810v3,AT2G21050,BdLAX2,Auxin Influx Carrier,Ortholog of AtLAX2; root apical meristem patterning
-BRADI_1g08940v3,AT1G77690,BdLAX3,Auxin Influx Carrier,Ortholog of AtLAX3; lateral root emergence and organ bending
-BRADI_5g19830v3,AT5G14660,BdLAZY1,Gravity Perception/Transduction,Ortholog of AtLAZY1/OsLAZY1; controls tiller angle and root gravitropic setpoint angle (GSA)
-BRADI_3g14220v3,AT1G72490,BdDRO1,Root Gravitropic Setpoint,Ortholog of DEEPER ROOTING 1 (DRO1); regulates root gravitropic curvature angle
-BRADI_2g22150v3,AT1G17400,BdSGR9,Amyloplast Sedimentation,Ortholog of SHOOT GRAVITROPISM 9; modulates statolith dynamics in endodermal cells
-BRADI_4g05670v3,AT2G46870,BdSGR2,Amyloplast Sedimentation,Ortholog of AtSGR2 (phospholipase A1); involved in vacuolar gravity sensing
-BRADI_4g11220v3,AT3G62980,BdTIR1,Auxin Receptor,Ortholog of AtTIR1; F-box auxin receptor mediating Aux/IAA degradation
-BRADI_1g64200v3,AT4G03190,BdAFB2,Auxin Receptor,Ortholog of AtAFB2; fast root growth response to auxin
-BRADI_2g49180v3,AT5G20730,BdARF7,Auxin Response Factor,Ortholog of AtARF7 (NPH4); transcriptional activator of asymmetric growth genes
-BRADI_3g58400v3,AT1G19220,BdARF19,Auxin Response Factor,Ortholog of AtARF19; cooperative control with ARF7 in root gravitropism
-BRADI_1g30140v3,AT4G14560,BdIAA14,Aux/IAA Repressor,Ortholog of AtIAA14 (SLR); repressor of lateral root and gravitropic bending
-BRADI_1g09410v3,AT5G51820,BdPGM1,Statolith Starch Biosynthesis,Ortholog of AtPGM1; phosphoglucomutase required for amyloplast starch synthesis in statocytes
-BRADI_2g16530v3,AT5G19220,BdADG1,Statolith Starch Biosynthesis,Ortholog of AtADG1 (ADP-glucose pyrophosphorylase); essential for gravity sensing
-BRADI_1g71830v3,AT5G66210,BdCPK28,Calcium Signaling Kinase,Calcium-dependent protein kinase identified by Su et al. 2023 as spaceflight-responsive in roots
-BRADI_4g30480v3,AT5G23060,BdCAS,Calcium Sensing Receptor,Chloroplastic/membrane calcium sensing regulator differentially expressed in spaceflight
-BRADI_3g08190v3,AT3G55950,BdCRK28,Receptor-like Kinase,Cysteine-rich receptor-like kinase linked to ROS/calcium signaling during gravity perturbation
-BRADI_5g21400v3,AT5G15060,BdCML24,Calmodulin-Like Protein,"Ortholog of AtCML24; touch, gravity and hormone-responsive calcium transducer"
-BRADI_2g39110v3,AT4G00290,BdMSL10,Mechanosensitive Ion Channel,Ortholog of AtMSL10; stretch-activated channel involved in mechanoperception and gravitropism
-BRADI_1g11420v3,AT2G39700,BdEXPA1,Cell Wall Loosening (Expansin),Alpha-expansin driving asymmetric cell elongation on the convex side of bending root/shoot
-BRADI_4g41200v3,AT4G14130,BdXTH1,Xyloglucan Transglucosylase,Cell wall remodeling enzyme differentially regulated during microgravity and gravistimulation
-BRADI_3g17860v3,AT4G25810,BdCSLD1,Cellulose/Glucan Synthase,Mixed-linkage glucan / cellulose synthase specific to monocot cell wall expansion
+candidate,pathway,arabidopsis_gene,arabidopsis_agi,anchor_status,brachypodium_gene_id
+BdPIN1a,Auxin Efflux Carrier,PIN1,AT1G73590,verified: UniProt Q9C6B8 (PIN1 At1g73590 F6D5.2),TODO
+BdPIN1b,Auxin Efflux Carrier,PIN1,AT1G73590,verified: UniProt Q9C6B8 (PIN1 At1g73590 F6D5.2),TODO
+BdPIN2,Auxin Efflux Carrier,PIN2,AT5G57090,verified: UniProt Q9LU77 (PIN2 AGR AGR1),TODO
+BdPIN3,Auxin Efflux Carrier,PIN3,AT1G70940,verified: UniProt Q9S7Z8 (PIN3 At1g70940 F15H11.14),TODO
+BdPIN4,Auxin Efflux Carrier,PIN4,AT2G01420,verified: UniProt Q8RWZ6 (PIN4 At2g01420 F2I9.4),TODO
+BdPIN7,Auxin Efflux Carrier,PIN7,AT1G23080,verified: UniProt Q940Y5 (PIN7 AEH1 At1g23080),TODO
+BdAUX1,Auxin Influx Carrier,AUX1,AT2G38120,verified: UniProt Q96247 (AUX1 AUX PIR1),TODO
+BdLAX1,Auxin Influx Carrier,LAX1,AT5G01240,verified: UniProt Q9LFB2 (LAX1 At5g01240 F7J8_220),TODO
+BdLAX2,Auxin Influx Carrier,LAX2,AT2G21050,verified: UniProt Q9S836 (LAX2 At2g21050 F26H11.19),TODO
+BdLAX3,Auxin Influx Carrier,LAX3,AT1G77690,verified: UniProt Q9CA25 (LAX3 At1g77690 T32E8.2),TODO
+BdLAZY1,Gravity Perception/Transduction,LAZY1,,"TODO: the AGI given earlier, AT5G14660, is PDF1B/DEF2 (UniProt Q9FUZ2), not LAZY1",TODO
+BdDRO1,Root Gravitropic Setpoint,DRO1,AT1G72490,verified: UniProt Q5XVG3 (LAZY4 DRO1 LZY3),TODO
+BdSGR9,Amyloplast Sedimentation,SGR9,,"TODO: the AGI given earlier, AT1G17400, is LAZY2/DRO3 (UniProt Q58G53), not SGR9",TODO
+BdSGR2,Amyloplast Sedimentation,SGR2,,"TODO: the AGI given earlier, AT2G46870, is NGA1 (UniProt O82799), not SGR2",TODO
+BdTIR1,Auxin Receptor,TIR1,AT3G62980,verified: UniProt Q570C0 (TIR1 FBL1 WEI1),TODO
+BdAFB2,Auxin Receptor,AFB2,,"TODO: the AGI given earlier, AT4G03190, is GRH1/AFB1 (UniProt Q9ZR12), not AFB2",TODO
+BdARF7,Auxin Response Factor,ARF7,AT5G20730,verified: UniProt P93022 (ARF7 BIP IAA21),TODO
+BdARF19,Auxin Response Factor,ARF19,AT1G19220,verified: UniProt Q8RYC8 (ARF19 IAA22 At1g19220),TODO
+BdIAA14,Aux/IAA Repressor,IAA14,,"TODO: the AGI given earlier, AT4G14560, is IAA1 (UniProt P49677), not IAA14",TODO
+BdPGM1,Statolith Starch Biosynthesis,PGM,AT5G51820,verified: UniProt Q9SCY0 (PGMP PGM RGV2),TODO
+BdADG1,Statolith Starch Biosynthesis,ADG1,,"TODO: the AGI given earlier, AT5G19220, is ADG2/APL1 (UniProt P55229), not ADG1",TODO
+BdCPK28,Calcium Signaling Kinase,CPK28,AT5G66210,verified: UniProt Q9FKW4 (CPK28 At5g66210 K2A18.29),TODO
+BdCAS,Calcium Sensing Receptor,CAS,AT5G23060,verified: UniProt Q9FN48 (CAS STR3 At5g23060),TODO
+BdCRK28,Receptor-like Kinase,CRK28,,"TODO: the AGI given earlier, AT3G55950, is CCR3/CRR3 (UniProt Q9LY50), not CRK28",TODO
+BdCML24,Calmodulin-Like Protein,CML24,,"TODO: the AGI given earlier, AT5G15060, is LBD34/ASL42 (UniProt P59469), not CML24",TODO
+BdMSL10,Mechanosensitive Ion Channel,MSL10,,"TODO: the AGI given earlier, AT4G00290, is MSL1 (UniProt Q8VZL4), not MSL10",TODO
+BdEXPA1,Cell Wall Loosening (Expansin),EXPA1,,"TODO: the AGI given earlier, AT2G39700, is EXPA4/EXP4 (UniProt O48818), not EXPA1",TODO
+BdXTH1,Xyloglucan Transglucosylase,XTH1,,"TODO: the AGI given earlier, AT4G14130, is XTH15/XTR7 (UniProt Q38911), not XTH1",TODO
+BdCSLD1,Cellulose/Glucan Synthase,CSLD1,,"TODO: the AGI given earlier, AT4G25810, is XTH23/XTR6 (UniProt Q38910), not CSLD1",TODO

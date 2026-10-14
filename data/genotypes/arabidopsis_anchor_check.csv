@@ -1,0 +1,29 @@
+arabidopsis_agi,uniprot_accession,uniprot_gene_names,uniprot_protein_name,uniprot_release,checked_on
+AT1G17400,Q58G53,LAZY2 DRO3 LZY2 NGR1 At1g17400 F1L3.5 F28G4.14,Protein LAZY 2 (AtLAZY2) (Protein DEEPER ROOTING 3) (AtDRO3) (Protein LAZY1-LIKE 2) (Protein NEGATIVE GRAVITROPIC RESPONSE OF ROOTS 1) (AtNGR1),2026_03,2026-10-14
+AT1G19220,Q8RYC8,ARF19 IAA22 At1g19220 T29M8.9,Auxin response factor 19 (Auxin-responsive protein IAA22),2026_03,2026-10-14
+AT1G23080,Q940Y5,PIN7 AEH1 At1g23080 T26J12.14,Auxin efflux carrier component 7 (AtPIN7),2026_03,2026-10-14
+AT1G70940,Q9S7Z8,PIN3 At1g70940 F15H11.14,Auxin efflux carrier component 3 (AtPIN3),2026_03,2026-10-14
+AT1G72490,Q5XVG3,LAZY4 DRO1 LZY3 NGR2 At1g72490 T10D10.4,Protein LAZY 4 (AtLAZY4) (Protein DEEPER ROOTING 1) (AtDRO1) (Protein LAZY1-LIKE 3) (Protein NEGATIVE GRAVITROPIC RESPONSE OF ROOTS 2) (AtNGR2),2026_03,2026-10-14
+AT1G73590,Q9C6B8,PIN1 At1g73590 F6D5.2,Auxin efflux carrier component 1 (Protein PIN-FORMED) (AtPIN1),2026_03,2026-10-14
+AT1G77690,Q9CA25,LAX3 At1g77690 T32E8.2,Auxin transporter-like protein 3 (AUX1-like protein 3),2026_03,2026-10-14
+AT2G01420,Q8RWZ6,PIN4 At2g01420 F2I9.4,Auxin efflux carrier component 4 (AtPIN4),2026_03,2026-10-14
+AT2G21050,Q9S836,LAX2 At2g21050 F26H11.19,Auxin transporter-like protein 2 (AUX1-like protein 2),2026_03,2026-10-14
+AT2G38120,Q96247,AUX1 AUX PIR1 WAV5 At2g38120 F16M14.5,Auxin transporter protein 1 (Auxin influx carrier protein 1) (Polar auxin transport inhibitor-resistant protein 1),2026_03,2026-10-14
+AT2G39700,O48818,EXPA4 EXP4 At2g39700 F17A14.7,Expansin-A4 (AtEXPA4) (Alpha-expansin-4) (At-EXP4) (AtEx4) (Ath-ExpAlpha-1.6),2026_03,2026-10-14
+AT2G46870,O82799,NGA1 At2g46870 F19D11.25,B3 domain-containing transcription factor NGA1 (Protein NGATHA 1),2026_03,2026-10-14
+AT3G55950,Q9LY50,CCR3 CRR3 At3g55950 F27K19.130,Putative serine/threonine-protein kinase-like protein CCR3 (EC 2.7.11.1) (Protein CRINKLY 4 RELATED 3) (AtCRR3),2026_03,2026-10-14
+AT3G62980,Q570C0,TIR1 FBL1 WEI1 At3g62980 T20O10.80,Protein TRANSPORT INHIBITOR RESPONSE 1 (Weak ethylene-insensitive protein 1),2026_03,2026-10-14
+AT4G00290,Q8VZL4,MSL1 At4g00290 A_IG005I10.9 F5I10.9,"Mechanosensitive ion channel protein 1, mitochondrial (Mechanosensitive channel of small conductance-like 1) (MscS-Like protein 1)",2026_03,2026-10-14
+AT4G03190,Q9ZR12,GRH1 AFB1 FBL18 GER1 LRF1 At4g03190 F4C21.11,GRR1-like protein 1 (Protein AUXIN SIGNALING F-BOX 1),2026_03,2026-10-14
+AT4G14130,Q38911,XTH15 XTR7 At4g14130 dl3105c FCAALL.173,Xyloglucan endotransglucosylase/hydrolase protein 15 (At-XTH15) (XTH-15) (EC 2.4.1.207) (EC 3.2.1.151),2026_03,2026-10-14
+AT4G14560,P49677,IAA1 At4g14560 dl3320w FCAALL.409,Auxin-responsive protein IAA1 (Indoleacetic acid-induced protein 1),2026_03,2026-10-14
+AT4G25810,Q38910,XTH23 XTR6 At4g25810 F14M19.90,Probable xyloglucan endotransglucosylase/hydrolase protein 23 (At-XTH23) (XTH-23) (EC 2.4.1.207),2026_03,2026-10-14
+AT5G01240,Q9LFB2,LAX1 At5g01240 F7J8_220,Auxin transporter-like protein 1 (AUX1-like protein 1),2026_03,2026-10-14
+AT5G14660,Q9FUZ2,PDF1B DEF2 At5g14660 T15N1_150,"Peptide deformylase 1B, chloroplastic/mitochondrial (AtDEF2) (AtPDF1B) (PDF 1B) (EC 3.5.1.88) (Polypeptide deformylase)",2026_03,2026-10-14
+AT5G15060,P59469,LBD34 ASL42 At5g15060 F2G14,LOB domain-containing protein 34 (ASYMMETRIC LEAVES 2-like protein 42) (AS2-like protein 42),2026_03,2026-10-14
+AT5G19220,P55229,ADG2 APL1 At5g19220 T24G5.120,"Glucose-1-phosphate adenylyltransferase large subunit 1, chloroplastic (EC 2.7.7.27) (ADP-glucose pyrophosphorylase) (ADP-glucose synthase) (AGPase S) (Alpha-D-glucose-1-phosphate adenyl transferase)",2026_03,2026-10-14
+AT5G20730,P93022,ARF7 BIP IAA21 IAA23 IAA25 MSG1 NPH4 TIR5 At5g20730 T1M15.130,Auxin response factor 7 (Auxin-responsive protein IAA21/IAA23/IAA25) (Protein BIPOSTO) (Protein MASSUGU 1) (Protein NON-PHOTOTROPIC HYPOCOTYL 4) (Protein TRANSPORT INHIBITOR RESPONSE 5),2026_03,2026-10-14
+AT5G23060,Q9FN48,CAS STR3 At5g23060 MYJ24.5,"Calcium sensing receptor, chloroplastic (Sulfurtransferase 3) (AtStr3)",2026_03,2026-10-14
+AT5G51820,Q9SCY0,PGMP PGM RGV2 At5g51820 MIO24.4,"Phosphoglucomutase, chloroplastic (PGM) (EC 5.4.2.2) (Glucose phosphomutase) (Protein REDUCED GRAVITROPIC 2)",2026_03,2026-10-14
+AT5G57090,Q9LU77,PIN2 AGR AGR1 EIR1 WAV6 At5g57090 MUL3.3,Auxin efflux carrier component 2 (AtPIN2) (Auxin efflux carrier AGR) (Ethylene-insensitive root 1) (AtEIR1) (Polar-auxin-transport efflux component AGR1) (Protein AGRAVITROPIC 1) (AtAGR1) (Protein WAVY 6),2026_03,2026-10-14
+AT5G66210,Q9FKW4,CPK28 At5g66210 K2A18.29,Calcium-dependent protein kinase 28 (EC 2.7.11.1),2026_03,2026-10-14
