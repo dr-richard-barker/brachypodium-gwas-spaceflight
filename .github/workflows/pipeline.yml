@@ -32,7 +32,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pandas numpy scipy matplotlib seaborn statsmodels python-docx reportlab tqdm
+          pip install requests pandas numpy scipy matplotlib python-docx fpdf2
 
       - name: Execute AstroGrass Automated Pipeline
         run: |
@@ -42,16 +42,17 @@ jobs:
         run: |
           test -f tables/astrograss_master_table.csv
           test -f tables/video_catalog.csv
-          test -f figures/fig1_gravitropic_kinetics.png
-          test -f figures/fig2_osd375_sample_matrix.png
-          test -f figures/fig3_candidate_pathways.png
-          test -f figures/fig4_cross_species_conservation.png
-          test -f figures/fig5_mechanistic_model.png
-          test -f figures/fig6_astrograss_architecture.png
+          test -f data/genotypes/gravitropism_candidate_genes.csv
+          test -f docs/js/astrograss_database.json
+          test -f figures/fig1_osd375_sample_design.png
+          test -f figures/fig2_astrograss_architecture.png
           test -f figures/figS1_mission_experimental_design.png
           test -f manuscript/manuscript.pdf
           test -f manuscript/manuscript.docx
           echo "✓ All core database, figure, and manuscript deliverables verified."
+          # Rebuilt outputs must match what is committed; a difference means a build product is stale.
+          git status --porcelain -- tables data docs/js docs/tables
+          test -z "$(git status --porcelain -- tables data docs/js docs/tables)"
 
       - name: Setup GitHub Pages
         if: github.ref == 'refs/heads/main'

@@ -2,8 +2,12 @@
 """
 run_pipeline.py
 
-Master execution script for the Brachypodium GWAS-Spaceflight / AstroGrass pipeline.
+Master execution script for the Brachypodium spaceflight / AstroGrass pipeline.
 Executes all steps sequentially and validates output files.
+
+Not run here: 04_gravitropism_kinetics.py (no measured phenotype data in the repository yet),
+05_differential_expression.R (OSD-375 has FASTQ files only; no count matrices exist yet) and
+14_check_arabidopsis_anchors.py (needs network access; its output is committed).
 
 Usage:
     python code/run_pipeline.py [--skip-download]
@@ -29,17 +33,12 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 PIPELINE_STEPS = [
     ("Step 1: Ingest NASA OSDR OSD-375 Data", ["python3", "code/01_download_osdr_osd375.py"]),
     ("Step 2: Parse ISA-Tab Sample Metadata", ["python3", "code/02_parse_osdr_metadata.py"]),
-    ("Step 3: Fetch SNP & Candidate Genes", ["python3", "code/03_fetch_brachypodium_snps.py"]),
-    ("Step 4: Run Gravitropism GWAS Analysis", ["python3", "code/04_gwas_gravitropism_analysis.py", "--demo"]),
-    ("Step 5: Cross-Species Meta-Analysis", ["python3", "code/06_meta_analysis_cross_species.py"]),
-    ("Step 6: GWAS Spaceflight Integration", ["python3", "code/07_gwas_spaceflight_integration.py"]),
-    ("Step 7: Alternative Splicing Integration", ["python3", "code/08_alternative_splicing_link.py"]),
-    ("Step 8: Build AstroGrass Database", ["python3", "code/10_build_astrograss_db.py"]),
-    ("Step 9: Build Video & Image Series Catalog", ["python3", "code/11_build_video_catalog.py"]),
-    ("Step 10: Sync CyVerse iRODS Image Series", ["python3", "code/12_cyverse_irods_sync.py"]),
-    ("Step 11: Academic Synteny & Promoter Analysis", ["python3", "code/13_promoter_synteny_analysis.py"]),
-    ("Step 12: Generate Publication Figures", ["python3", "code/09_generate_figures.py"]),
-    ("Step 13: Compile Manuscript (PDF & DOCX)", ["python3", "code/export_manuscript.py"]),
+    ("Step 3: Build Candidate-Gene Table", ["python3", "code/03_candidate_genes.py"]),
+    ("Step 4: Build AstroGrass Database", ["python3", "code/10_build_astrograss_db.py"]),
+    ("Step 5: Build Video & Image Series Catalog", ["python3", "code/11_build_video_catalog.py"]),
+    ("Step 6: Sync CyVerse iRODS Image Series", ["python3", "code/12_cyverse_irods_sync.py"]),
+    ("Step 7: Generate Figures", ["python3", "code/09_generate_figures.py"]),
+    ("Step 8: Compile Manuscript (PDF & DOCX)", ["python3", "code/export_manuscript.py"]),
 ]
 
 
@@ -72,12 +71,12 @@ def main():
     args = parser.parse_args()
     
     print("\n" + "="*70)
-    print("🌾 Starting AstroGrass / Brachypodium GWAS-Spaceflight Pipeline")
+    print("🌾 Starting AstroGrass / Brachypodium Spaceflight Pipeline")
     print("="*70 + "\n")
     
     success_count = 0
     for name, cmd in PIPELINE_STEPS:
-        if args.skip_download and "Step 1" in name:
+        if args.skip_download and name.startswith("Step 1:"):
             logger.info("Skipping Step 1 (--skip-download specified)")
             success_count += 1
             continue
@@ -106,7 +105,7 @@ def main():
     print("\nKey Outputs Generated:")
     print(" - Master Database: tables/astrograss_master_table.csv")
     print(" - Web Database:   docs/js/astrograss_database.json")
-    print(" - Figures:        figures/ (fig1 - fig4 in PNG + SVG)")
+    print(" - Figures:        figures/ (fig1, fig2, figS1 in PNG + SVG)")
     print(" - Manuscript:     manuscript/manuscript.pdf & manuscript.docx")
     print(" - Web Portal:     docs/astrograss.html & docs/index.html\n")
 

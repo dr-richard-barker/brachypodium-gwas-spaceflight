@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3:latest
 
 LABEL maintainer="Richard Barker <dr.richard.barker@gmail.com>"
-LABEL description="Brachypodium GWAS-Spaceflight Integration analysis environment"
+LABEL description="AstroGrass Brachypodium spaceflight resource environment"
 
 WORKDIR /workspace
 

@@ -10,7 +10,7 @@
 # Tissues: Root, Shoot
 # Conditions: Spaceflight (ISS VEGGIE) vs Ground Control
 #
-# Reference: Su et al. (2023) Life 13(3):633. DOI: 10.3390/life13030633
+# Reference: Su et al. (2023) Life 13(3):626. DOI: 10.3390/life13030626
 # Data source: NASA OSDR OSD-375 (DOI: 10.26030/2x6b-3v89)
 #
 # Usage:
