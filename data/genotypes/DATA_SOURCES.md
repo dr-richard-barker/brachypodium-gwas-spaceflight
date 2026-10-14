@@ -15,13 +15,18 @@ Where each data file in this repository comes from. Checked 2026-10-14.
 ## 2. Gravitropism candidate genes (this folder)
 
 - `candidate_genes_curated.csv`: the hand-curated list. Each candidate is named after the Arabidopsis gene it follows,
-  with the Arabidopsis identifier (AGI) given for it and the Brachypodium identifier the list gave before 2026-10-14
-  (`withdrawn_bradi_id`).
-- `arabidopsis_anchor_check.csv`: UniProt gene names for each AGI, from `code/14_check_arabidopsis_anchors.py`
-  (UniProt REST API, reviewed entries, Araport cross-reference; release recorded in the file).
-- `withdrawn_bradi_id_check.csv`: for each withdrawn BRADI identifier, whether it exists in Ensembl and, for verified
-  anchors, whether it is among the anchor's Brachypodium orthologs in Ensembl Compara (plants). Also from
-  `code/14_check_arabidopsis_anchors.py`; the Ensembl Genomes release is recorded in the file.
+  with its Arabidopsis identifier (`arabidopsis_agi`), the AGI given before the 2026-10-14 correction
+  (`arabidopsis_agi_as_given`; 12 of the 29 named a different gene) and the Brachypodium identifier the list gave
+  before 2026-10-14 (`withdrawn_bradi_id`). Replacement AGIs were chosen by hand from a UniProt search for the exact
+  Arabidopsis gene name (for SGR2, the gravitropism phospholipase AT1G31480, not STAY-GREEN 2).
+- `arabidopsis_anchor_check.csv`: UniProt gene names for every current and replaced AGI, from
+  `code/14_check_arabidopsis_anchors.py` (UniProt REST API, reviewed entries, Araport cross-reference; release
+  recorded in the file).
+- `compara_orthologs.csv`: Brachypodium, rice and wheat orthologs of each verified anchor from Ensembl Compara
+  (plants), with homology type and percent identity, from `code/15_map_orthologs.py` (Ensembl REST API; Ensembl
+  Genomes release recorded in the file).
+- `withdrawn_bradi_id_check.csv`: for each withdrawn BRADI identifier, whether it exists in Ensembl and whether it is
+  among its anchor's Compara orthologs. Also from `code/15_map_orthologs.py`.
 - `gravitropism_candidate_genes.csv`: the combined table, built by `code/03_candidate_genes.py`.
 
 ## 3. Gravitropism plots (`data/phenotypes/`)
@@ -39,3 +44,9 @@ No genotype data are in this repository, and no association study has been run. 
 would need genotypes for the phenotyped accessions, for example from the *B. distachyon* pan-genome lines
 (Gordon et al. 2017, *Nature Communications* 8:2184, DOI [10.1038/s41467-017-02292-8](https://doi.org/10.1038/s41467-017-02292-8)),
 distributed through JGI Phytozome (login required).
+
+## 5. Spaceflight DEG lists (`data/su2023/`)
+
+Supplemental Tables S2–S4 of Su et al. (2023), reproduced under CC BY 4.0; source, hashes and notes are in
+[`data/su2023/SOURCE.md`](../su2023/SOURCE.md). `code/16_su2023_degs.py` parses them into `su2023_degs.csv` and
+checks the gene-ID conversion against Ensembl (`id_mapping_check.csv`).

@@ -25,9 +25,11 @@ synteny, promoter-motif and alternative-splicing results. **These were withdrawn
 - no genotype data or association test existed (the "GWAS" step copied the candidate-gene list);
 - the fold changes, adjusted p-values, DEG calls, splicing, synteny and motif values were typed into the code;
 - the Brachypodium gene IDs given for the candidate genes were not orthologs of their Arabidopsis anchors
-  (see `data/genotypes/withdrawn_bradi_id_check.csv`).
+  (see `data/genotypes/withdrawn_bradi_id_check.csv`), and 12 of the 29 Arabidopsis anchor IDs named a different gene.
 
-The scripts, tables and figures that produced those results were removed. What remains is described below.
+The scripts, tables and figures that produced those results were removed. The anchors were then corrected, orthologs
+mapped with Ensembl Compara, and the candidates' spaceflight values taken from the tables Su et al. (2023) published.
+What is in the repository now is described below.
 
 ---
 
@@ -36,24 +38,29 @@ The scripts, tables and figures that produced those results were removed. What r
 1. **OSD-375 study design.** 48 RNA-seq samples: 3 accessions × 2 organs × flight/ground × 4 APEX Growth Units, parsed
    from the OSDR ISA metadata (Figure 1), with the mission timeline and growth conditions (Figure S1).
 2. **What Su et al. (2023) reported.** Roots of all three accessions grew more slowly and had longer root hairs in
-   microgravity; DEG counts were Gaz8 4,527, Bd21 1,353 and Bd21-3 570, with 47 shoot and 6 root DEGs shared between
-   accessions. Bd21 was sequenced at a different facility and read length from Bd21-3 and Gaz8, so differences between
-   accessions are confounded with sequencing batch.
+   microgravity; the abstract gives Gaz8 4,527, Bd21 1,353 and Bd21-3 570 DEGs, with 47 shoot and 6 root DEGs shared
+   between accessions. Their Supplemental Tables S2–S4 (CC BY 4.0, committed in `data/su2023/`) list 475 root and
+   4,186 shoot DEG rows for Gaz8, 325 and 1,027 for Bd21, and 224 and 345 for Bd21-3 (Figure 3). Bd21 was sequenced at
+   a different facility and read length from Bd21-3 and Gaz8, so differences between accessions are confounded with
+   sequencing batch.
 3. **AstroGrass study catalogue.** Five studies (OSD-375, OSD-622, GSE97940, GSE48040, PXD000868), each checked against
    its OSDR, GEO or PRIDE record and its DOI against CrossRef or DataCite (Figure 2).
-4. **Gravitropism candidate genes.** 29 candidates defined by Arabidopsis anchor genes. 17 anchor AGIs are verified in
-   UniProt; 12 name a different gene and are marked TODO. Brachypodium gene IDs are TODO.
+4. **Gravitropism candidate genes.** 29 candidates defined by Arabidopsis anchor genes, all checked in UniProt (12
+   corrected). Ensembl Compara gives Brachypodium, rice and wheat orthologs for 21; eight have none there (TODO).
+   Thirteen candidates have a Brachypodium gene in Su et al.'s DEG lists, seven through a Compara ortholog (Figure 4,
+   `tables/candidate_spaceflight_degs.csv`). Every expression value is Su et al.'s.
 5. **Time-lapse videos and plots.** Root time-lapses of accessions Per1 and BdTR7a (CyVerse Data Store), and
    per-accession orientation and displacement plots added as "Barker_2016 data" (images only; the numbers are not in
    the repository).
 
 ## Planned (not yet run)
 
-- Correct the 12 Arabidopsis anchors and map Brachypodium orthologs of all candidates with Ensembl Compara.
-- Report the candidates' spaceflight expression from the per-accession DEG tables published by Su et al. (2023,
-  supplementary tables, CC BY 4.0), credited to that study.
-- A new differential-expression analysis, if needed, from the OSD-375 FASTQ files, accounting for the batch confound.
+- Brachypodium orthologs for the eight anchors without one in Compara, and a decision on which ortholog each candidate
+  name means where Compara gives several (e.g. PIN1a/PIN1b).
+- Values for genes Su et al. did not list need a new differential-expression analysis from the OSD-375 FASTQ files,
+  accounting for the batch confound.
 - Gravitropism measurements with a documented source; genotype data before any association study.
+- A comparison with the author's Arabidopsis spaceflight analysis once its consensus gene set can be regenerated from code.
 
 ---
 
@@ -66,28 +73,33 @@ brachypodium-gwas-spaceflight/
 ├── code/
 │   ├── 01_download_osdr_osd375.py        # OSD-375 file listing and ISA metadata from the OSDR API
 │   ├── 02_parse_osdr_metadata.py         # sample table, design summary, sequencing parameters
-│   ├── 03_candidate_genes.py             # candidate-gene table from the curated list and the anchor check
+│   ├── 03_candidate_genes.py             # candidate-gene table: curated list + anchor check + Compara orthologs
 │   ├── 04_gravitropism_kinetics.py       # curvature summary and ANOVA for measured data (no data yet; not in the pipeline)
 │   ├── 05_differential_expression.R      # DESeq2 per accession and organ (needs count matrices; not run)
-│   ├── 09_generate_figures.py            # Figures 1, 2 and S1
+│   ├── 09_generate_figures.py            # Figures 1-4 and S1
 │   ├── 10_build_astrograss_db.py         # study catalogue, candidate table, web JSON
 │   ├── 11_build_video_catalog.py         # video catalogue
 │   ├── 12_cyverse_irods_sync.py          # CyVerse time-lapse series catalogue
-│   ├── 14_check_arabidopsis_anchors.py   # UniProt and Ensembl identifier checks (network; outputs committed)
+│   ├── 14_check_arabidopsis_anchors.py   # UniProt check of the Arabidopsis anchors (network; output committed)
+│   ├── 15_map_orthologs.py               # Ensembl Compara orthologs; withdrawn-ID check (network; outputs committed)
+│   ├── 16_su2023_degs.py                 # Su et al. 2023 DEG tables -> counts and candidate DEG calls
 │   ├── export_manuscript.py              # manuscript.tex -> manuscript.pdf and manuscript.docx
-│   └── run_pipeline.py                   # runs steps 01-03, 10-12, 09 and the manuscript export
+│   └── run_pipeline.py                   # runs steps 01-03, 16, 10-12, 09 and the manuscript export
 ├── data/
 │   ├── osdr/                             # OSD-375 ISA metadata, parsed tables, study catalogue
-│   ├── genotypes/                        # candidate-gene list, identifier checks, DATA_SOURCES.md
+│   ├── genotypes/                        # candidate-gene list, identifier checks, Compara orthologs, DATA_SOURCES.md
+│   ├── su2023/                           # Su et al. 2023 supplementary tables (CC BY 4.0), parsed DEGs, SOURCE.md
 │   ├── phenotypes/                       # Barker_2016 orientation/displacement plots (PNG only)
 │   └── videos/                           # video catalogue JSON
-├── tables/                               # candidate table, video and CyVerse catalogues (CSV)
-├── figures/                              # Figures 1, 2, S1 (PNG + SVG) and Su et al. 2023 figures (CC BY 4.0)
+├── tables/                               # candidate table, Su et al. DEG counts and candidate calls, catalogues; PROVENANCE.md
+├── figures/                              # Figures 1-4, S1 (PNG + SVG) and Su et al. 2023 figures (CC BY 4.0)
 ├── manuscript/                           # manuscript.tex, references.bib, generated PDF and DOCX
 └── docs/                                 # GitHub Pages site
 ```
 
-Data sources are documented in [`data/genotypes/DATA_SOURCES.md`](data/genotypes/DATA_SOURCES.md).
+Data sources are documented in [`data/genotypes/DATA_SOURCES.md`](data/genotypes/DATA_SOURCES.md) and
+[`data/su2023/SOURCE.md`](data/su2023/SOURCE.md); which script produced each table and figure is in
+[`tables/PROVENANCE.md`](tables/PROVENANCE.md).
 
 ---
 
@@ -97,15 +109,23 @@ Data sources are documented in [`data/genotypes/DATA_SOURCES.md`](data/genotypes
 git clone https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight.git
 cd brachypodium-gwas-spaceflight
 python3 -m venv .venv && source .venv/bin/activate
-pip install requests tqdm pandas numpy scipy matplotlib python-docx fpdf2
+pip install requests tqdm pandas numpy scipy matplotlib openpyxl python-docx fpdf2
 python code/run_pipeline.py --skip-download
 ```
 
-`--skip-download` uses the committed OSD-375 metadata instead of fetching it again. The identifier checks need network
-access and are run separately:
+`--skip-download` uses the committed OSD-375 metadata instead of fetching it again. The identifier checks and the
+ortholog mapping need network access and are run separately, in this order:
 
 ```bash
 python code/14_check_arabidopsis_anchors.py
+```
+
+```bash
+python code/15_map_orthologs.py
+```
+
+```bash
+python code/16_su2023_degs.py --check-ids
 ```
 
 A conda environment (`environment.yml`, which also installs the R packages for `05_differential_expression.R`) and a
