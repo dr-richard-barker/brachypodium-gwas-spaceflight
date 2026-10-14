@@ -12,7 +12,7 @@
 
 \affil[1]{\orgname{Collaborative Science Environment Inc.}}
 
-\abstract{Few plant spaceflight experiments have used monocots, although monocots include most of the crops grown on Earth~\cite{Su2023}. NASA Open Science Data Repository (OSDR) study OSD-375 profiled the roots and shoots of three \textit{Brachypodium distachyon} accessions (Bd21, Bd21-3 and Gaz8) grown on the International Space Station, with ground controls run at Kennedy Space Center~\cite{Su2023}. This draft describes AstroGrass, a curated resource built around that study. It contains (1) the OSD-375 sample design and growth conditions, taken from the OSDR metadata and the primary paper; (2) a catalogue of five grass spaceflight and related omics studies, each checked against its OSDR, GEO or PRIDE record; (3) a list of 29 gravitropism candidate genes defined by Arabidopsis anchor genes, of which 17 anchor identifiers were confirmed in UniProt and 12 were found to name other genes and are marked for correction; and (4) time-lapse videos of Brachypodium root gravitropism. No new analysis of the OSD-375 data is reported. Mapping the candidates to Brachypodium genes, extracting their spaceflight expression, measuring gravitropism across accessions and comparing with Arabidopsis are planned and are listed as such.}
+\abstract{Few plant spaceflight experiments have used monocots, although monocots include most of the crops grown on Earth~\cite{Su2023}. NASA Open Science Data Repository (OSDR) study OSD-375 profiled the roots and shoots of three \textit{Brachypodium distachyon} accessions (Bd21, Bd21-3 and Gaz8) grown on the International Space Station, with ground controls run at Kennedy Space Center~\cite{Su2023}. This draft describes AstroGrass, a curated resource built around that study. It contains (1) the OSD-375 sample design and growth conditions, taken from the OSDR metadata and the primary paper; (2) a catalogue of five grass spaceflight and related omics studies, each checked against its OSDR, GEO or PRIDE record; (3) 29 gravitropism candidate genes defined by Arabidopsis anchor genes, whose identifiers were checked in UniProt (12 were corrected) and mapped to Brachypodium, rice and wheat orthologs with Ensembl Compara; (4) the candidates' spaceflight differential-expression calls, taken from the per-accession tables Su et al. published; and (5) time-lapse videos of Brachypodium root gravitropism. No new analysis of the OSD-375 sequencing data is reported, and every expression value is Su et al.'s. Thirteen of the 29 candidates have at least one Brachypodium gene in those tables, seven of them through an Ensembl Compara ortholog of the anchor. Measuring gravitropism across accessions and comparing with Arabidopsis remain planned.}
 
 \keywords{Brachypodium distachyon, gravitropism, spaceflight, microgravity, NASA OSDR, OSD-375, APEX-06, ISS, transcriptomics, monocot, data resource}
 
@@ -48,9 +48,19 @@ AstroGrass catalogues five studies (Figure 2): OSD-375~\cite{Su2023}; OSD-622, a
 
 \subsection{Gravitropism candidate genes}
 
-The candidate list contains 29 genes chosen from the Arabidopsis gravitropism literature: PIN and AUX/LAX auxin carriers, LAZY/DRO and SGR genes, TIR1/AFB auxin receptors, ARF and Aux/IAA transcription factors, starch-synthesis genes, calcium and mechanosensing genes, and cell-wall genes. Each candidate is defined by an Arabidopsis anchor gene. For 17 candidates the Arabidopsis identifier (AGI) given in the list was confirmed: UniProt lists the intended gene name for that AGI. For the other 12, the AGI names a different gene; for example, the AGI given for LAZY1 is PDF1B, the AGI given for SGR9 is LAZY2, and the AGI given for MSL10 is MSL1. Those 12 anchors are marked TODO in the table, together with the gene each wrong AGI actually names.
+The candidate list contains 29 genes chosen from the Arabidopsis gravitropism literature: PIN and AUX/LAX auxin carriers, LAZY/DRO and SGR genes, TIR1/AFB auxin receptors, ARF and Aux/IAA transcription factors, starch-synthesis genes, calcium and mechanosensing genes, and cell-wall genes. Each candidate is defined by an Arabidopsis anchor gene. In the list as first compiled, 12 of the 29 anchor identifiers (AGIs) named a different gene; for example, the AGI given for LAZY1 was that of PDF1B, and the AGI given for MSL10 was that of MSL1. Each was replaced by the AGI that UniProt assigns to the intended gene name (for SGR2, the gravitropism phospholipase rather than STAY-GREEN 2, which shares the name), and all 29 anchors now match their UniProt gene names (data/genotypes/arabidopsis\_anchor\_check.csv).
 
-No Brachypodium gene identifiers are assigned yet. The earlier list gave a BRADI identifier for each candidate. Nine of the 29 do not exist in Ensembl Plants (Ensembl Genomes release 63), and for the 17 candidates with a verified anchor, none of the given identifiers is among the anchor's Brachypodium orthologs in Ensembl Compara (data/genotypes/withdrawn\_bradi\_id\_check.csv). All 29 were therefore withdrawn. Two markers in the earlier table, a serine hydroxymethyltransferase and the chloroplast-encoded RuBisCO large subunit, were not gravitropism candidates and were dropped with the typed-in expression values attached to them.
+Ensembl Compara (plants, Ensembl Genomes release 63) lists Brachypodium orthologs for the anchors of 21 candidates: five one-to-one, eight one-to-many and eight many-to-many (data/genotypes/gravitropism\_candidate\_genes.csv). Several candidates share orthologs: the PIN3, PIN4 and PIN7 anchors map to the same two Brachypodium genes, AUX1 and LAX1 to the same three, and ARF7 and ARF19 to the same one. For eight anchors (LAX2, LAX3, LAZY1, DRO1, CRK28, CML24, EXPA1 and CSLD1) Compara lists no Brachypodium, rice or wheat ortholog, and these remain TODO. Rice and wheat orthologs from the same source are given in the table.
+
+The BRADI identifiers given in the first version of the list were withdrawn: nine of the 29 do not exist in Ensembl, and none is a Compara ortholog of its corrected anchor (data/genotypes/withdrawn\_bradi\_id\_check.csv). Two markers in the earlier table, a serine hydroxymethyltransferase and the chloroplast-encoded RuBisCO large subunit, were not gravitropism candidates and were dropped with the typed-in expression values attached to them.
+
+\subsection{Candidate genes in the published spaceflight DEG lists}
+
+Su et al. list their DEGs per accession and organ in Supplemental Tables S2--S4~\cite{Su2023}: 325 root and 1,027 shoot DEGs in Bd21, 224 and 345 in Bd21-3, and 475 and 4,186 in Gaz8 (Figure 3). These are counts of table rows; the totals in their abstract (1,353, 570 and 4,527 DEGs) differ slightly, and the tables are used as published. Every listed gene has a DESeq adjusted p-value and an edgeR q-value below 0.05. Their gene identifiers are Phytozome v3.1 locus names. All 5,403 distinct identifiers exist in Ensembl under the corresponding BRADI v3 names, and for a random sample of 100 genes Su et al.'s best-hit Arabidopsis ortholog was among the gene's Compara orthologs for 52, against none when the best hits were shuffled between the sampled genes (data/su2023/id\_mapping\_check.csv).
+
+Thirteen of the 29 candidates have at least one Brachypodium gene in these lists (Figure 4; tables/candidate\_spaceflight\_degs.csv). For seven candidates (PIN2, AUX1, LAX1, IAA14, PGM, ADG1 and CAS) the gene is a Compara ortholog of the anchor: six genes in all, most of them DEGs in Gaz8. For the other six (PIN7, LAX2, DRO1, ARF7, CML24 and EXPA1) the match is only through Su et al.'s best-hit Arabidopsis ortholog; four of these anchors (LAX2, DRO1, CML24 and EXPA1) have no Compara ortholog. PIN2 appears both ways: its Compara ortholog BRADI\_1g31530v3 is a Gaz8 DEG in roots (log2 fold change $-0.78$) and shoots ($+2.05$), while BRADI\_2g52640v3, which Su et al. annotate with PIN2 as best hit, is lower in spaceflight in Bd21 and Bd21-3 roots. No gene matched to LAZY1 or CPK28 by either route is listed.
+
+These values have three limits. A gene missing from the lists may not have been expressed or may have fallen short of significance, so absence is not evidence of no change. Differences between accessions are confounded with sequencing batch. And being a spaceflight DEG does not by itself link a gene to gravitropism.
 
 \subsection{Time-lapse videos and kinetics plots}
 
@@ -58,17 +68,15 @@ The website hosts time-lapse videos of Brachypodium roots of accessions Per1 and
 
 \section{Planned analyses (not yet run)}
 
-TODO: Correct the 12 Arabidopsis anchors, then map Brachypodium orthologs of all 29 candidates with Ensembl Compara, recording the Ensembl release and any one-to-many cases.
+TODO: Find Brachypodium orthologs for the eight anchors without one in Ensembl Compara (for example from gene-family trees), and decide which ortholog each candidate name refers to where Compara gives several (for example PIN1a and PIN1b).
 
-TODO: Extract the expression of the candidate genes from the per-accession DEG tables published by Su et al.~\cite{Su2023} (supplementary tables, CC BY 4.0), crediting the values to that study.
-
-TODO: If a new differential-expression analysis of OSD-375 is needed, start from the FASTQ files (the only expression data in OSDR for this study) and account for the confounding of accession with sequencing batch.
+TODO: Values for genes that are not in Su et al.'s DEG lists need a new differential-expression analysis of OSD-375, starting from the FASTQ files (the only expression data in OSDR for this study) and accounting for the confounding of accession with sequencing batch.
 
 TODO: Add gravitropism measurements for the accession panel, with their source documented. The kinetics plots above would need their underlying numbers before any comparison between accessions.
 
 TODO: An association study would need genotype data for the phenotyped accessions; with tens of accessions it would be a candidate-gene comparison rather than a GWAS.
 
-TODO: Compare Brachypodium spaceflight responses with the author's Arabidopsis spaceflight analysis, which is in preparation.
+TODO: Compare Brachypodium spaceflight responses with the author's Arabidopsis spaceflight analysis, which is in preparation, once its consensus gene set can be regenerated from code.
 
 \section{Methods}
 
@@ -80,9 +88,13 @@ The OSD-375 file listing and ISA-Tab metadata were downloaded from the OSDR API 
 
 Catalogue entries (code/10\_build\_astrograss\_db.py) were checked on 14 October 2026 against the OSDR study metadata API, NCBI GEO (E-utilities and the GEO sample records), the PRIDE Archive API, CrossRef and DataCite.
 
-\subsection{Candidate-gene anchors}
+\subsection{Candidate-gene anchors and orthologs}
 
-For each AGI in the curated list (data/genotypes/candidate\_genes\_curated.csv), code/14\_check\_arabidopsis\_anchors.py retrieved the reviewed UniProt entry cross-referenced to that Araport identifier (UniProt release 2026\_03). An anchor was accepted only if the intended Arabidopsis gene symbol was among the entry's gene names. The same script looked up each withdrawn BRADI identifier in Ensembl (REST API, Ensembl Genomes release 63) and, for verified anchors, retrieved the anchor's Brachypodium orthologs from Ensembl Compara (plants). code/03\_candidate\_genes.py combines the list and the anchor check into data/genotypes/gravitropism\_candidate\_genes.csv.
+For each AGI in the curated list (data/genotypes/candidate\_genes\_curated.csv), and for each AGI it replaced, code/14\_check\_arabidopsis\_anchors.py retrieved the reviewed UniProt entry cross-referenced to that Araport identifier (UniProt release 2026\_03). An anchor was accepted only if the intended Arabidopsis gene symbol was among the entry's gene names. Replacement AGIs were chosen by hand from a UniProt search for the exact Arabidopsis gene name, and were then checked by the same script. code/15\_map\_orthologs.py retrieved the Brachypodium, rice and wheat orthologs of each accepted anchor from Ensembl Compara (plants) through the Ensembl REST API (Ensembl Genomes release 63), retrying server errors, and checked each withdrawn BRADI identifier against Ensembl and against those orthologs. code/03\_candidate\_genes.py combines the list, the anchor check and the orthologs into data/genotypes/gravitropism\_candidate\_genes.csv.
+
+\subsection{Spaceflight DEG lists}
+
+Supplemental Tables S2--S4 of Su et al.~\cite{Su2023} (CC BY 4.0) were taken from the article's supplementary archive through Europe PMC; data/su2023/SOURCE.md records the source and SHA-256 hashes. code/16\_su2023\_degs.py reads the three tables, converts each Phytozome v3.1 locus name to its Ensembl identifier (Bradi3g01250 to BRADI\_3g01250v3), counts DEGs by accession, organ and direction (sign of the DESeq log2 fold change), and lists the rows for genes that are either Compara orthologs of a candidate's anchor or annotated by Su et al. with the anchor as best-hit Arabidopsis ortholog. With --check-ids it checks the identifier conversion against Ensembl as described in Results.
 
 \subsection{Data and code availability}
 
