@@ -14,6 +14,7 @@ dependencies:
   - numpy
   - scipy
   - matplotlib
+  - openpyxl
   - python-docx
   - fpdf2
   # R packages for code/05_differential_expression.R (conda-forge & bioconda)

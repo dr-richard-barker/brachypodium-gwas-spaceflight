@@ -4,12 +4,14 @@
 
 Build the AstroGrass database: a catalogue of grass spaceflight and related omics studies,
 and the gravitropism candidate-gene list (data/genotypes/gravitropism_candidate_genes.csv,
-written by 03_candidate_genes.py).
+written by 03_candidate_genes.py) with the candidates' spaceflight DEG calls from Su et al. (2023)
+(tables/candidate_spaceflight_degs.csv, written by 16_su2023_degs.py).
 
-The gene table holds no expression values: no differential-expression analysis of OSD-375 has
-been run in this repository. The fold changes, adjusted p-values, per-accession DEG calls,
-chromosome positions, rice/wheat orthologs and "GWAS QTL roles" in versions before 2026-10-14
-were typed-in values and were removed.
+No differential-expression analysis of OSD-375 is run here: every expression value is Su et al.'s
+(Supplemental Tables S2-S4, CC BY 4.0), and a candidate has values only where Su et al. list one of
+its Brachypodium genes as a DEG. The fold changes, adjusted p-values, per-accession DEG calls,
+chromosome positions and "GWAS QTL roles" in versions before 2026-10-14 were typed-in values and
+were removed.
 
 Outputs:
   - tables/astrograss_master_table.csv (candidate-gene table)
@@ -105,6 +107,7 @@ OSDR_GRASS_STUDIES = [
 ]
 
 CANDIDATES = Path("data/genotypes/gravitropism_candidate_genes.csv")
+CANDIDATE_DEGS = Path("tables/candidate_spaceflight_degs.csv")
 
 
 def parse_args() -> argparse.Namespace:
@@ -128,8 +131,20 @@ def build_database(tables_dir: Path, docs_dir: Path, osdr_dir: Path):
     df_studies.to_csv(studies_path, index=False)
     logger.info(f"Saved OSDR Studies Catalog ({len(df_studies)} studies) to {studies_path}")
 
-    # 2. Candidate-gene table
+    # 2. Candidate-gene table, with Su et al.'s DEG calls for each candidate
     df_genes = pd.read_csv(CANDIDATES, keep_default_na=False)
+    df_degs = pd.read_csv(CANDIDATE_DEGS, keep_default_na=False)
+    deg_records = {c: g.drop(columns=["candidate", "arabidopsis_gene", "arabidopsis_agi", "source"]).to_dict(orient="records")
+                   for c, g in df_degs.groupby("candidate", sort=False)}
+
+    def summarise(candidate: str) -> str:
+        return "; ".join(
+            f"{d['accession']} {d['organ']} {d['deseq_log2fc']:+.2f} ({d['brachypodium_gene_id']}, "
+            f"{'Compara' if d['match'].startswith('Compara') else 'Su et al. best hit'})"
+            for d in deg_records.get(candidate, []))
+
+    df_genes["su2023_deg_calls"] = df_genes["candidate"].map(lambda c: len(deg_records.get(c, [])))
+    df_genes["su2023_degs"] = df_genes["candidate"].map(summarise)
 
     # Export master CSV
     master_csv_path = tables_dir / "astrograss_master_table.csv"
@@ -144,19 +159,21 @@ def build_database(tables_dir: Path, docs_dir: Path, osdr_dir: Path):
     export_payload = {
         "metadata": {
             "name": "AstroGrass Database",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "curator": "Richard Barker (Collaborative Science Environment Inc.)",
             "primary_study": "NASA OSDR OSD-375 (APEX-06)",
             "total_genes": len(df_genes),
             "verified_arabidopsis_anchors": int((df_genes["arabidopsis_agi"] != "").sum()),
-            "brachypodium_gene_ids": "TODO: to be mapped from the verified Arabidopsis anchors (Ensembl Compara)",
-            "expression_values": "None: no differential-expression analysis of OSD-375 has been run here",
+            "brachypodium_gene_ids": "Orthologs of the Arabidopsis anchor in Ensembl Compara (plants); see data/genotypes/compara_orthologs.csv",
+            "expression_values": ("DESeq log2 fold change (ISS / ground) and adjusted p-value from Su et al. (2023) Life 13:626, "
+                                  "Supplemental Tables S2-S4 (CC BY 4.0), listed only where Su et al. report the gene as a DEG"),
             "total_studies": len(df_studies),
             "organism": "Brachypodium distachyon",
             "date_updated": "2026-10-14"
         },
         "studies": OSDR_GRASS_STUDIES,
-        "genes": df_genes.to_dict(orient="records")
+        "genes": [{**g, "spaceflight_degs": deg_records.get(g["candidate"], [])}
+                  for g in df_genes.to_dict(orient="records")]
     }
 
     with open(json_path, "w", encoding="utf-8") as f:

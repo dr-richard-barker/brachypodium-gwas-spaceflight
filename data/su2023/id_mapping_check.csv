@@ -1,0 +1,4 @@
+check,n,passed,ensembl_genomes_release
+Su et al. gene IDs found in Ensembl under the converted name,5403,5403,63
+"Su et al. best-hit Arabidopsis ortholog is among the gene's Ensembl Compara orthologs (random sample of genes with a best hit, seed 42)",100,52,63
+"Same comparison with the best hits shuffled between the sampled genes (null, seed 43)",100,0,63

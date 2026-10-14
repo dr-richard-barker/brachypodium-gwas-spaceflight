@@ -6,8 +6,9 @@ Master execution script for the Brachypodium spaceflight / AstroGrass pipeline.
 Executes all steps sequentially and validates output files.
 
 Not run here: 04_gravitropism_kinetics.py (no measured phenotype data in the repository yet),
-05_differential_expression.R (OSD-375 has FASTQ files only; no count matrices exist yet) and
-14_check_arabidopsis_anchors.py (needs network access; its output is committed).
+05_differential_expression.R (OSD-375 has FASTQ files only; no count matrices exist yet), and
+14_check_arabidopsis_anchors.py and 15_map_orthologs.py (need network access; their outputs are
+committed). 16_su2023_degs.py runs offline from the committed Su et al. 2023 workbook.
 
 Usage:
     python code/run_pipeline.py [--skip-download]
@@ -34,11 +35,12 @@ PIPELINE_STEPS = [
     ("Step 1: Ingest NASA OSDR OSD-375 Data", ["python3", "code/01_download_osdr_osd375.py"]),
     ("Step 2: Parse ISA-Tab Sample Metadata", ["python3", "code/02_parse_osdr_metadata.py"]),
     ("Step 3: Build Candidate-Gene Table", ["python3", "code/03_candidate_genes.py"]),
-    ("Step 4: Build AstroGrass Database", ["python3", "code/10_build_astrograss_db.py"]),
-    ("Step 5: Build Video & Image Series Catalog", ["python3", "code/11_build_video_catalog.py"]),
-    ("Step 6: Sync CyVerse iRODS Image Series", ["python3", "code/12_cyverse_irods_sync.py"]),
-    ("Step 7: Generate Figures", ["python3", "code/09_generate_figures.py"]),
-    ("Step 8: Compile Manuscript (PDF & DOCX)", ["python3", "code/export_manuscript.py"]),
+    ("Step 4: Extract Su et al. 2023 DEG Tables", ["python3", "code/16_su2023_degs.py"]),
+    ("Step 5: Build AstroGrass Database", ["python3", "code/10_build_astrograss_db.py"]),
+    ("Step 6: Build Video & Image Series Catalog", ["python3", "code/11_build_video_catalog.py"]),
+    ("Step 7: Sync CyVerse iRODS Image Series", ["python3", "code/12_cyverse_irods_sync.py"]),
+    ("Step 8: Generate Figures", ["python3", "code/09_generate_figures.py"]),
+    ("Step 9: Compile Manuscript (PDF & DOCX)", ["python3", "code/export_manuscript.py"]),
 ]
 
 
@@ -105,7 +107,7 @@ def main():
     print("\nKey Outputs Generated:")
     print(" - Master Database: tables/astrograss_master_table.csv")
     print(" - Web Database:   docs/js/astrograss_database.json")
-    print(" - Figures:        figures/ (fig1, fig2, figS1 in PNG + SVG)")
+    print(" - Figures:        figures/ (fig1-fig4, figS1 in PNG + SVG)")
     print(" - Manuscript:     manuscript/manuscript.pdf & manuscript.docx")
     print(" - Web Portal:     docs/astrograss.html & docs/index.html\n")
 

@@ -32,7 +32,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pandas numpy scipy matplotlib python-docx fpdf2
+          pip install requests pandas numpy scipy matplotlib openpyxl python-docx fpdf2
 
       - name: Execute AstroGrass Automated Pipeline
         run: |
@@ -46,6 +46,10 @@ jobs:
           test -f docs/js/astrograss_database.json
           test -f figures/fig1_osd375_sample_design.png
           test -f figures/fig2_astrograss_architecture.png
+          test -f figures/fig3_su2023_deg_counts.png
+          test -f figures/fig4_candidate_spaceflight_degs.png
+          test -f tables/candidate_spaceflight_degs.csv
+          test -f data/su2023/su2023_degs.csv
           test -f figures/figS1_mission_experimental_design.png
           test -f manuscript/manuscript.pdf
           test -f manuscript/manuscript.docx

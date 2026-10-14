@@ -1,13 +1,13 @@
 {
   "metadata": {
     "name": "AstroGrass Database",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "curator": "Richard Barker (Collaborative Science Environment Inc.)",
     "primary_study": "NASA OSDR OSD-375 (APEX-06)",
     "total_genes": 29,
-    "verified_arabidopsis_anchors": 17,
-    "brachypodium_gene_ids": "TODO: to be mapped from the verified Arabidopsis anchors (Ensembl Compara)",
-    "expression_values": "None: no differential-expression analysis of OSD-375 has been run here",
+    "verified_arabidopsis_anchors": 29,
+    "brachypodium_gene_ids": "Orthologs of the Arabidopsis anchor in Ensembl Compara (plants); see data/genotypes/compara_orthologs.csv",
+    "expression_values": "DESeq log2 fold change (ISS / ground) and adjusted p-value from Su et al. (2023) Life 13:626, Supplemental Tables S2-S4 (CC BY 4.0), listed only where Su et al. report the gene as a DEG",
     "total_studies": 5,
     "organism": "Brachypodium distachyon",
     "date_updated": "2026-10-14"
@@ -86,7 +86,14 @@
       "arabidopsis_gene": "PIN1",
       "arabidopsis_agi": "AT1G73590",
       "anchor_status": "verified: UniProt Q9C6B8 (PIN1 At1g73590 F6D5.2)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_1g45020v3 BRADI_3g59520v3",
+      "brachypodium_homology": "one2many",
+      "rice_orthologs": "Os02g0743400 Os06g0232300",
+      "wheat_orthologs": "TraesCS6A02G308600 TraesCS6B02G337300 TraesCS6D02G287800 TraesCS7A02G190600 TraesCS7B02G095500 TraesCS7D02G191600",
+      "ortholog_note": "Brachypodium ortholog(s) shared with BdPIN1b",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdPIN1b",
@@ -94,7 +101,14 @@
       "arabidopsis_gene": "PIN1",
       "arabidopsis_agi": "AT1G73590",
       "anchor_status": "verified: UniProt Q9C6B8 (PIN1 At1g73590 F6D5.2)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_1g45020v3 BRADI_3g59520v3",
+      "brachypodium_homology": "one2many",
+      "rice_orthologs": "Os02g0743400 Os06g0232300",
+      "wheat_orthologs": "TraesCS6A02G308600 TraesCS6B02G337300 TraesCS6D02G287800 TraesCS7A02G190600 TraesCS7B02G095500 TraesCS7D02G191600",
+      "ortholog_note": "Brachypodium ortholog(s) shared with BdPIN1a",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdPIN2",
@@ -102,7 +116,59 @@
       "arabidopsis_gene": "PIN2",
       "arabidopsis_agi": "AT5G57090",
       "anchor_status": "verified: UniProt Q9LU77 (PIN2 AGR AGR1)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_1g31530v3",
+      "brachypodium_homology": "one2one",
+      "rice_orthologs": "Os06g0660200",
+      "wheat_orthologs": "TraesCS7A02G492400 TraesCS7B02G398100 TraesCS7D02G478800",
+      "ortholog_note": "",
+      "su2023_deg_calls": 4,
+      "su2023_degs": "Bd21 root -1.87 (BRADI_2g52640v3, Su et al. best hit); Bd21-3 root -1.32 (BRADI_2g52640v3, Su et al. best hit); Gaz8 root -0.78 (BRADI_1g31530v3, Compara); Gaz8 shoot +2.05 (BRADI_1g31530v3, Compara)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_2g52640v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Bd21",
+          "organ": "root",
+          "deseq_log2fc": -1.86830552565894,
+          "deseq_padj": 0.0015622582004811,
+          "edger_log2fc": -1.8689888483835,
+          "edger_q": 1.2376899709631e-06
+        },
+        {
+          "brachypodium_gene_id": "BRADI_2g52640v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Bd21-3",
+          "organ": "root",
+          "deseq_log2fc": -1.31817516483231,
+          "deseq_padj": 0.0041762835120458,
+          "edger_log2fc": -1.31549051217658,
+          "edger_q": 4.58904212043093e-06
+        },
+        {
+          "brachypodium_gene_id": "BRADI_1g31530v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_one2one",
+          "accession": "Gaz8",
+          "organ": "root",
+          "deseq_log2fc": -0.776272009806853,
+          "deseq_padj": 7.26659544863632e-08,
+          "edger_log2fc": -0.778278316904178,
+          "edger_q": 0.0002785965292954
+        },
+        {
+          "brachypodium_gene_id": "BRADI_1g31530v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_one2one",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": 2.04904595946255,
+          "deseq_padj": 0.0388625271933676,
+          "edger_log2fc": 1.99207383617344,
+          "edger_q": 0.0111868017316578
+        }
+      ]
     },
     {
       "candidate": "BdPIN3",
@@ -110,7 +176,14 @@
       "arabidopsis_gene": "PIN3",
       "arabidopsis_agi": "AT1G70940",
       "anchor_status": "verified: UniProt Q9S7Z8 (PIN3 At1g70940 F15H11.14)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_2g15610v3 BRADI_2g44987v3",
+      "brachypodium_homology": "many2many",
+      "rice_orthologs": "Os01g0643300 Os05g0576900",
+      "wheat_orthologs": "TraesCS1A02G415400 TraesCS1B02G445400 TraesCS1D02G422900 TraesCS3A02G231500 TraesCS3B02G260700 TraesCS3D02G221900",
+      "ortholog_note": "Brachypodium ortholog(s) shared with BdPIN4, BdPIN7",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdPIN4",
@@ -118,7 +191,14 @@
       "arabidopsis_gene": "PIN4",
       "arabidopsis_agi": "AT2G01420",
       "anchor_status": "verified: UniProt Q8RWZ6 (PIN4 At2g01420 F2I9.4)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_2g15610v3 BRADI_2g44987v3",
+      "brachypodium_homology": "many2many",
+      "rice_orthologs": "Os01g0643300 Os05g0576900",
+      "wheat_orthologs": "TraesCS1A02G415400 TraesCS1B02G445400 TraesCS1D02G422900 TraesCS3A02G231500 TraesCS3B02G260700 TraesCS3D02G221900",
+      "ortholog_note": "Brachypodium ortholog(s) shared with BdPIN3, BdPIN7",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdPIN7",
@@ -126,7 +206,26 @@
       "arabidopsis_gene": "PIN7",
       "arabidopsis_agi": "AT1G23080",
       "anchor_status": "verified: UniProt Q940Y5 (PIN7 AEH1 At1g23080)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_2g15610v3 BRADI_2g44987v3",
+      "brachypodium_homology": "many2many",
+      "rice_orthologs": "Os01g0643300 Os05g0576900",
+      "wheat_orthologs": "TraesCS1A02G415400 TraesCS1B02G445400 TraesCS1D02G422900 TraesCS3A02G231500 TraesCS3B02G260700 TraesCS3D02G221900",
+      "ortholog_note": "Brachypodium ortholog(s) shared with BdPIN3, BdPIN4",
+      "su2023_deg_calls": 1,
+      "su2023_degs": "Bd21 shoot +2.39 (BRADI_4g26300v3, Su et al. best hit)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_4g26300v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Bd21",
+          "organ": "shoot",
+          "deseq_log2fc": 2.39428573073454,
+          "deseq_padj": 0.0001353792759031,
+          "edger_log2fc": 2.39648731532539,
+          "edger_q": 0.0003054985153619
+        }
+      ]
     },
     {
       "candidate": "BdAUX1",
@@ -134,7 +233,37 @@
       "arabidopsis_gene": "AUX1",
       "arabidopsis_agi": "AT2G38120",
       "anchor_status": "verified: UniProt Q96247 (AUX1 AUX PIR1)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_1g68350v3 BRADI_2g55340v3 BRADI_3g21090v3",
+      "brachypodium_homology": "many2many",
+      "rice_orthologs": "Os01g0856500 Os03g0244600 Os05g0447200 Os10g0147400 Os11g0169200",
+      "wheat_orthologs": "TraesCS1A02G077800 TraesCS1A02G278400 TraesCS1B02G095900 TraesCS1B02G287300 TraesCS1D02G079900 TraesCS1D02G277600 TraesCS3A02G369200 TraesCS3B02G401000 TraesCS3D02G362100 TraesCS4A02G070500 TraesCS4A02G207600 TraesCS4B02G111100 TraesCS4B02G226500 TraesCS4D02G108800 TraesCS4D02G227200",
+      "ortholog_note": "Brachypodium ortholog(s) shared with BdLAX1",
+      "su2023_deg_calls": 2,
+      "su2023_degs": "Gaz8 root -0.60 (BRADI_3g21090v3, Compara); Gaz8 shoot -0.71 (BRADI_3g21090v3, Compara)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_3g21090v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_many2many",
+          "accession": "Gaz8",
+          "organ": "root",
+          "deseq_log2fc": -0.604824263981536,
+          "deseq_padj": 0.0172547967532295,
+          "edger_log2fc": -0.606548144144981,
+          "edger_q": 0.0009456647786443
+        },
+        {
+          "brachypodium_gene_id": "BRADI_3g21090v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_many2many",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": -0.712215793367656,
+          "deseq_padj": 0.0301634074832825,
+          "edger_log2fc": -0.738531522820966,
+          "edger_q": 0.0088257470878627
+        }
+      ]
     },
     {
       "candidate": "BdLAX1",
@@ -142,7 +271,37 @@
       "arabidopsis_gene": "LAX1",
       "arabidopsis_agi": "AT5G01240",
       "anchor_status": "verified: UniProt Q9LFB2 (LAX1 At5g01240 F7J8_220)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_1g68350v3 BRADI_2g55340v3 BRADI_3g21090v3",
+      "brachypodium_homology": "many2many",
+      "rice_orthologs": "Os01g0856500 Os03g0244600 Os05g0447200 Os10g0147400 Os11g0169200",
+      "wheat_orthologs": "TraesCS1A02G077800 TraesCS1A02G278400 TraesCS1B02G095900 TraesCS1B02G287300 TraesCS1D02G079900 TraesCS1D02G277600 TraesCS3A02G369200 TraesCS3B02G401000 TraesCS3D02G362100 TraesCS4A02G070500 TraesCS4A02G207600 TraesCS4B02G111100 TraesCS4B02G226500 TraesCS4D02G108800 TraesCS4D02G227200",
+      "ortholog_note": "Brachypodium ortholog(s) shared with BdAUX1",
+      "su2023_deg_calls": 2,
+      "su2023_degs": "Gaz8 root -0.60 (BRADI_3g21090v3, Compara); Gaz8 shoot -0.71 (BRADI_3g21090v3, Compara)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_3g21090v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_many2many",
+          "accession": "Gaz8",
+          "organ": "root",
+          "deseq_log2fc": -0.604824263981536,
+          "deseq_padj": 0.0172547967532295,
+          "edger_log2fc": -0.606548144144981,
+          "edger_q": 0.0009456647786443
+        },
+        {
+          "brachypodium_gene_id": "BRADI_3g21090v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_many2many",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": -0.712215793367656,
+          "deseq_padj": 0.0301634074832825,
+          "edger_log2fc": -0.738531522820966,
+          "edger_q": 0.0088257470878627
+        }
+      ]
     },
     {
       "candidate": "BdLAX2",
@@ -150,7 +309,37 @@
       "arabidopsis_gene": "LAX2",
       "arabidopsis_agi": "AT2G21050",
       "anchor_status": "verified: UniProt Q9S836 (LAX2 At2g21050 F26H11.19)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "",
+      "brachypodium_homology": "",
+      "rice_orthologs": "",
+      "wheat_orthologs": "",
+      "ortholog_note": "TODO: no Brachypodium ortholog in Ensembl Compara (plants)",
+      "su2023_deg_calls": 2,
+      "su2023_degs": "Gaz8 root -0.60 (BRADI_3g21090v3, Su et al. best hit); Gaz8 shoot -0.71 (BRADI_3g21090v3, Su et al. best hit)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_3g21090v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Gaz8",
+          "organ": "root",
+          "deseq_log2fc": -0.604824263981536,
+          "deseq_padj": 0.0172547967532295,
+          "edger_log2fc": -0.606548144144981,
+          "edger_q": 0.0009456647786443
+        },
+        {
+          "brachypodium_gene_id": "BRADI_3g21090v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": -0.712215793367656,
+          "deseq_padj": 0.0301634074832825,
+          "edger_log2fc": -0.738531522820966,
+          "edger_q": 0.0088257470878627
+        }
+      ]
     },
     {
       "candidate": "BdLAX3",
@@ -158,15 +347,29 @@
       "arabidopsis_gene": "LAX3",
       "arabidopsis_agi": "AT1G77690",
       "anchor_status": "verified: UniProt Q9CA25 (LAX3 At1g77690 T32E8.2)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "",
+      "brachypodium_homology": "",
+      "rice_orthologs": "",
+      "wheat_orthologs": "",
+      "ortholog_note": "TODO: no Brachypodium ortholog in Ensembl Compara (plants)",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdLAZY1",
       "pathway": "Gravity Perception/Transduction",
       "arabidopsis_gene": "LAZY1",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT5G14660, is PDF1B/DEF2 (UniProt Q9FUZ2), not LAZY1",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT5G14090",
+      "anchor_status": "verified: UniProt Q5XV40 (LAZY1 LA1 LZY1); corrected on 2026-10-14 from AT5G14660, which is PDF1B/DEF2",
+      "brachypodium_orthologs": "",
+      "brachypodium_homology": "",
+      "rice_orthologs": "",
+      "wheat_orthologs": "",
+      "ortholog_note": "TODO: no Brachypodium ortholog in Ensembl Compara (plants)",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdDRO1",
@@ -174,23 +377,56 @@
       "arabidopsis_gene": "DRO1",
       "arabidopsis_agi": "AT1G72490",
       "anchor_status": "verified: UniProt Q5XVG3 (LAZY4 DRO1 LZY3)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "",
+      "brachypodium_homology": "",
+      "rice_orthologs": "",
+      "wheat_orthologs": "",
+      "ortholog_note": "TODO: no Brachypodium ortholog in Ensembl Compara (plants)",
+      "su2023_deg_calls": 1,
+      "su2023_degs": "Bd21 root +2.54 (BRADI_4g31290v3, Su et al. best hit)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_4g31290v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Bd21",
+          "organ": "root",
+          "deseq_log2fc": 2.54315132442596,
+          "deseq_padj": 0.0019989322228511,
+          "edger_log2fc": 2.52413400275062,
+          "edger_q": 3.0990077190244e-06
+        }
+      ]
     },
     {
       "candidate": "BdSGR9",
       "pathway": "Amyloplast Sedimentation",
       "arabidopsis_gene": "SGR9",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT1G17400, is LAZY2/DRO3 (UniProt Q58G53), not SGR9",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT5G02750",
+      "anchor_status": "verified: UniProt Q8GXF8 (SGR9 At5g02750 F9G14.60); corrected on 2026-10-14 from AT1G17400, which is LAZY2/DRO3",
+      "brachypodium_orthologs": "BRADI_2g25560v3",
+      "brachypodium_homology": "one2one",
+      "rice_orthologs": "Os05g0408800",
+      "wheat_orthologs": "TraesCS1A02G255600 TraesCS1B02G266300 TraesCS1D02G254900",
+      "ortholog_note": "",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdSGR2",
       "pathway": "Amyloplast Sedimentation",
       "arabidopsis_gene": "SGR2",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT2G46870, is NGA1 (UniProt O82799), not SGR2",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT1G31480",
+      "anchor_status": "verified: UniProt Q8W5R2 (SGR2 At1g31480 F27M3.29); corrected on 2026-10-14 from AT2G46870, which is NGA1",
+      "brachypodium_orthologs": "BRADI_3g13467v3",
+      "brachypodium_homology": "one2one",
+      "rice_orthologs": "Os08g0110700",
+      "wheat_orthologs": "TraesCS7A02G320600 TraesCS7B02G221600 TraesCS7D02G317500",
+      "ortholog_note": "",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdTIR1",
@@ -198,15 +434,29 @@
       "arabidopsis_gene": "TIR1",
       "arabidopsis_agi": "AT3G62980",
       "anchor_status": "verified: UniProt Q570C0 (TIR1 FBL1 WEI1)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_2g35720v3",
+      "brachypodium_homology": "one2many",
+      "rice_orthologs": "Os05g0150500",
+      "wheat_orthologs": "TraesCS1A02G091300 TraesCS1B02G119100 TraesCS1D02G099900",
+      "ortholog_note": "",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdAFB2",
       "pathway": "Auxin Receptor",
       "arabidopsis_gene": "AFB2",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT4G03190, is GRH1/AFB1 (UniProt Q9ZR12), not AFB2",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT3G26810",
+      "anchor_status": "verified: UniProt Q9LW29 (AFB2 LRF2 At3g26810); corrected on 2026-10-14 from AT4G03190, which is GRH1/AFB1",
+      "brachypodium_orthologs": "BRADI_4g18220v3 BRADI_5g08680v3",
+      "brachypodium_homology": "many2many",
+      "rice_orthologs": "Os04g0395600 Os11g0515500",
+      "wheat_orthologs": "TraesCS2A02G286200 TraesCS2B02G302900 TraesCS2D02G285000 TraesCS5A02G281100 TraesCS5B02G280100 TraesCS5D02G288000",
+      "ortholog_note": "",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdARF7",
@@ -214,7 +464,37 @@
       "arabidopsis_gene": "ARF7",
       "arabidopsis_agi": "AT5G20730",
       "anchor_status": "verified: UniProt P93022 (ARF7 BIP IAA21)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_1g46602v3",
+      "brachypodium_homology": "one2many",
+      "rice_orthologs": "Os06g0196700",
+      "wheat_orthologs": "TraesCS7A02G160800 TraesCS7B02G065800 TraesCS7D02G161900",
+      "ortholog_note": "Brachypodium ortholog(s) shared with BdARF19",
+      "su2023_deg_calls": 2,
+      "su2023_degs": "Gaz8 shoot +0.54 (BRADI_3g40437v3, Su et al. best hit); Gaz8 shoot +0.99 (BRADI_1g34340v3, Su et al. best hit)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_3g40437v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": 0.538821656458611,
+          "deseq_padj": 0.0070565899317335,
+          "edger_log2fc": 0.516216232795767,
+          "edger_q": 0.0082101307468347
+        },
+        {
+          "brachypodium_gene_id": "BRADI_1g34340v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": 0.985499712553853,
+          "deseq_padj": 3.7770899390739006e-10,
+          "edger_log2fc": 0.962657340321281,
+          "edger_q": 1.62113656761612e-07
+        }
+      ]
     },
     {
       "candidate": "BdARF19",
@@ -222,15 +502,41 @@
       "arabidopsis_gene": "ARF19",
       "arabidopsis_agi": "AT1G19220",
       "anchor_status": "verified: UniProt Q8RYC8 (ARF19 IAA22 At1g19220)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_1g46602v3",
+      "brachypodium_homology": "one2many",
+      "rice_orthologs": "Os06g0196700",
+      "wheat_orthologs": "TraesCS7A02G160800 TraesCS7B02G065800 TraesCS7D02G161900",
+      "ortholog_note": "Brachypodium ortholog(s) shared with BdARF7",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdIAA14",
       "pathway": "Aux/IAA Repressor",
       "arabidopsis_gene": "IAA14",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT4G14560, is IAA1 (UniProt P49677), not IAA14",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT4G14550",
+      "anchor_status": "verified: UniProt Q38832 (IAA14 SLR1 At4g14550); corrected on 2026-10-14 from AT4G14560, which is IAA1",
+      "brachypodium_orthologs": "BRADI_1g09090v3 BRADI_1g14240v3 BRADI_1g36930v3 BRADI_2g04910v3 BRADI_2g34030v3 BRADI_4g02600v3 BRADI_4g35960v3",
+      "brachypodium_homology": "many2many",
+      "rice_orthologs": "Os01g0178500 Os03g0633500 Os03g0742900 Os05g0178600 Os12g0601300",
+      "wheat_orthologs": "TraesCS1A02G118400 TraesCS1B02G138100 TraesCS1D02G119500 TraesCS3A02G121300 TraesCS3B02G140700 TraesCS3D02G123400 TraesCS5A02G058600 TraesCS5A02G378300 TraesCS5A02G382600 TraesCS5B02G058500 TraesCS5B02G381900 TraesCS5B02G386800 TraesCS5D02G069300 TraesCS5D02G388300 TraesCS5D02G392000 TraesCS7A02G371500 TraesCS7B02G256100 TraesCS7D02G351400",
+      "ortholog_note": "",
+      "su2023_deg_calls": 1,
+      "su2023_degs": "Gaz8 shoot +0.44 (BRADI_2g34030v3, Compara)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_2g34030v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_many2many",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": 0.444669267982936,
+          "deseq_padj": 0.004014953536414,
+          "edger_log2fc": 0.422123387268013,
+          "edger_q": 0.039760134450063
+        }
+      ]
     },
     {
       "candidate": "BdPGM1",
@@ -238,15 +544,53 @@
       "arabidopsis_gene": "PGM",
       "arabidopsis_agi": "AT5G51820",
       "anchor_status": "verified: UniProt Q9SCY0 (PGMP PGM RGV2)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_3g22930v3",
+      "brachypodium_homology": "one2one",
+      "rice_orthologs": "Os10g0189100",
+      "wheat_orthologs": "",
+      "ortholog_note": "",
+      "su2023_deg_calls": 1,
+      "su2023_degs": "Gaz8 shoot -0.52 (BRADI_3g22930v3, Compara)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_3g22930v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_one2one",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": -0.51815948643587,
+          "deseq_padj": 8.76706112299021e-05,
+          "edger_log2fc": -0.54116144377338,
+          "edger_q": 0.0053764228935469
+        }
+      ]
     },
     {
       "candidate": "BdADG1",
       "pathway": "Statolith Starch Biosynthesis",
       "arabidopsis_gene": "ADG1",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT5G19220, is ADG2/APL1 (UniProt P55229), not ADG1",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT5G48300",
+      "anchor_status": "verified: UniProt P55228 (APS1 ADG1 APS); corrected on 2026-10-14 from AT5G19220, which is ADG2/APL1",
+      "brachypodium_orthologs": "BRADI_3g22330v3 BRADI_4g27570v3",
+      "brachypodium_homology": "one2many",
+      "rice_orthologs": "Os08g0345800 Os09g0298200",
+      "wheat_orthologs": "TraesCS5B02G175800 TraesCS5D02G182600 TraesCS7A02G287400 TraesCS7B02G183300 TraesCS7D02G284900",
+      "ortholog_note": "",
+      "su2023_deg_calls": 1,
+      "su2023_degs": "Bd21 shoot +1.21 (BRADI_4g27570v3, Compara)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_4g27570v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_one2many",
+          "accession": "Bd21",
+          "organ": "shoot",
+          "deseq_log2fc": 1.21114387534537,
+          "deseq_padj": 0.0120413480914202,
+          "edger_log2fc": 1.23500602877519,
+          "edger_q": 0.0014613451853981
+        }
+      ]
     },
     {
       "candidate": "BdCPK28",
@@ -254,7 +598,14 @@
       "arabidopsis_gene": "CPK28",
       "arabidopsis_agi": "AT5G66210",
       "anchor_status": "verified: UniProt Q9FKW4 (CPK28 At5g66210 K2A18.29)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_1g52567v3 BRADI_3g02600v3",
+      "brachypodium_homology": "many2many",
+      "rice_orthologs": "Os02g0126400 Os07g0409900",
+      "wheat_orthologs": "TraesCS2A02G239900 TraesCS2D02G245700 TraesCS6A02G089400 TraesCS6B02G111800 TraesCSU02G016900",
+      "ortholog_note": "",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdCAS",
@@ -262,55 +613,173 @@
       "arabidopsis_gene": "CAS",
       "arabidopsis_agi": "AT5G23060",
       "anchor_status": "verified: UniProt Q9FN48 (CAS STR3 At5g23060)",
-      "brachypodium_gene_id": "TODO"
+      "brachypodium_orthologs": "BRADI_3g56190v3",
+      "brachypodium_homology": "one2one",
+      "rice_orthologs": "Os02g0729400",
+      "wheat_orthologs": "TraesCS6A02G290600 TraesCS6B02G320900 TraesCS6D02G271900",
+      "ortholog_note": "",
+      "su2023_deg_calls": 2,
+      "su2023_degs": "Bd21 shoot -0.88 (BRADI_3g56190v3, Compara); Gaz8 shoot -0.69 (BRADI_3g56190v3, Compara)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_3g56190v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_one2one",
+          "accession": "Bd21",
+          "organ": "shoot",
+          "deseq_log2fc": -0.881389936397832,
+          "deseq_padj": 0.001292068892762,
+          "edger_log2fc": -0.850000838082249,
+          "edger_q": 0.0009799474077161
+        },
+        {
+          "brachypodium_gene_id": "BRADI_3g56190v3",
+          "match": "Compara ortholog of the anchor",
+          "compara_homology_type": "ortholog_one2one",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": -0.68510508061111,
+          "deseq_padj": 2.27383232939531e-07,
+          "edger_log2fc": -0.706854407006818,
+          "edger_q": 0.0002109333771422
+        }
+      ]
     },
     {
       "candidate": "BdCRK28",
       "pathway": "Receptor-like Kinase",
       "arabidopsis_gene": "CRK28",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT3G55950, is CCR3/CRR3 (UniProt Q9LY50), not CRK28",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT4G21400",
+      "anchor_status": "verified: UniProt O65405 (CRK28 At4g21400 F18E5.20); corrected on 2026-10-14 from AT3G55950, which is CCR3/CRR3",
+      "brachypodium_orthologs": "",
+      "brachypodium_homology": "",
+      "rice_orthologs": "",
+      "wheat_orthologs": "",
+      "ortholog_note": "TODO: no Brachypodium ortholog in Ensembl Compara (plants)",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdCML24",
       "pathway": "Calmodulin-Like Protein",
       "arabidopsis_gene": "CML24",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT5G15060, is LBD34/ASL42 (UniProt P59469), not CML24",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT5G37770",
+      "anchor_status": "verified: UniProt P25070 (CML24 TCH2 At5g37770); corrected on 2026-10-14 from AT5G15060, which is LBD34/ASL42",
+      "brachypodium_orthologs": "",
+      "brachypodium_homology": "",
+      "rice_orthologs": "",
+      "wheat_orthologs": "",
+      "ortholog_note": "TODO: no Brachypodium ortholog in Ensembl Compara (plants)",
+      "su2023_deg_calls": 1,
+      "su2023_degs": "Gaz8 shoot +0.62 (BRADI_2g02340v3, Su et al. best hit)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_2g02340v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": 0.619267534749236,
+          "deseq_padj": 0.0096798398153057,
+          "edger_log2fc": 0.595312361799973,
+          "edger_q": 0.0041059127301132
+        }
+      ]
     },
     {
       "candidate": "BdMSL10",
       "pathway": "Mechanosensitive Ion Channel",
       "arabidopsis_gene": "MSL10",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT4G00290, is MSL1 (UniProt Q8VZL4), not MSL10",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT5G12080",
+      "anchor_status": "verified: UniProt Q9LYG9 (MSL10 At5g12080 F14F18.230); corrected on 2026-10-14 from AT4G00290, which is MSL1",
+      "brachypodium_orthologs": "BRADI_1g46387v3",
+      "brachypodium_homology": "one2many",
+      "rice_orthologs": "Os06g0205600",
+      "wheat_orthologs": "TraesCS7A02G166500 TraesCS7B02G070900 TraesCS7D02G167000",
+      "ortholog_note": "",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdEXPA1",
       "pathway": "Cell Wall Loosening (Expansin)",
       "arabidopsis_gene": "EXPA1",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT2G39700, is EXPA4/EXP4 (UniProt O48818), not EXPA1",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT1G69530",
+      "anchor_status": "verified: UniProt Q9C554 (EXPA1 EXP1 At1g69530); corrected on 2026-10-14 from AT2G39700, which is EXPA4/EXP4",
+      "brachypodium_orthologs": "",
+      "brachypodium_homology": "",
+      "rice_orthologs": "",
+      "wheat_orthologs": "",
+      "ortholog_note": "TODO: no Brachypodium ortholog in Ensembl Compara (plants)",
+      "su2023_deg_calls": 3,
+      "su2023_degs": "Bd21-3 shoot +0.88 (BRADI_2g22290v3, Su et al. best hit); Gaz8 shoot +0.86 (BRADI_2g22290v3, Su et al. best hit); Gaz8 shoot +1.21 (BRADI_3g59460v3, Su et al. best hit)",
+      "spaceflight_degs": [
+        {
+          "brachypodium_gene_id": "BRADI_2g22290v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Bd21-3",
+          "organ": "shoot",
+          "deseq_log2fc": 0.876911640643292,
+          "deseq_padj": 0.0110213868814893,
+          "edger_log2fc": 0.888363417503839,
+          "edger_q": 0.0093330450550443
+        },
+        {
+          "brachypodium_gene_id": "BRADI_2g22290v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": 0.858046151623976,
+          "deseq_padj": 0.0258270665034008,
+          "edger_log2fc": 0.836242171475355,
+          "edger_q": 9.24203547293981e-06
+        },
+        {
+          "brachypodium_gene_id": "BRADI_3g59460v3",
+          "match": "Su et al. best-hit Arabidopsis ortholog is the anchor",
+          "compara_homology_type": "",
+          "accession": "Gaz8",
+          "organ": "shoot",
+          "deseq_log2fc": 1.20852133442499,
+          "deseq_padj": 7.73665060078525e-07,
+          "edger_log2fc": 1.18487608545078,
+          "edger_q": 5.82779265421328e-09
+        }
+      ]
     },
     {
       "candidate": "BdXTH1",
       "pathway": "Xyloglucan Transglucosylase",
       "arabidopsis_gene": "XTH1",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT4G14130, is XTH15/XTR7 (UniProt Q38911), not XTH1",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT4G13080",
+      "anchor_status": "verified: UniProt Q9SV61 (XTH1 At4g13080 F25G13.170); corrected on 2026-10-14 from AT4G14130, which is XTH15/XTR7",
+      "brachypodium_orthologs": "BRADI_1g44777v3",
+      "brachypodium_homology": "one2many",
+      "rice_orthologs": "Os06g0237400",
+      "wheat_orthologs": "TraesCS3A02G083900 TraesCS3B02G099000 TraesCS7A02G194300 TraesCS7B02G099900 TraesCS7D02G195900",
+      "ortholog_note": "",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     },
     {
       "candidate": "BdCSLD1",
       "pathway": "Cellulose/Glucan Synthase",
       "arabidopsis_gene": "CSLD1",
-      "arabidopsis_agi": "",
-      "anchor_status": "TODO: the AGI given earlier, AT4G25810, is XTH23/XTR6 (UniProt Q38910), not CSLD1",
-      "brachypodium_gene_id": "TODO"
+      "arabidopsis_agi": "AT2G33100",
+      "anchor_status": "verified: UniProt O49323 (CSLD1 At2g33100 F25I18.16); corrected on 2026-10-14 from AT4G25810, which is XTH23/XTR6",
+      "brachypodium_orthologs": "",
+      "brachypodium_homology": "",
+      "rice_orthologs": "",
+      "wheat_orthologs": "",
+      "ortholog_note": "TODO: no Brachypodium ortholog in Ensembl Compara (plants)",
+      "su2023_deg_calls": 0,
+      "su2023_degs": "",
+      "spaceflight_degs": []
     }
   ]
 }
