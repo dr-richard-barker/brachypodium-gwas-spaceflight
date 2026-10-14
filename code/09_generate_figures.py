@@ -7,6 +7,10 @@ Generate the figures for the Brachypodium spaceflight / AstroGrass resource.
 Produces:
   - Fig 1: OSD-375 sample design (counts from the OSDR ISA sample table)
   - Fig 2: AstroGrass resource architecture (schematic)
+  - Fig 3: spaceflight DEGs per accession, organ and direction, from Su et al. 2023
+           Supplemental Tables S2-S4 (tables/su2023_deg_counts.csv)
+  - Fig 4: candidate genes listed as DEGs by Su et al. 2023, with their DESeq log2 fold changes
+           (tables/candidate_spaceflight_degs.csv)
   - Fig S1: APEX-06 hardware and seedlings (Su et al. 2023, CC BY 4.0) with mission facts
            taken from Su et al. 2023 and the OSD-375 ISA metadata
 
@@ -33,6 +37,8 @@ import matplotlib.image as mpimg
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 import matplotlib.ticker
+from matplotlib.colors import LinearSegmentedColormap
+import numpy as np
 import pandas as pd
 
 # Style configuration
@@ -45,6 +51,11 @@ plt.rcParams["svg.hashsalt"] = "brachypodium-gwas-spaceflight"  # reproducible S
 
 SVG_META = {"Date": None}
 
+# Up/down encoding: the validated blue/red diverging pair, with a neutral gray midpoint.
+UP, DOWN, MID = "#e34948", "#2a78d6", "#f0efec"
+INK, INK_MUTED, GRID = "#0b0b0b", "#52514e", "#d9d8d4"
+ACCESSIONS = ["Bd21", "Bd21-3", "Gaz8"]
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
@@ -52,6 +63,7 @@ logger = logging.getLogger(__name__)
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate figures.")
     parser.add_argument("--osdr-dir", type=Path, default=Path("data/osdr"), help="Path to OSDR data")
+    parser.add_argument("--tables-dir", type=Path, default=Path("tables"), help="Path to tables")
     parser.add_argument("--figures-dir", type=Path, default=Path("figures"), help="Output figures directory")
     return parser.parse_args()
 
@@ -104,7 +116,7 @@ def plot_figure_2(figures_dir: Path):
                  loc="center", fontweight="bold", fontsize=13, color="#0b1d3a")
 
     inputs = [
-        ("NASA OSDR OSD-375", "Brachypodium, ISS (SpaceX-14)\nBd21 / Bd21-3 / Gaz8"),
+        ("NASA OSDR OSD-375", "Brachypodium, ISS (SpaceX-14)\nDEG tables: Su et al. 2023"),
         ("NASA OSDR OSD-622", "Wheat, ISS (STS-110, PESTO)\ncv. USU Apogee"),
         ("Ground studies (GEO)", "GSE97940 (2,4-D, NLS)\nGSE48040 (cold, ABR5)"),
         ("Proteomics (PRIDE)", "PXD000868\n(seedling leaf phosphoproteome)"),
@@ -120,7 +132,9 @@ def plot_figure_2(figures_dir: Path):
     core_box = patches.FancyBboxPatch((2.0, 2.6), 8.0, 1.6, boxstyle="round,pad=0.05", ec="#2e7d32", fc="#e8f5e9", lw=2)
     ax.add_patch(core_box)
     ax.text(6.0, 3.7, "AstroGrass catalogue and candidate-gene table", ha="center", fontweight="bold", fontsize=11, color="#1b5e20")
-    ax.text(6.0, 3.0, "Study records with checked DOIs • 29 gravitropism candidates (17 Arabidopsis anchors verified) • CSV and JSON",
+    ax.text(6.0, 3.2, "Study records with checked DOIs • 29 gravitropism candidates: UniProt-checked Arabidopsis anchors,",
+            ha="center", fontsize=9, color="#2e7d32")
+    ax.text(6.0, 2.85, "Ensembl Compara orthologs, and spaceflight DEG calls from Su et al. 2023 (Tables S2-S4) • CSV and JSON",
             ha="center", fontsize=9, color="#2e7d32")
 
     ax.annotate("", xy=(3.5, 1.6), xytext=(4.0, 2.5), arrowprops=dict(arrowstyle="->", lw=2, color="#2e7d32"))
@@ -138,6 +152,99 @@ def plot_figure_2(figures_dir: Path):
 
     plt.tight_layout()
     save(fig, figures_dir, "fig2_astrograss_architecture")
+
+
+# =============================================================================
+# FIGURE 3: Su et al. 2023 DEG counts
+# =============================================================================
+def plot_figure_3(tables_dir: Path, figures_dir: Path):
+    logger.info("Generating Figure 3: Su et al. 2023 DEG counts...")
+    counts = pd.read_csv(tables_dir / "su2023_deg_counts.csv")
+    fig, axes = plt.subplots(1, 2, figsize=(11, 5), dpi=300)
+    x = np.arange(len(ACCESSIONS))
+    for ax, organ in zip(axes, ["root", "shoot"]):
+        sub = counts[counts["organ"] == organ].set_index("accession").loc[ACCESSIONS]
+        ax.bar(x, sub["up"], width=0.55, color=UP, label="Up in spaceflight")
+        ax.bar(x, -sub["down"], width=0.55, color=DOWN, label="Down in spaceflight")
+        top = max(sub["up"].max(), sub["down"].max())
+        for xi, (u, d) in enumerate(zip(sub["up"], sub["down"])):
+            ax.text(xi, u + top * 0.02, f"{u:,}", ha="center", va="bottom", fontsize=9, color=INK)
+            ax.text(xi, -d - top * 0.02, f"{d:,}", ha="center", va="top", fontsize=9, color=INK)
+        ax.axhline(0, color=INK_MUTED, lw=0.8)
+        ax.set_ylim(-top * 1.2, top * 1.2)
+        ax.set_xticks(x)
+        ax.set_xticklabels(ACCESSIONS)
+        ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{abs(int(v)):,}"))
+        ax.set_ylabel("Genes (up above, down below zero)", color=INK_MUTED)
+        ax.set_title(f"{organ.capitalize()}s", loc="left", fontweight="bold", fontsize=11)
+        ax.grid(True, axis="y", color=GRID, lw=0.6)
+        ax.set_axisbelow(True)
+        for side in ("top", "right"):
+            ax.spines[side].set_visible(False)
+    axes[1].legend(frameon=False, loc="upper left")
+    fig.suptitle("Spaceflight DEGs reported by Su et al. (2023), ISS vs ground control",
+                 x=0.01, ha="left", fontweight="bold", fontsize=12)
+    fig.text(0.01, 0.01, "Source: Su et al. 2023, Life 13:626, Supplemental Tables S2-S4 (CC BY 4.0). Genes listed as DEGs "
+             "(DESeq padj and edgeR q < 0.05); direction from the DESeq log2 fold change. Panels have separate y scales.\n"
+             "Bd21 was sequenced at a different facility and read length from Bd21-3 and Gaz8, so differences between "
+             "accessions are confounded with sequencing batch.", fontsize=7.5, color=INK_MUTED)
+    plt.tight_layout(rect=(0, 0.07, 1, 0.95))
+    save(fig, figures_dir, "fig3_su2023_deg_counts")
+
+
+# =============================================================================
+# FIGURE 4: candidate genes in Su et al. 2023's DEG lists
+# =============================================================================
+def plot_figure_4(tables_dir: Path, figures_dir: Path):
+    logger.info("Generating Figure 4: candidate genes in Su et al. 2023's DEG lists...")
+    hits = pd.read_csv(tables_dir / "candidate_spaceflight_degs.csv")
+    columns = [(a, o) for a in ACCESSIONS for o in ("root", "shoot")]
+    genes = list(dict.fromkeys(hits.sort_values(["arabidopsis_gene", "brachypodium_gene_id"])["brachypodium_gene_id"]))
+
+    labels = []
+    for gid in genes:
+        g = hits[hits["brachypodium_gene_id"] == gid]
+        names = []
+        for anchor, m in g[["arabidopsis_gene", "match"]].drop_duplicates().itertuples(index=False):
+            names.append(anchor + ("" if m.startswith("Compara") else "*"))
+        labels.append(f"{gid}  ({', '.join(dict.fromkeys(names))})")
+
+    values = np.full((len(genes), len(columns)), np.nan)
+    for i, gid in enumerate(genes):
+        g = hits[hits["brachypodium_gene_id"] == gid].drop_duplicates(["accession", "organ"])
+        for _, r in g.iterrows():
+            values[i, columns.index((r["accession"], r["organ"]))] = r["deseq_log2fc"]
+
+    cmap = LinearSegmentedColormap.from_list("updown", [DOWN, MID, UP])
+    lim = float(np.ceil(np.nanmax(np.abs(values))))
+    fig, ax = plt.subplots(figsize=(10, 0.45 * len(genes) + 2.2), dpi=300)
+    ax.set_facecolor("#fcfcfb")
+    im = ax.imshow(np.ma.masked_invalid(values), cmap=cmap, vmin=-lim, vmax=lim, aspect="auto")
+    for i in range(len(genes)):
+        for j in range(len(columns)):
+            v = values[i, j]
+            if not np.isnan(v):
+                ax.text(j, i, f"{v:+.2f}", ha="center", va="center", fontsize=8.5,
+                        color="white" if abs(v) > lim * 0.55 else INK)
+    ax.set_xticks(range(len(columns)))
+    ax.set_xticklabels([f"{a}\n{o}" for a, o in columns])
+    ax.set_yticks(range(len(genes)))
+    ax.set_yticklabels(labels, fontsize=8.5)
+    ax.set_xticks(np.arange(-0.5, len(columns)), minor=True)
+    ax.set_yticks(np.arange(-0.5, len(genes)), minor=True)
+    ax.grid(which="minor", color="white", lw=2)
+    ax.tick_params(which="minor", length=0)
+    for side in ax.spines.values():
+        side.set_visible(False)
+    cbar = fig.colorbar(im, ax=ax, fraction=0.03, pad=0.02)
+    cbar.set_label("DESeq log2 fold change (ISS / ground)", color=INK_MUTED)
+    ax.set_title("Candidate genes listed as spaceflight DEGs by Su et al. (2023)", loc="left", fontweight="bold", fontsize=11)
+    fig.text(0.01, 0.01, "Values from Su et al. 2023, Life 13:626, Supplemental Tables S2-S4 (CC BY 4.0). Blank: not listed as a DEG "
+             "(not a measured zero). Genes are Ensembl Compara orthologs of the\ncandidate's Arabidopsis anchor; * marks a match "
+             "through Su et al.'s best-hit Arabidopsis ortholog only. Accession differences are confounded with sequencing batch.",
+             fontsize=7.5, color=INK_MUTED)
+    plt.tight_layout(rect=(0, 0.06, 1, 1))
+    save(fig, figures_dir, "fig4_candidate_spaceflight_degs")
 
 
 # =============================================================================
@@ -205,8 +312,10 @@ def main():
     args.figures_dir.mkdir(parents=True, exist_ok=True)
     plot_figure_1(args.osdr_dir, args.figures_dir)
     plot_figure_2(args.figures_dir)
+    plot_figure_3(args.tables_dir, args.figures_dir)
+    plot_figure_4(args.tables_dir, args.figures_dir)
     plot_figure_s1(args.figures_dir)
-    logger.info("✓ Figures 1, 2 and S1 generated in figures/")
+    logger.info("✓ Figures 1-4 and S1 generated in figures/")
 
 
 if __name__ == "__main__":
