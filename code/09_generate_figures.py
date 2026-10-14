@@ -16,7 +16,7 @@ Produces:
 Outputs saved to figures/ and synchronized to docs/assets/ (300 DPI PNG + vector SVG).
 
 Author: Richard Barker (ORCID: 0000-0001-5681-9857)
-Affiliation: Phylo
+Affiliation: Collaborative Science Environment Inc.
 """
 
 from __future__ import annotations

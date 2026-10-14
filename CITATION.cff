@@ -6,7 +6,7 @@ authors:
   - given-names: Richard
     family-names: Barker
     orcid: "https://orcid.org/0000-0001-5681-9857"
-    affiliation: "Phylo"
+    affiliation: "Collaborative Science Environment Inc."
 keywords:
   - Brachypodium distachyon
   - GWAS
@@ -32,5 +32,5 @@ preferred-citation:
     - given-names: Richard
       family-names: Barker
       orcid: "https://orcid.org/0000-0001-5681-9857"
-      affiliation: "Phylo"
+      affiliation: "Collaborative Science Environment Inc."
   year: 2026

@@ -13,7 +13,7 @@ Outputs:
   - data/osdr/astrograss_studies_catalog.csv (Catalog of all OSDR grass studies)
 
 Author: Richard Barker (ORCID: 0000-0001-5681-9857)
-Affiliation: Phylo
+Affiliation: Collaborative Science Environment Inc.
 """
 
 from __future__ import annotations
@@ -202,7 +202,7 @@ def build_database(tables_dir: Path, docs_dir: Path, osdr_dir: Path):
         "metadata": {
             "name": "AstroGrass Database",
             "version": "1.0.0",
-            "curator": "Richard Barker (Phylo)",
+            "curator": "Richard Barker (Collaborative Science Environment Inc.)",
             "primary_study": "NASA OSDR OSD-375 (APEX-06)",
             "total_genes": len(df_genes),
             "total_studies": len(df_studies),

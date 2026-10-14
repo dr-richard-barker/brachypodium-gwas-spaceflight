@@ -8,7 +8,7 @@ Evaluates differential exon usage (SE), intron retention (RI), alternative 5' sp
 and alternative 3' splice sites (A3SS) across Brachypodium distachyon spaceflight samples.
 
 Author: Richard Barker (ORCID: 0000-0001-5681-9857)
-Affiliation: Phylo
+Affiliation: Collaborative Science Environment Inc.
 """
 
 from __future__ import annotations
