@@ -5,7 +5,7 @@ type: software
 authors:
   - given-names: Richard
     family-names: Barker
-    orcid: "https://orcid.org/0000-0002-4525-3341"
+    orcid: "https://orcid.org/0000-0001-5681-9857"
     affiliation: "Phylo"
 keywords:
   - Brachypodium distachyon
@@ -31,6 +31,6 @@ preferred-citation:
   authors:
     - given-names: Richard
       family-names: Barker
-      orcid: "https://orcid.org/0000-0002-4525-3341"
+      orcid: "https://orcid.org/0000-0001-5681-9857"
       affiliation: "Phylo"
   year: 2026

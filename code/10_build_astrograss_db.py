@@ -12,7 +12,7 @@ Outputs:
   - docs/js/astrograss_database.json (Optimized JSON for interactive web portal)
   - data/osdr/astrograss_studies_catalog.csv (Catalog of all OSDR grass studies)
 
-Author: Richard Barker (ORCID: 0000-0002-4525-3341)
+Author: Richard Barker (ORCID: 0000-0001-5681-9857)
 Affiliation: Phylo
 """
 

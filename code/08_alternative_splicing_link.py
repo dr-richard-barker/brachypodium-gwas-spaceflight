@@ -7,7 +7,7 @@ Link alternative splicing events from NASA OSDR OSD-375 spaceflight RNA-Seq to g
 Evaluates differential exon usage (SE), intron retention (RI), alternative 5' splice sites (A5SS),
 and alternative 3' splice sites (A3SS) across Brachypodium distachyon spaceflight samples.
 
-Author: Richard Barker (ORCID: 0000-0002-4525-3341)
+Author: Richard Barker (ORCID: 0000-0001-5681-9857)
 Affiliation: Phylo
 """
 

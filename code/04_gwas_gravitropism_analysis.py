@@ -24,7 +24,7 @@ Usage:
     python code/04_gwas_gravitropism_analysis.py --phenotype-file data/gwas_phenotypes/gravitropism_data.csv
     python code/04_gwas_gravitropism_analysis.py --demo  # Generate demo data and run example
 
-Author: Richard Barker (ORCID: 0000-0002-4525-3341)
+Author: Richard Barker (ORCID: 0000-0001-5681-9857)
 """
 
 from __future__ import annotations
