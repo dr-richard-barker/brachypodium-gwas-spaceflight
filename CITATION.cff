@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
-title: "Brachypodium GWAS-Spaceflight Integration: Connecting Gravitropic Reorientation Natural Variation with ISS Microgravity Transcriptomics (OSD-375)"
+title: "AstroGrass: a curated resource for the Brachypodium distachyon ISS transcriptome study OSD-375 and gravitropism candidate genes"
 type: software
 authors:
   - given-names: Richard
@@ -9,7 +9,6 @@ authors:
     affiliation: "Collaborative Science Environment Inc."
 keywords:
   - Brachypodium distachyon
-  - GWAS
   - gravitropism
   - spaceflight
   - transcriptomics
@@ -17,17 +16,14 @@ keywords:
   - OSD-375
   - APEX-06
   - monocot
-  - cereal crops
   - microgravity
-  - machine learning
-  - knowledge graph
 license: MIT
 repository-code: "https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight"
 version: "0.1.0"
 date-released: "2026-08-30"
 preferred-citation:
-  type: article
-  title: "Brachypodium GWAS-Spaceflight Integration: Connecting Gravitropic Reorientation Natural Variation with ISS Microgravity Transcriptomics (OSD-375)"
+  type: software
+  title: "AstroGrass: a curated resource for the Brachypodium distachyon ISS transcriptome study OSD-375 and gravitropism candidate genes"
   authors:
     - given-names: Richard
       family-names: Barker
