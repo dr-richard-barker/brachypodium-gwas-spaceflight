@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GWAS × Spaceflight Integration - AstroGrass</title>
+    <title>Plans - AstroGrass</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
 </head>
@@ -14,9 +14,9 @@
             <nav class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="astrograss.html">AstroGrass DB</a>
-                <a href="gwas.html">GWAS</a>
+                <a href="gwas.html">Gravitropism</a>
                 <a href="spaceflight.html">Spaceflight</a>
-                <a href="integration.html" class="active">Integration</a>
+                <a href="integration.html" class="active">Plans</a>
                 <a href="videos.html">Videos</a>
                 <a href="data.html">Data</a>
             </nav>
@@ -24,64 +24,44 @@
     </header>
 
     <div class="container">
-        <h1>🧬 Multi-Omics GWAS × Spaceflight Integration</h1>
-        <p>Connecting terrestrial natural variation in gravitropism QTLs with orbital transcriptomic remodeling (OSD-375), cross-species evolutionary conservation, and translational cereal crop synteny for space agriculture.</p>
-        
-        <!-- FIGURE 4: CROSS-SPECIES CONSERVATION -->
+        <h1>🧭 Plans and Withdrawn Analyses</h1>
+        <p>How the AstroGrass resource is put together, what is planned next, and which earlier results were withdrawn.</p>
+
+        <!-- FIGURE 2: ASTROGRASS ARCHITECTURE -->
         <section class="card">
-            <h2>Cross-Species Spaceflight Conservation (Monocot vs Dicot)</h2>
-            <img src="assets/fig4_cross_species_conservation.png" alt="Cross-Species Conservation" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h2>AstroGrass Resource</h2>
+            <img src="assets/fig2_astrograss_architecture.png" alt="AstroGrass resource architecture" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
             <p style="margin-top:12px; font-size:0.95rem; color:#555;">
-                <strong>Figure 4.</strong> Cross-species meta-analysis connecting 2,550 consensus <em>Arabidopsis thaliana</em> spaceflight response genes (17 NASA GeneLab studies) with <em>Brachypodium distachyon</em> (OSD-375), highlighting significant cross-species conservation of core stress and metabolic pathways (Fisher's exact test <em>p</em> = 3.54 × 10⁻¹², Odds Ratio = 14.16).
+                <strong>Figure 2.</strong> AstroGrass catalogues five studies, OSD-375 (Brachypodium, ISS), OSD-622 (dwarf wheat, ISS), GSE97940 and GSE48040 (Brachypodium ground RNA-seq) and PXD000868 (Brachypodium leaf phosphoproteome), alongside the gravitropism candidate-gene table. The catalogue and table are served as CSV and JSON and searched in the <a href="astrograss.html">AstroGrass database</a>.
             </p>
         </section>
 
-        <!-- SUPPLEMENTARY FIGURE S2: TRANSLATIONAL CEREAL SYNTENY -->
+        <!-- PLANNED ANALYSES -->
         <section class="card">
-            <h2>🌾 Translational Cereal Synteny & Chromosomal Collinearity Map</h2>
-            <img src="assets/figS2_cereal_synteny.png" alt="Supplementary Figure S2: Cereal Synteny Map" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;">
-                <strong>Supplementary Figure S2.</strong> High-resolution collinearity ribbon map connecting <em>Brachypodium distachyon</em> chromosomes (Bd1–Bd5, 272 Mb) with hexaploid Bread Wheat (<em>Triticum aestivum</em> homoeologous groups 1, 3, 4, 5 across A, B, D subgenomes) and Rice (<em>Oryza sativa</em>). All 29 candidate loci maintain 100% syntenic conservation across staple grass genomes.
-            </p>
-            <div style="margin-top:10px; text-align:right;">
-                <a href="tables/cereal_synteny_orthology.csv" download class="btn-sm btn-secondary">📥 Download Synteny Dataset (CSV)</a>
-            </div>
+            <h2>Planned Analyses (Not Yet Run)</h2>
+            <ol style="line-height:1.8;">
+                <li><strong>Brachypodium orthologs.</strong> Correct the 12 Arabidopsis anchors that name the wrong gene, then map Brachypodium orthologs of all 29 candidates with Ensembl Compara, recording the release and any one-to-many cases.</li>
+                <li><strong>Spaceflight expression of the candidates.</strong> Take the per-accession DEG tables published by Su et al. (2023, supplementary tables, CC BY 4.0) and report the candidates' values, credited to that study.</li>
+                <li><strong>New differential expression, if needed.</strong> Start from the OSD-375 FASTQ files and account for the confounding of accession with sequencing batch.</li>
+                <li><strong>Gravitropism measurements.</strong> Add numeric measurements for the accession panel, with their source documented.</li>
+                <li><strong>Association with genotype.</strong> Needs genotype data for the phenotyped accessions; with tens of accessions it would be a candidate-gene comparison rather than a GWAS.</li>
+                <li><strong>Comparison with Arabidopsis.</strong> Compare with the author's Arabidopsis spaceflight analysis, which is in preparation.</li>
+            </ol>
         </section>
 
-        <!-- SUPPLEMENTARY FIGURE S3: PROMOTER ARCHITECTURE -->
-        <section class="card">
-            <h2>🧬 Promoter Cis-Regulatory Architecture & TF Motif Map</h2>
-            <img src="assets/figS3_promoter_architecture.png" alt="Supplementary Figure S3: Promoter Cis-Regulatory Map" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;">
-                <strong>Supplementary Figure S3.</strong> (Top) 1 kb upstream promoter architectures for core gravitropism loci (<em>BdLAZY1</em>, <em>BdPIN3</em>, <em>BdCPK28</em>, <em>BdEXPA1</em>, <em>BdPGM1</em>) showing annotated AuxRE (gold), W-box (purple), ABRE (green), HSE (red), and DRE (blue) cis-elements. (Bottom) Statistical enrichment profile across all 29 promoters highlighting significant overrepresentation of mechanosensory (W-box, <em>p</em> = 8.2 × 10⁻⁷) and auxin-responsive (AuxRE, <em>p</em> = 1.4 × 10⁻⁶) binding motifs.
-            </p>
-        </section>
-
-        <!-- FIGURE 5: MECHANISTIC BIOPHYSICAL MODEL -->
-        <section class="card">
-            <h2>Mechanistic Model: Gravity Perception in 1g vs Microgravity</h2>
-            <img src="assets/fig5_mechanistic_model.png" alt="Mechanistic Model" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;">
-                <strong>Figure 5.</strong> Comparative biophysical model of monocot gravity perception. (Left) Under terrestrial 1g, starch statolith sedimentation triggers LZY translocation to the plasma membrane (Nishimura et al. 2023, <em>Science</em>), directing polar PIN auxin transport and asymmetric expansin cell wall loosening. (Right) Under ISS microgravity, statolith suspension activates mechanosensitive Ca<sup>2+</sup> channels (<em>BdCPK28</em>, <em>BdCAS</em>, <em>BdMSL10</em>) and compensatory <em>BdLAZY1</em>/<em>BdPIN3</em> transcription alongside Type II cell wall remodeling.
-            </p>
-        </section>
-
-        <!-- SUPPLEMENTARY FIGURE S4: 46-ACCESSION PHENOME CORRELATION -->
-        <section class="card">
-            <h2>📊 46-Accession Phenotypic Diversity & Kinetic Velocity Correlation</h2>
-            <img src="assets/figS4_accession_phenome_correlations.png" alt="Supplementary Figure S4: 46-Accession Correlations" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;">
-                <strong>Supplementary Figure S4.</strong> (A) Scatter correlation between 30-min Gravitropic Curvature (°) and Maximum Root Tip Displacement (mm) across 46 Mediterranean accessions (<em>R</em> = 0.68, <em>p</em> < 0.001), highlighting spaceflight ecotypes Bd21, Bd21-3, and Gaz8 alongside extremes Koz-1 and Koz-3. (B) Accession quartile phenotypic distributions demonstrating strong natural variation across the panel.
-            </p>
-        </section>
-
-        <!-- FIGURE 6: ASTROGRASS ARCHITECTURE -->
-        <section class="card">
-            <h2>AstroGrass Knowledgebase Multi-Omics Framework</h2>
-            <img src="assets/fig6_astrograss_architecture.png" alt="AstroGrass Multi-Omics Architecture" style="width:100%; border-radius:6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <p style="margin-top:12px; font-size:0.95rem; color:#555;">
-                <strong>Figure 6.</strong> The AstroGrass multi-omics platform integrates NASA OSDR spaceflight missions (OSD-375 Brachypodium, OSD-622 Wheat), terrestrial hormone and stress analogues (GSE97940, GSE48040), and proteomics (PXD000868) into a unified queryable knowledgebase.
-            </p>
+        <!-- WITHDRAWN -->
+        <section class="card" style="border-left: 6px solid #c05621; background:#fffaf0;">
+            <h2>Withdrawn on 14 October 2026</h2>
+            <p>These results appeared on this site and in the draft manuscript. None came from an analysis, so they were removed:</p>
+            <ul style="line-height:1.8;">
+                <li>The 15-accession gravitropic curvature survey and its ANOVA, and the 46-accession correlation figure: the values were generated from seeded random numbers.</li>
+                <li>The GWAS Manhattan and QQ plots: random p-values with named genes typed in as peaks; no genotype data existed.</li>
+                <li>Gene-level spaceflight fold changes, adjusted p-values, DEG counts and the volcano and enrichment panels for OSD-375: typed-in values; no differential-expression analysis was run.</li>
+                <li>The cross-species meta-analysis with <em>Arabidopsis</em> (odds ratio 13.70, p = 0.0446; and odds ratio 14.16, p = 3.54 × 10⁻¹²): computed from hand-entered flags.</li>
+                <li>The cereal synteny map and table, the promoter-motif enrichment and the alternative-splicing tables: typed-in values.</li>
+                <li>The mechanistic model's spaceflight panel, which listed up- and down-regulated genes taken from the typed-in values.</li>
+                <li>The Brachypodium gene IDs, chromosome positions and rice/wheat orthologs of the candidate genes: none of the IDs could be confirmed as an ortholog of its Arabidopsis anchor.</li>
+            </ul>
         </section>
     </div>
 

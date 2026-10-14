@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AstroGrass Database | Spaceflight Omics & Gravitropism Knowledgebase</title>
+    <title>AstroGrass Database | Grass Spaceflight Studies & Gravitropism Candidate Genes</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         .filter-grid {
@@ -157,14 +157,14 @@
 </head>
 <body>
     <header>
-        <div class="container nav-container">
+        <div class="nav-container">
             <a href="index.html" class="logo">🌾 AstroGrass DB</a>
-            <nav>
+            <nav class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="astrograss.html" class="active">AstroGrass DB</a>
-                <a href="gwas.html">GWAS</a>
+                <a href="gwas.html">Gravitropism</a>
                 <a href="spaceflight.html">Spaceflight</a>
-                <a href="integration.html">Integration</a>
+                <a href="integration.html">Plans</a>
                 <a href="videos.html">Videos</a>
                 <a href="data.html">Data</a>
                 <a href="https://github.com/dr-richard-barker/brachypodium-gwas-spaceflight" target="_blank">GitHub</a>
@@ -174,42 +174,42 @@
 
     <div class="container">
         <div style="margin-top: 1.5rem;">
-            <span class="badge" style="background:#2d7a4f; color:#fff; padding:4px 10px; border-radius:4px; font-size:0.8rem;">NASA OSDR OSD-375 Integration</span>
-            <h1 style="margin-top:0.5rem; color:#0b1d3a;">AstroGrass Knowledgebase & Gene Explorer</h1>
+            <span class="badge" style="background:#2d7a4f; color:#fff; padding:4px 10px; border-radius:4px; font-size:0.8rem;">NASA OSDR OSD-375</span>
+            <h1 style="margin-top:0.5rem; color:#0b1d3a;">AstroGrass Database: Studies and Candidate Genes</h1>
             <p style="color:#4a5568; font-size:1.05rem; max-width:850px;">
-                The unified astrobotany resource linking <em>Brachypodium distachyon</em> natural variation in gravitropism,
-                ISS spaceflight transcriptomics (APEX-06), terrestrial analogues (auxin & cold stress), and cereal crop orthologs (Rice & Wheat).
+                A catalogue of grass spaceflight and related omics studies, and a list of gravitropism candidate genes defined by Arabidopsis anchor genes.
+                The table holds no expression values: no differential-expression analysis of OSD-375 has been run here, and Brachypodium gene IDs are still to be mapped.
             </p>
         </div>
 
         <!-- Database Metrics -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-num" id="stat-total-genes">31</div>
-                <div class="stat-label">Curated Core Genes</div>
+                <div class="stat-num" id="stat-total-genes">–</div>
+                <div class="stat-label">Candidate Genes</div>
             </div>
             <div class="stat-card">
-                <div class="stat-num" id="stat-deg-genes">29</div>
-                <div class="stat-label">Spaceflight DEGs</div>
+                <div class="stat-num" id="stat-verified">–</div>
+                <div class="stat-label">Arabidopsis Anchors Verified</div>
             </div>
             <div class="stat-card">
-                <div class="stat-num" id="stat-studies">5</div>
-                <div class="stat-label">Integrated Studies</div>
+                <div class="stat-num" id="stat-studies">–</div>
+                <div class="stat-label">Catalogued Studies</div>
             </div>
             <div class="stat-card">
                 <div class="stat-num">3</div>
-                <div class="stat-label">Accessions (Bd21/3/Gaz8)</div>
+                <div class="stat-label">OSD-375 Accessions (Bd21/Bd21-3/Gaz8)</div>
             </div>
         </div>
 
         <!-- Filter Controls -->
         <section class="card" style="margin-top:1.5rem;">
-            <h2 style="margin-bottom:0.5rem;">🔍 Search & Filter AstroGrass</h2>
-            
+            <h2 style="margin-bottom:0.5rem;">🔍 Search and Filter Candidate Genes</h2>
+
             <div class="filter-grid">
                 <div class="filter-item">
-                    <label for="search-input">Search (Symbol / ID / Name)</label>
-                    <input type="text" id="search-input" placeholder="e.g. PIN2, LAZY1, BRADI_1g...">
+                    <label for="search-input">Search (candidate / Arabidopsis gene / AGI)</label>
+                    <input type="text" id="search-input" placeholder="e.g. PIN2, LAZY1, AT1G70940">
                 </div>
                 <div class="filter-item">
                     <label for="pathway-select">Functional Pathway</label>
@@ -218,22 +218,11 @@
                     </select>
                 </div>
                 <div class="filter-item">
-                    <label for="chr-select">Chromosome</label>
-                    <select id="chr-select">
-                        <option value="">All Chromosomes</option>
-                        <option value="Chr1">Chr 1</option>
-                        <option value="Chr2">Chr 2</option>
-                        <option value="Chr3">Chr 3</option>
-                        <option value="Chr4">Chr 4</option>
-                        <option value="Chr5">Chr 5</option>
-                    </select>
-                </div>
-                <div class="filter-item">
-                    <label for="status-select">Spaceflight Response</label>
+                    <label for="status-select">Anchor Status</label>
                     <select id="status-select">
-                        <option value="">All Responses</option>
-                        <option value="Root">Root Spaceflight DEGs</option>
-                        <option value="Shoot">Shoot Spaceflight DEGs</option>
+                        <option value="">All</option>
+                        <option value="verified">Verified in UniProt</option>
+                        <option value="todo">TODO (AGI names another gene)</option>
                     </select>
                 </div>
             </div>
@@ -243,15 +232,12 @@
                 <table class="gene-table">
                     <thead>
                         <tr>
-                            <th>Gene ID</th>
-                            <th>Symbol</th>
-                            <th>Chr</th>
+                            <th>Candidate</th>
                             <th>Pathway</th>
-                            <th>GWAS Gravitropic QTL Role</th>
-                            <th>OSD-375 Root log₂FC</th>
-                            <th>OSD-375 Shoot log₂FC</th>
-                            <th>Arabidopsis Ortholog</th>
-                            <th>Rice / Wheat</th>
+                            <th>Arabidopsis Gene</th>
+                            <th>Arabidopsis AGI</th>
+                            <th>Anchor Status</th>
+                            <th>Brachypodium Gene ID</th>
                         </tr>
                     </thead>
                     <tbody id="gene-table-body">
@@ -259,20 +245,20 @@
                     </tbody>
                 </table>
             </div>
-            
-            <div style="margin-top:1rem; display:flex; justify-content:space-between; align-items:center;">
-                <span id="results-count" style="font-size:0.9rem; color:#718096;">Showing 31 of 31 genes</span>
+
+            <div style="margin-top:1rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                <span id="results-count" style="font-size:0.9rem; color:#718096;"></span>
                 <div>
-                    <a href="../tables/astrograss_master_table.csv" download class="badge" style="background:#0b1d3a; color:white; padding:6px 12px; border-radius:4px; text-decoration:none; margin-right:6px;">Download Master CSV</a>
+                    <a href="tables/astrograss_master_table.csv" download class="badge" style="background:#0b1d3a; color:white; padding:6px 12px; border-radius:4px; text-decoration:none; margin-right:6px;">Download CSV</a>
                     <a href="js/astrograss_database.json" download class="badge" style="background:#2d7a4f; color:white; padding:6px 12px; border-radius:4px; text-decoration:none;">Download JSON</a>
                 </div>
             </div>
         </section>
 
-        <!-- OSDR Studies Catalog -->
+        <!-- Studies Catalog -->
         <section class="card" style="margin-top:2rem;">
-            <h2>🛰️ Integrated NASA OSDR & Grass Omics Studies</h2>
-            <p style="margin-bottom:1rem; color:#4a5568;">The AstroGrass knowledgebase synthesizes findings across primary spaceflight missions, ISS microgravity payloads, and terrestrial gravitropic analogues:</p>
+            <h2>🛰️ Catalogued Studies</h2>
+            <p style="margin-bottom:1rem; color:#4a5568;">Each entry was checked against its OSDR, GEO or PRIDE record on 14 October 2026. Fields a record does not state are marked as such.</p>
 
             <div id="studies-container">
                 <!-- Populated by JavaScript -->
@@ -298,6 +284,10 @@
     <script>
         let dbData = null;
 
+        function esc(v) {
+            return String(v ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+        }
+
         // Fetch database JSON
         fetch('js/astrograss_database.json')
             .then(res => res.json())
@@ -308,13 +298,15 @@
             .catch(err => console.error("Error loading AstroGrass JSON:", err));
 
         function initApp() {
+            document.getElementById('stat-total-genes').textContent = dbData.genes.length;
+            document.getElementById('stat-verified').textContent = dbData.genes.filter(g => g.arabidopsis_agi).length;
+            document.getElementById('stat-studies').textContent = dbData.studies.length;
             populatePathways();
             renderTable(dbData.genes);
             renderStudies(dbData.studies);
 
             document.getElementById('search-input').addEventListener('input', applyFilters);
             document.getElementById('pathway-select').addEventListener('change', applyFilters);
-            document.getElementById('chr-select').addEventListener('change', applyFilters);
             document.getElementById('status-select').addEventListener('change', applyFilters);
         }
 
@@ -329,12 +321,18 @@
             });
         }
 
+        function statusBadge(g) {
+            return g.arabidopsis_agi
+                ? '<span class="badge" style="background:#2d7a4f; color:#fff;">verified</span>'
+                : '<span class="badge" style="background:#c05621; color:#fff;">TODO</span>';
+        }
+
         function renderTable(genes) {
             const tbody = document.getElementById('gene-table-body');
             tbody.innerHTML = '';
 
             if (genes.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:2rem; color:#718096;">No matching genes found. Try adjusting your filters.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:#718096;">No matching genes found. Try adjusting your filters.</td></tr>`;
                 document.getElementById('results-count').textContent = 'Showing 0 genes';
                 return;
             }
@@ -342,25 +340,13 @@
             genes.forEach(g => {
                 const tr = document.createElement('tr');
                 tr.onclick = () => openModal(g);
-
-                const rootBadge = g.root_log2fc > 0 
-                    ? `<span class="badge-up">+${g.root_log2fc.toFixed(2)}</span>` 
-                    : (g.root_log2fc < 0 ? `<span class="badge-down">${g.root_log2fc.toFixed(2)}</span>` : `<span style="color:#a0aec0">0.00</span>`);
-
-                const shootBadge = g.shoot_log2fc > 0 
-                    ? `<span class="badge-up">+${g.shoot_log2fc.toFixed(2)}</span>` 
-                    : (g.shoot_log2fc < 0 ? `<span class="badge-down">${g.shoot_log2fc.toFixed(2)}</span>` : `<span style="color:#a0aec0">0.00</span>`);
-
                 tr.innerHTML = `
-                    <td><code>${g.gene_id}</code></td>
-                    <td><strong>${g.symbol}</strong></td>
-                    <td>${g.chr}</td>
-                    <td><span class="badge-pathway">${g.pathway}</span></td>
-                    <td style="font-size:0.83rem; color:#4a5568;">${g.gwas_qtl}</td>
-                    <td>${rootBadge}</td>
-                    <td>${shootBadge}</td>
-                    <td><code style="color:#2b6cb0;">${g.at_ortholog}</code></td>
-                    <td style="font-size:0.8rem;">${g.os_ortholog} / ${g.ta_ortholog}</td>
+                    <td><strong>${esc(g.candidate)}</strong></td>
+                    <td><span class="badge-pathway">${esc(g.pathway)}</span></td>
+                    <td>${esc(g.arabidopsis_gene)}</td>
+                    <td><code style="color:#2b6cb0;">${esc(g.arabidopsis_agi) || '–'}</code></td>
+                    <td>${statusBadge(g)}</td>
+                    <td style="color:#a0aec0;">${esc(g.brachypodium_gene_id)}</td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -375,14 +361,13 @@
                 const card = document.createElement('div');
                 card.className = 'study-card';
                 card.innerHTML = `
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                        <div>
-                            <span class="badge" style="background:#0b1d3a; color:#fff; font-size:0.75rem; padding:2px 6px; border-radius:3px;">${s.study_id}</span>
-                            <span class="badge" style="background:#38a169; color:#fff; font-size:0.75rem; padding:2px 6px; border-radius:3px; margin-left:4px;">${s.category}</span>
-                            <h3 style="margin:0.4rem 0 0.2rem 0; font-size:1.05rem; color:#1a202c;">${s.title}</h3>
-                            <p style="margin:0; font-size:0.85rem; color:#4a5568;"><strong>Mission:</strong> ${s.mission} | <strong>Hardware:</strong> ${s.hardware} | <strong>Assays:</strong> ${s.assays}</p>
-                            <p style="margin:0.2rem 0 0 0; font-size:0.85rem; color:#718096;"><strong>Reference:</strong> ${s.reference} (DOI: <code>${s.doi}</code>)</p>
-                        </div>
+                    <div>
+                        <span class="badge" style="background:#0b1d3a; color:#fff; font-size:0.75rem; padding:2px 6px; border-radius:3px;">${esc(s.study_id)}</span>
+                        <span class="badge" style="background:#38a169; color:#fff; font-size:0.75rem; padding:2px 6px; border-radius:3px; margin-left:4px;">${esc(s.category)}</span>
+                        <h3 style="margin:0.4rem 0 0.2rem 0; font-size:1.05rem; color:#1a202c;">${esc(s.title)}</h3>
+                        <p style="margin:0; font-size:0.85rem; color:#4a5568;"><strong>Organism:</strong> <em>${esc(s.organism)}</em> | <strong>Accessions:</strong> ${esc(s.accessions)} | <strong>Tissues:</strong> ${esc(s.tissues)}</p>
+                        <p style="margin:0.2rem 0 0 0; font-size:0.85rem; color:#4a5568;"><strong>Mission / design:</strong> ${esc(s.mission)} | <strong>Hardware:</strong> ${esc(s.hardware)} | <strong>Assay:</strong> ${esc(s.assays)}</p>
+                        <p style="margin:0.2rem 0 0 0; font-size:0.85rem; color:#718096;"><strong>Reference:</strong> ${esc(s.reference)} (DOI: <a href="https://doi.org/${esc(s.doi)}" target="_blank"><code>${esc(s.doi)}</code></a>)</p>
                     </div>
                 `;
                 container.appendChild(card);
@@ -392,21 +377,16 @@
         function applyFilters() {
             const query = document.getElementById('search-input').value.toLowerCase();
             const pathway = document.getElementById('pathway-select').value;
-            const chr = document.getElementById('chr-select').value;
             const status = document.getElementById('status-select').value;
 
             const filtered = dbData.genes.filter(g => {
-                const matchQuery = !query || 
-                    g.symbol.toLowerCase().includes(query) || 
-                    g.gene_id.toLowerCase().includes(query) || 
-                    g.name.toLowerCase().includes(query) ||
-                    g.at_ortholog.toLowerCase().includes(query);
-
+                const matchQuery = !query ||
+                    g.candidate.toLowerCase().includes(query) ||
+                    g.arabidopsis_gene.toLowerCase().includes(query) ||
+                    g.arabidopsis_agi.toLowerCase().includes(query);
                 const matchPathway = !pathway || g.pathway === pathway;
-                const matchChr = !chr || g.chr === chr;
-                const matchStatus = !status || (status === 'Root' && Math.abs(g.root_log2fc) >= 0.5) || (status === 'Shoot' && Math.abs(g.shoot_log2fc) >= 0.5);
-
-                return matchQuery && matchPathway && matchChr && matchStatus;
+                const matchStatus = !status || (status === 'verified') === Boolean(g.arabidopsis_agi);
+                return matchQuery && matchPathway && matchStatus;
             });
 
             renderTable(filtered);
@@ -416,36 +396,22 @@
             const modal = document.getElementById('gene-modal');
             const body = document.getElementById('modal-body');
             body.innerHTML = `
-                <span class="badge" style="background:#0b1d3a; color:#fff;">${g.chr}</span>
-                <span class="badge-pathway" style="margin-left:6px;">${g.pathway}</span>
-                <h2 style="margin:0.5rem 0 0.2rem 0; color:#0b1d3a;">${g.symbol} (${g.name})</h2>
-                <p style="margin:0; color:#718096; font-size:0.9rem;">Ensembl ID: <code>${g.gene_id}</code></p>
+                <span class="badge-pathway">${esc(g.pathway)}</span>
+                <h2 style="margin:0.5rem 0 0.2rem 0; color:#0b1d3a;">${esc(g.candidate)}</h2>
+                <p style="margin:0; color:#718096; font-size:0.9rem;">Arabidopsis anchor gene: <strong>${esc(g.arabidopsis_gene)}</strong></p>
                 <hr style="margin:1rem 0; border:0; border-top:1px solid #e2e8f0;">
-                
-                <h4 style="margin-bottom:0.4rem;">🛰️ Spaceflight Microgravity Response (NASA OSD-375)</h4>
+
+                <h4 style="margin-bottom:0.4rem;">Arabidopsis anchor</h4>
                 <p style="margin:0 0 0.5rem 0; font-size:0.92rem;">
-                    <strong>Root log₂FC:</strong> ${g.root_log2fc > 0 ? '+' : ''}${g.root_log2fc} | 
-                    <strong>Shoot log₂FC:</strong> ${g.shoot_log2fc > 0 ? '+' : ''}${g.shoot_log2fc} | 
-                    <strong>FDR (padj):</strong> ${g.padj}
-                </p>
-                <p style="font-size:0.88rem; color:#4a5568;">
-                    <strong>Ecotype Responsiveness:</strong> 
-                    Bd21: ${g.de_bd21 ? '✅ DEG' : '⚪ NS'} | 
-                    Bd21-3: ${g.de_bd21_3 ? '✅ DEG' : '⚪ NS'} | 
-                    Gaz8: ${g.de_gaz8 ? '✅ DEG' : '⚪ NS'}
+                    <strong>AGI:</strong> <code>${esc(g.arabidopsis_agi) || '–'}</code> ${statusBadge(g)}<br>
+                    <span style="color:#4a5568;">${esc(g.anchor_status)}</span>
                 </p>
 
-                <h4 style="margin:1rem 0 0.4rem 0;">🌱 Gravitropic Reorientation & GWAS QTL Role</h4>
-                <p style="font-size:0.92rem; color:#2d3748; background:#f7fafc; padding:0.75rem; border-radius:6px; border:1px solid #edf2f7;">
-                    ${g.gwas_qtl}
-                </p>
+                <h4 style="margin:1rem 0 0.4rem 0;">Brachypodium gene</h4>
+                <p style="font-size:0.92rem; color:#4a5568;">${esc(g.brachypodium_gene_id)}: to be mapped from the verified Arabidopsis anchor with Ensembl Compara.</p>
 
-                <h4 style="margin:1rem 0 0.4rem 0;">🌾 Cross-Species Orthologs</h4>
-                <ul style="font-size:0.9rem; line-height:1.6; margin:0; padding-left:1.2rem; color:#4a5568;">
-                    <li><strong>Arabidopsis thaliana:</strong> <code>${g.at_ortholog}</code></li>
-                    <li><strong>Oryza sativa (Rice):</strong> <code>${g.os_ortholog}</code></li>
-                    <li><strong>Triticum aestivum (Wheat):</strong> <code>${g.ta_ortholog}</code></li>
-                </ul>
+                <h4 style="margin:1rem 0 0.4rem 0;">Spaceflight expression</h4>
+                <p style="font-size:0.92rem; color:#4a5568;">Not available yet. No differential-expression analysis of OSD-375 has been run in this repository.</p>
             `;
             modal.style.display = 'block';
         }
